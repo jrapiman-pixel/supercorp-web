@@ -3,193 +3,234 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SUPERCOR — Supervisión Operacional en Terreno</title>
-  <meta name="description" content="Plataforma SaaS de supervisión operacional. Digitaliza tus procesos, controla tu equipo en terreno y toma decisiones con datos reales." />
+  <title>SUPERCOR — Control Operacional y Cultura de Cumplimiento</title>
+  <meta name="description" content="No vendemos una plataforma, vendemos Control Operacional y Cultura de Cumplimiento. Digitaliza tu supervisión en terreno y opera con visibilidad real." />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_16.png" />
+  <link rel="apple-touch-icon" sizes="128x128" href="favicon_128.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
-      --black:#060A10;--navy:#0A1020;--navy-mid:#0D1830;--navy-light:#112040;
-      --blue:#1B6EFF;--blue-bright:#3B8FFF;--blue-glow:rgba(27,110,255,0.25);
-      --silver:#C8D8F0;--silver-dim:#8AAAC8;--white:#FFFFFF;
-      --gray-50:#F0F4FA;--gray-100:#E2E8F4;--gray-200:#C8D4E8;
+      --black:#050C18;--navy:#081426;--navy-mid:#0C1C35;--navy-light:#102240;
+      --blue:#1A5FCC;--blue-bright:#2D78E8;--blue-glow:rgba(26,95,204,0.3);
+      --silver:#C0D0E8;--silver-dim:#7A98BC;--white:#FFFFFF;
+      --gray-50:#F2F5FA;--gray-100:#E4EAF4;--gray-200:#C8D4EC;
       --gray-400:#7A90B0;--gray-600:#4A5E7A;--gray-800:#1A2540;
-      --accent:#00B8FF;
+      --accent:#3B9EFF;--green:#22C55E;--red:#EF4444;--yellow:#F59E0B;
       --font-title:'Rajdhani',sans-serif;--font-body:'Inter',sans-serif;
     }
     html{scroll-behavior:smooth}
     body{font-family:var(--font-body);color:var(--gray-800);background:var(--white);line-height:1.6;overflow-x:hidden}
-
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(6,10,16,0.96);backdrop-filter:blur(16px);border-bottom:1px solid rgba(27,110,255,0.15);padding:0 2rem;height:70px;display:flex;align-items:center;justify-content:space-between}
-    .nav-logo img{height:44px;width:auto;object-fit:contain}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(5,12,24,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(26,95,204,0.2);padding:0 2rem;height:72px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo img{height:44px;width:auto;filter:drop-shadow(0 0 8px rgba(26,95,204,0.4)) brightness(1.1)}
     .nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
-    .nav-links a{color:rgba(255,255,255,0.65);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .2s;letter-spacing:.02em}
+    .nav-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .2s}
     .nav-links a:hover{color:var(--white)}
-    .nav-cta{background:var(--blue)!important;color:white!important;padding:.5rem 1.4rem!important;border-radius:6px;font-weight:700!important;box-shadow:0 0 16px var(--blue-glow);transition:all .2s!important}
-    .nav-cta:hover{background:var(--blue-bright)!important;box-shadow:0 0 28px rgba(27,110,255,.5)!important}
+    .nav-cta{background:var(--blue)!important;color:white!important;padding:.5rem 1.4rem!important;border-radius:6px;font-weight:700!important;box-shadow:0 0 16px var(--blue-glow)}
+    .nav-cta:hover{background:var(--blue-bright)!important}
     .nav-mobile-btn{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px}
     .nav-mobile-btn span{display:block;width:24px;height:2px;background:white;border-radius:2px}
-
     #inicio{min-height:100vh;background:var(--black);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:100px 2rem 60px;position:relative;overflow:hidden;text-align:center}
-    #inicio::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(27,110,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(27,110,255,.06) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
-    #inicio::after{content:'';position:absolute;width:900px;height:900px;background:radial-gradient(circle,rgba(27,110,255,.18) 0%,transparent 65%);top:50%;left:50%;transform:translate(-50%,-60%);pointer-events:none}
-
+    #inicio::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(26,95,204,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(26,95,204,0.07) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+    #inicio::after{content:'';position:absolute;width:1000px;height:1000px;background:radial-gradient(circle,rgba(26,95,204,0.2) 0%,transparent 65%);top:50%;left:50%;transform:translate(-50%,-60%);pointer-events:none}
     .hero-logo{margin-bottom:2rem;position:relative;z-index:2}
-    .hero-logo img{height:160px;width:auto;max-width:500px;filter:drop-shadow(0 0 40px rgba(27,110,255,.7))}
-    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(27,110,255,.12);border:1px solid rgba(27,110,255,.3);color:var(--accent);font-size:.75rem;font-weight:600;padding:6px 16px;border-radius:20px;margin-bottom:1.5rem;letter-spacing:.08em;text-transform:uppercase;position:relative;z-index:2}
+    .hero-logo img{height:120px;width:auto;max-width:560px;filter:drop-shadow(0 0 30px rgba(26,95,204,0.5)) brightness(1.15)}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(26,95,204,0.15);border:1px solid rgba(26,95,204,0.35);color:var(--accent);font-size:.75rem;font-weight:600;padding:6px 16px;border-radius:20px;margin-bottom:1.5rem;letter-spacing:.08em;text-transform:uppercase;position:relative;z-index:2}
     .hero-badge::before{content:'';width:7px;height:7px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
     @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.4)}}
-    .hero-title{font-family:var(--font-title);font-size:clamp(2.6rem,5.5vw,4.5rem);font-weight:700;color:var(--white);line-height:1.1;letter-spacing:.5px;max-width:860px;margin:0 auto 1.25rem;position:relative;z-index:2}
+    .hero-tagline{font-size:clamp(.9rem,1.5vw,1rem);color:var(--accent);font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:1rem;position:relative;z-index:2}
+    .hero-title{font-family:var(--font-title);font-size:clamp(2.4rem,5vw,4.2rem);font-weight:700;color:var(--white);line-height:1.1;max-width:900px;margin:0 auto 1.25rem;position:relative;z-index:2}
     .hero-title .accent{background:linear-gradient(90deg,var(--blue-bright),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .hero-subtitle{font-size:clamp(1rem,2vw,1.15rem);color:var(--silver-dim);max-width:560px;margin:0 auto 2.5rem;line-height:1.75;font-weight:400;position:relative;z-index:2}
+    .hero-subtitle{font-size:clamp(1rem,2vw,1.15rem);color:var(--silver-dim);max-width:580px;margin:0 auto 2.5rem;line-height:1.75;position:relative;z-index:2}
     .hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3.5rem;position:relative;z-index:2}
-
     .btn-primary{background:var(--blue);color:white;padding:.9rem 2rem;border-radius:8px;font-weight:700;font-size:1rem;text-decoration:none;border:none;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body);box-shadow:0 4px 24px var(--blue-glow)}
-    .btn-primary:hover{background:var(--blue-bright);transform:translateY(-2px);box-shadow:0 8px 36px rgba(27,110,255,.5)}
-    .btn-secondary{background:rgba(255,255,255,.05);color:var(--silver);padding:.9rem 2rem;border-radius:8px;font-weight:600;font-size:1rem;text-decoration:none;border:1px solid rgba(200,216,240,.2);cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body)}
-    .btn-secondary:hover{background:rgba(255,255,255,.09);border-color:rgba(200,216,240,.4);color:white}
-
-    .hero-stats{display:flex;gap:3rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:2}
+    .btn-primary:hover{background:var(--blue-bright);transform:translateY(-2px)}
+    .btn-secondary{background:rgba(255,255,255,.06);color:var(--silver);padding:.9rem 2rem;border-radius:8px;font-weight:600;font-size:1rem;text-decoration:none;border:1px solid rgba(200,216,240,.2);cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body)}
+    .btn-secondary:hover{background:rgba(255,255,255,.1);color:white}
+    .hero-stats{display:flex;gap:3rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:2;margin-bottom:3rem}
     .hero-stat{text-align:center}
     .hero-stat-number{font-family:var(--font-title);font-size:2.2rem;font-weight:700;color:var(--white);line-height:1}
     .hero-stat-number span{color:var(--accent)}
     .hero-stat-label{font-size:.78rem;color:var(--silver-dim);margin-top:4px}
-
-    .hero-mockup{margin-top:4rem;position:relative;z-index:2;max-width:920px;width:100%}
-    .mockup-frame{background:rgba(13,24,48,.9);border:1px solid rgba(27,110,255,.2);border-radius:16px;padding:24px;box-shadow:0 40px 80px rgba(0,0,0,.7),0 0 0 1px rgba(27,110,255,.08)}
-    .mockup-topbar{display:flex;align-items:center;gap:8px;margin-bottom:16px}
+    .hero-mockup{position:relative;z-index:2;max-width:960px;width:100%}
+    .mockup-frame{background:rgba(8,20,38,0.95);border:1px solid rgba(26,95,204,0.25);border-radius:18px;padding:24px;box-shadow:0 40px 80px rgba(0,0,0,.8),0 0 0 1px rgba(26,95,204,0.1)}
+    .mockup-topbar{display:flex;align-items:center;gap:8px;margin-bottom:20px}
     .mockup-dot{width:10px;height:10px;border-radius:50%}
     .mockup-dot:nth-child(1){background:#FF5F56}
     .mockup-dot:nth-child(2){background:#FFBD2E}
     .mockup-dot:nth-child(3){background:#27C93F}
-    .mockup-url{flex:1;background:rgba(255,255,255,.04);border-radius:6px;padding:4px 12px;font-size:.75rem;color:rgba(255,255,255,.35);font-family:monospace}
-    .mockup-content{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px}
-    .mockup-card{background:rgba(27,110,255,.06);border:1px solid rgba(27,110,255,.12);border-radius:10px;padding:16px}
-    .mockup-card-label{font-size:.68rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
-    .mockup-card-value{font-family:var(--font-title);font-size:1.8rem;font-weight:700;color:var(--white)}
+    .mockup-url{flex:1;background:rgba(255,255,255,.05);border-radius:6px;padding:5px 14px;font-size:.75rem;color:rgba(255,255,255,.4);font-family:monospace}
+    .live-badge{background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.3);color:#22C55E;font-size:.65rem;font-weight:700;padding:2px 10px;border-radius:10px;display:flex;align-items:center;gap:4px;white-space:nowrap}
+    .live-badge::before{content:'';width:6px;height:6px;background:#22C55E;border-radius:50%;animation:pulse 1.5s infinite}
+    .mockup-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:12px}
+    .mockup-card{background:rgba(26,95,204,0.07);border:1px solid rgba(26,95,204,0.15);border-radius:12px;padding:16px}
+    .mockup-card-label{font-size:.65rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+    .mockup-card-value{font-family:var(--font-title);font-size:2rem;font-weight:700;color:var(--white);transition:all .5s ease}
     .mockup-card-value.blue{color:var(--accent)}
-    .mockup-card-value.yellow{color:#FFB800}
-    .mockup-card-value.red{color:#FF5B5B}
-    .mockup-bar-row{grid-column:1/-1;background:rgba(27,110,255,.05);border:1px solid rgba(27,110,255,.1);border-radius:10px;padding:16px}
-    .mockup-bar-label{font-size:.75rem;color:rgba(255,255,255,.4);margin-bottom:10px}
-    .mockup-bar-track{background:rgba(255,255,255,.06);border-radius:4px;height:8px;overflow:hidden;margin-bottom:6px}
-    .mockup-bar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--blue),var(--accent))}
-
+    .mockup-card-value.yellow{color:#F59E0B}
+    .mockup-card-value.red{color:#EF4444}
+    .mockup-card-trend{font-size:.65rem;margin-top:4px;color:rgba(255,255,255,.35)}
+    .trend-up{color:#22C55E!important}
+    .trend-down{color:#EF4444!important}
+    .mockup-bar-row{background:rgba(26,95,204,0.05);border:1px solid rgba(26,95,204,0.12);border-radius:12px;padding:16px}
+    .mockup-bar-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+    .mockup-bar-label{font-size:.75rem;color:rgba(255,255,255,.45)}
+    .mockup-bar-pct{font-family:var(--font-title);font-size:1.1rem;font-weight:700;color:var(--accent);transition:all .5s ease}
+    .mockup-bar-track{background:rgba(255,255,255,.07);border-radius:4px;height:8px;overflow:hidden}
+    .mockup-bar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--blue),var(--accent));transition:width .8s ease}
+    .mockup-alerts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+    .mockup-alert{background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);border-radius:8px;padding:10px 12px;font-size:.7rem;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:6px;transition:all .5s ease}
+    .mockup-alert.ok{background:rgba(34,197,94,0.08);border-color:rgba(34,197,94,0.2)}
+    .mockup-alert-dot{width:7px;height:7px;min-width:7px;border-radius:50%;background:#EF4444;transition:background .5s ease}
+    .mockup-alert.ok .mockup-alert-dot{background:#22C55E}
     section{padding:90px 2rem}
     .container{max-width:1100px;margin:0 auto}
-    .section-badge{display:inline-block;background:rgba(27,110,255,.08);color:var(--blue);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:1rem;border:1px solid rgba(27,110,255,.18)}
-    .section-title{font-family:var(--font-title);font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:700;color:var(--navy);line-height:1.15;letter-spacing:.3px;margin-bottom:1rem}
-    .section-subtitle{font-size:1.05rem;color:var(--gray-600);line-height:1.75;max-width:560px}
+    .section-badge{display:inline-block;background:rgba(26,95,204,0.08);color:var(--blue);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:1rem;border:1px solid rgba(26,95,204,0.18)}
+    .section-title{font-family:var(--font-title);font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:700;color:var(--navy);line-height:1.15;margin-bottom:1rem}
+    .section-subtitle{font-size:1.05rem;color:var(--gray-600);line-height:1.75;max-width:580px}
     .text-center{text-align:center}
     .text-center .section-subtitle{margin:0 auto}
-
+    #propuesta{background:var(--navy);color:white;position:relative;overflow:hidden}
+    #propuesta::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(26,95,204,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(26,95,204,0.06) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+    #propuesta .container{position:relative;z-index:1}
+    .propuesta-hero{text-align:center;margin-bottom:4rem}
+    .propuesta-hero .section-badge{background:rgba(26,95,204,0.2);color:var(--accent);border-color:rgba(26,95,204,0.4)}
+    .propuesta-hero .section-title{color:white;font-size:clamp(2rem,4vw,3rem)}
+    .propuesta-hero p{color:var(--silver-dim);font-size:1.05rem;max-width:680px;margin:0 auto}
+    .pilares-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+    .pilar-card{background:rgba(26,95,204,0.06);border:1px solid rgba(26,95,204,0.15);border-radius:16px;padding:2rem;border-top:3px solid var(--blue);transition:all .2s}
+    .pilar-card:hover{background:rgba(26,95,204,0.1);transform:translateY(-3px)}
+    .pilar-number{font-family:var(--font-title);font-size:2.5rem;font-weight:700;color:rgba(26,95,204,0.35);line-height:1;margin-bottom:.5rem}
+    .pilar-title{font-family:var(--font-title);font-size:1.2rem;font-weight:700;color:white;margin-bottom:1rem}
+    .pilar-items{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+    .pilar-items li{font-size:.875rem;color:var(--silver-dim);display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+    .pilar-items li::before{content:'→';color:var(--accent);font-weight:700;flex-shrink:0}
     #problema{background:var(--gray-50);border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100)}
     .problem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-top:3rem}
     .problem-card{background:var(--white);border:1px solid var(--gray-100);border-radius:12px;padding:1.75rem;border-left:4px solid #E53E3E}
     .problem-icon{font-size:1.75rem;margin-bottom:1rem}
     .problem-title{font-family:var(--font-title);font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
     .problem-desc{font-size:.875rem;color:var(--gray-600);line-height:1.65}
-
     #solucion{background:var(--white)}
     .solution-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-top:3rem}
     .solution-points{display:flex;flex-direction:column;gap:1.5rem}
     .solution-point{display:flex;gap:1rem;align-items:flex-start}
-    .solution-point-icon{width:42px;height:42px;min-width:42px;background:rgba(27,110,255,.08);border-radius:10px;border:1px solid rgba(27,110,255,.15);display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+    .solution-point-icon{width:42px;height:42px;min-width:42px;background:rgba(26,95,204,0.08);border-radius:10px;border:1px solid rgba(26,95,204,0.15);display:flex;align-items:center;justify-content:center;font-size:1.1rem}
     .solution-point-title{font-family:var(--font-title);font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:.25rem}
     .solution-point-desc{font-size:.875rem;color:var(--gray-600);line-height:1.65}
-    .solution-visual{background:linear-gradient(135deg,var(--black) 0%,var(--navy-mid) 100%);border-radius:20px;padding:2rem;border:1px solid rgba(27,110,255,.2);box-shadow:0 20px 60px rgba(0,0,0,.3)}
-    .solution-logo-area{display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(255,255,255,.03);border-radius:10px;margin-bottom:16px;border:1px solid rgba(27,110,255,.1)}
-    .solution-logo-area img{height:26px;width:auto}
+    .solution-visual{background:linear-gradient(135deg,var(--black) 0%,var(--navy-mid) 100%);border-radius:20px;padding:2rem;border:1px solid rgba(26,95,204,0.2);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+    .solution-logo-area{display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(255,255,255,.03);border-radius:10px;margin-bottom:16px;border:1px solid rgba(26,95,204,0.12)}
+    .solution-logo-area img{height:26px;width:auto;filter:brightness(1.1)}
     .phone-step{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:10px 12px;margin-bottom:8px;display:flex;align-items:center;gap:10px}
     .phone-step-num{width:24px;height:24px;min-width:24px;background:var(--blue);border-radius:50%;font-size:.7rem;font-weight:800;color:white;display:flex;align-items:center;justify-content:center}
     .phone-step-text{font-size:.78rem;color:rgba(255,255,255,.7)}
     .phone-step.done .phone-step-num{background:#22C55E}
-    .phone-step.active{border-color:rgba(27,110,255,.35);background:rgba(27,110,255,.07)}
-
+    .phone-step.active{border-color:rgba(26,95,204,0.4);background:rgba(26,95,204,0.08)}
     #como-funciona{background:var(--gray-50);border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100)}
     .steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem;margin-top:3rem}
     .step-card{background:var(--white);border:1px solid var(--gray-100);border-radius:14px;padding:2rem 1.5rem;text-align:center;transition:all .2s}
-    .step-card:hover{border-color:var(--blue);box-shadow:0 4px 24px rgba(27,110,255,.1);transform:translateY(-3px)}
+    .step-card:hover{border-color:var(--blue);box-shadow:0 4px 24px rgba(26,95,204,0.1);transform:translateY(-3px)}
     .step-number{width:50px;height:50px;background:linear-gradient(135deg,var(--blue),var(--accent));color:white;border-radius:50%;font-family:var(--font-title);font-size:1.3rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem}
     .step-icon{font-size:1.5rem;margin-bottom:.75rem}
     .step-title{font-family:var(--font-title);font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
     .step-desc{font-size:.875rem;color:var(--gray-600);line-height:1.65}
-
     #funcionalidades{background:var(--white)}
     .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-top:3rem}
     .feature-card{background:var(--gray-50);border:1px solid var(--gray-100);border-radius:14px;padding:1.75rem;transition:all .2s}
-    .feature-card:hover{border-color:var(--blue);box-shadow:0 4px 24px rgba(27,110,255,.1);transform:translateY(-2px)}
+    .feature-card:hover{border-color:var(--blue);box-shadow:0 4px 24px rgba(26,95,204,0.1);transform:translateY(-2px)}
     .feature-icon{font-size:2rem;margin-bottom:1rem}
     .feature-title{font-family:var(--font-title);font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
     .feature-desc{font-size:.875rem;color:var(--gray-600);line-height:1.65}
-
     #diferenciacion{background:var(--black);color:white;position:relative;overflow:hidden}
-    #diferenciacion::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(27,110,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(27,110,255,.05) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+    #diferenciacion::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(26,95,204,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(26,95,204,0.05) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
     #diferenciacion .container{position:relative;z-index:1}
     #diferenciacion .section-title{color:white}
     #diferenciacion .section-subtitle{color:var(--silver-dim)}
-    #diferenciacion .section-badge{background:rgba(27,110,255,.15);color:var(--accent);border-color:rgba(27,110,255,.3)}
+    #diferenciacion .section-badge{background:rgba(26,95,204,0.15);color:var(--accent);border-color:rgba(26,95,204,0.3)}
     .diff-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:3rem}
-    .diff-card{background:rgba(27,110,255,.04);border:1px solid rgba(27,110,255,.12);border-radius:14px;padding:1.75rem;border-left:3px solid var(--blue);transition:all .2s}
-    .diff-card:hover{background:rgba(27,110,255,.08);border-color:var(--blue-bright)}
+    .diff-card{background:rgba(26,95,204,0.05);border:1px solid rgba(26,95,204,0.12);border-radius:14px;padding:1.75rem;border-left:3px solid var(--blue);transition:all .2s}
+    .diff-card:hover{background:rgba(26,95,204,0.09)}
     .diff-icon{font-size:1.75rem;margin-bottom:1rem}
     .diff-title{font-family:var(--font-title);font-size:1.05rem;font-weight:700;color:white;margin-bottom:.5rem}
     .diff-desc{font-size:.875rem;color:var(--silver-dim);line-height:1.65}
-
     #beneficios{background:var(--gray-50);border-top:1px solid var(--gray-100)}
     .benefits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-top:3rem}
     .benefit-card{background:var(--white);border:1px solid var(--gray-100);border-radius:14px;padding:1.75rem;text-align:center;transition:all .2s}
-    .benefit-card:hover{border-color:var(--blue);box-shadow:0 4px 20px rgba(27,110,255,.08)}
+    .benefit-card:hover{border-color:var(--blue);box-shadow:0 4px 20px rgba(26,95,204,0.08)}
     .benefit-icon{font-size:2.25rem;margin-bottom:.75rem}
     .benefit-title{font-family:var(--font-title);font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
     .benefit-desc{font-size:.85rem;color:var(--gray-600);line-height:1.65}
-
+    #app-preview{background:var(--navy-mid);border-top:1px solid rgba(26,95,204,0.15);border-bottom:1px solid rgba(26,95,204,0.15)}
+    #app-preview .section-badge{background:rgba(26,95,204,0.2);color:var(--accent);border-color:rgba(26,95,204,0.4)}
+    #app-preview .section-title{color:white}
+    #app-preview .section-subtitle{color:var(--silver-dim)}
+    .app-screens{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem;align-items:start}
+    .app-screen{background:rgba(5,12,24,0.8);border:1px solid rgba(26,95,204,0.2);border-radius:16px;overflow:hidden}
+    .app-screen-header{background:rgba(26,95,204,0.1);border-bottom:1px solid rgba(26,95,204,0.15);padding:12px 16px;display:flex;align-items:center;justify-content:space-between}
+    .app-screen-title{font-size:.8rem;font-weight:600;color:rgba(255,255,255,.7);font-family:var(--font-title);letter-spacing:.05em}
+    .app-screen-body{padding:16px}
+    .app-list-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;margin-bottom:6px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);transition:all .5s ease}
+    .app-list-dot{width:8px;height:8px;min-width:8px;border-radius:50%;background:#22C55E;transition:background .5s ease}
+    .app-list-text{font-size:.75rem;color:rgba(255,255,255,.65)}
+    .app-list-time{font-size:.65rem;color:rgba(255,255,255,.3);margin-left:auto;white-space:nowrap}
+    .app-stat-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+    .app-stat-box{background:rgba(26,95,204,0.07);border:1px solid rgba(26,95,204,0.12);border-radius:8px;padding:12px;text-align:center}
+    .app-stat-val{font-family:var(--font-title);font-size:1.4rem;font-weight:700;color:var(--white);transition:all .5s ease}
+    .app-stat-lbl{font-size:.62rem;color:rgba(255,255,255,.4);margin-top:2px}
     #precios{background:var(--white)}
-    .pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:3rem;max-width:920px;margin-left:auto;margin-right:auto}
+    .pricing-note{text-align:center;background:rgba(26,95,204,0.06);border:1px solid rgba(26,95,204,0.15);border-radius:12px;padding:1rem 2rem;margin-bottom:2.5rem;font-size:.9rem;color:var(--gray-600)}
+    .pricing-note strong{color:var(--blue)}
+    .pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;max-width:960px;margin:0 auto}
     .pricing-card{background:var(--gray-50);border:1px solid var(--gray-100);border-radius:18px;padding:2rem;position:relative}
-    .pricing-card.featured{background:var(--navy);border-color:var(--blue);box-shadow:0 20px 60px rgba(0,0,0,.2),0 0 0 1px rgba(27,110,255,.15)}
-    .pricing-popular{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,var(--blue),var(--accent));color:white;font-size:.72rem;font-weight:800;padding:4px 18px;border-radius:20px;white-space:nowrap;letter-spacing:.05em}
-    .pricing-name{font-family:var(--font-title);font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
+    .pricing-card.featured{background:var(--navy);border-color:var(--blue);box-shadow:0 20px 60px rgba(0,0,0,.2)}
+    .pricing-popular{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,var(--blue),var(--accent));color:white;font-size:.72rem;font-weight:800;padding:4px 18px;border-radius:20px;white-space:nowrap}
+    .pricing-name{font-family:var(--font-title);font-size:1.2rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
     .pricing-card.featured .pricing-name{color:white}
-    .pricing-price{font-family:var(--font-title);font-size:2.6rem;font-weight:700;color:var(--navy);line-height:1;margin:1rem 0 .25rem}
+    .pricing-price{font-family:var(--font-title);font-size:2.4rem;font-weight:700;color:var(--navy);line-height:1;margin:1rem 0 .25rem}
     .pricing-card.featured .pricing-price{color:var(--accent)}
-    .pricing-period{font-size:.8rem;color:var(--gray-400);margin-bottom:1.5rem}
+    .pricing-period{font-size:.8rem;color:var(--gray-400);margin-bottom:1rem}
     .pricing-card.featured .pricing-period{color:rgba(255,255,255,.35)}
-    .pricing-features{list-style:none;display:flex;flex-direction:column;gap:.75rem;margin-bottom:2rem}
-    .pricing-features li{font-size:.875rem;color:var(--gray-600);display:flex;align-items:center;gap:8px}
+    .pricing-profiles{background:rgba(26,95,204,0.08);border:1px solid rgba(26,95,204,0.15);border-radius:8px;padding:.75rem 1rem;margin-bottom:1.5rem;text-align:center}
+    .pricing-card.featured .pricing-profiles{background:rgba(26,95,204,0.2);border-color:rgba(26,95,204,0.35)}
+    .pricing-profiles-main{font-family:var(--font-title);font-size:1.1rem;font-weight:700;color:var(--blue)}
+    .pricing-card.featured .pricing-profiles-main{color:var(--accent)}
+    .pricing-profiles-sub{font-size:.75rem;color:var(--gray-600);margin-top:2px}
+    .pricing-card.featured .pricing-profiles-sub{color:rgba(255,255,255,.5)}
+    .pricing-features{list-style:none;display:flex;flex-direction:column;gap:.65rem;margin-bottom:2rem}
+    .pricing-features li{font-size:.85rem;color:var(--gray-600);display:flex;align-items:flex-start;gap:8px;line-height:1.5}
     .pricing-card.featured .pricing-features li{color:rgba(255,255,255,.7)}
-    .pricing-features li::before{content:'✓';color:var(--blue);font-weight:800;font-size:.8rem}
+    .pricing-features li::before{content:'✓';color:var(--blue);font-weight:800;font-size:.8rem;flex-shrink:0;margin-top:1px}
     .pricing-card.featured .pricing-features li::before{color:var(--accent)}
-    .pricing-cta{display:block;text-align:center;padding:.8rem;border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none;transition:all .2s;cursor:pointer;border:none;font-family:var(--font-body)}
+    .pricing-cta{display:block;text-align:center;padding:.85rem;border-radius:8px;font-weight:700;font-size:.95rem;text-decoration:none;transition:all .2s;cursor:pointer;border:none;font-family:var(--font-body)}
     .pricing-cta-outline{background:transparent;color:var(--blue);border:2px solid var(--blue)}
     .pricing-cta-outline:hover{background:var(--blue);color:white}
     .pricing-cta-solid{background:linear-gradient(90deg,var(--blue),var(--accent));color:white;box-shadow:0 4px 20px var(--blue-glow)}
-    .pricing-cta-solid:hover{box-shadow:0 6px 28px rgba(27,110,255,.5);transform:translateY(-1px)}
-
+    .pricing-cta-solid:hover{transform:translateY(-1px)}
     #demo{background:var(--black);color:white;position:relative;overflow:hidden}
-    #demo::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(27,110,255,.15) 0%,transparent 60%);pointer-events:none}
+    #demo::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(26,95,204,0.18) 0%,transparent 60%);pointer-events:none}
     #demo .container{position:relative;z-index:1}
     #demo .section-title{color:white}
     #demo .section-subtitle{color:var(--silver-dim)}
-    #demo .section-badge{background:rgba(27,110,255,.15);color:var(--accent);border-color:rgba(27,110,255,.3)}
-    .demo-box{max-width:620px;margin:2.5rem auto 0;background:rgba(255,255,255,.03);border:1px solid rgba(27,110,255,.15);border-radius:20px;padding:2.5rem}
+    #demo .section-badge{background:rgba(26,95,204,0.15);color:var(--accent);border-color:rgba(26,95,204,0.3)}
+    .demo-box{max-width:640px;margin:2.5rem auto 0;background:rgba(255,255,255,.03);border:1px solid rgba(26,95,204,0.18);border-radius:20px;padding:2.5rem}
     .form-group{margin-bottom:1.25rem}
-    .form-label{display:block;font-size:.8rem;font-weight:600;color:rgba(255,255,255,.6);margin-bottom:6px;letter-spacing:.03em}
-    .form-input{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:.75rem 1rem;color:white;font-size:.95rem;font-family:var(--font-body);transition:border-color .2s;outline:none}
+    .form-label{display:block;font-size:.8rem;font-weight:600;color:rgba(255,255,255,.6);margin-bottom:6px}
+    .form-input{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:.75rem 1rem;color:white;font-size:.95rem;font-family:var(--font-body);transition:border-color .2s;outline:none}
     .form-input::placeholder{color:rgba(255,255,255,.25)}
     .form-input:focus{border-color:var(--blue)}
-    .form-select{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:.75rem 1rem;color:white;font-size:.95rem;font-family:var(--font-body);cursor:pointer;outline:none}
+    .form-select{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:.75rem 1rem;color:white;font-size:.95rem;font-family:var(--font-body);cursor:pointer;outline:none}
     .form-select option{background:var(--navy-mid)}
     .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
     .btn-form{width:100%;background:linear-gradient(90deg,var(--blue),var(--accent));color:white;padding:1rem;border-radius:8px;font-weight:800;font-size:1rem;border:none;cursor:pointer;font-family:var(--font-body);transition:all .2s;margin-top:.5rem;box-shadow:0 4px 24px var(--blue-glow)}
-    .btn-form:hover{box-shadow:0 6px 32px rgba(27,110,255,.55);transform:translateY(-1px)}
+    .btn-form:hover{transform:translateY(-1px)}
     .form-note{text-align:center;font-size:.8rem;color:rgba(255,255,255,.3);margin-top:1rem}
     .form-success{display:none;text-align:center;padding:2rem}
     .form-success-icon{font-size:3rem;margin-bottom:1rem}
     .form-success-title{font-family:var(--font-title);font-size:1.4rem;font-weight:700;color:var(--accent);margin-bottom:.5rem}
     .form-success-text{font-size:.9rem;color:rgba(255,255,255,.55)}
-
     #contacto{background:var(--gray-50);border-top:1px solid var(--gray-100)}
     .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3rem;align-items:start}
     .contact-info{display:flex;flex-direction:column;gap:1.5rem}
@@ -198,35 +239,31 @@
     .contact-item-title{font-weight:700;font-size:.9rem;color:var(--navy);margin-bottom:2px}
     .contact-item-value{font-size:.875rem;color:var(--gray-600)}
     .contact-item-value a{color:var(--blue);text-decoration:none}
-    .contact-form-box{background:var(--white);border:1px solid var(--gray-100);border-radius:18px;padding:2rem}
+    .contact-form-box{background:var(--white);border:1px solid var(--gray-100);border-radius:18px;padding:2rem;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
     .contact-form-input{width:100%;background:var(--gray-50);border:1px solid var(--gray-100);border-radius:8px;padding:.75rem 1rem;color:var(--gray-800);font-size:.9rem;font-family:var(--font-body);outline:none;transition:border-color .2s;margin-bottom:1rem}
     .contact-form-input:focus{border-color:var(--blue)}
     textarea.contact-form-input{min-height:100px;resize:vertical}
     .btn-contact{width:100%;background:var(--navy);color:white;padding:.875rem;border-radius:8px;font-weight:700;font-size:.95rem;border:none;cursor:pointer;font-family:var(--font-body);transition:background .2s}
     .btn-contact:hover{background:var(--blue)}
-
-    footer{background:var(--black);border-top:1px solid rgba(27,110,255,.15);padding:3rem 2rem}
+    .contact-success{display:none;text-align:center;padding:1.5rem;color:var(--green);font-weight:600;font-size:1rem}
+    footer{background:var(--black);border-top:1px solid rgba(26,95,204,0.15);padding:3rem 2rem}
     .footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
-    .footer-logo img{height:32px;width:auto;opacity:.85}
+    .footer-logo img{height:36px;width:auto;filter:brightness(1.1)}
     .footer-links{display:flex;gap:2rem;list-style:none;flex-wrap:wrap}
     .footer-links a{color:rgba(255,255,255,.4);text-decoration:none;font-size:.875rem;transition:color .2s}
     .footer-links a:hover{color:white}
     .footer-copy{font-size:.8rem;color:rgba(255,255,255,.25)}
-
     .whatsapp-float{position:fixed;bottom:28px;right:28px;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.45);text-decoration:none;z-index:999;transition:transform .2s}
     .whatsapp-float:hover{transform:scale(1.12)}
     .whatsapp-float svg{width:30px;height:30px;fill:white}
-
     @media(max-width:768px){
       .nav-links{display:none}
       .nav-mobile-btn{display:flex}
-      .solution-grid{grid-template-columns:1fr}
-      .contact-grid{grid-template-columns:1fr}
+      .solution-grid,.contact-grid,.app-screens{grid-template-columns:1fr}
       .form-row{grid-template-columns:1fr}
       .hero-stats{gap:1.5rem}
-      .mockup-content{grid-template-columns:1fr 1fr}
+      .mockup-grid{grid-template-columns:1fr 1fr}
     }
-
     .fade-in{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
     .fade-in.visible{opacity:1;transform:translateY(0)}
   </style>
@@ -236,29 +273,28 @@
 <nav>
   <a href="#inicio" class="nav-logo"><img src="logo.png" alt="SUPERCOR" /></a>
   <ul class="nav-links">
+    <li><a href="#propuesta">Propuesta</a></li>
     <li><a href="#como-funciona">Cómo funciona</a></li>
     <li><a href="#funcionalidades">Funcionalidades</a></li>
-    <li><a href="#beneficios">Beneficios</a></li>
     <li><a href="#precios">Precios</a></li>
     <li><a href="#demo" class="nav-cta">Solicitar demo</a></li>
   </ul>
-  <button class="nav-mobile-btn" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </button>
+  <button class="nav-mobile-btn" onclick="toggleMenu()"><span></span><span></span><span></span></button>
 </nav>
 
 <section id="inicio">
   <div class="hero-logo"><img src="logo.png" alt="SUPERCOR" /></div>
-  <div class="hero-badge">Plataforma SaaS de supervisión operacional</div>
-  <h1 class="hero-title">Control total de tus operaciones<br><span class="accent">en tiempo real desde el terreno</span></h1>
-  <p class="hero-subtitle">Digitaliza la supervisión de tus instalaciones, controla el cumplimiento de tu equipo y genera reportes ejecutivos automáticos — todo desde el celular.</p>
+  <div class="hero-badge">Plataforma SaaS de Supervisión Operacional</div>
+  <div class="hero-tagline">No vendemos una plataforma</div>
+  <h1 class="hero-title">Vendemos <span class="accent">Control Operacional</span><br>y Cultura de Cumplimiento</h1>
+  <p class="hero-subtitle">Esa es nuestra diferencia. Operamos en terreno donde todo pasa, validando y evidenciando cada control crítico. Digitaliza tu supervisión y opera con visibilidad real.</p>
   <div class="hero-actions">
     <a href="#demo" class="btn-primary">✦ Solicitar demo gratuita</a>
-    <a href="#como-funciona" class="btn-secondary">Ver cómo funciona →</a>
+    <a href="#propuesta" class="btn-secondary">Ver propuesta →</a>
   </div>
   <div class="hero-stats">
     <div class="hero-stat"><div class="hero-stat-number">100<span>%</span></div><div class="hero-stat-label">Digital y sin papel</div></div>
-    <div class="hero-stat"><div class="hero-stat-number"><span>+</span>30</div><div class="hero-stat-label">Días de prueba gratis</div></div>
+    <div class="hero-stat"><div class="hero-stat-number"><span>+</span>15</div><div class="hero-stat-label">Días de prueba gratis</div></div>
     <div class="hero-stat"><div class="hero-stat-number">24<span>/7</span></div><div class="hero-stat-label">Monitoreo en vivo</div></div>
     <div class="hero-stat"><div class="hero-stat-number"><span>∞</span></div><div class="hero-stat-label">Instalaciones y contratos</div></div>
   </div>
@@ -267,18 +303,43 @@
       <div class="mockup-topbar">
         <div class="mockup-dot"></div><div class="mockup-dot"></div><div class="mockup-dot"></div>
         <div class="mockup-url">app.supercor.cl — Dashboard Operacional</div>
+        <div class="live-badge">EN VIVO</div>
       </div>
-      <div class="mockup-content">
-        <div class="mockup-card"><div class="mockup-card-label">Supervisiones hoy</div><div class="mockup-card-value">47</div></div>
-        <div class="mockup-card"><div class="mockup-card-label">Cumplimiento</div><div class="mockup-card-value blue">94%</div></div>
-        <div class="mockup-card"><div class="mockup-card-label">Alertas activas</div><div class="mockup-card-value yellow">3</div></div>
-        <div class="mockup-card"><div class="mockup-card-label">Sin visita hoy</div><div class="mockup-card-value red">2</div></div>
-        <div class="mockup-bar-row">
+      <div class="mockup-grid">
+        <div class="mockup-card"><div class="mockup-card-label">Supervisiones hoy</div><div class="mockup-card-value" id="stat-sup">47</div><div class="mockup-card-trend trend-up" id="trend-sup">↑ +3 última hora</div></div>
+        <div class="mockup-card"><div class="mockup-card-label">Cumplimiento</div><div class="mockup-card-value blue" id="stat-cum">94%</div><div class="mockup-card-trend trend-up" id="trend-cum">↑ sobre meta</div></div>
+        <div class="mockup-card"><div class="mockup-card-label">Alertas activas</div><div class="mockup-card-value yellow" id="stat-ale">3</div><div class="mockup-card-trend trend-down">↓ 2 resueltas hoy</div></div>
+        <div class="mockup-card"><div class="mockup-card-label">Sin visita hoy</div><div class="mockup-card-value red" id="stat-sin">2</div><div class="mockup-card-trend">de 38 instalaciones</div></div>
+      </div>
+      <div class="mockup-bar-row">
+        <div class="mockup-bar-header">
           <div class="mockup-bar-label">Cobertura de instalaciones — Mes actual</div>
-          <div class="mockup-bar-track"><div class="mockup-bar-fill" style="width:87%"></div></div>
-          <div style="font-size:.7rem;color:rgba(255,255,255,.35)">87% de instalaciones supervisadas este mes</div>
+          <div class="mockup-bar-pct" id="bar-pct">87%</div>
+        </div>
+        <div class="mockup-bar-track"><div class="mockup-bar-fill" id="bar-fill" style="width:87%"></div></div>
+        <div class="mockup-alerts">
+          <div class="mockup-alert" id="a1"><div class="mockup-alert-dot" id="a1dot"></div><span id="a1txt">Sin documentos — Contrato Norte</span></div>
+          <div class="mockup-alert ok" id="a2"><div class="mockup-alert-dot" id="a2dot" style="background:#22C55E"></div><span id="a2txt">Ronda completada — Centro</span></div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="propuesta">
+  <div class="container">
+    <div class="propuesta-hero fade-in">
+      <div class="section-badge">Nuestra propuesta de valor</div>
+      <h2 class="section-title">La plataforma que opera donde todo pasa</h2>
+      <p>SUPERCOR valida y evidencia cada control crítico expuesto a multas, en terreno y en tiempo real. Cinco pilares que transforman tu operación de reactiva a preventiva.</p>
+    </div>
+    <div class="pilares-grid">
+      <div class="pilar-card fade-in"><div class="pilar-number">01</div><div class="pilar-title">📊 Diagnóstico de Pérdidas</div><ul class="pilar-items"><li>Identifica cuánto dinero está perdiendo tu operación hoy</li><li>Visualiza dónde está el desorden operacional</li><li>Detecta qué multas son evitables con control preventivo</li></ul></div>
+      <div class="pilar-card fade-in"><div class="pilar-number">02</div><div class="pilar-title">📱 SUPERCOR en Terreno</div><ul class="pilar-items"><li>Supervisión con evidencia fotográfica real e irrefutable</li><li>Control de puntos críticos expuestos a incumplimientos que pueden derivar en multas o sanciones de organismos fiscalizadores</li><li>Eliminación definitiva de la supervisión en papel</li></ul></div>
+      <div class="pilar-card fade-in"><div class="pilar-number">03</div><div class="pilar-title">🏗️ SUPERCOR en Estructura</div><ul class="pilar-items"><li>Matriz de cumplimiento completa y auditable</li><li>Control por trabajador, cliente e instalación</li><li>Validación documental real con trazabilidad total</li></ul></div>
+      <div class="pilar-card fade-in"><div class="pilar-number">04</div><div class="pilar-title">📈 Panel Gerencial en Vivo</div><ul class="pilar-items"><li>Estado real de tu operación en minutos, no en días</li><li>Alertas críticas antes de que el problema escale</li><li>Riesgo de multa detectado antes de que ocurra</li><li>Trazabilidad completa por instalación, contrato y responsable</li></ul></div>
+      <div class="pilar-card fade-in"><div class="pilar-number">05</div><div class="pilar-title">🎯 Cultura de Cumplimiento</div><ul class="pilar-items"><li>Capacitación diferenciada por rol operacional</li><li>Responsabilidad asignada por jefatura y área</li><li>Rutinas obligatorias de control que se ejecutan solas</li></ul></div>
+      <div class="pilar-card fade-in" style="border-top-color:var(--accent);background:rgba(59,158,255,0.05)"><div class="pilar-number" style="color:rgba(59,158,255,0.4)">✦</div><div class="pilar-title" style="color:var(--accent)">Con SUPERCOR dejas de reaccionar</div><ul class="pilar-items"><li>Mayor confianza del cliente al presentar evidencia concreta de cumplimiento</li><li>Deja de apagar incendios y empieza a prevenirlos</li><li>Opera con control, visibilidad y tranquilidad real en todo momento</li></ul></div>
     </div>
   </div>
 </section>
@@ -294,7 +355,7 @@
       <div class="problem-card fade-in"><div class="problem-icon">📋</div><div class="problem-title">Registros en papel que se pierden</div><div class="problem-desc">Los formularios físicos son difíciles de archivar, fáciles de extraviar e imposibles de auditar en tiempo real.</div></div>
       <div class="problem-card fade-in"><div class="problem-icon">📍</div><div class="problem-title">Sin evidencia de presencia</div><div class="problem-desc">No hay forma de confirmar que el responsable estuvo en la instalación ni a qué hora realizó la ronda.</div></div>
       <div class="problem-card fade-in"><div class="problem-icon">⏰</div><div class="problem-title">Reportes que llegan tarde</div><div class="problem-desc">Los informes se procesan días después. Cuando llegan, los problemas ya escalaron y el daño ya está hecho.</div></div>
-      <div class="problem-card fade-in"><div class="problem-icon">🔍</div><div class="problem-title">Falta de trazabilidad</div><div class="problem-desc">¿Quién supervisó? ¿Cuándo? ¿Qué encontró? Sin trazabilidad es imposible rendir cuentas ante clientes o auditorías.</div></div>
+      <div class="problem-card fade-in"><div class="problem-icon">💸</div><div class="problem-title">Multas evitables que se pagan</div><div class="problem-desc">Sin control preventivo, los incumplimientos llegan como multas sorpresa. Con SUPERCOR los detectas antes de que ocurran.</div></div>
     </div>
   </div>
 </section>
@@ -308,19 +369,19 @@
         <p class="section-subtitle" style="margin-bottom:2rem">Una plataforma adaptable a cualquier rubro o industria que necesite control operacional en terreno.</p>
         <div class="solution-points">
           <div class="solution-point"><div class="solution-point-icon">📱</div><div><div class="solution-point-title">Funciona desde el celular</div><div class="solution-point-desc">El equipo en terreno usa la app desde su teléfono. Sin hardware especial ni capacitación compleja.</div></div></div>
-          <div class="solution-point"><div class="solution-point-icon">📸</div><div><div class="solution-point-title">Evidencia fotográfica obligatoria</div><div class="solution-point-desc">Cada supervisión requiere fotos. Sin evidencia visual, no se puede enviar el reporte.</div></div></div>
-          <div class="solution-point"><div class="solution-point-icon">🔔</div><div><div class="solution-point-title">Alertas automáticas</div><div class="solution-point-desc">Cuando algo falla, el responsable recibe una notificación al instante. Sin demoras, sin excusas.</div></div></div>
-          <div class="solution-point"><div class="solution-point-icon">📊</div><div><div class="solution-point-title">Dashboard para la dirección</div><div class="solution-point-desc">La dirección ve en tiempo real el estado de todas las instalaciones desde cualquier dispositivo.</div></div></div>
+          <div class="solution-point"><div class="solution-point-icon">📸</div><div><div class="solution-point-title">Evidencia fotográfica obligatoria</div><div class="solution-point-desc">Cada ronda de control requiere fotos con GPS y timestamp. Sin evidencia real, no se puede enviar el reporte.</div></div></div>
+          <div class="solution-point"><div class="solution-point-icon">🔔</div><div><div class="solution-point-title">Alertas automáticas instantáneas</div><div class="solution-point-desc">Cuando un control no cumple el estándar, el responsable recibe una notificación al instante. Nada se pasa por alto.</div></div></div>
+          <div class="solution-point"><div class="solution-point-icon">🖥️</div><div><div class="solution-point-title">Pantalla completa en la empresa</div><div class="solution-point-desc">Proyecta el dashboard en un monitor para ver en vivo el estado de todos los controles operacionales desde la gerencia.</div></div></div>
         </div>
       </div>
       <div class="solution-visual fade-in">
-        <div class="solution-logo-area"><img src="logo.png" alt="SUPERCOR" /><div style="margin-left:auto;font-size:.65rem;color:rgba(255,255,255,.35)">Supervisión en terreno</div></div>
+        <div class="solution-logo-area"><img src="logo.png" alt="SUPERCOR" /><div style="margin-left:auto;font-size:.65rem;color:rgba(255,255,255,.35)">Supervisión activa</div></div>
         <div class="phone-step done"><div class="phone-step-num">✓</div><div class="phone-step-text">Seleccionar instalación</div></div>
-        <div class="phone-step done"><div class="phone-step-num">✓</div><div class="phone-step-text">Tomar fotos de evidencia</div></div>
-        <div class="phone-step done"><div class="phone-step-num">✓</div><div class="phone-step-text">Completar checklist</div></div>
+        <div class="phone-step done"><div class="phone-step-num">✓</div><div class="phone-step-text">Tomar fotos de evidencia GPS</div></div>
+        <div class="phone-step done"><div class="phone-step-num">✓</div><div class="phone-step-text">Completar checklist de control</div></div>
         <div class="phone-step active"><div class="phone-step-num" style="background:var(--blue)">4</div><div class="phone-step-text">Revisar personal en terreno...</div></div>
         <div class="phone-step"><div class="phone-step-num" style="background:rgba(255,255,255,.08);color:rgba(255,255,255,.3)">5</div><div class="phone-step-text" style="color:rgba(255,255,255,.3)">Enviar supervisión</div></div>
-        <div style="margin-top:12px;background:rgba(27,110,255,.1);border:1px solid rgba(27,110,255,.2);border-radius:8px;padding:10px 12px;font-size:.72rem;color:var(--accent)">📍 GPS registrado · 14:32 hrs</div>
+        <div style="margin-top:12px;background:rgba(26,95,204,0.1);border:1px solid rgba(26,95,204,0.2);border-radius:8px;padding:10px 12px;font-size:.72rem;color:var(--accent)">📍 GPS registrado · 14:32 hrs · Evidencia verificada</div>
       </div>
     </div>
   </div>
@@ -334,10 +395,55 @@
       <p class="section-subtitle">Configuración rápida. Sin instalar servidores. Sin soporte técnico permanente.</p>
     </div>
     <div class="steps-grid">
-      <div class="step-card fade-in"><div class="step-number">1</div><div class="step-icon">🏢</div><div class="step-title">Configuras tu organización</div><div class="step-desc">Creamos tu cuenta, cargamos tus contratos, instalaciones y checklists según tus procesos internos.</div></div>
-      <div class="step-card fade-in"><div class="step-number">2</div><div class="step-icon">👷</div><div class="step-title">Tu equipo usa la app</div><div class="step-desc">Desde su celular, el supervisor completa la ronda: fotos, checklist, registro del personal y observaciones.</div></div>
+      <div class="step-card fade-in"><div class="step-number">1</div><div class="step-icon">🏢</div><div class="step-title">Configuras tu organización</div><div class="step-desc">Cargamos tus contratos, instalaciones y checklists según tus procesos y estándares internos.</div></div>
+      <div class="step-card fade-in"><div class="step-number">2</div><div class="step-icon">👷</div><div class="step-title">Tu equipo usa la app</div><div class="step-desc">Desde su celular, el encargado en terreno completa la ronda: fotos, checklist, registro del personal y observaciones.</div></div>
       <div class="step-card fade-in"><div class="step-number">3</div><div class="step-icon">🔔</div><div class="step-title">Alertas en tiempo real</div><div class="step-desc">Si algo no cumple el estándar, el sistema notifica al responsable designado al instante. Nada se pasa por alto.</div></div>
-      <div class="step-card fade-in"><div class="step-number">4</div><div class="step-icon">📈</div><div class="step-title">Visualizas todo en el dashboard</div><div class="step-desc">La dirección accede a cumplimiento, cobertura, reportes exportables e historial completo de supervisiones.</div></div>
+      <div class="step-card fade-in"><div class="step-number">4</div><div class="step-icon">📈</div><div class="step-title">Visualizas todo en el dashboard</div><div class="step-desc">La dirección accede a cumplimiento, cobertura, alertas críticas y reportes exportables en tiempo real.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="app-preview">
+  <div class="container">
+    <div class="text-center fade-in">
+      <div class="section-badge">Vista en tiempo real</div>
+      <h2 class="section-title">Tu operación funcionando en vivo</h2>
+      <p class="section-subtitle">Esto es lo que ve tu gerencia mientras el equipo trabaja en terreno. Los datos se actualizan en tiempo real.</p>
+    </div>
+    <div class="app-screens">
+      <div class="app-screen fade-in">
+        <div class="app-screen-header">
+          <div class="app-screen-title">🔔 ALERTAS EN CURSO</div>
+          <div class="live-badge" style="font-size:.6rem">VIVO</div>
+        </div>
+        <div class="app-screen-body">
+          <div class="app-list-item" id="al1"><div class="app-list-dot" id="al1dot" style="background:#EF4444"></div><div class="app-list-text" id="al1txt">Sin documentos — Contrato Norte</div><div class="app-list-time">hace 4m</div></div>
+          <div class="app-list-item" id="al2"><div class="app-list-dot" id="al2dot" style="background:#F59E0B"></div><div class="app-list-text" id="al2txt">Retraso en ronda — Instalación 7</div><div class="app-list-time">hace 12m</div></div>
+          <div class="app-list-item"><div class="app-list-dot" style="background:#EF4444"></div><div class="app-list-text">Item checklist fallido — Zona Sur</div><div class="app-list-time">hace 18m</div></div>
+          <div class="app-list-item"><div class="app-list-dot"></div><div class="app-list-text">Alerta resuelta — Contrato Centro</div><div class="app-list-time">hace 25m</div></div>
+        </div>
+      </div>
+      <div class="app-screen fade-in">
+        <div class="app-screen-header">
+          <div class="app-screen-title">📊 ESTADO OPERACIONAL</div>
+          <div class="live-badge" style="font-size:.6rem">VIVO</div>
+        </div>
+        <div class="app-screen-body">
+          <div class="app-stat-row">
+            <div class="app-stat-box"><div class="app-stat-val" id="as1">23</div><div class="app-stat-lbl">Supervisores activos</div></div>
+            <div class="app-stat-box"><div class="app-stat-val" id="as2" style="color:var(--accent)">91%</div><div class="app-stat-lbl">Cumplimiento</div></div>
+          </div>
+          <div class="app-stat-row">
+            <div class="app-stat-box"><div class="app-stat-val" id="as3" style="color:#F59E0B">5</div><div class="app-stat-lbl">Alertas pendientes</div></div>
+            <div class="app-stat-box"><div class="app-stat-val" id="as4" style="color:#22C55E">38</div><div class="app-stat-lbl">Rondas completadas</div></div>
+          </div>
+          <div style="margin-top:10px;background:rgba(26,95,204,0.08);border:1px solid rgba(26,95,204,0.15);border-radius:8px;padding:10px 12px">
+            <div style="font-size:.65rem;color:rgba(255,255,255,.4);margin-bottom:6px">COBERTURA DEL MES</div>
+            <div style="background:rgba(255,255,255,.07);border-radius:4px;height:6px;overflow:hidden"><div id="app-bar" style="width:87%;height:100%;background:linear-gradient(90deg,var(--blue),var(--accent));border-radius:4px;transition:width .8s ease"></div></div>
+            <div id="app-bar-text" style="font-size:.65rem;color:rgba(255,255,255,.35);margin-top:4px">87% de instalaciones supervisadas</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -351,13 +457,13 @@
     </div>
     <div class="features-grid">
       <div class="feature-card fade-in"><div class="feature-icon">✅</div><div class="feature-title">Checklist digital configurable</div><div class="feature-desc">Define los ítems a controlar para documentos, infraestructura y personal. Completamente personalizable por empresa y proceso.</div></div>
-      <div class="feature-card fade-in"><div class="feature-icon">📸</div><div class="feature-title">Evidencia fotográfica obligatoria</div><div class="feature-desc">La app exige fotos antes de permitir enviar la supervisión. Evidencia real con timestamp y geolocalización automática.</div></div>
-      <div class="feature-card fade-in"><div class="feature-icon">🔔</div><div class="feature-title">Alertas automáticas por correo</div><div class="feature-desc">Cuando un ítem falla, se notifica al responsable en segundos. Se resuelve automáticamente en la próxima supervisión aprobada.</div></div>
-      <div class="feature-card fade-in"><div class="feature-icon">📊</div><div class="feature-title">Dashboard gerencial en tiempo real</div><div class="feature-desc">Vista completa del estado operacional: cumplimiento, cobertura de instalaciones, alertas activas y mapa de ubicaciones GPS.</div></div>
+      <div class="feature-card fade-in"><div class="feature-icon">📸</div><div class="feature-title">Evidencia fotográfica obligatoria</div><div class="feature-desc">La app exige fotos antes de enviar la supervisión. Evidencia real con timestamp y geolocalización GPS irrefutable.</div></div>
+      <div class="feature-card fade-in"><div class="feature-icon">🔔</div><div class="feature-title">Alertas automáticas por correo</div><div class="feature-desc">Cuando un control predeterminado no cumple el estándar, el sistema notifica al encargado responsable automáticamente. Nada se pasa por alto.</div></div>
+      <div class="feature-card fade-in"><div class="feature-icon">📊</div><div class="feature-title">Dashboard gerencial en tiempo real</div><div class="feature-desc">Visibilidad en minutos del estado Operacional, Laboral, Riesgo y Cliente de tu organización. Alertas activas y mapa GPS incluidos.</div></div>
+      <div class="feature-card fade-in"><div class="feature-icon">🖥️</div><div class="feature-title">Modo pantalla completa</div><div class="feature-desc">Proyecta el dashboard en un monitor de tu empresa para que toda la gerencia vea en vivo el estado de los controles operacionales.</div></div>
       <div class="feature-card fade-in"><div class="feature-icon">📄</div><div class="feature-title">Reportes exportables a Excel y PDF</div><div class="feature-desc">Genera informes ejecutivos con un clic. Historial completo ideal para auditorías, reuniones de gerencia y rendición de cuentas.</div></div>
-      <div class="feature-card fade-in"><div class="feature-icon">📍</div><div class="feature-title">Geolocalización GPS automática</div><div class="feature-desc">Cada supervisión registra coordenadas GPS sin acción adicional del usuario. Confirma presencia real en terreno.</div></div>
+      <div class="feature-card fade-in"><div class="feature-icon">📍</div><div class="feature-title">Geolocalización GPS automática</div><div class="feature-desc">Cada supervisión registra coordenadas GPS sin acción adicional. Confirma presencia real en terreno, sin posibilidad de falsificación.</div></div>
       <div class="feature-card fade-in"><div class="feature-icon">📶</div><div class="feature-title">Funciona sin internet</div><div class="feature-desc">Si no hay señal, la app guarda la supervisión offline y sincroniza automáticamente al recuperar conexión. Cero pérdida de datos.</div></div>
-      <div class="feature-card fade-in"><div class="feature-icon">🏢</div><div class="feature-title">Multi-empresa y multi-contrato</div><div class="feature-desc">Gestiona múltiples empresas, contratos e instalaciones desde un mismo panel administrativo. Escalable sin límites.</div></div>
       <div class="feature-card fade-in"><div class="feature-icon">📅</div><div class="feature-title">Reportes programados automáticos</div><div class="feature-desc">Configura envíos automáticos de resúmenes operacionales por correo a los días y horarios que tu organización requiera.</div></div>
     </div>
   </div>
@@ -374,9 +480,9 @@
       <div class="diff-card fade-in"><div class="diff-icon">📱</div><div class="diff-title">Mobile-first desde el primer día</div><div class="diff-desc">Interfaz diseñada para usarse con el pulgar, en terreno, bajo condiciones reales. Sin capacitación compleja ni manuales extensos.</div></div>
       <div class="diff-card fade-in"><div class="diff-icon">🔒</div><div class="diff-title">Evidencia que no se puede falsificar</div><div class="diff-desc">Las fotos se toman desde dentro de la app con timestamp y GPS automático. No se pueden subir imágenes antiguas de la galería.</div></div>
       <div class="diff-card fade-in"><div class="diff-icon">⚡</div><div class="diff-title">Sin instalación ni servidores propios</div><div class="diff-desc">100% en la nube. Tu organización no necesita comprar ni mantener infraestructura tecnológica. Operativo desde el día 1.</div></div>
+      <div class="diff-card fade-in"><div class="diff-icon">🎯</div><div class="diff-title">Control preventivo, no reactivo</div><div class="diff-desc">SUPERCOR detecta el riesgo antes de que se convierta en multa o problema. Pasas de apagar incendios a prevenirlos con anticipación.</div></div>
       <div class="diff-card fade-in"><div class="diff-icon">🎛️</div><div class="diff-title">Configurable a tu operación</div><div class="diff-desc">Los checklists, fotos obligatorias y alertas se definen según los estándares de cada empresa. No hay un modelo único impuesto.</div></div>
-      <div class="diff-card fade-in"><div class="diff-icon">🇨🇱</div><div class="diff-title">Hecho en Chile para Chile</div><div class="diff-desc">Desarrollado con foco en el mercado local. Soporte en español, facturación nacional y comprensión real del contexto operacional chileno.</div></div>
-      <div class="diff-card fade-in"><div class="diff-icon">💰</div><div class="diff-title">Precio accesible y transparente</div><div class="diff-desc">Sin costos ocultos ni licencias complejas. Pagas por lo que usas. Diseñado para organizaciones que necesitan soluciones reales.</div></div>
+      <div class="diff-card fade-in"><div class="diff-icon">💰</div><div class="diff-title">Precio accesible y transparente</div><div class="diff-desc">Sin costos ocultos ni licencias complejas. Pagas por lo que usas y escalas cuando tu operación crece.</div></div>
     </div>
   </div>
 </section>
@@ -391,10 +497,10 @@
     <div class="benefits-grid">
       <div class="benefit-card fade-in"><div class="benefit-icon">⏱️</div><div class="benefit-title">Ahorro de tiempo</div><div class="benefit-desc">Elimina el tiempo perdido transcribiendo planillas. El reporte se genera solo al enviar la supervisión.</div></div>
       <div class="benefit-card fade-in"><div class="benefit-icon">🎯</div><div class="benefit-title">Mayor control operacional</div><div class="benefit-desc">Sabe exactamente qué ocurre en cada instalación, sin depender de llamadas o informes tardíos.</div></div>
-      <div class="benefit-card fade-in"><div class="benefit-icon">📉</div><div class="benefit-title">Menos errores</div><div class="benefit-desc">Los checklists guían paso a paso. Se acabaron los olvidos, las omisiones y los reportes incompletos.</div></div>
+      <div class="benefit-card fade-in"><div class="benefit-icon">📉</div><div class="benefit-title">Reducción de multas</div><div class="benefit-desc">Detecta incumplimientos antes de que se conviertan en multas o sanciones de organismos fiscalizadores.</div></div>
       <div class="benefit-card fade-in"><div class="benefit-icon">🏛️</div><div class="benefit-title">Respaldo ante auditorías</div><div class="benefit-desc">Historial completo con fotos, fechas, GPS y observaciones. Documentación irrefutable ante cualquier fiscalización.</div></div>
       <div class="benefit-card fade-in"><div class="benefit-icon">📈</div><div class="benefit-title">Mejor toma de decisiones</div><div class="benefit-desc">Datos reales en tiempo real. La dirección decide con información concreta y actualizada, no con suposiciones.</div></div>
-      <div class="benefit-card fade-in"><div class="benefit-icon">🤝</div><div class="benefit-title">Mayor confianza del cliente</div><div class="benefit-desc">Presenta reportes con fotos y métricas de cumplimiento. Demuestra profesionalismo y diferénciate de tu competencia.</div></div>
+      <div class="benefit-card fade-in"><div class="benefit-icon">🤝</div><div class="benefit-title">Mayor confianza del cliente</div><div class="benefit-desc">Presenta reportes con fotos y métricas de cumplimiento. Demuestra profesionalismo y diferénciate de la competencia.</div></div>
     </div>
   </div>
 </section>
@@ -406,15 +512,24 @@
       <h2 class="section-title">Simple, transparente y escalable</h2>
       <p class="section-subtitle">Sin contratos anuales obligatorios. Sin costos ocultos. Cancela cuando quieras.</p>
     </div>
+    <div class="pricing-note fade-in"><strong>Todos los planes incluyen exactamente las mismas funcionalidades.</strong> Lo que cambia es la cantidad de perfiles de control — elige el tamaño que se ajuste a tu operación.</div>
     <div class="pricing-grid">
       <div class="pricing-card fade-in">
         <div class="pricing-name">Básico</div>
-        <div style="font-size:.8rem;color:var(--gray-400);margin:.5rem 0">Para equipos pequeños</div>
+        <div style="font-size:.8rem;color:var(--gray-400);margin:.5rem 0">Para operaciones pequeñas</div>
         <div class="pricing-price">A convenir</div>
         <div class="pricing-period">por mes · por empresa</div>
+        <div class="pricing-profiles"><div class="pricing-profiles-main">Hasta 16 perfiles de control</div><div class="pricing-profiles-sub">+ 5 perfiles de administrador</div></div>
         <ul class="pricing-features">
-          <li>Hasta 3 supervisores</li><li>Instalaciones ilimitadas</li><li>Checklist configurable</li>
-          <li>Evidencia fotográfica</li><li>Alertas por correo</li><li>Dashboard básico</li><li>Soporte por correo</li>
+          <li>Checklist digital configurable</li>
+          <li>Evidencia fotográfica con GPS</li>
+          <li>Alertas automáticas por correo</li>
+          <li>Dashboard gerencial en tiempo real</li>
+          <li>Exportación Excel y PDF</li>
+          <li>Reportes programados automáticos</li>
+          <li>Modo pantalla completa</li>
+          <li>Funciona sin internet (modo offline)</li>
+          <li>Soporte por correo</li>
         </ul>
         <a href="#demo" class="pricing-cta pricing-cta-outline">Solicitar demo</a>
       </div>
@@ -424,11 +539,17 @@
         <div style="font-size:.8rem;color:rgba(255,255,255,.3);margin:.5rem 0">Para organizaciones en crecimiento</div>
         <div class="pricing-price">A convenir</div>
         <div class="pricing-period">por mes · por empresa</div>
+        <div class="pricing-profiles"><div class="pricing-profiles-main">Hasta 40 perfiles de control</div><div class="pricing-profiles-sub">+ 5 perfiles de administrador</div></div>
         <ul class="pricing-features">
-          <li>Supervisores ilimitados</li><li>Instalaciones y contratos ilimitados</li>
-          <li>Fotos obligatorias configurables</li><li>Alertas automáticas avanzadas</li>
-          <li>Dashboard gerencial completo</li><li>Exportación Excel y PDF</li>
-          <li>Reportes programados</li><li>Soporte prioritario</li>
+          <li>Checklist digital configurable</li>
+          <li>Evidencia fotográfica con GPS</li>
+          <li>Alertas automáticas por correo</li>
+          <li>Dashboard gerencial en tiempo real</li>
+          <li>Exportación Excel y PDF</li>
+          <li>Reportes programados automáticos</li>
+          <li>Modo pantalla completa</li>
+          <li>Funciona sin internet (modo offline)</li>
+          <li>Soporte prioritario</li>
         </ul>
         <a href="#demo" class="pricing-cta pricing-cta-solid">Solicitar demo gratis</a>
       </div>
@@ -437,15 +558,22 @@
         <div style="font-size:.8rem;color:var(--gray-400);margin:.5rem 0">Para grandes operaciones</div>
         <div class="pricing-price">Personalizado</div>
         <div class="pricing-period">cotización a medida</div>
+        <div class="pricing-profiles"><div class="pricing-profiles-main">Perfiles ilimitados</div><div class="pricing-profiles-sub">Administradores ilimitados</div></div>
         <ul class="pricing-features">
-          <li>Todo lo del plan Profesional</li><li>Múltiples empresas en un panel</li>
-          <li>Onboarding y capacitación</li><li>Integraciones personalizadas</li>
-          <li>SLA garantizado</li><li>Gerente de cuenta dedicado</li>
+          <li>Checklist digital configurable</li>
+          <li>Evidencia fotográfica con GPS</li>
+          <li>Alertas automáticas por correo</li>
+          <li>Dashboard gerencial en tiempo real</li>
+          <li>Exportación Excel y PDF</li>
+          <li>Reportes programados automáticos</li>
+          <li>Modo pantalla completa</li>
+          <li>Funciona sin internet (modo offline)</li>
+          <li>Onboarding, capacitación y gerente de cuenta</li>
         </ul>
         <a href="#contacto" class="pricing-cta pricing-cta-outline">Hablar con ventas</a>
       </div>
     </div>
-    <p style="text-align:center;font-size:.85rem;color:var(--gray-400);margin-top:2rem">🎁 Todos los planes incluyen <strong>30 días de prueba gratuita</strong> sin necesidad de tarjeta de crédito.</p>
+    <p style="text-align:center;font-size:.85rem;color:var(--gray-400);margin-top:2rem">🎁 Todos los planes incluyen <strong>15 días de prueba gratuita</strong> sin tarjeta de crédito.</p>
   </div>
 </section>
 
@@ -453,7 +581,7 @@
   <div class="container">
     <div class="text-center fade-in">
       <div class="section-badge">Prueba gratuita</div>
-      <h2 class="section-title">Prueba SUPERCOR gratis por 30 días</h2>
+      <h2 class="section-title">Prueba SUPERCOR gratis por 15 días</h2>
       <p class="section-subtitle">Sin tarjeta de crédito. Sin compromiso. Te configuramos la cuenta y te acompañamos en el proceso.</p>
     </div>
     <div class="demo-box fade-in">
@@ -466,23 +594,33 @@
           <div class="form-group"><label class="form-label">Correo corporativo *</label><input type="email" class="form-input" id="demo-email" placeholder="juan@empresa.cl" /></div>
           <div class="form-group"><label class="form-label">Teléfono / WhatsApp *</label><input type="tel" class="form-input" id="demo-telefono" placeholder="+56 9 XXXX XXXX" /></div>
         </div>
-        <div class="form-group">
-          <label class="form-label">¿Cuántos supervisores tiene tu organización?</label>
-          <select class="form-select" id="demo-supervisores">
-            <option value="">Seleccionar...</option>
-            <option value="1-5">1 a 5 supervisores</option>
-            <option value="6-20">6 a 20 supervisores</option>
-            <option value="21-50">21 a 50 supervisores</option>
-            <option value="50+">Más de 50 supervisores</option>
-          </select>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Cantidad de perfiles requeridos</label>
+            <select class="form-select" id="demo-supervisores">
+              <option value="">Seleccionar...</option>
+              <option value="1-16">1 a 16 perfiles (Plan Básico)</option>
+              <option value="17-40">17 a 40 perfiles (Plan Profesional)</option>
+              <option value="40+">Más de 40 perfiles (Enterprise)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Plan de interés</label>
+            <select class="form-select" id="demo-plan">
+              <option value="">Seleccionar...</option>
+              <option value="Básico">Básico — hasta 16 perfiles</option>
+              <option value="Profesional">Profesional — hasta 40 perfiles</option>
+              <option value="Enterprise">Enterprise — sin límites</option>
+            </select>
+          </div>
         </div>
-        <button class="btn-form" onclick="submitDemo()">✦ Solicitar mi demo gratuita de 30 días</button>
+        <button class="btn-form" onclick="submitDemo()">✦ Solicitar mi demo gratuita de 15 días</button>
         <p class="form-note">Nos contactaremos contigo en menos de 24 horas hábiles</p>
       </div>
       <div class="form-success" id="demo-success">
         <div class="form-success-icon">✅</div>
         <div class="form-success-title">¡Solicitud enviada!</div>
-        <div class="form-success-text">Gracias por tu interés en SUPERCOR. Nos contactaremos en menos de 24 horas hábiles para coordinar tu demo gratuita.</div>
+        <div class="form-success-text">Gracias por tu interés en SUPERCOR. Te contactaremos en menos de 24 horas hábiles para coordinar tu demo gratuita de 15 días.</div>
       </div>
     </div>
   </div>
@@ -498,16 +636,19 @@
     <div class="contact-grid">
       <div class="contact-info fade-in">
         <div class="contact-item"><div class="contact-icon">📧</div><div><div class="contact-item-title">Correo electrónico</div><div class="contact-item-value"><a href="mailto:contacto@supercor.cl">contacto@supercor.cl</a></div></div></div>
-        <div class="contact-item"><div class="contact-icon">💬</div><div><div class="contact-item-title">WhatsApp</div><div class="contact-item-value"><a href="https://wa.me/56900000000" target="_blank">+56 9 XXXX XXXX</a></div></div></div>
-        <div class="contact-item"><div class="contact-icon">📍</div><div><div class="contact-item-title">Ubicación</div><div class="contact-item-value">Santiago, Chile</div></div></div>
-        <div class="contact-item"><div class="contact-icon">🕐</div><div><div class="contact-item-title">Horario de atención</div><div class="contact-item-value">Lunes a viernes, 9:00 a 18:00 hrs</div></div></div>
+        <div class="contact-item"><div class="contact-icon">💬</div><div><div class="contact-item-title">WhatsApp</div><div class="contact-item-value"><a href="https://wa.me/56995950843" target="_blank">+56 9 9595 0843</a></div></div></div>
+        <div class="contact-item"><div class="contact-icon">📞</div><div><div class="contact-item-title">Teléfono</div><div class="contact-item-value"><a href="tel:+56977652571">+56 9 7765 2571</a></div></div></div>
+        <div class="contact-item"><div class="contact-icon">🕐</div><div><div class="contact-item-title">Horario de atención</div><div class="contact-item-value">24/7 · Lunes a domingo</div></div></div>
       </div>
       <div class="contact-form-box fade-in">
-        <input type="text" class="contact-form-input" id="c-nombre" placeholder="Nombre completo" />
-        <input type="email" class="contact-form-input" id="c-email" placeholder="Correo electrónico" />
-        <input type="text" class="contact-form-input" id="c-empresa" placeholder="Empresa u organización" />
-        <textarea class="contact-form-input" id="c-mensaje" placeholder="¿En qué podemos ayudarte?"></textarea>
-        <button class="btn-contact" onclick="submitContact()">Enviar mensaje</button>
+        <div id="contact-form-inner">
+          <input type="text" class="contact-form-input" id="c-nombre" placeholder="Nombre completo *" />
+          <input type="email" class="contact-form-input" id="c-email" placeholder="Correo electrónico *" />
+          <input type="text" class="contact-form-input" id="c-empresa" placeholder="Empresa u organización" />
+          <textarea class="contact-form-input" id="c-mensaje" placeholder="¿En qué podemos ayudarte? *"></textarea>
+          <button class="btn-contact" onclick="submitContact()">Enviar mensaje</button>
+        </div>
+        <div class="contact-success" id="contact-success">✅ ¡Mensaje enviado! Te responderemos pronto a la brevedad.</div>
       </div>
     </div>
   </div>
@@ -517,6 +658,7 @@
   <div class="footer-inner">
     <a href="#inicio" class="footer-logo"><img src="logo.png" alt="SUPERCOR" /></a>
     <ul class="footer-links">
+      <li><a href="#propuesta">Propuesta</a></li>
       <li><a href="#como-funciona">Cómo funciona</a></li>
       <li><a href="#funcionalidades">Funcionalidades</a></li>
       <li><a href="#precios">Precios</a></li>
@@ -527,41 +669,55 @@
   </div>
 </footer>
 
-<a href="https://wa.me/56900000000" target="_blank" class="whatsapp-float" title="Escríbenos por WhatsApp">
+<a href="https://wa.me/56995950843" target="_blank" class="whatsapp-float" title="Escríbenos por WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
 <script>
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-  }, {threshold:.1});
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-  function toggleMenu() {
-    const l = document.querySelector('.nav-links');
-    if(l.style.display==='flex'){l.style.display='none';}
-    else{l.style.display='flex';l.style.flexDirection='column';l.style.position='absolute';l.style.top='70px';l.style.left='0';l.style.right='0';l.style.background='rgba(6,10,16,0.98)';l.style.padding='1.5rem 2rem';l.style.gap='1.25rem';l.style.borderBottom='1px solid rgba(27,110,255,0.15)';}
-  }
-  document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click',()=>document.querySelector('.nav-links').style.display='none'));
-
-  function submitDemo() {
+  const obs = new IntersectionObserver(es => es.forEach(e => {if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.1});
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+  function toggleMenu(){const l=document.querySelector('.nav-links');if(l.style.display==='flex'){l.style.display='none';}else{l.style.display='flex';l.style.flexDirection='column';l.style.position='absolute';l.style.top='72px';l.style.left='0';l.style.right='0';l.style.background='rgba(5,12,24,0.98)';l.style.padding='1.5rem 2rem';l.style.gap='1.25rem';l.style.borderBottom='1px solid rgba(26,95,204,0.15)';}}
+  document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.nav-links').style.display='none'));
+  const DD=[
+    {s:47,c:94,a:3,sv:2,b:87,a1:'Sin documentos — Contrato Norte',a1ok:false,a2:'Ronda completada — Centro',a2ok:true},
+    {s:49,c:96,a:2,sv:1,b:89,a1:'Checklist incompleto — Zona Oriente',a1ok:false,a2:'Control validado — Instalación 12',a2ok:true},
+    {s:52,c:91,a:4,sv:3,b:85,a1:'Retraso en ronda — Contrato Sur',a1ok:false,a2:'Alerta resuelta — Sector Norte',a2ok:true},
+    {s:44,c:98,a:1,sv:0,b:92,a1:'Item fallido — Documentación',a1ok:false,a2:'Supervisión 100% — Contrato A',a2ok:true},
+    {s:55,c:93,a:3,sv:2,b:88,a1:'Sin visita — Instalación 5',a1ok:false,a2:'Ronda OK — 8 instalaciones',a2ok:true},
+  ];
+  let di=0;
+  setInterval(()=>{di=(di+1)%DD.length;const d=DD[di];document.getElementById('stat-sup').textContent=d.s;document.getElementById('stat-cum').textContent=d.c+'%';document.getElementById('stat-ale').textContent=d.a;document.getElementById('stat-sin').textContent=d.sv;document.getElementById('bar-pct').textContent=d.b+'%';document.getElementById('bar-fill').style.width=d.b+'%';document.getElementById('a1txt').textContent=d.a1;document.getElementById('a2txt').textContent=d.a2;const a1=document.getElementById('a1');a1.className='mockup-alert'+(d.a1ok?' ok':'');document.getElementById('a1dot').style.background=d.a1ok?'#22C55E':'#EF4444';},3500);
+  const AD=[
+    {s1:23,s2:'91%',s3:5,s4:38,b:87,bt:'87% de instalaciones supervisadas'},
+    {s1:25,s2:'94%',s3:3,s4:41,b:90,bt:'90% de instalaciones supervisadas'},
+    {s1:21,s2:'88%',s3:6,s4:35,b:83,bt:'83% de instalaciones supervisadas'},
+    {s1:27,s2:'97%',s3:1,s4:44,b:94,bt:'94% de instalaciones supervisadas'},
+  ];
+  let ai=0;
+  setInterval(()=>{ai=(ai+1)%AD.length;const d=AD[ai];document.getElementById('as1').textContent=d.s1;document.getElementById('as2').textContent=d.s2;document.getElementById('as3').textContent=d.s3;document.getElementById('as4').textContent=d.s4;document.getElementById('app-bar').style.width=d.b+'%';document.getElementById('app-bar-text').textContent=d.bt;},4000);
+  async function submitDemo(){
     const n=document.getElementById('demo-nombre').value.trim();
     const e=document.getElementById('demo-empresa').value.trim();
     const em=document.getElementById('demo-email').value.trim();
     const t=document.getElementById('demo-telefono').value.trim();
     if(!n||!e||!em||!t){alert('Por favor completa todos los campos obligatorios.');return;}
+    const plan=document.getElementById('demo-plan').value||'No indicado';
+    const sups=document.getElementById('demo-supervisores').value||'No indicado';
+    try{await fetch('https://api.resend.com/emails',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer re_D2eMcr3h_GxnjVyrhLpsMYzB9zPaRDDjC'},body:JSON.stringify({from:'SUPERCOR Web <alertas@supercor.cl>',to:['contacto@supercor.cl'],subject:`🎯 Demo — ${n} (${e})`,html:`<h2>Nueva solicitud de demo</h2><p><b>Nombre:</b> ${n}</p><p><b>Empresa:</b> ${e}</p><p><b>Correo:</b> ${em}</p><p><b>Teléfono:</b> ${t}</p><p><b>Supervisores:</b> ${sups}</p><p><b>Plan:</b> ${plan}</p>`})});}catch(err){}
     document.getElementById('demo-form').style.display='none';
     document.getElementById('demo-success').style.display='block';
-    const msg=`Hola, soy ${n} de ${e}. Quiero solicitar una demo de SUPERCOR. Mi correo es ${em} y mi teléfono es ${t}.`;
-    setTimeout(()=>window.open(`https://wa.me/56900000000?text=${encodeURIComponent(msg)}`,'_blank'),1500);
+    const msg=`Hola SUPERCOR, soy ${n} de ${e}. Quiero solicitar demo gratuita. Correo: ${em} | Tel: ${t} | Plan: ${plan}`;
+    setTimeout(()=>window.open(`https://wa.me/56995950843?text=${encodeURIComponent(msg)}`,'_blank'),1500);
   }
-
-  function submitContact() {
+  async function submitContact(){
     const n=document.getElementById('c-nombre').value.trim();
     const e=document.getElementById('c-email').value.trim();
+    const emp=document.getElementById('c-empresa').value.trim();
     const m=document.getElementById('c-mensaje').value.trim();
     if(!n||!e||!m){alert('Por favor completa nombre, correo y mensaje.');return;}
-    window.open(`https://wa.me/56900000000?text=${encodeURIComponent(`Hola, soy ${n} (${e}). ${m}`)}`,'_blank');
+    try{await fetch('https://api.resend.com/emails',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer re_D2eMcr3h_GxnjVyrhLpsMYzB9zPaRDDjC'},body:JSON.stringify({from:'SUPERCOR Web <alertas@supercor.cl>',to:['contacto@supercor.cl'],subject:`💬 Consulta — ${n}`,html:`<h2>Nueva consulta desde la web</h2><p><b>Nombre:</b> ${n}</p><p><b>Correo:</b> ${e}</p><p><b>Empresa:</b> ${emp||'No indicada'}</p><p><b>Mensaje:</b> ${m}</p>`})});}catch(err){}
+    document.getElementById('contact-form-inner').style.display='none';
+    document.getElementById('contact-success').style.display='block';
   }
 </script>
 </body>
