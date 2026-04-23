@@ -262,6 +262,16 @@
       .hero-stats{gap:1.5rem}
       .mockup-grid{grid-template-columns:1fr 1fr}
     }
+    #manifiesto{background:linear-gradient(135deg,var(--navy) 0%,var(--black) 100%);color:white;position:relative;overflow:hidden;padding:5rem 2rem;border-top:1px solid rgba(26,95,204,0.2);border-bottom:1px solid rgba(26,95,204,0.2)}
+    #manifiesto::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(26,95,204,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(26,95,204,0.06) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+    #manifiesto::after{content:'';position:absolute;width:700px;height:700px;background:radial-gradient(circle,rgba(26,95,204,0.18) 0%,transparent 65%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+    .manifiesto-container{max-width:900px;margin:0 auto;text-align:center;position:relative;z-index:1}
+    .manifiesto-badge{display:inline-block;background:rgba(26,95,204,0.15);color:var(--accent);font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:6px 16px;border-radius:20px;border:1px solid rgba(26,95,204,0.35);margin-bottom:1.5rem}
+    .manifiesto-headline{font-family:var(--font-title);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;line-height:1.2;color:var(--white);margin-bottom:2rem}
+    .manifiesto-headline .accent{background:linear-gradient(90deg,var(--blue-bright),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .manifiesto-slogan{font-family:var(--font-title);font-size:clamp(1.1rem,2vw,1.4rem);font-weight:600;color:var(--accent);letter-spacing:.05em;margin-bottom:1.5rem;text-transform:uppercase}
+    .manifiesto-slogan-sub{font-size:1.05rem;color:var(--silver-dim);line-height:1.75;max-width:720px;margin:0 auto}
+    .manifiesto-divider{width:60px;height:3px;background:linear-gradient(90deg,var(--blue),var(--accent));margin:0 auto 2rem;border-radius:2px}
     .fade-in{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
     .fade-in.visible{opacity:1;transform:translateY(0)}
   </style>
@@ -323,7 +333,15 @@
     </div>
   </div>
 </section>
-
+<section id="manifiesto">
+  <div class="manifiesto-container fade-in">
+    <div class="manifiesto-badge">Plataforma SaaS de Control de Riesgo Empresarial</div>
+    <h2 class="manifiesto-headline">Convierte cada control de tu operación en <span class="accent">evidencia irrefutable</span> ante fiscalizaciones.<br>Evita multas, demandas y pérdida de contratos.</h2>
+    <div class="manifiesto-divider"></div>
+    <div class="manifiesto-slogan">No vendemos una plataforma — vendemos Control Operacional y Cultura de Cumplimiento</div>
+    <p class="manifiesto-slogan-sub">Operamos en terreno, donde todo ocurre. Validamos y evidenciamos cada control crítico expuesto a sanciones de la Dirección del Trabajo y la Subsecretaría de Prevención del Delito. Digitaliza tu supervisión y empieza a operar con visibilidad real.</p>
+  </div>
+</section>
 <section id="propuesta">
   <div class="container">
     <div class="propuesta-hero fade-in">
