@@ -693,6 +693,7 @@
   ];
   let ai=0;
   setInterval(()=>{ai=(ai+1)%AD.length;const d=AD[ai];document.getElementById('as1').textContent=d.s1;document.getElementById('as2').textContent=d.s2;document.getElementById('as3').textContent=d.s3;document.getElementById('as4').textContent=d.s4;document.getElementById('app-bar').style.width=d.b+'%';document.getElementById('app-bar-text').textContent=d.bt;},4000);
+
   async function submitDemo(){
     const n=document.getElementById('demo-nombre').value.trim();
     const e=document.getElementById('demo-empresa').value.trim();
@@ -701,19 +702,48 @@
     if(!n||!e||!em||!t){alert('Por favor completa todos los campos obligatorios.');return;}
     const plan=document.getElementById('demo-plan').value||'No indicado';
     const sups=document.getElementById('demo-supervisores').value||'No indicado';
-    try{await fetch('https://api.resend.com/emails',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer re_D2eMcr3h_GxnjVyrhLpsMYzB9zPaRDDjC'},body:JSON.stringify({from:'SUPERCOR Web <alertas@supercor.cl>',to:['contacto@supercor.cl'],subject:`🎯 Demo — ${n} (${e})`,html:`<h2>Nueva solicitud de demo</h2><p><b>Nombre:</b> ${n}</p><p><b>Empresa:</b> ${e}</p><p><b>Correo:</b> ${em}</p><p><b>Teléfono:</b> ${t}</p><p><b>Supervisores:</b> ${sups}</p><p><b>Plan:</b> ${plan}</p>`})});}catch(err){}
+    try{
+      await fetch('https://formspree.io/f/mjgjjodn',{
+        method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify({
+          _subject:`🎯 Demo SUPERCOR — ${n} (${e})`,
+          tipo:'Solicitud de Demo',
+          nombre:n,
+          empresa:e,
+          email:em,
+          telefono:t,
+          perfiles:sups,
+          plan:plan
+        })
+      });
+    }catch(err){console.error(err);}
     document.getElementById('demo-form').style.display='none';
     document.getElementById('demo-success').style.display='block';
     const msg=`Hola SUPERCOR, soy ${n} de ${e}. Quiero solicitar demo gratuita. Correo: ${em} | Tel: ${t} | Plan: ${plan}`;
     setTimeout(()=>window.open(`https://wa.me/56995950843?text=${encodeURIComponent(msg)}`,'_blank'),1500);
   }
+
   async function submitContact(){
     const n=document.getElementById('c-nombre').value.trim();
     const e=document.getElementById('c-email').value.trim();
     const emp=document.getElementById('c-empresa').value.trim();
     const m=document.getElementById('c-mensaje').value.trim();
     if(!n||!e||!m){alert('Por favor completa nombre, correo y mensaje.');return;}
-    try{await fetch('https://api.resend.com/emails',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer re_D2eMcr3h_GxnjVyrhLpsMYzB9zPaRDDjC'},body:JSON.stringify({from:'SUPERCOR Web <alertas@supercor.cl>',to:['contacto@supercor.cl'],subject:`💬 Consulta — ${n}`,html:`<h2>Nueva consulta desde la web</h2><p><b>Nombre:</b> ${n}</p><p><b>Correo:</b> ${e}</p><p><b>Empresa:</b> ${emp||'No indicada'}</p><p><b>Mensaje:</b> ${m}</p>`})});}catch(err){}
+    try{
+      await fetch('https://formspree.io/f/mjgjjodn',{
+        method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify({
+          _subject:`💬 Consulta SUPERCOR — ${n}`,
+          tipo:'Consulta de Contacto',
+          nombre:n,
+          email:e,
+          empresa:emp||'No indicada',
+          mensaje:m
+        })
+      });
+    }catch(err){console.error(err);}
     document.getElementById('contact-form-inner').style.display='none';
     document.getElementById('contact-success').style.display='block';
   }
