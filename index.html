@@ -704,7 +704,7 @@
   const obs = new IntersectionObserver(es => es.forEach(e => {if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.1});
   document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
   function toggleMenu(){const l=document.querySelector('.nav-links');if(l.style.display==='flex'){l.style.display='none';}else{l.style.display='flex';l.style.flexDirection='column';l.style.position='absolute';l.style.top='72px';l.style.left='0';l.style.right='0';l.style.background='rgba(5,12,24,0.98)';l.style.padding='1.5rem 2rem';l.style.gap='1.25rem';l.style.borderBottom='1px solid rgba(26,95,204,0.15)';}}
-  document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.nav-links').style.display='none'));
+  document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>{if(window.innerWidth<=768){document.querySelector('.nav-links').style.display='none';}}));
   const DD=[
     {s:47,c:94,a:3,sv:2,b:87,a1:'Sin documentos — Contrato Norte',a1ok:false,a2:'Ronda completada — Centro',a2ok:true},
     {s:49,c:96,a:2,sv:1,b:89,a1:'Checklist incompleto — Zona Oriente',a1ok:false,a2:'Control validado — Instalación 12',a2ok:true},
