@@ -1,4 +1,7 @@
 {
+  "routes": [
+    { "src": "/ayuda", "dest": "/ayuda.html" }
+  ],
   "headers": [
     {
       "source": "/favicon.ico",
