@@ -9,22 +9,22 @@
   @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap');
 
   :root {
-    --bg: #0a0a0f;
-    --bg2: #111118;
-    --bg3: #16161f;
+    --bg: #050C18;
+    --bg2: #0A1628;
+    --bg3: #0F2240;
     --border: rgba(255,255,255,0.07);
-    --border2: rgba(255,255,255,0.12);
-    --green: #00e676;
-    --green2: #00c853;
-    --green-dim: rgba(0,230,118,0.1);
-    --green-dim2: rgba(0,230,118,0.06);
-    --text: #f0f0f0;
-    --text2: #9898a8;
-    --text3: #5a5a6e;
-    --accent: #00e676;
-    --red: #ff5252;
-    --amber: #ffab40;
-    --blue: #448aff;
+    --border2: rgba(58,127,224,0.18);
+    --green: #1A5FCC;
+    --green2: #3A7FE0;
+    --green-dim: rgba(26,95,204,0.15);
+    --green-dim2: rgba(26,95,204,0.08);
+    --text: #F0F4F8;
+    --text2: #9BA8BC;
+    --text3: #5A6878;
+    --accent: #00B4FF;
+    --red: #E63946;
+    --amber: #FFB800;
+    --blue: #1A5FCC;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -369,7 +369,7 @@
     cursor: pointer;
     border: none;
   }
-  .support-btn.whatsapp { background: #25D366; color: #000; }
+  .support-btn.whatsapp { background: #25D366; color: #fff; }
   .support-btn.whatsapp:hover { background: #1ebe5a; }
   .support-btn.email { background: var(--bg3); border: 1px solid var(--border2); color: var(--text); }
   .support-btn.email:hover { border-color: var(--green); color: var(--green); }
@@ -1134,6 +1134,16 @@
     </div>
   </div>
 
+  <!-- DESCARGA PDF -->
+  <div style="background: linear-gradient(135deg, var(--bg2) 0%, var(--bg3) 100%); border: 1px solid var(--border2); border-radius: 16px; padding: 2.5rem 2rem; margin-top: 3rem; text-align: center; position: relative; overflow: hidden;">
+    <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--blue), var(--accent));"></div>
+    <div style="display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; background: var(--green-dim); border: 1px solid rgba(26,95,204,0.3); border-radius: 16px; margin-bottom: 1rem; font-size: 2rem;">📄</div>
+    <h3 style="font-family: 'Sora', sans-serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text);">Manual de Usuario en PDF</h3>
+    <p style="color: var(--text2); font-size: 0.95rem; margin-bottom: 1.75rem; max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.6;">Descarga la guía oficial completa en formato PDF para imprimir, compartir con tu equipo o consultar sin conexión.</p>
+    <a href="/Manual_Usuario_SUPERCOR.pdf" download style="display: inline-flex; align-items: center; gap: 0.6rem; background: var(--blue); color: #fff; font-family: 'Sora', sans-serif; font-size: 0.95rem; font-weight: 600; padding: 0.9rem 2rem; border-radius: 10px; text-decoration: none; transition: all 0.2s; box-shadow: 0 4px 16px rgba(26,95,204,0.3);">⬇  Descargar manual (PDF)</a>
+    <div style="margin-top: 1rem; font-size: 0.8rem; color: var(--text3);">19 páginas · Documento oficial SUPERCOR</div>
+  </div>
+
   <!-- SOPORTE -->
   <div class="support-section">
     <h3>¿No encontraste lo que buscabas?</h3>
@@ -1176,7 +1186,7 @@
 </div>
 
 <script>
-const SYSTEM_PROMPT = `IMPORTANTE: NUNCA uses chilenismos. PROHIBIDO usar palabras como: pucha, lata, cachar, al tiro, ratito, solita, fome, bac�n, we�n, pololo, harto, plata. Usa SIEMPRE espa�ol neutro y profesional como si fueras el manual oficial de un software empresarial. Eres el asistente de ayuda de SUPERCOR, una plataforma SaaS de control operacional y supervisión en terreno.
+const SYSTEM_PROMPT = `Eres el asistente de ayuda de SUPERCOR, una plataforma SaaS de control operacional y supervisión en terreno.
 
 Respondes SOLO preguntas relacionadas con el uso de la aplicación SUPERCOR. Si te preguntan algo no relacionado, indica amablemente que solo puedes ayudar con dudas sobre SUPERCOR.
 
@@ -1342,5 +1352,3 @@ function showGuide(name) {
 </script>
 </body>
 </html>
-
-
