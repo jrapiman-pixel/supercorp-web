@@ -585,10 +585,7 @@
 <nav>
   <a href="/" class="nav-logo"><img src="logo_supercor_600w.png" alt="SUPERCOR"></a>
   <div class="nav-links">
-    <a href="#supervisor">Supervisor</a>
-    <a href="#rrhh">RRHH</a>
-    <a href="#jefatura">Jefatura</a>
-    <a href="#seguridad">Seguridad</a>
+    <a href="#" onclick="showGuide('supervisor'); document.getElementById('guide-supervisor').scrollIntoView({behavior:'smooth',block:'start'}); return false;">Supervisor</a><a href="#" onclick="showGuide('rrhh'); document.getElementById('guide-rrhh').scrollIntoView({behavior:'smooth',block:'start'}); return false;">RRHH</a><a href="#" onclick="showGuide('jefatura'); document.getElementById('guide-jefatura').scrollIntoView({behavior:'smooth',block:'start'}); return false;">Jefatura</a><a href="#" onclick="showGuide('seguridad'); document.getElementById('guide-seguridad').scrollIntoView({behavior:'smooth',block:'start'}); return false;">Seguridad</a>
   </div>
   <a href="/" class="nav-back">← Volver al sitio</a>
 </nav>
@@ -1352,3 +1349,4 @@ function showGuide(name) {
 </script>
 </body>
 </html>
+
