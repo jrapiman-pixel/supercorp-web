@@ -7,597 +7,131 @@
 <link rel="icon" href="favicon.ico">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap');
-
   :root {
-    --bg: #050C18;
-    --bg2: #0A1628;
-    --bg3: #0F2240;
-    --border: rgba(255,255,255,0.07);
-    --border2: rgba(58,127,224,0.18);
-    --green: #1A5FCC;
-    --green2: #3A7FE0;
-    --green-dim: rgba(26,95,204,0.15);
-    --green-dim2: rgba(26,95,204,0.08);
-    --text: #F0F4F8;
-    --text2: #9BA8BC;
-    --text3: #5A6878;
-    --accent: #00B4FF;
-    --red: #E63946;
-    --amber: #FFB800;
-    --blue: #1A5FCC;
+    --bg:#050C18;--bg2:#0A1628;--bg3:#0F2240;
+    --border:rgba(255,255,255,0.07);--border2:rgba(58,127,224,0.18);
+    --green:#1A5FCC;--green2:#3A7FE0;
+    --green-dim:rgba(26,95,204,0.15);--green-dim2:rgba(26,95,204,0.08);
+    --text:#F0F4F8;--text2:#9BA8BC;--text3:#5A6878;
+    --accent:#00B4FF;--blue:#1A5FCC;
   }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    font-family: 'Inter', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  /* NAV */
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(10,10,15,0.92);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 2rem;
-    height: 64px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .nav-logo img { height: 32px; }
-  .nav-links { display: flex; gap: 2rem; align-items: center; }
-  .nav-links a {
-    color: var(--text2);
-    text-decoration: none;
-    font-size: 0.875rem;
-    font-family: 'Sora', sans-serif;
-    font-weight: 500;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--green); }
-  .nav-links a.active { color: var(--green); }
-  .nav-back {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--green);
-    text-decoration: none;
-    font-size: 0.875rem;
-    font-family: 'Sora', sans-serif;
-    font-weight: 500;
-    border: 1px solid rgba(0,230,118,0.25);
-    padding: 0.4rem 1rem;
-    border-radius: 6px;
-    transition: all 0.2s;
-  }
-  .nav-back:hover { background: var(--green-dim); }
-
-  /* HERO */
-  .hero {
-    padding: 5rem 2rem 3rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -100px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 600px;
-    height: 400px;
-    background: radial-gradient(ellipse, rgba(0,230,118,0.08) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: var(--green-dim);
-    border: 1px solid rgba(0,230,118,0.2);
-    color: var(--green);
-    font-size: 0.75rem;
-    font-family: 'Sora', sans-serif;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 0.35rem 1rem;
-    border-radius: 100px;
-    margin-bottom: 1.5rem;
-  }
-  .hero-badge::before {
-    content: '';
-    width: 6px; height: 6px;
-    background: var(--green);
-    border-radius: 50%;
-    animation: pulse 2s infinite;
-  }
-  @keyframes pulse {
-    0%,100% { opacity:1; transform:scale(1); }
-    50% { opacity:0.5; transform:scale(1.4); }
-  }
-  .hero h1 {
-    font-family: 'Sora', sans-serif;
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 700;
-    line-height: 1.15;
-    margin-bottom: 1rem;
-  }
-  .hero h1 span { color: var(--green); }
-  .hero p {
-    color: var(--text2);
-    font-size: 1.1rem;
-    max-width: 560px;
-    margin: 0 auto 2.5rem;
-    line-height: 1.7;
-  }
-
-  /* PROFILE SELECTOR */
-  .profile-tabs {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    padding: 0 2rem;
-    margin-bottom: 3rem;
-    flex-wrap: wrap;
-  }
-  .profile-tab {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 1.25rem 2rem;
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    cursor: pointer;
-    transition: all 0.25s;
-    min-width: 160px;
-    font-family: 'Sora', sans-serif;
-  }
-  .profile-tab:hover {
-    border-color: var(--border2);
-    background: var(--bg3);
-  }
-  .profile-tab.active {
-    border-color: var(--green);
-    background: var(--green-dim2);
-  }
-  .profile-tab .tab-icon {
-    font-size: 2rem;
-    line-height: 1;
-  }
-  .profile-tab .tab-name {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--text);
-  }
-  .profile-tab .tab-desc {
-    font-size: 0.75rem;
-    color: var(--text2);
-    text-align: center;
-  }
-  .profile-tab.active .tab-name { color: var(--green); }
-
-  /* CONTENT SECTIONS */
-  .content {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 0 2rem 6rem;
-  }
-  .guide-section { display: none; }
-  .guide-section.active { display: block; }
-
-  /* SECTION HEADER */
-  .section-header {
-    margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .section-header h2 {
-    font-family: 'Sora', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-  .section-header p { color: var(--text2); font-size: 0.95rem; line-height: 1.6; }
-
-  /* STEP CARDS */
-  .steps { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem; }
-  .step {
-    display: flex;
-    gap: 1.25rem;
-    padding: 1.25rem;
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    transition: border-color 0.2s;
-  }
-  .step:hover { border-color: var(--border2); }
-  .step-num {
-    flex-shrink: 0;
-    width: 36px; height: 36px;
-    background: var(--green-dim);
-    border: 1px solid rgba(0,230,118,0.25);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Sora', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: var(--green);
-  }
-  .step-body { flex: 1; }
-  .step-title {
-    font-family: 'Sora', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 600;
-    margin-bottom: 0.4rem;
-    color: var(--text);
-  }
-  .step-desc { font-size: 0.875rem; color: var(--text2); line-height: 1.65; }
-  .step-desc strong { color: var(--text); font-weight: 500; }
-
-  /* STAGE INDICATOR */
-  .stage-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    background: var(--green-dim);
-    border: 1px solid rgba(0,230,118,0.2);
-    color: var(--green);
-    font-size: 0.72rem;
-    font-family: 'Sora', sans-serif;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 0.25rem 0.75rem;
-    border-radius: 100px;
-    margin-bottom: 0.75rem;
-    display: inline-block;
-  }
-
-  /* ALERT BOX */
-  .alert-box {
-    display: flex;
-    gap: 1rem;
-    padding: 1rem 1.25rem;
-    border-radius: 10px;
-    margin: 1rem 0;
-    font-size: 0.875rem;
-    line-height: 1.6;
-  }
-  .alert-box.info { background: rgba(68,138,255,0.08); border: 1px solid rgba(68,138,255,0.2); color: #90b8ff; }
-  .alert-box.warn { background: rgba(255,171,64,0.08); border: 1px solid rgba(255,171,64,0.2); color: #ffd080; }
-  .alert-box.tip { background: var(--green-dim); border: 1px solid rgba(0,230,118,0.2); color: #80ffb3; }
-  .alert-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
-
-  /* SUBSECTION */
-  .subsection { margin-bottom: 2.5rem; }
-  .subsection-title {
-    font-family: 'Sora', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  .subsection-title::before {
-    content: '';
-    width: 3px; height: 18px;
-    background: var(--green);
-    border-radius: 2px;
-    flex-shrink: 0;
-  }
-
-  /* INFO CARDS */
-  .info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    margin: 1rem 0;
-  }
-  .info-card {
-    padding: 1rem 1.25rem;
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-  }
-  .info-card-title { font-family: 'Sora', sans-serif; font-size: 0.8rem; font-weight: 600; color: var(--text2); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.06em; }
-  .info-card-value { font-size: 0.9rem; color: var(--text); line-height: 1.5; }
-
-  /* SECURITY SECTION */
-  .security-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1rem;
-  }
-  .security-card {
-    padding: 1.25rem;
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-  }
-  .security-card-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
-  .security-card-title { font-family: 'Sora', sans-serif; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; }
-  .security-card-desc { font-size: 0.83rem; color: var(--text2); line-height: 1.6; }
-
-  /* SUPPORT SECTION */
-  .support-section {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 2rem;
-    margin-top: 3rem;
-    text-align: center;
-  }
-  .support-section h3 {
-    font-family: 'Sora', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-  .support-section p { color: var(--text2); font-size: 0.9rem; margin-bottom: 1.5rem; }
-  .support-contacts {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  .support-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.65rem 1.5rem;
-    border-radius: 8px;
-    font-family: 'Sora', sans-serif;
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.2s;
-    cursor: pointer;
-    border: none;
-  }
-  .support-btn.whatsapp { background: #25D366; color: #fff; }
-  .support-btn.whatsapp:hover { background: #1ebe5a; }
-  .support-btn.email { background: var(--bg3); border: 1px solid var(--border2); color: var(--text); }
-  .support-btn.email:hover { border-color: var(--green); color: var(--green); }
-  .support-btn.phone { background: var(--bg3); border: 1px solid var(--border2); color: var(--text); }
-  .support-btn.phone:hover { border-color: var(--green); color: var(--green); }
-
-  /* CHATBOT */
-  #chat-btn {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    width: 56px; height: 56px;
-    background: var(--green);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    box-shadow: 0 4px 24px rgba(0,230,118,0.35);
-    z-index: 200;
-    transition: all 0.2s;
-  }
-  #chat-btn:hover { transform: scale(1.08); box-shadow: 0 6px 32px rgba(0,230,118,0.5); }
-
-  #chat-bubble {
-    position: fixed;
-    bottom: 6rem;
-    right: 2rem;
-    width: 360px;
-    max-height: 500px;
-    background: var(--bg2);
-    border: 1px solid var(--border2);
-    border-radius: 16px;
-    display: none;
-    flex-direction: column;
-    z-index: 200;
-    overflow: hidden;
-    box-shadow: 0 8px 48px rgba(0,0,0,0.6);
-  }
-  #chat-bubble.open { display: flex; }
-
-  .chat-header {
-    padding: 1rem 1.25rem;
-    background: var(--bg3);
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .chat-header-left { display: flex; align-items: center; gap: 0.75rem; }
-  .chat-avatar {
-    width: 36px; height: 36px;
-    background: var(--green-dim);
-    border: 1px solid rgba(0,230,118,0.3);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-  }
-  .chat-header-info .chat-name { font-family: 'Sora', sans-serif; font-size: 0.875rem; font-weight: 600; }
-  .chat-header-info .chat-status { font-size: 0.72rem; color: var(--green); }
-  .chat-close {
-    background: none;
-    border: none;
-    color: var(--text2);
-    cursor: pointer;
-    font-size: 1.1rem;
-    padding: 4px;
-    line-height: 1;
-    transition: color 0.2s;
-  }
-  .chat-close:hover { color: var(--text); }
-
-  .chat-messages {
-    flex: 1;
-    overflow-y: auto;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    min-height: 200px;
-    max-height: 320px;
-  }
-  .chat-messages::-webkit-scrollbar { width: 4px; }
-  .chat-messages::-webkit-scrollbar-track { background: transparent; }
-  .chat-messages::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
-
-  .msg {
-    display: flex;
-    gap: 0.5rem;
-    align-items: flex-end;
-  }
-  .msg.user { flex-direction: row-reverse; }
-  .msg-bubble {
-    max-width: 80%;
-    padding: 0.65rem 0.9rem;
-    border-radius: 12px;
-    font-size: 0.83rem;
-    line-height: 1.55;
-  }
-  .msg.bot .msg-bubble {
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    color: var(--text);
-    border-bottom-left-radius: 4px;
-  }
-  .msg.user .msg-bubble {
-    background: var(--green);
-    color: #000;
-    font-weight: 500;
-    border-bottom-right-radius: 4px;
-  }
-  .msg-dot {
-    width: 28px; height: 28px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.75rem;
-  }
-  .msg.bot .msg-dot { background: var(--green-dim); color: var(--green); }
-  .msg.user .msg-dot { background: var(--bg3); color: var(--text2); }
-
-  .typing { display: flex; align-items: center; gap: 4px; padding: 0.65rem 0.9rem; }
-  .typing span {
-    width: 6px; height: 6px;
-    background: var(--text3);
-    border-radius: 50%;
-    animation: bounce 1.2s infinite;
-  }
-  .typing span:nth-child(2) { animation-delay: 0.2s; }
-  .typing span:nth-child(3) { animation-delay: 0.4s; }
-  @keyframes bounce {
-    0%,60%,100% { transform: translateY(0); }
-    30% { transform: translateY(-6px); }
-  }
-
-  .chat-input-row {
-    padding: 0.75rem 1rem;
-    border-top: 1px solid var(--border);
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-  }
-  #chat-input {
-    flex: 1;
-    background: var(--bg3);
-    border: 1px solid var(--border2);
-    border-radius: 8px;
-    padding: 0.55rem 0.9rem;
-    color: var(--text);
-    font-family: 'Inter', sans-serif;
-    font-size: 0.83rem;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-  #chat-input:focus { border-color: rgba(0,230,118,0.4); }
-  #chat-input::placeholder { color: var(--text3); }
-  #chat-send {
-    width: 36px; height: 36px;
-    background: var(--green);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    color: #000;
-    flex-shrink: 0;
-    transition: background 0.2s;
-  }
-  #chat-send:hover { background: var(--green2); }
-
-  /* QUICK QUESTIONS */
-  .quick-qs {
-    padding: 0 1rem 0.75rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-  }
-  .quick-q {
-    font-size: 0.72rem;
-    padding: 0.3rem 0.7rem;
-    background: var(--bg3);
-    border: 1px solid var(--border2);
-    border-radius: 100px;
-    color: var(--text2);
-    cursor: pointer;
-    font-family: 'Inter', sans-serif;
-    transition: all 0.2s;
-    white-space: nowrap;
-  }
-  .quick-q:hover { border-color: var(--green); color: var(--green); }
-
-  /* RESPONSIVE */
-  @media (max-width: 640px) {
-    nav { padding: 0 1rem; }
-    .hero { padding: 3rem 1rem 2rem; }
-    .content { padding: 0 1rem 4rem; }
-    #chat-bubble { width: calc(100vw - 2rem); right: 1rem; }
-    .nav-links { display: none; }
-  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+  nav{position:sticky;top:0;z-index:100;background:rgba(5,12,24,0.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between}
+  .nav-logo img{height:32px}
+  .nav-back{display:flex;align-items:center;gap:0.5rem;color:white;text-decoration:none;font-size:0.875rem;font-family:'Sora',sans-serif;font-weight:700;background:#1A5FCC;padding:0.5rem 1.4rem;border-radius:6px;transition:background 0.2s;box-shadow:0 0 16px rgba(26,95,204,0.3)}
+  .nav-back:hover{background:#2D78E8}
+  .hero{padding:5rem 2rem 3rem;text-align:center;position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(26,95,204,0.08) 0%,transparent 70%);pointer-events:none}
+  .hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:var(--green-dim);border:1px solid rgba(26,95,204,0.3);color:var(--accent);font-size:0.75rem;font-family:'Sora',sans-serif;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:0.35rem 1rem;border-radius:100px;margin-bottom:1.5rem}
+  .hero-badge::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.4)}}
+  .hero h1{font-family:'Sora',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;line-height:1.15;margin-bottom:1rem}
+  .hero h1 span{color:var(--accent)}
+  .hero p{color:var(--text2);font-size:1.1rem;max-width:560px;margin:0 auto 2.5rem;line-height:1.7}
+  .profile-tabs{display:flex;justify-content:center;gap:1rem;padding:0 2rem;margin-bottom:3rem;flex-wrap:wrap}
+  .profile-tab{display:flex;flex-direction:column;align-items:center;gap:0.5rem;padding:1.25rem 2rem;background:var(--bg2);border:1px solid var(--border);border-radius:12px;cursor:pointer;transition:all 0.25s;min-width:160px;font-family:'Sora',sans-serif}
+  .profile-tab:hover{border-color:var(--border2);background:var(--bg3)}
+  .profile-tab.active{border-color:var(--green);background:var(--green-dim2)}
+  .profile-tab .tab-icon{font-size:2rem;line-height:1}
+  .profile-tab .tab-name{font-size:0.875rem;font-weight:600;color:var(--text)}
+  .profile-tab .tab-desc{font-size:0.75rem;color:var(--text2);text-align:center}
+  .profile-tab.active .tab-name{color:var(--green)}
+  .content{max-width:860px;margin:0 auto;padding:0 2rem 6rem}
+  .guide-section{display:none}
+  .guide-section.active{display:block}
+  .section-header{margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
+  .section-header h2{font-family:'Sora',sans-serif;font-size:1.5rem;font-weight:700;margin-bottom:0.5rem}
+  .section-header p{color:var(--text2);font-size:0.95rem;line-height:1.6}
+  .steps{display:flex;flex-direction:column;gap:1rem;margin-bottom:2.5rem}
+  .step{display:flex;gap:1.25rem;padding:1.25rem;background:var(--bg2);border:1px solid var(--border);border-radius:12px;transition:border-color 0.2s}
+  .step:hover{border-color:var(--border2)}
+  .step-num{flex-shrink:0;width:36px;height:36px;background:var(--green-dim);border:1px solid rgba(26,95,204,0.25);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-size:0.8rem;font-weight:700;color:var(--green)}
+  .step-body{flex:1}
+  .step-title{font-family:'Sora',sans-serif;font-size:0.95rem;font-weight:600;margin-bottom:0.4rem;color:var(--text)}
+  .step-desc{font-size:0.875rem;color:var(--text2);line-height:1.65}
+  .step-desc strong{color:var(--text);font-weight:500}
+  .stage-label{display:inline-block;background:var(--green-dim);border:1px solid rgba(26,95,204,0.2);color:var(--green);font-size:0.72rem;font-family:'Sora',sans-serif;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.25rem 0.75rem;border-radius:100px;margin-bottom:0.75rem}
+  .alert-box{display:flex;gap:1rem;padding:1rem 1.25rem;border-radius:10px;margin:1rem 0;font-size:0.875rem;line-height:1.6}
+  .alert-box.info{background:rgba(68,138,255,0.08);border:1px solid rgba(68,138,255,0.2);color:#90b8ff}
+  .alert-box.warn{background:rgba(255,171,64,0.08);border:1px solid rgba(255,171,64,0.2);color:#ffd080}
+  .alert-box.tip{background:var(--green-dim);border:1px solid rgba(26,95,204,0.2);color:#80d4ff}
+  .alert-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px}
+  .subsection{margin-bottom:2.5rem}
+  .subsection-title{font-family:'Sora',sans-serif;font-size:1rem;font-weight:600;color:var(--text);margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
+  .subsection-title::before{content:'';width:3px;height:18px;background:var(--green);border-radius:2px;flex-shrink:0}
+  .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1rem 0}
+  .info-card{padding:1rem 1.25rem;background:var(--bg2);border:1px solid var(--border);border-radius:10px}
+  .info-card-title{font-family:'Sora',sans-serif;font-size:0.8rem;font-weight:600;color:var(--text2);margin-bottom:0.4rem;text-transform:uppercase;letter-spacing:0.06em}
+  .info-card-value{font-size:0.9rem;color:var(--text);line-height:1.5}
+  .security-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+  .security-card{padding:1.25rem;background:var(--bg2);border:1px solid var(--border);border-radius:12px}
+  .security-card-icon{font-size:1.5rem;margin-bottom:0.75rem}
+  .security-card-title{font-family:'Sora',sans-serif;font-size:0.9rem;font-weight:600;margin-bottom:0.5rem}
+  .security-card-desc{font-size:0.83rem;color:var(--text2);line-height:1.6}
+  .support-section{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:2rem;margin-top:3rem;text-align:center}
+  .support-section h3{font-family:'Sora',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:0.5rem}
+  .support-section p{color:var(--text2);font-size:0.9rem;margin-bottom:1.5rem}
+  .support-contacts{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+  .support-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.65rem 1.5rem;border-radius:8px;font-family:'Sora',sans-serif;font-size:0.875rem;font-weight:600;text-decoration:none;transition:all 0.2s;cursor:pointer;border:none}
+  .support-btn.whatsapp{background:#25D366;color:#fff}
+  .support-btn.whatsapp:hover{background:#1ebe5a}
+  .support-btn.email{background:var(--bg3);border:1px solid var(--border2);color:var(--text)}
+  .support-btn.email:hover{border-color:var(--green);color:var(--green)}
+  .support-btn.phone{background:var(--bg3);border:1px solid var(--border2);color:var(--text)}
+  .support-btn.phone:hover{border-color:var(--green);color:var(--green)}
+  #chat-btn{position:fixed;bottom:2rem;right:2rem;width:56px;height:56px;background:var(--green);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 4px 24px rgba(26,95,204,0.4);z-index:200;transition:all 0.2s}
+  #chat-btn:hover{transform:scale(1.08)}
+  #chat-bubble{position:fixed;bottom:6rem;right:2rem;width:360px;max-height:500px;background:var(--bg2);border:1px solid var(--border2);border-radius:16px;display:none;flex-direction:column;z-index:200;overflow:hidden;box-shadow:0 8px 48px rgba(0,0,0,0.6)}
+  #chat-bubble.open{display:flex}
+  .chat-header{padding:1rem 1.25rem;background:var(--bg3);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+  .chat-header-left{display:flex;align-items:center;gap:0.75rem}
+  .chat-avatar{width:36px;height:36px;background:var(--green-dim);border:1px solid rgba(26,95,204,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem}
+  .chat-header-info .chat-name{font-family:'Sora',sans-serif;font-size:0.875rem;font-weight:600}
+  .chat-header-info .chat-status{font-size:0.72rem;color:var(--accent)}
+  .chat-close{background:none;border:none;color:var(--text2);cursor:pointer;font-size:1.1rem;padding:4px;line-height:1;transition:color 0.2s}
+  .chat-close:hover{color:var(--text)}
+  .chat-messages{flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:0.75rem;min-height:200px;max-height:320px}
+  .chat-messages::-webkit-scrollbar{width:4px}
+  .chat-messages::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+  .msg{display:flex;gap:0.5rem;align-items:flex-end}
+  .msg.user{flex-direction:row-reverse}
+  .msg-bubble{max-width:80%;padding:0.65rem 0.9rem;border-radius:12px;font-size:0.83rem;line-height:1.55}
+  .msg.bot .msg-bubble{background:var(--bg3);border:1px solid var(--border);color:var(--text);border-bottom-left-radius:4px}
+  .msg.user .msg-bubble{background:var(--green);color:#fff;font-weight:500;border-bottom-right-radius:4px}
+  .msg-dot{width:28px;height:28px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.75rem}
+  .msg.bot .msg-dot{background:var(--green-dim);color:var(--green)}
+  .msg.user .msg-dot{background:var(--bg3);color:var(--text2)}
+  .typing{display:flex;align-items:center;gap:4px;padding:0.65rem 0.9rem}
+  .typing span{width:6px;height:6px;background:var(--text3);border-radius:50%;animation:bounce 1.2s infinite}
+  .typing span:nth-child(2){animation-delay:0.2s}
+  .typing span:nth-child(3){animation-delay:0.4s}
+  @keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
+  .chat-input-row{padding:0.75rem 1rem;border-top:1px solid var(--border);display:flex;gap:0.5rem;align-items:center}
+  #chat-input{flex:1;background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:0.55rem 0.9rem;color:var(--text);font-family:'Inter',sans-serif;font-size:0.83rem;outline:none;transition:border-color 0.2s}
+  #chat-input:focus{border-color:rgba(26,95,204,0.4)}
+  #chat-input::placeholder{color:var(--text3)}
+  #chat-send{width:36px;height:36px;background:var(--green);border:none;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;color:#fff;flex-shrink:0;transition:background 0.2s}
+  #chat-send:hover{background:var(--green2)}
+  .quick-qs{padding:0 1rem 0.75rem;display:flex;flex-wrap:wrap;gap:0.4rem}
+  .quick-q{font-size:0.72rem;padding:0.3rem 0.7rem;background:var(--bg3);border:1px solid var(--border2);border-radius:100px;color:var(--text2);cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s;white-space:nowrap}
+  .quick-q:hover{border-color:var(--green);color:var(--green)}
+  @media(max-width:640px){nav{padding:0 1rem}.hero{padding:3rem 1rem 2rem}.content{padding:0 1rem 4rem}#chat-bubble{width:calc(100vw - 2rem);right:1rem}}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="/" class="nav-logo"><img src="logo_supercor_600w.png" alt="SUPERCOR"></a>
-  <div class="nav-links">
-    <a href="#" onclick="showGuide('supervisor'); document.getElementById('guide-supervisor').scrollIntoView({behavior:'smooth',block:'start'}); return false;">Supervisor</a><a href="#" onclick="showGuide('rrhh'); document.getElementById('guide-rrhh').scrollIntoView({behavior:'smooth',block:'start'}); return false;">RRHH</a><a href="#" onclick="showGuide('jefatura'); document.getElementById('guide-jefatura').scrollIntoView({behavior:'smooth',block:'start'}); return false;">Jefatura</a><a href="#" onclick="showGuide('seguridad'); document.getElementById('guide-seguridad').scrollIntoView({behavior:'smooth',block:'start'}); return false;">Seguridad</a>
-  </div>
   <a href="/" class="nav-back">← Volver al sitio</a>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-badge">Centro de Ayuda — SUPERCOR</div>
   <h1>¿Cómo podemos <span>ayudarte</span>?</h1>
-  <p>Guías paso a paso para cada perfil. También puedes hacer preguntas directamente al asistente inteligente usando el botón verde abajo a la derecha.</p>
+  <p>Guías paso a paso para cada perfil. También puedes hacer preguntas directamente al asistente usando el botón azul abajo a la derecha.</p>
 </div>
 
-<!-- PROFILE TABS -->
 <div class="profile-tabs">
   <div class="profile-tab active" onclick="showGuide('supervisor')">
     <div class="tab-icon">👷</div>
@@ -621,7 +155,6 @@
   </div>
 </div>
 
-<!-- CONTENT -->
 <div class="content">
 
   <!-- SUPERVISOR -->
@@ -630,198 +163,54 @@
       <h2>👷 Guía del Supervisor</h2>
       <p>Cómo realizar una fiscalización presencial paso a paso. El proceso tiene 6 etapas en orden. Sigue cada una antes de continuar a la siguiente.</p>
     </div>
-
     <div class="subsection">
       <div class="subsection-title">Inicio de sesión</div>
       <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-body">
-            <div class="step-title">Ingresa tus credenciales</div>
-            <div class="step-desc">En la pantalla de inicio escribe tu <strong>nombre de usuario y contraseña</strong>. Luego presiona <strong>Iniciar sesión</strong>. Tienes hasta <strong>5 intentos</strong> antes de que la cuenta se bloquee por 5 minutos.</div>
-          </div>
-        </div>
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Ingresa tus credenciales</div><div class="step-desc">En la pantalla de inicio escribe tu <strong>nombre de usuario y contraseña</strong>. Luego presiona <strong>Iniciar sesión</strong>. Tienes hasta <strong>5 intentos</strong> antes de que la cuenta se bloquee por 5 minutos.</div></div></div>
       </div>
     </div>
-
     <div class="subsection">
       <div class="subsection-title">Las 6 etapas de la fiscalización</div>
-
       <div class="stage-label">Etapa 1 — Configuración inicial</div>
       <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-body">
-            <div class="step-title">Selecciona el contrato</div>
-            <div class="step-desc">Elige de la lista desplegable el <strong>contrato</strong> que corresponde a la empresa cliente que vas a fiscalizar hoy.</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-body">
-            <div class="step-title">Selecciona la instalación</div>
-            <div class="step-desc">Elige de la lista el <strong>nombre de la instalación</strong> donde estás realizando la supervisión.</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <div class="step-body">
-            <div class="step-title">Elige tu nombre</div>
-            <div class="step-desc">De la nómina desplegable, selecciona <strong>tu nombre</strong> como inspector o supervisor a cargo.</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">4</div>
-          <div class="step-body">
-            <div class="step-title">Actualiza tu ubicación GPS</div>
-            <div class="step-desc">Presiona el botón <strong>"Actualizar ubicación"</strong>. La app registrará automáticamente tu dirección y la hora exacta de la supervisión. <strong>El GPS no puede estar desactivado</strong> — si está apagado, la app no te dejará continuar.</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">5</div>
-          <div class="step-body">
-            <div class="step-title">Continúa a la etapa 2</div>
-            <div class="step-desc">Presiona el botón <strong>"Continuar"</strong> en la parte inferior de la pantalla.</div>
-          </div>
-        </div>
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Selecciona el contrato</div><div class="step-desc">Elige de la lista desplegable el <strong>contrato</strong> que corresponde a la empresa cliente que vas a fiscalizar hoy.</div></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Selecciona la instalación</div><div class="step-desc">Elige de la lista el <strong>nombre de la instalación</strong> donde estás realizando la supervisión.</div></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Elige tu nombre</div><div class="step-desc">De la nómina desplegable, selecciona <strong>tu nombre</strong> como inspector o supervisor a cargo.</div></div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-body"><div class="step-title">Actualiza tu ubicación GPS</div><div class="step-desc">Presiona <strong>"Actualizar ubicación"</strong>. La app registrará tu dirección y la hora exacta. <strong>El GPS debe estar activo</strong> — si está apagado, la app no te dejará continuar.</div></div></div>
+        <div class="step"><div class="step-num">5</div><div class="step-body"><div class="step-title">Continúa a la etapa 2</div><div class="step-desc">Presiona el botón <strong>"Continuar"</strong> en la parte inferior de la pantalla.</div></div></div>
       </div>
-
       <div class="stage-label">Etapa 2 — Evidencia fotográfica</div>
       <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-body">
-            <div class="step-title">Fotografía cada ítem solicitado</div>
-            <div class="step-desc">Verás una lista de ítems fotográficos. Para cada uno presiona <strong>"Tomar captura"</strong> — se abrirá la cámara. Presiona <strong>Capturar</strong> para tomar la foto o <strong>Cancelar</strong> para salir.</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-body">
-            <div class="step-title">¿La foto no quedó bien?</div>
-            <div class="step-desc">Presiona el botón <strong>"Volver a tomar foto"</strong> para repetirla. Puedes hacerlo las veces que necesites hasta que quede correcta.</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <div class="step-body">
-            <div class="step-title">Completa todos los ítems y continúa</div>
-            <div class="step-desc">Una vez fotografiados todos los ítems requeridos, el botón <strong>"Continuar"</strong> se habilitará abajo.</div>
-          </div>
-        </div>
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Fotografía cada ítem solicitado</div><div class="step-desc">Verás una lista de ítems. Para cada uno presiona <strong>"Tomar captura"</strong> — se abrirá la cámara. Presiona <strong>Capturar</strong> para tomar la foto.</div></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">¿La foto no quedó bien?</div><div class="step-desc">Presiona <strong>"Volver a tomar foto"</strong>. Puedes repetirla las veces que necesites.</div></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Completa todos los ítems y continúa</div><div class="step-desc">Una vez fotografiados todos los ítems, el botón <strong>"Continuar"</strong> se habilitará abajo.</div></div></div>
       </div>
-
       <div class="stage-label">Etapa 3 — Checklist documental</div>
       <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-body">
-            <div class="step-title">Verifica cada documento</div>
-            <div class="step-desc">Aparecerá una lista de documentos. Para cada uno marca <strong>Sí</strong> (está presente) o <strong>No</strong> (no está). Algunos documentos te pedirán evidencia fotográfica — funciona igual que la etapa 2.</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-body">
-            <div class="step-title">Completa toda la lista y continúa</div>
-            <div class="step-desc">Todos los ítems obligatorios deben estar marcados para que se habilite el botón <strong>"Continuar"</strong>.</div>
-          </div>
-        </div>
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Verifica cada documento</div><div class="step-desc">Para cada documento marca <strong>Sí</strong> (está presente) o <strong>No</strong> (no está). Algunos pedirán evidencia fotográfica.</div></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Completa toda la lista y continúa</div><div class="step-desc">Todos los ítems obligatorios deben estar marcados para habilitar el botón <strong>"Continuar"</strong>.</div></div></div>
       </div>
-
       <div class="stage-label">Etapa 4 — Evaluación de personal</div>
-      <div class="alert-box warn">
-        <div class="alert-icon">⚠️</div>
-        <div>Esta es la etapa más compleja. Lee con atención cada caso antes de actuar.</div>
-      </div>
+      <div class="alert-box warn"><div class="alert-icon">⚠️</div><div>Esta es la etapa más compleja. Lea con atención cada caso antes de actuar.</div></div>
       <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-body">
-            <div class="step-title">Paso 1 de 2: ¿Hay personal presente?</div>
-            <div class="step-desc">La app te preguntará si hay trabajadores en la instalación. Elige:<br><br>
-            ✅ <strong>"Sí, hay personal"</strong> → continúas con el proceso completo.<br>
-            ❌ <strong>"No, no hay nadie"</strong> → saltas automáticamente a la Etapa 5.</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-body">
-            <div class="step-title">Paso 2 de 2: Fiscaliza a cada trabajador de la lista</div>
-            <div class="step-desc">Aparecerá la lista de todos los trabajadores asignados a esa instalación (día, noche y otros turnos). Presiona el nombre de cada trabajador que estés fiscalizando en ese momento. La app te preguntará:<br><br>
-            🟢 <strong>"¿Está trabajando ahora?"</strong> → sale el checklist completo de <strong>vestuario y documentación</strong>.<br>
-            🔵 <strong>"Solo revisar documentos"</strong> → para quienes están libres, sale solo el checklist de <strong>documentos</strong>.</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <div class="step-body">
-            <div class="step-title">¿El trabajador es reemplazo desde otra instalación?</div>
-            <div class="step-desc">Si el trabajador no aparece en la lista de la instalación pero sí en la <strong>nómina general de la empresa</strong>, escribe su nombre en el buscador. Al encontrarlo, solo aparecerá el checklist de <strong>vestuario</strong> (sus documentos están en su instalación de origen). Selecciona <strong>"Solo revisar documentos"</strong>.</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">4</div>
-          <div class="step-body">
-            <div class="step-title">¿El trabajador no aparece en ninguna nómina?</div>
-            <div class="step-desc">Presiona el botón <strong>"Trabajador no enrolado"</strong>. La app te pedirá completar:<br><br>
-            • Nombre completo<br>
-            • Apellido paterno y materno<br>
-            • RUT<br>
-            • Motivo por el que está trabajando sin estar en nómina<br><br>
-            Presiona <strong>"Finalizar datos"</strong>. Si todo está correcto, aparecerá un recuadro <strong>verde</strong> que dice "Datos completos — Listo para continuar". Solo aparecerá el checklist de <strong>vestuario</strong>.</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">5</div>
-          <div class="step-body">
-            <div class="step-title">Completa a todos los trabajadores y continúa</div>
-            <div class="step-desc">Todos los nombres deben tener un <strong>ticket verde</strong> que diga "OK". Recién ahí se habilitará el botón <strong>"Continuar"</strong>.</div>
-          </div>
-        </div>
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">¿Hay personal presente?</div><div class="step-desc">La app preguntará si hay trabajadores en la instalación.<br><br>✅ <strong>"Sí, hay personal"</strong> → continúa con el proceso completo.<br>❌ <strong>"No, no hay nadie"</strong> → salta automáticamente a la Etapa 5.</div></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Fiscaliza a cada trabajador de la lista</div><div class="step-desc">Aparecerá la lista de trabajadores asignados. Presiona cada nombre y elige:<br><br>🟢 <strong>"¿Está trabajando ahora?"</strong> → checklist completo de vestuario y documentación.<br>🔵 <strong>"Solo revisar documentos"</strong> → solo checklist de documentos.</div></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">¿Trabajador de reemplazo desde otra instalación?</div><div class="step-desc">Si no aparece en la lista pero sí en la nómina general, búscalo en el buscador. Solo aparecerá checklist de <strong>vestuario</strong>. Selecciona <strong>"Solo revisar documentos"</strong>.</div></div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-body"><div class="step-title">¿Trabajador no aparece en ninguna nómina?</div><div class="step-desc">Presiona <strong>"Trabajador no enrolado"</strong> y completa: nombre completo, apellido paterno, apellido materno, RUT y motivo. Presiona <strong>"Finalizar datos"</strong>. Aparecerá recuadro verde si todo está correcto.</div></div></div>
+        <div class="step"><div class="step-num">5</div><div class="step-body"><div class="step-title">Completa todos los trabajadores y continúa</div><div class="step-desc">Todos deben tener <strong>ticket verde "OK"</strong>. Solo entonces se habilitará el botón <strong>"Continuar"</strong>.</div></div></div>
       </div>
-
       <div class="stage-label">Etapa 5 — Infraestructura y equipamiento</div>
       <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-body">
-            <div class="step-title">Revisa el checklist de infraestructura</div>
-            <div class="step-desc">Aparecerá una lista de ítems de equipamiento. Marca <strong>Sí / No</strong> en cada uno. Algunos pedirán fotografía — funciona igual que las etapas anteriores.</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-body">
-            <div class="step-title">Completa todos los ítems y continúa</div>
-            <div class="step-desc">Una vez completados todos los ítems obligatorios, presiona <strong>"Continuar"</strong>.</div>
-          </div>
-        </div>
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Revisa el checklist de infraestructura</div><div class="step-desc">Marca <strong>Sí / No</strong> en cada ítem. Algunos pedirán fotografía como evidencia.</div></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Completa y continúa</div><div class="step-desc">Una vez completados todos los ítems obligatorios, presiona <strong>"Continuar"</strong>.</div></div></div>
       </div>
-
       <div class="stage-label">Etapa 6 — Sección final</div>
       <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-body">
-            <div class="step-title">Observaciones adicionales (opcional)</div>
-            <div class="step-desc">Si tienes algo que agregar que no estaba en los checklist, escríbelo en el recuadro de <strong>observaciones adicionales</strong>. También puedes adjuntar fotos adicionales si es necesario.</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-body">
-            <div class="step-title">Envía la supervisión</div>
-            <div class="step-desc">Esta etapa <strong>no es obligatoria</strong> completarla. Puedes presionar directamente el botón <strong>"Enviar"</strong> y la supervisión quedará registrada.</div>
-          </div>
-        </div>
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Observaciones adicionales (opcional)</div><div class="step-desc">Si tiene algo que agregar que no estaba en los checklists, escríbalo en el recuadro de observaciones. También puede adjuntar fotos adicionales.</div></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Envía la supervisión</div><div class="step-desc">Esta etapa <strong>no es obligatoria</strong>. Presione directamente el botón <strong>"Enviar"</strong> y la supervisión quedará registrada.</div></div></div>
       </div>
     </div>
-
-    <div class="alert-box tip">
-      <div class="alert-icon">📶</div>
-      <div><strong>Sin señal de internet:</strong> No hay problema. La app guarda la supervisión offline y la sube automáticamente cuando recuperes conexión. Nada se pierde.</div>
-    </div>
+    <div class="alert-box tip"><div class="alert-icon">📶</div><div><strong>Sin señal de internet:</strong> La app guarda la supervisión en modo offline y la sincroniza automáticamente al recuperar conexión. No se pierde ninguna información.</div></div>
   </div>
 
   <!-- RRHH -->
@@ -830,97 +219,35 @@
       <h2>👩‍💼 Guía de RRHH</h2>
       <p>Cómo gestionar la dotación de trabajadores por instalación.</p>
     </div>
-
     <div class="subsection">
       <div class="subsection-title">Inicio de sesión</div>
       <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-body">
-            <div class="step-title">Ingresa tus credenciales</div>
-            <div class="step-desc">Escribe tu <strong>correo electrónico y contraseña</strong> en la pantalla de inicio. Al ingresar, irás directamente al menú de <strong>Dotación por Instalación</strong>.</div>
-          </div>
-        </div>
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Ingresa tus credenciales</div><div class="step-desc">Escribe tu <strong>correo electrónico y contraseña</strong>. Al ingresar, irás directamente al menú de <strong>Dotación por Instalación</strong>.</div></div></div>
       </div>
     </div>
-
     <div class="subsection">
       <div class="subsection-title">Ver trabajadores por instalación</div>
       <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-body">
-            <div class="step-title">Usa los filtros de selección</div>
-            <div class="step-desc">En el menú verás dos listas desplegables: <strong>Contrato</strong> e <strong>Instalación</strong>. Selecciona la combinación que quieres revisar para ver qué trabajadores están asignados ahí.</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-body">
-            <div class="step-title">Revisa el resumen de nómina</div>
-            <div class="step-desc">Arriba verás el recuadro <strong>"Total nómina"</strong> con el número total de trabajadores registrados en la empresa.</div>
-          </div>
-        </div>
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Usa los filtros de selección</div><div class="step-desc">Verás dos listas desplegables: <strong>Contrato</strong> e <strong>Instalación</strong>. Selecciona la combinación que deseas revisar.</div></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Revisa el resumen de nómina</div><div class="step-desc">Arriba verás el recuadro <strong>"Total nómina"</strong> con el número total de trabajadores registrados.</div></div></div>
       </div>
     </div>
-
     <div class="subsection">
       <div class="subsection-title">Opción A — Agregar un trabajador individual</div>
       <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-body">
-            <div class="step-title">Presiona "Agregar trabajador"</div>
-            <div class="step-desc">En el mismo menú de dotación, busca la sección <strong>"Agregar trabajador"</strong>. Completa el nombre completo y asígnale un turno: <strong>Día</strong> o <strong>Noche</strong>.</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-body">
-            <div class="step-title">Confirma el registro</div>
-            <div class="step-desc">El trabajador aparecerá en la lista inferior con su nombre, turno, fecha y hora de ingreso. Si necesitas eliminarlo, usa el botón de <strong>borrar</strong> al lado derecho de su nombre.</div>
-          </div>
-        </div>
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Presiona "Agregar trabajador"</div><div class="step-desc">Completa el nombre completo y asígnale un turno: <strong>Día</strong> o <strong>Noche</strong>.</div></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Confirma el registro</div><div class="step-desc">El trabajador aparecerá en la lista con su nombre, turno, fecha y hora de ingreso. Para eliminarlo, usa el botón de <strong>borrar</strong> al lado derecho de su nombre.</div></div></div>
       </div>
     </div>
-
     <div class="subsection">
       <div class="subsection-title">Opción B — Carga masiva por Excel</div>
-      <div class="alert-box info">
-        <div class="alert-icon">📋</div>
-        <div>Usa esta opción cuando necesitas subir o actualizar muchos trabajadores a la vez.</div>
-      </div>
+      <div class="alert-box info"><div class="alert-icon">📋</div><div>Use esta opción cuando necesita subir o actualizar muchos trabajadores a la vez.</div></div>
       <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-body">
-            <div class="step-title">Prepara el archivo Excel</div>
-            <div class="step-desc">El archivo debe tener estas columnas en este orden exacto:<br><br>
-            <strong>Nombre | Apellido | Contrato | Instalación | Turno</strong><br><br>
-            Los turnos válidos son: <strong>Día, Noche, Rotativo, 4x4</strong>.</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-body">
-            <div class="step-title">Elige el tipo de carga</div>
-            <div class="step-desc">Verás dos botones importantes:<br><br>
-            🔴 <strong>"Reemplazar dotación"</strong> → <strong>Borra toda la nómina actual</strong> y carga la nueva. Úsalo solo cuando quieras renovar la dotación completa.<br><br>
-            🟢 <strong>"Agregar más trabajadores"</strong> → Suma los nuevos a los que ya existen. Úsalo para incorporar personal nuevo sin borrar a nadie.</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <div class="step-body">
-            <div class="step-title">Sube el archivo</div>
-            <div class="step-desc">Después de elegir la opción, presiona <strong>"Subir Excel de dotación"</strong> y selecciona tu archivo. El sistema procesará la carga automáticamente.</div>
-          </div>
-        </div>
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Prepara el archivo Excel</div><div class="step-desc">El archivo debe tener estas columnas en este orden exacto:<br><br><strong>Nombre | Apellido | Contrato | Instalación | Turno</strong><br><br>Turnos válidos: <strong>Día, Noche, Rotativo, 4x4</strong>.</div></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Elige el tipo de carga</div><div class="step-desc">🔴 <strong>"Reemplazar dotación"</strong> → Borra toda la nómina actual y carga la nueva.<br><br>🟢 <strong>"Agregar más trabajadores"</strong> → Suma los nuevos a los que ya existen sin borrar a nadie.</div></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Sube el archivo</div><div class="step-desc">Presiona <strong>"Subir Excel de dotación"</strong> y selecciona el archivo. El sistema procesará la carga automáticamente.</div></div></div>
       </div>
-      <div class="alert-box warn">
-        <div class="alert-icon">⚠️</div>
-        <div><strong>Cuidado con "Reemplazar dotación":</strong> Esta acción borra toda la nómina actual. Úsala solo cuando estés seguro de querer reemplazarla completa.</div>
-      </div>
+      <div class="alert-box warn"><div class="alert-icon">⚠️</div><div><strong>Atención con "Reemplazar dotación":</strong> Esta acción borra toda la nómina actual y no se puede deshacer. Úsela solo cuando esté completamente seguro.</div></div>
     </div>
   </div>
 
@@ -930,172 +257,36 @@
       <h2>👔 Guía de Jefatura / Administrador</h2>
       <p>Cómo interpretar el dashboard, gestionar alertas y configurar reportes.</p>
     </div>
-
     <div class="subsection">
-      <div class="subsection-title">Inicio de sesión</div>
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-body">
-            <div class="step-title">Ingresa tus credenciales</div>
-            <div class="step-desc">En la pantalla de inicio escribe tu <strong>correo electrónico y contraseña</strong>. Al ingresar, verás tu nombre con un mensaje de bienvenida. El botón para cerrar sesión está arriba a la derecha.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="subsection">
-      <div class="subsection-title">Menú principal — Vista general</div>
+      <div class="subsection-title">Menú principal</div>
       <div class="info-grid">
-        <div class="info-card">
-          <div class="info-card-title">📋 Historial</div>
-          <div class="info-card-value">Todas las supervisiones realizadas con su nivel de criticidad.</div>
-        </div>
-        <div class="info-card">
-          <div class="info-card-title">🔔 Alertas</div>
-          <div class="info-card-value">Gestión de alertas pendientes, en gestión y resueltas.</div>
-        </div>
-        <div class="info-card">
-          <div class="info-card-title">📊 Dashboard</div>
-          <div class="info-card-value">Estado operacional en tiempo real de toda la empresa.</div>
-        </div>
-        <div class="info-card">
-          <div class="info-card-title">👥 Gestión Personal</div>
-          <div class="info-card-value">Configurar alertas, crear supervisores, ver dotación.</div>
-        </div>
+        <div class="info-card"><div class="info-card-title">📋 Historial</div><div class="info-card-value">Supervisiones realizadas con nivel de criticidad.</div></div>
+        <div class="info-card"><div class="info-card-title">🔔 Alertas</div><div class="info-card-value">Gestión de alertas pendientes, en gestión y resueltas.</div></div>
+        <div class="info-card"><div class="info-card-title">📊 Dashboard</div><div class="info-card-value">Estado operacional en tiempo real de toda la empresa.</div></div>
+        <div class="info-card"><div class="info-card-title">👥 Gestión Personal</div><div class="info-card-value">Configurar alertas, crear supervisores, ver dotación.</div></div>
       </div>
     </div>
-
-    <div class="subsection">
-      <div class="subsection-title">Historial de supervisiones</div>
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-body">
-            <div class="step-title">Filtra por rango de fechas</div>
-            <div class="step-desc">Usa el selector <strong>"Reporte consolidado rango de fecha"</strong> para elegir el período que quieres revisar.</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-body">
-            <div class="step-title">Exporta el consolidado</div>
-            <div class="step-desc">Presiona <strong>"PDF consolidado"</strong> para descargar un informe completo del período seleccionado.</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <div class="step-body">
-            <div class="step-title">Revisa supervisiones individuales</div>
-            <div class="step-desc">Cada supervisión muestra: supervisor, instalación y nivel de criticidad (<strong>Crítico / Medio / Normal</strong>). Usa el botón <strong>"Ver"</strong> para el detalle completo o <strong>"PDF"</strong> para el informe individual.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="subsection">
       <div class="subsection-title">Gestión de alertas</div>
       <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-body">
-            <div class="step-title">Accede al panel de alertas</div>
-            <div class="step-desc">En el menú principal verás el ícono de alertas con el <strong>número de pendientes</strong>. Al ingresar, las alertas se organizan en: <strong>Pendientes / En gestión / Resueltas automáticamente / Cerradas manualmente / Todas</strong>.</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-body">
-            <div class="step-title">Revisa el detalle de cada alerta</div>
-            <div class="step-desc">Cada alerta muestra: ítem, trabajador afectado, supervisor que la generó, instalación, fecha, hora y a quién fue derivada. Presiona <strong>"Ver reporte"</strong> para ver el contexto completo.</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <div class="step-body">
-            <div class="step-title">Derivar una alerta</div>
-            <div class="step-desc">Si una alerta lleva mucho tiempo sin resolverse, presiona <strong>"Derivar"</strong>. Escribe un mensaje descriptivo y el correo de la persona que se hará cargo. La persona recibirá la notificación de inmediato.</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">4</div>
-          <div class="step-body">
-            <div class="step-title">Cerrar una alerta manualmente</div>
-            <div class="step-desc">Si la alerta fue un error del supervisor o ya no corresponde, presiona <strong>"Cerrar manual"</strong>. Esto la marcará como cerrada sin que se derive a nadie.</div>
-          </div>
-        </div>
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Panel de alertas</div><div class="step-desc">Las alertas se organizan en: <strong>Pendientes / En gestión / Resueltas automáticamente / Cerradas manualmente / Todas</strong>.</div></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Derivar una alerta</div><div class="step-desc">Presiona <strong>"Derivar"</strong>, escribe un mensaje y el correo del responsable. La notificación se enviará de inmediato.</div></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Cerrar una alerta manualmente</div><div class="step-desc">Si la alerta fue generada por error, presiona <strong>"Cerrar manual"</strong>. Quedará marcada como cerrada sin derivarla.</div></div></div>
       </div>
     </div>
-
     <div class="subsection">
       <div class="subsection-title">Dashboard gerencial</div>
       <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-body">
-            <div class="step-title">Modo en vivo</div>
-            <div class="step-desc">Activa el <strong>Modo en vivo</strong> para proyectar el dashboard en un monitor grande. Muestra en tiempo real: instalaciones visitadas/sin visitar, cumplimiento, supervisiones, alertas activas y mapa de criticidad.</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-body">
-            <div class="step-title">Filtra la información</div>
-            <div class="step-desc">Usa los filtros de <strong>Contrato, Instalación, Supervisor y Fecha</strong> para ver el estado de una parte específica de la operación.</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <div class="step-body">
-            <div class="step-title">Lee el semáforo de cumplimiento</div>
-            <div class="step-desc">El semáforo muestra el estado general en tres niveles: 🔴 <strong>Crítico</strong> / 🟡 <strong>Medio</strong> / 🟢 <strong>Normal</strong>. Más abajo verás las instalaciones sin visitar y el listado detallado de supervisiones.</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">4</div>
-          <div class="step-body">
-            <div class="step-title">Exporta con los botones de reporte</div>
-            <div class="step-desc">
-            📊 <strong>Excel</strong> → Informe detallado con supervisiones, alertas y tiempos del período filtrado.<br>
-            🏢 <strong>Cobertura</strong> → Qué instalaciones fueron visitadas y cuáles no en el período.<br>
-            📅 <strong>Reportes</strong> → Configura envíos automáticos programados.
-            </div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">5</div>
-          <div class="step-body">
-            <div class="step-title">Programar reportes automáticos</div>
-            <div class="step-desc">En el botón <strong>"Reportes"</strong> presiona <strong>"Nuevo"</strong>. Elige el día de la semana y la hora. Escribe el correo destinatario. Presiona <strong>"Crear programación"</strong> y recibirás un resumen de las últimas 24 horas automáticamente cada vez que lo configures.</div>
-          </div>
-        </div>
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Modo en vivo</div><div class="step-desc">Activa el <strong>Modo en vivo</strong> para proyectar el dashboard en un monitor. Muestra en tiempo real: instalaciones visitadas, cumplimiento, alertas activas y mapa de criticidad.</div></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Semáforo de cumplimiento</div><div class="step-desc">🔴 <strong>Crítico</strong> / 🟡 <strong>Medio</strong> / 🟢 <strong>Normal</strong>. Indica el estado general de la operación.</div></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Programar reportes automáticos</div><div class="step-desc">En <strong>"Reportes" → "Nuevo"</strong>, elige día, hora y correo destinatario. El sistema enviará un resumen de las últimas 24 horas automáticamente.</div></div></div>
       </div>
     </div>
-
     <div class="subsection">
       <div class="subsection-title">Gestión de personal</div>
       <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-body">
-            <div class="step-title">Configurar la matriz de alertas</div>
-            <div class="step-desc">En <strong>Gestión de Personal → Alertas</strong> puedes definir: qué ítems del checklist generan alerta, si requieren foto o no, y a qué correos llegan cada una. Al terminar presiona <strong>"Guardar matriz"</strong>.</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-body">
-            <div class="step-title">Crear un nuevo supervisor</div>
-            <div class="step-desc">Presiona <strong>"Crear supervisores"</strong>. Completa: nombre completo, correo y contraseña inicial. El supervisor recibirá sus credenciales y deberá cambiar la contraseña en su primer ingreso.</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <div class="step-body">
-            <div class="step-title">Gestión de dotación</div>
-            <div class="step-desc">Tienes acceso al mismo panel de dotación que RRHH para cargar, agregar o revisar trabajadores por instalación. Funciona exactamente igual — revisa la guía de RRHH si tienes dudas.</div>
-          </div>
-        </div>
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Configurar la matriz de alertas</div><div class="step-desc">En <strong>Gestión de Personal → Alertas</strong> defina qué ítems generan alerta, si requieren foto y a qué correos llegan. Guarde con <strong>"Guardar matriz"</strong>.</div></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Crear un nuevo supervisor</div><div class="step-desc">Presione <strong>"Crear supervisores"</strong> y complete nombre completo, correo y contraseña inicial. El supervisor recibirá sus credenciales y deberá cambiar la contraseña en su primer ingreso.</div></div></div>
       </div>
     </div>
   </div>
@@ -1104,47 +295,30 @@
   <div id="guide-seguridad" class="guide-section">
     <div class="section-header">
       <h2>🔐 Seguridad y acceso</h2>
-      <p>Información importante sobre contraseñas, GPS y funcionamiento sin internet.</p>
+      <p>Información sobre contraseñas, GPS y funcionamiento sin internet.</p>
     </div>
-
     <div class="security-grid">
-      <div class="security-card">
-        <div class="security-card-icon">🔑</div>
-        <div class="security-card-title">Contraseña segura</div>
-        <div class="security-card-desc">Tu contraseña debe tener mínimo <strong>8 caracteres</strong>, al menos una mayúscula y ser alfanumérica (letras + números). Debes cambiarla la primera vez que ingreses.</div>
-      </div>
-      <div class="security-card">
-        <div class="security-card-icon">🚫</div>
-        <div class="security-card-title">Bloqueo por intentos fallidos</div>
-        <div class="security-card-desc">Si ingresas la contraseña incorrecta <strong>5 veces seguidas</strong>, la cuenta se bloquea por <strong>5 minutos</strong>. Luego puedes intentarlo de nuevo.</div>
-      </div>
-      <div class="security-card">
-        <div class="security-card-icon">📍</div>
-        <div class="security-card-title">GPS obligatorio</div>
-        <div class="security-card-desc">El GPS no puede estar desactivado durante una supervisión. Si la app detecta que está apagado, <strong>no te permitirá continuar</strong>. Actívalo antes de iniciar.</div>
-      </div>
-      <div class="security-card">
-        <div class="security-card-icon">📶</div>
-        <div class="security-card-title">Funciona sin internet</div>
-        <div class="security-card-desc">En zonas sin señal (subterráneos, zonas rurales), la app guarda la supervisión en modo <strong>offline</strong> y la sincroniza automáticamente al recuperar conexión. No se pierde nada.</div>
-      </div>
+      <div class="security-card"><div class="security-card-icon">🔑</div><div class="security-card-title">Contraseña segura</div><div class="security-card-desc">Mínimo <strong>8 caracteres</strong>, al menos una mayúscula y combinación de letras y números. Debe cambiarse en el primer ingreso.</div></div>
+      <div class="security-card"><div class="security-card-icon">🚫</div><div class="security-card-title">Bloqueo por intentos fallidos</div><div class="security-card-desc">Tras <strong>5 intentos incorrectos</strong> consecutivos, la cuenta se bloquea automáticamente por <strong>5 minutos</strong>.</div></div>
+      <div class="security-card"><div class="security-card-icon">📍</div><div class="security-card-title">GPS obligatorio</div><div class="security-card-desc">El GPS debe estar activo durante toda la supervisión. Si está desactivado, la aplicación no permitirá continuar.</div></div>
+      <div class="security-card"><div class="security-card-icon">📶</div><div class="security-card-title">Funciona sin internet</div><div class="security-card-desc">La app guarda la supervisión en modo <strong>offline</strong> y sincroniza automáticamente al recuperar conexión. No se pierde ninguna información.</div></div>
     </div>
   </div>
 
-  <!-- DESCARGA PDF -->
-  <div style="background: linear-gradient(135deg, var(--bg2) 0%, var(--bg3) 100%); border: 1px solid var(--border2); border-radius: 16px; padding: 2.5rem 2rem; margin-top: 3rem; text-align: center; position: relative; overflow: hidden;">
-    <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--blue), var(--accent));"></div>
-    <div style="display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; background: var(--green-dim); border: 1px solid rgba(26,95,204,0.3); border-radius: 16px; margin-bottom: 1rem; font-size: 2rem;">📄</div>
-    <h3 style="font-family: 'Sora', sans-serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text);">Manual de Usuario en PDF</h3>
-    <p style="color: var(--text2); font-size: 0.95rem; margin-bottom: 1.75rem; max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.6;">Descarga la guía oficial completa en formato PDF para imprimir, compartir con tu equipo o consultar sin conexión.</p>
-    <a href="/Manual_Usuario_SUPERCOR.pdf" download style="display: inline-flex; align-items: center; gap: 0.6rem; background: var(--blue); color: #fff; font-family: 'Sora', sans-serif; font-size: 0.95rem; font-weight: 600; padding: 0.9rem 2rem; border-radius: 10px; text-decoration: none; transition: all 0.2s; box-shadow: 0 4px 16px rgba(26,95,204,0.3);">⬇  Descargar manual (PDF)</a>
-    <div style="margin-top: 1rem; font-size: 0.8rem; color: var(--text3);">19 páginas · Documento oficial SUPERCOR</div>
+  <!-- PDF -->
+  <div style="background:linear-gradient(135deg,var(--bg2) 0%,var(--bg3) 100%);border:1px solid var(--border2);border-radius:16px;padding:2.5rem 2rem;margin-top:3rem;text-align:center;position:relative;overflow:hidden">
+    <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--blue),var(--accent))"></div>
+    <div style="display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;background:var(--green-dim);border:1px solid rgba(26,95,204,0.3);border-radius:16px;margin-bottom:1rem;font-size:2rem">📄</div>
+    <h3 style="font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:700;margin-bottom:0.5rem;color:var(--text)">Manual de Usuario en PDF</h3>
+    <p style="color:var(--text2);font-size:0.95rem;margin-bottom:1.75rem;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.6">Descarga la guía oficial completa en formato PDF para imprimir, compartir con su equipo o consultar sin conexión.</p>
+    <a href="/Manual_Usuario_SUPERCOR.pdf" download style="display:inline-flex;align-items:center;gap:0.6rem;background:var(--blue);color:#fff;font-family:'Sora',sans-serif;font-size:0.95rem;font-weight:600;padding:0.9rem 2rem;border-radius:10px;text-decoration:none;box-shadow:0 4px 16px rgba(26,95,204,0.3)">⬇ Descargar manual (PDF)</a>
+    <div style="margin-top:1rem;font-size:0.8rem;color:var(--text3)">19 páginas · Documento oficial SUPERCOR</div>
   </div>
 
   <!-- SOPORTE -->
   <div class="support-section">
-    <h3>¿No encontraste lo que buscabas?</h3>
-    <p>Nuestro equipo de soporte está disponible <strong>24/7</strong> para ayudarte por cualquier canal.</p>
+    <h3>¿No encontró lo que buscaba?</h3>
+    <p>Nuestro equipo de soporte está disponible <strong>24/7</strong> para orientarle por cualquier canal.</p>
     <div class="support-contacts">
       <a href="https://wa.me/56995950843" class="support-btn whatsapp" target="_blank">💬 WhatsApp</a>
       <a href="mailto:contacto@supercor.cl" class="support-btn email">✉️ contacto@supercor.cl</a>
@@ -1154,10 +328,8 @@
 
 </div>
 
-<!-- CHAT BTN -->
 <button id="chat-btn" onclick="toggleChat()" title="Asistente SUPERCOR">🤖</button>
 
-<!-- CHAT BUBBLE -->
 <div id="chat-bubble">
   <div class="chat-header">
     <div class="chat-header-left">
@@ -1183,13 +355,13 @@
 </div>
 
 <script>
-const SYSTEM_PROMPT = `Eres el asistente de ayuda de SUPERCOR, una plataforma SaaS de control operacional y supervisión en terreno.
+const SYSTEM_PROMPT = `Eres el asistente oficial de SUPERCOR, una plataforma SaaS de control operacional y supervisión en terreno.
 
-Respondes SOLO preguntas relacionadas con el uso de la aplicación SUPERCOR. Si te preguntan algo no relacionado, indica amablemente que solo puedes ayudar con dudas sobre SUPERCOR.
+Respondes ÚNICAMENTE preguntas relacionadas con el uso de la aplicación SUPERCOR. Si te preguntan algo no relacionado, indica amablemente que solo puedes asistir con consultas sobre SUPERCOR.
 
-Habla en español chileno, de forma simple, clara y cercana. Usa párrafos cortos. No uses markdown con asteriscos ni símbolos raros — escribe texto plano limpio.
+Cuando no tengas información suficiente para responder una consulta específica, NO indiques que no sabes ni que la información no está disponible. En su lugar, indica que el equipo de soporte puede orientar mejor al respecto, y entrega los datos de contacto: WhatsApp +56 9 9595 0843, teléfono +56 9 7765 2571 o correo contacto@supercor.cl.
 
-Aquí está todo lo que sabes sobre SUPERCOR:
+Habla en español, de forma clara, formal y profesional. No uses expresiones coloquiales, chilenismos ni lenguaje informal. Usa párrafos cortos y texto plano sin formato markdown.
 
 PERFILES:
 - Supervisor: realiza fiscalizaciones en terreno con 6 etapas
@@ -1199,154 +371,53 @@ PERFILES:
 ACCESO:
 - Todos ingresan con usuario/contraseña
 - Máximo 5 intentos fallidos, luego se bloquea 5 minutos
-- La contraseña inicial debe cambiarse por una alfanumérica de mínimo 8 caracteres con al menos una mayúscula
+- La contraseña debe tener mínimo 8 caracteres, al menos una mayúscula y ser alfanumérica
 
 SUPERVISOR — 6 ETAPAS:
-Etapa 1 (Configuración inicial): selecciona contrato, instalación, su nombre como inspector, y actualiza GPS. El GPS debe estar activo obligatoriamente.
-Etapa 2 (Evidencia fotográfica): toma fotos de los ítems requeridos. Puede repetir fotos con "Volver a tomar foto".
-Etapa 3 (Checklist documental): marca Sí/No en cada documento. Algunos piden foto.
+Etapa 1: selecciona contrato, instalación, su nombre como inspector, y actualiza GPS. El GPS debe estar activo obligatoriamente.
+Etapa 2: toma fotos de los ítems requeridos. Puede repetir con "Volver a tomar foto".
+Etapa 3: marca Sí/No en cada documento. Algunos piden foto.
 Etapa 4 (Evaluación de personal):
-  - Primero pregunta si hay personal. Si no hay nadie, salta a etapa 5.
-  - Si hay personal, aparece la lista de trabajadores asignados a esa instalación.
-  - Por cada trabajador elige: "¿Está trabajando ahora?" (checklist vestuario + documentos) o "Solo revisar documentos" (solo checklist documentos).
-  - Si el trabajador es reemplazo de otra instalación: búscalo en la nómina general de la empresa, solo aparece checklist de vestuario, elegir "Solo revisar documentos".
-  - Si el trabajador no aparece en ninguna nómina: presionar "Trabajador no enrolado", completar nombre, apellido, RUT y motivo. Aparecerá solo checklist de vestuario.
-  - Todos deben quedar con ticket verde "OK" para poder continuar.
-Etapa 5 (Infraestructura y equipamiento): checklist Sí/No de equipamiento. Algunos piden foto.
-Etapa 6 (Sección final): observaciones y fotos adicionales, no es obligatoria. Presionar "Enviar" para finalizar.
+  - Si no hay personal, salta a etapa 5.
+  - Si hay personal, aparece la lista de trabajadores asignados.
+  - "¿Está trabajando ahora?" → checklist vestuario y documentación.
+  - "Solo revisar documentos" → solo checklist documentos.
+  - Reemplazo de otra instalación: búscalo en nómina general, solo aparece checklist vestuario.
+  - No aparece en ninguna nómina: presionar "Trabajador no enrolado", completar nombre, apellido, RUT y motivo.
+  - Todos deben quedar con ticket verde "OK" para continuar.
+Etapa 5: checklist Sí/No de equipamiento. Algunos piden foto.
+Etapa 6: observaciones opcionales. Presionar "Enviar" para finalizar.
 
-FUNCIONAMIENTO OFFLINE:
-La app funciona sin internet. Guarda la supervisión y la sube automáticamente al recuperar señal.
+OFFLINE: La app guarda la supervisión localmente y sincroniza al recuperar conexión.
 
-RRHH — DOTACIÓN:
-- Al ingresar va directo al menú "Dotación por instalación"
-- Puede filtrar por contrato e instalación
-- Agregar trabajador individual: nombre + turno (día/noche)
-- Carga masiva por Excel: columnas Nombre, Apellido, Contrato, Instalación, Turno. Turnos válidos: Día, Noche, Rotativo, 4x4
-- "Reemplazar dotación": borra toda la nómina y carga la nueva (cuidado, es destructivo)
+RRHH:
+- Filtrar por contrato e instalación para ver dotación
+- Agregar trabajador individual: nombre + turno
+- Carga masiva Excel: columnas Nombre, Apellido, Contrato, Instalación, Turno. Turnos: Día, Noche, Rotativo, 4x4
+- "Reemplazar dotación": borra toda la nómina actual (irreversible)
 - "Agregar más trabajadores": suma a los existentes
-- Puede eliminar trabajadores individuales con el botón borrar
 
-JEFATURA/ADMINISTRADOR:
-- Menú: Historial, Alertas, Dashboard gerencial, Gestión de personal, Dotación por instalación
-- Historial: ve supervisiones con criticidad (Crítico/Medio/Normal), filtra por fecha, exporta PDF consolidado o individual
-- Alertas: pendientes, en gestión, resueltas automáticamente, cerradas manualmente
-  - "Ver reporte": ver detalle
-  - "Derivar": escribe mensaje + correo destinatario, se notifica de inmediato
-  - "Cerrar manual": para errores o alertas que no corresponden
-- Dashboard gerencial:
-  - Modo en vivo: para proyectar en monitor grande, muestra estado en tiempo real
-  - Filtros: contrato, instalación, supervisor, fecha
-  - Semáforo: Crítico (rojo), Medio (amarillo), Normal (verde)
-  - Excel: informe detallado del período
-  - Cobertura: instalaciones visitadas vs no visitadas
-  - Reportes: programa envíos automáticos diarios a un correo, con día y hora elegidos
-- Gestión de personal:
-  - Alertas: configura qué ítems generan alerta, si piden foto, y a qué correos llegan. Guardar con "Guardar matriz"
-  - Crear supervisores: nombre, correo, contraseña inicial
-  - Dotación por instalación: igual que el perfil RRHH
+JEFATURA:
+- Historial: supervisiones con criticidad, filtro por fecha, exportar PDF
+- Alertas: "Derivar" envía al responsable, "Cerrar manual" para errores
+- Dashboard: Modo en vivo, semáforo Crítico/Medio/Normal, exportar Excel y PDF
+- Reportes automáticos: configura día, hora y correo destinatario
+- Crear supervisores: nombre, correo, contraseña inicial
+- Matriz de alertas: define qué ítems generan alerta y a qué correos llegan
 
 SOPORTE 24/7:
 WhatsApp: +56 9 9595 0843
 Teléfono: +56 9 7765 2571
 Correo: contacto@supercor.cl`;
 
-let chatOpen = false;
-let welcomed = false;
-let conversationHistory = [];
-
-function toggleChat() {
-  chatOpen = !chatOpen;
-  const bubble = document.getElementById('chat-bubble');
-  bubble.classList.toggle('open', chatOpen);
-  if (chatOpen && !welcomed) {
-    welcomed = true;
-    setTimeout(() => addMsg('bot', '¡Hola! Soy el asistente de SUPERCOR. Puedo ayudarte con cualquier duda sobre cómo usar la plataforma. ¿En qué te puedo ayudar?'), 400);
-  }
-}
-
-function addMsg(who, text) {
-  const msgs = document.getElementById('chat-messages');
-  const qs = document.getElementById('quick-qs');
-  if (qs) qs.style.display = 'none';
-  const div = document.createElement('div');
-  div.className = 'msg ' + who;
-  const dot = document.createElement('div');
-  dot.className = 'msg-dot';
-  dot.textContent = who === 'bot' ? '🤖' : '👤';
-  const bubble = document.createElement('div');
-  bubble.className = 'msg-bubble';
-  bubble.textContent = text;
-  div.appendChild(dot);
-  div.appendChild(bubble);
-  msgs.appendChild(div);
-  msgs.scrollTop = msgs.scrollHeight;
-}
-
-function addTyping() {
-  const msgs = document.getElementById('chat-messages');
-  const div = document.createElement('div');
-  div.className = 'msg bot';
-  div.id = 'typing-indicator';
-  const dot = document.createElement('div');
-  dot.className = 'msg-dot';
-  dot.textContent = '🤖';
-  const bubble = document.createElement('div');
-  bubble.className = 'msg-bubble typing';
-  bubble.innerHTML = '<span></span><span></span><span></span>';
-  div.appendChild(dot);
-  div.appendChild(bubble);
-  msgs.appendChild(div);
-  msgs.scrollTop = msgs.scrollHeight;
-}
-
-function removeTyping() {
-  const t = document.getElementById('typing-indicator');
-  if (t) t.remove();
-}
-
-async function sendMsg() {
-  const input = document.getElementById('chat-input');
-  const text = input.value.trim();
-  if (!text) return;
-  input.value = '';
-  addMsg('user', text);
-  conversationHistory.push({ role: 'user', content: text });
-  addTyping();
-  try {
-    const res = await fetch('/api/chat', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        messages: conversationHistory,
-        system: SYSTEM_PROMPT
-      })
-    });
-    const data = await res.json();
-    removeTyping();
-    const reply = data.reply || 'Lo siento, no pude procesar tu consulta. Intenta de nuevo o contáctanos directamente.';
-    conversationHistory.push({ role: 'assistant', content: reply });
-    addMsg('bot', reply);
-  } catch(e) {
-    removeTyping();
-    addMsg('bot', 'Hubo un problema de conexión. Por favor intenta de nuevo.');
-  }
-}
-
-function sendQuick(text) {
-  document.getElementById('chat-input').value = text;
-  sendMsg();
-}
-
-function showGuide(name) {
-  document.querySelectorAll('.guide-section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.profile-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('guide-' + name).classList.add('active');
-  const tabs = document.querySelectorAll('.profile-tab');
-  const map = ['supervisor','rrhh','jefatura','seguridad'];
-  tabs[map.indexOf(name)].classList.add('active');
-}
+let chatOpen=false,welcomed=false,conversationHistory=[];
+function toggleChat(){chatOpen=!chatOpen;const b=document.getElementById('chat-bubble');b.classList.toggle('open',chatOpen);if(chatOpen&&!welcomed){welcomed=true;setTimeout(()=>addMsg('bot','Bienvenido al asistente de SUPERCOR. Estoy disponible para responder sus consultas sobre el uso de la plataforma. ¿En qué puedo ayudarle?'),400)}}
+function addMsg(who,text){const msgs=document.getElementById('chat-messages');const qs=document.getElementById('quick-qs');if(qs)qs.style.display='none';const div=document.createElement('div');div.className='msg '+who;const dot=document.createElement('div');dot.className='msg-dot';dot.textContent=who==='bot'?'🤖':'👤';const bubble=document.createElement('div');bubble.className='msg-bubble';bubble.textContent=text;div.appendChild(dot);div.appendChild(bubble);msgs.appendChild(div);msgs.scrollTop=msgs.scrollHeight}
+function addTyping(){const msgs=document.getElementById('chat-messages');const div=document.createElement('div');div.className='msg bot';div.id='typing-indicator';const dot=document.createElement('div');dot.className='msg-dot';dot.textContent='🤖';const bubble=document.createElement('div');bubble.className='msg-bubble typing';bubble.innerHTML='<span></span><span></span><span></span>';div.appendChild(dot);div.appendChild(bubble);msgs.appendChild(div);msgs.scrollTop=msgs.scrollHeight}
+function removeTyping(){const t=document.getElementById('typing-indicator');if(t)t.remove()}
+async function sendMsg(){const input=document.getElementById('chat-input');const text=input.value.trim();if(!text)return;input.value='';addMsg('user',text);conversationHistory.push({role:'user',content:text});addTyping();try{const res=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:conversationHistory,system:SYSTEM_PROMPT})});const data=await res.json();removeTyping();const reply=data.reply||'En este momento no es posible procesar su consulta. Por favor contáctenos directamente por WhatsApp al +56 9 9595 0843.';conversationHistory.push({role:'assistant',content:reply});addMsg('bot',reply)}catch(e){removeTyping();addMsg('bot','Se produjo un error de conexión. Por favor intente nuevamente o contáctenos al +56 9 9595 0843.')}}
+function sendQuick(text){document.getElementById('chat-input').value=text;sendMsg()}
+function showGuide(name){document.querySelectorAll('.guide-section').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.profile-tab').forEach(t=>t.classList.remove('active'));document.getElementById('guide-'+name).classList.add('active');const tabs=document.querySelectorAll('.profile-tab');const map=['supervisor','rrhh','jefatura','seguridad'];tabs[map.indexOf(name)].classList.add('active')}
 </script>
 </body>
 </html>
-

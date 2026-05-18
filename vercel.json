@@ -1,6 +1,7 @@
 {
   "routes": [
-    { "src": "/ayuda", "dest": "/ayuda.html" }
+    { "src": "/ayuda", "dest": "/ayuda.html" },
+    { "src": "/privacidad", "dest": "/privacidad.html" }
   ],
   "headers": [
     {
