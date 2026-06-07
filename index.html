@@ -197,20 +197,18 @@
     #app-preview .section-badge{background:rgba(26,95,204,0.2);color:var(--accent);border-color:rgba(26,95,204,0.4)}
     #app-preview .section-title{color:white}
     #app-preview .section-subtitle{color:var(--silver-dim)}
-    .app-screens{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem;align-items:start}
+    .app-screens{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:3rem;align-items:start}
     .screenshot-card{background:#FFFFFF;border:1px solid #E2E8F0;border-radius:8px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.15);transition:box-shadow .2s}
     .screenshot-card:hover{box-shadow:0 8px 32px rgba(0,0,0,0.22)}
     .screenshot-card-header{background:var(--navy);padding:12px 16px;display:flex;align-items:center}
     .screenshot-card-title{font-family:var(--font-title);font-size:.82rem;font-weight:600;color:rgba(255,255,255,.85);letter-spacing:.04em;display:flex;align-items:center;gap:6px}
     .screenshot-card-title svg{width:14px;height:14px;stroke:var(--accent);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
     .screenshot-card img{width:100%;height:auto;display:block}
+    .app-screens .screenshot-card img{height:150px;object-fit:cover;object-position:top}
     .screenshot-card-footer{padding:14px 16px;background:var(--gray-50);border-top:1px solid var(--gray-100)}
     .screenshot-card-footer-title{font-family:var(--font-title);font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:4px}
     .screenshot-card-footer-desc{font-size:.78rem;color:var(--gray-600);line-height:1.55}
-    #reportes{background:var(--gray-50);border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100)}
-    #reportes .section-badge{background:rgba(26,95,204,0.08);color:var(--blue);border:1px solid rgba(26,95,204,0.2)}
-    .reportes-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem;align-items:start}
-    #precios{background:var(--white)}
+#precios{background:var(--white)}
     .pricing-note{text-align:center;background:rgba(26,95,204,0.06);border:1px solid rgba(26,95,204,0.15);border-radius:6px;padding:1rem 2rem;margin-bottom:2.5rem;font-size:.9rem;color:var(--gray-600)}
     .pricing-note strong{color:var(--blue)}
     .pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;max-width:960px;margin:0 auto}
@@ -290,7 +288,8 @@
     @media(max-width:768px){
       .nav-links{display:none}
       .nav-mobile-btn{display:flex}
-      .solution-grid,.contact-grid,.app-screens,.reportes-grid{grid-template-columns:1fr}
+      .solution-grid,.contact-grid{grid-template-columns:1fr}
+      .app-screens{grid-template-columns:repeat(2,1fr)}
       .form-row{grid-template-columns:1fr}
       .hero-stats{gap:1.5rem}
       .mockup-grid{grid-template-columns:1fr 1fr}
@@ -298,6 +297,7 @@
       .demo-box{padding:1.5rem}
       .footer-links{gap:1rem}
     }
+    @media(max-width:480px){.app-screens{grid-template-columns:1fr}}
     .fade-in{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
     .fade-in.visible{opacity:1;transform:translateY(0)}
     /* === Callout Acompañamiento (integrado en #propuesta) === */
@@ -453,9 +453,9 @@
 <section id="app-preview">
   <div class="container">
     <div class="text-center fade-in">
-      <div class="section-badge">Vista en tiempo real</div>
-      <h2 class="section-title">Visibilidad ejecutiva de tu operación</h2>
-      <p class="section-subtitle">Centraliza indicadores, cobertura de instalaciones y cumplimiento operacional en una vista clara para la toma de decisiones.</p>
+      <div class="section-badge">Visibilidad ejecutiva</div>
+      <h2 class="section-title">Control, evidencia y reportes en una sola plataforma</h2>
+      <p class="section-subtitle">Desde la supervisión en terreno hasta el reporte ejecutivo, SUPERCOR centraliza indicadores, alertas, evidencias y trazabilidad para que la empresa actúe antes de una multa, reclamo o pérdida operacional.</p>
     </div>
     <div class="app-screens">
       <div class="screenshot-card fade-in">
@@ -465,10 +465,10 @@
             DASHBOARD GERENCIAL
           </div>
         </div>
-        <img src="assets/screenshots/dashboard-gerencial-overview.png" alt="Dashboard gerencial SUPERCOR — supervisiones activas, cumplimiento por contrato y alertas críticas" loading="lazy" />
+        <img src="assets/screenshots/dashboard-gerencial-overview.png" alt="Dashboard gerencial SUPERCOR — indicadores de cumplimiento, instalaciones y alertas en vista ejecutiva" loading="lazy" />
         <div class="screenshot-card-footer">
           <div class="screenshot-card-footer-title">Dashboard gerencial</div>
-          <div class="screenshot-card-footer-desc">Supervisiones activas, cumplimiento por contrato, alertas críticas y cobertura de instalaciones. Todo en tiempo real desde la gerencia.</div>
+          <div class="screenshot-card-footer-desc">Indicadores de cumplimiento, instalaciones, alertas y supervisiones en tiempo real desde la gerencia.</div>
         </div>
       </div>
       <div class="screenshot-card fade-in">
@@ -478,10 +478,36 @@
             MAPA Y SEMÁFORO OPERACIONAL
           </div>
         </div>
-        <img src="assets/screenshots/dashboard-mapa-semaforo.png" alt="Mapa y semáforo operacional SUPERCOR — estado de instalaciones supervisadas por zona geográfica" loading="lazy" />
+        <img src="assets/screenshots/dashboard-mapa-semaforo.png" alt="Mapa y semáforo operacional SUPERCOR — cobertura de instalaciones y estado operacional por zona geográfica" loading="lazy" />
         <div class="screenshot-card-footer">
           <div class="screenshot-card-footer-title">Mapa y semáforo operacional</div>
-          <div class="screenshot-card-footer-desc">Visualización geográfica de instalaciones con semáforo de cumplimiento: verde, amarillo o rojo según estado de cada punto de control.</div>
+          <div class="screenshot-card-footer-desc">Cobertura de instalaciones y estado operacional por zona: verde, amarillo o rojo según cumplimiento.</div>
+        </div>
+      </div>
+      <div class="screenshot-card fade-in">
+        <div class="screenshot-card-header">
+          <div class="screenshot-card-title">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            REPORTE EXCEL EJECUTIVO
+          </div>
+        </div>
+        <img src="assets/screenshots/export-excel-dashboard.png" alt="Reporte Excel ejecutivo exportado desde SUPERCOR — análisis gerencial y seguimiento por periodo" loading="lazy" />
+        <div class="screenshot-card-footer">
+          <div class="screenshot-card-footer-title">Reporte Excel ejecutivo</div>
+          <div class="screenshot-card-footer-desc">Exportación estructurada para análisis gerencial, auditorías internas y seguimiento por periodo.</div>
+        </div>
+      </div>
+      <div class="screenshot-card fade-in">
+        <div class="screenshot-card-header">
+          <div class="screenshot-card-title">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><rect x="8" y="11" width="8" height="1" rx=".5"/><rect x="8" y="14" width="8" height="1" rx=".5"/><rect x="8" y="17" width="5" height="1" rx=".5"/></svg>
+            INFORME PDF CONSOLIDADO
+          </div>
+        </div>
+        <img src="assets/screenshots/reporte-pdf-consolidado.png" alt="Informe PDF consolidado generado por SUPERCOR — documento para dirección, cliente mandante o auditoría" loading="lazy" />
+        <div class="screenshot-card-footer">
+          <div class="screenshot-card-footer-title">Informe PDF consolidado</div>
+          <div class="screenshot-card-footer-desc">Documento listo para presentar a dirección, cliente mandante o revisión operacional.</div>
         </div>
       </div>
     </div>
@@ -493,43 +519,6 @@
   </div>
 </section>
 
-<section id="reportes">
-  <div class="container">
-    <div class="text-center fade-in">
-      <div class="section-badge">Reportes y trazabilidad</div>
-      <h2 class="section-title">Evidencia operacional lista para presentar</h2>
-      <p class="section-subtitle">Exporta informes ejecutivos en Excel y PDF para respaldar supervisiones, revisar cumplimiento y entregar trazabilidad a clientes, mandantes o dirección.</p>
-    </div>
-    <div class="reportes-grid">
-      <div class="screenshot-card fade-in">
-        <div class="screenshot-card-header">
-          <div class="screenshot-card-title">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            REPORTE EXCEL
-          </div>
-        </div>
-        <img src="assets/screenshots/export-excel-dashboard.png" alt="Captura de reporte Excel ejecutivo exportado desde SUPERCOR" loading="lazy" />
-        <div class="screenshot-card-footer">
-          <div class="screenshot-card-footer-title">Reporte Excel ejecutivo</div>
-          <div class="screenshot-card-footer-desc">Consolida indicadores, cobertura de instalaciones, cumplimiento y alertas en un archivo estructurado para análisis gerencial.</div>
-        </div>
-      </div>
-      <div class="screenshot-card fade-in">
-        <div class="screenshot-card-header">
-          <div class="screenshot-card-title">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><rect x="8" y="11" width="8" height="1" rx=".5"/><rect x="8" y="14" width="8" height="1" rx=".5"/><rect x="8" y="17" width="5" height="1" rx=".5"/></svg>
-            INFORME PDF
-          </div>
-        </div>
-        <img src="assets/screenshots/reporte-pdf-consolidado.png" alt="Captura de informe PDF consolidado generado por SUPERCOR" loading="lazy" />
-        <div class="screenshot-card-footer">
-          <div class="screenshot-card-footer-title">Informe PDF consolidado</div>
-          <div class="screenshot-card-footer-desc">Presenta supervisiones, evidencias fotográficas y resumen operacional en un formato claro para revisión ejecutiva o auditorías.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section id="funcionalidades">
   <div class="container">
