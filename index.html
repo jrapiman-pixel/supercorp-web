@@ -215,6 +215,9 @@
     .screenshot-card-footer{padding:14px 16px;background:var(--gray-50);border-top:1px solid var(--gray-100)}
     .screenshot-card-footer-title{font-family:var(--font-title);font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:4px}
     .screenshot-card-footer-desc{font-size:.78rem;color:var(--gray-600);line-height:1.55}
+    #reportes{background:var(--gray-50);border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100)}
+    #reportes .section-badge{background:rgba(26,95,204,0.08);color:var(--blue);border:1px solid rgba(26,95,204,0.2)}
+    .reportes-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem;align-items:start}
     #precios{background:var(--white)}
     .pricing-note{text-align:center;background:rgba(26,95,204,0.06);border:1px solid rgba(26,95,204,0.15);border-radius:6px;padding:1rem 2rem;margin-bottom:2.5rem;font-size:.9rem;color:var(--gray-600)}
     .pricing-note strong{color:var(--blue)}
@@ -295,7 +298,7 @@
     @media(max-width:768px){
       .nav-links{display:none}
       .nav-mobile-btn{display:flex}
-      .solution-grid,.contact-grid,.app-screens{grid-template-columns:1fr}
+      .solution-grid,.contact-grid,.app-screens,.reportes-grid{grid-template-columns:1fr}
       .form-row{grid-template-columns:1fr}
       .hero-stats{gap:1.5rem}
       .mockup-grid{grid-template-columns:1fr 1fr}
@@ -559,6 +562,44 @@
     <div style="display:none" aria-hidden="true">
       <span id="as1"></span><span id="as2"></span><span id="as3"></span><span id="as4"></span>
       <div id="app-bar"></div><span id="app-bar-text"></span>
+    </div>
+  </div>
+</section>
+
+<section id="reportes">
+  <div class="container">
+    <div class="text-center fade-in">
+      <div class="section-badge">Reportes y trazabilidad</div>
+      <h2 class="section-title">Evidencia operacional lista para presentar</h2>
+      <p class="section-subtitle">Exporta informes ejecutivos en Excel y PDF para respaldar supervisiones, revisar cumplimiento y entregar trazabilidad a clientes, mandantes o dirección.</p>
+    </div>
+    <div class="reportes-grid">
+      <div class="screenshot-card fade-in">
+        <div class="screenshot-card-header">
+          <div class="screenshot-card-title">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            REPORTE EXCEL
+          </div>
+        </div>
+        <img src="assets/screenshots/export-excel-dashboard.png" alt="Captura de reporte Excel ejecutivo exportado desde SUPERCOR" loading="lazy" />
+        <div class="screenshot-card-footer">
+          <div class="screenshot-card-footer-title">Reporte Excel ejecutivo</div>
+          <div class="screenshot-card-footer-desc">Consolida indicadores, cobertura de instalaciones, cumplimiento y alertas en un archivo estructurado para análisis gerencial.</div>
+        </div>
+      </div>
+      <div class="screenshot-card fade-in">
+        <div class="screenshot-card-header">
+          <div class="screenshot-card-title">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><rect x="8" y="11" width="8" height="1" rx=".5"/><rect x="8" y="14" width="8" height="1" rx=".5"/><rect x="8" y="17" width="5" height="1" rx=".5"/></svg>
+            INFORME PDF
+          </div>
+        </div>
+        <img src="assets/screenshots/reporte-pdf-consolidado.png" alt="Captura de informe PDF consolidado generado por SUPERCOR" loading="lazy" />
+        <div class="screenshot-card-footer">
+          <div class="screenshot-card-footer-title">Informe PDF consolidado</div>
+          <div class="screenshot-card-footer-desc">Presenta supervisiones, evidencias fotográficas y resumen operacional en un formato claro para revisión ejecutiva o auditorías.</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
