@@ -306,41 +306,12 @@
       .demo-box{padding:1.5rem}
       .footer-links{gap:1rem}
     }
-    #manifiesto{background:linear-gradient(135deg,var(--navy) 0%,var(--black) 100%);color:white;position:relative;overflow:hidden;padding:5rem 2rem;border-top:1px solid rgba(26,95,204,0.2);border-bottom:1px solid rgba(26,95,204,0.2)}
-    .manifiesto-container{max-width:900px;margin:0 auto;text-align:center;position:relative;z-index:1}
-    .manifiesto-badge{display:inline-block;background:rgba(26,95,204,0.15);color:var(--accent);font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:6px 16px;border-radius:4px;border:1px solid rgba(26,95,204,0.35);margin-bottom:1.5rem}
-    .manifiesto-headline{font-family:var(--font-title);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;line-height:1.2;color:var(--white);margin-bottom:2rem}
-    .manifiesto-headline .accent{color:var(--accent)}
-    .manifiesto-slogan{font-family:var(--font-title);font-size:clamp(1.1rem,2vw,1.4rem);font-weight:600;color:var(--accent);letter-spacing:.05em;margin-bottom:1.5rem;text-transform:uppercase}
-    .manifiesto-slogan-sub{font-size:1.05rem;color:var(--silver-dim);line-height:1.75;max-width:720px;margin:0 auto}
-    .manifiesto-divider{width:60px;height:3px;background:var(--accent);margin:0 auto 2rem;border-radius:2px}
     .fade-in{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
     .fade-in.visible{opacity:1;transform:translateY(0)}
-    /* === ¿Qué hace SUPERCOR? === */
-    #que-es{background:var(--gray-50);border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100)}
-    .que-es-intro{max-width:680px;margin:0 auto 2.5rem;text-align:center}
-    .que-es-intro p{font-size:1.05rem;color:var(--gray-600);line-height:1.75}
-    .que-es-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}
-    .que-es-card{background:var(--white);border:1px solid var(--gray-100);border-radius:8px;padding:1.75rem;border-top:3px solid var(--blue);transition:all .2s}
-    .que-es-card:hover{box-shadow:0 4px 20px rgba(26,95,204,0.08)}
-    .que-es-num{font-family:var(--font-title);font-size:2rem;font-weight:700;color:rgba(26,95,204,0.22);line-height:1;margin-bottom:.5rem}
-    .que-es-title{font-family:var(--font-title);font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:.4rem}
-    .que-es-desc{font-size:.875rem;color:var(--gray-600);line-height:1.65}
-    /* === Tecnología + Acompañamiento === */
-    #acompanamiento{background:var(--black);color:white;position:relative;overflow:hidden;border-top:1px solid rgba(26,95,204,0.2);border-bottom:1px solid rgba(26,95,204,0.2)}
-    #acompanamiento .container{position:relative;z-index:1}
-    #acompanamiento .section-title{color:white}
-    #acompanamiento .section-subtitle{color:var(--silver-dim)}
-    #acompanamiento .section-badge{background:rgba(26,95,204,0.2);color:var(--accent);border-color:rgba(26,95,204,0.4)}
-    .acomp-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem;align-items:start}
-    .acomp-col{background:rgba(26,95,204,0.07);border:1px solid rgba(26,95,204,0.15);border-radius:8px;padding:2rem}
-    .acomp-col-label{font-family:var(--font-title);font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid rgba(26,95,204,0.2)}
-    .acomp-col p{font-size:.9rem;color:var(--silver-dim);line-height:1.75;margin-bottom:.75rem}
-    .acomp-list{list-style:none;display:flex;flex-direction:column;gap:.5rem}
-    .acomp-list li{font-size:.875rem;color:var(--silver-dim);display:flex;align-items:flex-start;gap:8px;line-height:1.5}
-    .acomp-list li::before{content:'→';color:var(--accent);font-weight:700;flex-shrink:0}
-    .acomp-cta{text-align:center;margin-top:3rem}
-    @media(max-width:768px){.acomp-grid{grid-template-columns:1fr}}
+    /* === Callout Acompañamiento (integrado en #propuesta) === */
+    .acomp-callout{margin-top:2.5rem;background:rgba(26,95,204,0.07);border:1px solid rgba(26,95,204,0.18);border-radius:8px;padding:1.75rem 2rem;text-align:center}
+    .acomp-callout-label{font-family:var(--font-title);font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem}
+    .acomp-callout-text{font-size:.9rem;color:var(--silver-dim);line-height:1.75;max-width:700px;margin:0 auto}
   </style>
 </head>
 <body>
@@ -403,20 +374,6 @@
     </div>
   </div>
 </section>
-<section id="que-es">
-  <div class="container">
-    <div class="que-es-intro fade-in">
-      <div class="section-badge">¿Qué es SUPERCOR?</div>
-      <p>SUPERCOR centraliza la supervisión en terreno, la evidencia operacional, las alertas y los reportes ejecutivos en una sola plataforma. Así, la gerencia puede detectar incumplimientos a tiempo, tomar decisiones con información verificable y fortalecer una cultura de control dentro de la empresa.</p>
-    </div>
-    <div class="que-es-grid">
-      <div class="que-es-card fade-in"><div class="que-es-num">01</div><div class="que-es-title">Supervisión en terreno</div><div class="que-es-desc">Evidencia fotográfica con registro de ubicación en cada ronda operacional.</div></div>
-      <div class="que-es-card fade-in"><div class="que-es-num">02</div><div class="que-es-title">Alertas automáticas</div><div class="que-es-desc">Detección inmediata de incumplimientos con notificación al responsable designado.</div></div>
-      <div class="que-es-card fade-in"><div class="que-es-num">03</div><div class="que-es-title">Visibilidad gerencial</div><div class="que-es-desc">Dashboard en tiempo real con información verificable para la toma de decisiones.</div></div>
-      <div class="que-es-card fade-in"><div class="que-es-num">04</div><div class="que-es-title">Trazabilidad completa</div><div class="que-es-desc">Historial auditado por instalación, contrato y responsable, exportable en todo momento.</div></div>
-    </div>
-  </div>
-</section>
 <section id="problema">
   <div class="container">
     <div class="text-center fade-in">
@@ -435,36 +392,6 @@
   </div>
 </section>
 
-<section id="acompanamiento">
-  <div class="container">
-    <div class="text-center fade-in">
-      <div class="section-badge">Nuestro modelo</div>
-      <h2 class="section-title">No solo una plataforma. Un modelo de control.</h2>
-      <p class="section-subtitle">SUPERCOR integra tecnología de supervisión operacional con criterio experto para que las empresas no solo registren lo que ocurre en terreno, sino que tomen decisiones fundamentadas y anticipen riesgos antes de que se conviertan en pérdidas o sanciones.</p>
-    </div>
-    <div class="acomp-grid">
-      <div class="acomp-col fade-in">
-        <div class="acomp-col-label">La plataforma</div>
-        <ul class="acomp-list">
-          <li>Supervisión digital con evidencia fotográfica y GPS.</li>
-          <li>Alertas automáticas ante incumplimientos operacionales.</li>
-          <li>Dashboard gerencial en tiempo real.</li>
-          <li>Reportes exportables en Excel y PDF.</li>
-          <li>Trazabilidad completa por instalación, contrato y responsable.</li>
-        </ul>
-      </div>
-      <div class="acomp-col fade-in">
-        <div class="acomp-col-label">El acompañamiento</div>
-        <p>SUPERCOR incorpora acompañamiento estratégico orientado a fortalecer el control operacional, la trazabilidad y la cultura de cumplimiento dentro de la organización.</p>
-        <p>Detrás de la plataforma hay un equipo con trayectoria en seguridad, operaciones de alta dotación, supervisión en terreno, cumplimiento normativo y prevención de riesgos laborales y operacionales.</p>
-      </div>
-    </div>
-    <div class="acomp-cta fade-in">
-      <a href="#demo" class="btn-primary">Solicitar Diagnóstico</a>
-    </div>
-  </div>
-</section>
-
 <section id="propuesta">
   <div class="container">
     <div class="propuesta-hero fade-in">
@@ -479,6 +406,11 @@
       <div class="pilar-card fade-in"><div class="pilar-number">04</div><div class="pilar-title"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> Panel Gerencial en Vivo</div><ul class="pilar-items"><li>Estado real de tu operación en minutos, no en días</li><li>Alertas críticas antes de que el problema escale</li><li>Riesgo de multa detectado antes de que ocurra</li><li>Trazabilidad completa por instalación, contrato y responsable</li></ul></div>
       <div class="pilar-card fade-in"><div class="pilar-number">05</div><div class="pilar-title"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg> Cultura de Cumplimiento</div><ul class="pilar-items"><li>Capacitación diferenciada por rol operacional</li><li>Responsabilidad asignada por jefatura y área</li><li>Rutinas obligatorias de control que se ejecutan solas</li></ul></div>
       <div class="pilar-card fade-in" style="border-top-color:var(--accent);background:rgba(26,95,204,0.05)"><div class="pilar-number" style="color:rgba(59,158,255,0.5)">06</div><div class="pilar-title" style="color:var(--accent)">Con SUPERCOR dejas de reaccionar</div><ul class="pilar-items"><li>Mayor confianza del cliente al presentar evidencia concreta de cumplimiento</li><li>Deja de apagar incendios y empieza a prevenirlos</li><li>Opera con control, visibilidad y tranquilidad real en todo momento</li></ul></div>
+    </div>
+    <!-- Bloque compacto: plataforma + acompañamiento — condensado desde sección independiente -->
+    <div class="acomp-callout fade-in">
+      <div class="acomp-callout-label">Plataforma + Acompañamiento estratégico</div>
+      <p class="acomp-callout-text">SUPERCOR no es solo software. Detrás de la plataforma hay un equipo con trayectoria en seguridad, operaciones de alta dotación, supervisión en terreno, cumplimiento normativo y prevención de riesgos. Tecnología con criterio operacional para empresas que operan en entornos exigentes.</p>
     </div>
   </div>
 </section>
