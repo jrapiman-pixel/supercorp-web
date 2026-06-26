@@ -88,8 +88,12 @@
     .hero-stat-number{font-family:var(--font-title);font-size:1.5rem;font-weight:700;color:var(--navy);line-height:1.1}
     .hero-stat-number span{color:var(--green-strong)}
     .hero-stat-label{font-size:.8rem;color:var(--gray-600);margin-top:4px}
-    .hero-mockup{position:relative;z-index:2;max-width:960px;width:100%}
-    .mockup-frame{background:rgba(13,27,42,0.95);border:1px solid rgba(0,163,0,0.25);border-radius:8px;padding:24px;box-shadow:0 40px 80px rgba(0,0,0,.8)}
+    .hero-mockup{max-width:960px;margin:3rem auto 0}
+    #plataforma{background:#111827;border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100)}
+    #plataforma .section-badge{background:rgba(0,163,0,0.15);color:var(--accent);border:1px solid rgba(0,163,0,0.3)}
+    #plataforma .section-title{color:#fff}
+    #plataforma .section-subtitle{color:var(--silver-dim)}
+    .mockup-frame{background:rgba(17,24,39,0.95);border:1px solid rgba(0,163,0,0.25);border-radius:8px;padding:24px;box-shadow:0 40px 80px rgba(0,0,0,.8)}
     .mockup-topbar{display:flex;align-items:center;gap:8px;margin-bottom:20px}
     .mockup-dot{width:10px;height:10px;border-radius:50%}
     .mockup-dot:nth-child(1){background:#FF5F56}
@@ -329,7 +333,7 @@
     <li><a href="#diagnostico">Diagnóstico</a></li>
     <li><a href="#propuesta">Propuesta</a></li>
     <li><a href="#como-funciona">Cómo funciona</a></li>
-    <li><a href="#funcionalidades">Funcionalidades</a></li>
+    <li><a href="#plataforma">Plataforma</a></li>
     <li><a href="#precios">Precios</a></li>
 <li><a href="/ayuda">Ayuda</a></li>
 <li><a href="/seguridad-privada">Seguridad Privada</a></li>
@@ -346,7 +350,7 @@
       <h1 class="hero-title">Detecte riesgos e incumplimientos antes de que se transformen en <span class="accent">multas y pérdidas</span>.</h1>
       <p class="hero-subtitle">Supercor le entrega visibilidad total, control y reportes en tiempo real para una gestión de seguridad más eficiente y proactiva.</p>
       <div class="hero-actions">
-        <a href="#demo" class="btn-primary">Solicitar Diagnóstico</a>
+        <a href="#diagnostico" class="btn-primary">Calcular mi ahorro</a>
         <a href="#como-funciona" class="btn-secondary">Ver cómo funciona →</a>
       </div>
     </div>
@@ -360,9 +364,16 @@
     <div class="hero-stat"><div class="hero-stat-number">Trazabilidad</div><div class="hero-stat-label">completa por contrato</div></div>
     <div class="hero-stat"><div class="hero-stat-number">Visibilidad</div><div class="hero-stat-label">gerencial en tiempo real</div></div>
   </div>
-  <!-- Mockup antiguo preservado oculto: el setInterval de Vanilla JS referencia estos IDs (stat-sup, bar-fill, a1, etc.). NO eliminar. -->
-  <div style="display:none" aria-hidden="true">
-    <div class="hero-mockup">
+</section>
+
+<section id="plataforma">
+  <div class="container">
+    <div class="text-center fade-in">
+      <div class="section-badge">Vista en tiempo real</div>
+      <h2 class="section-title">Tu operación, viva en el dashboard</h2>
+      <p class="section-subtitle">Indicadores, cobertura y alertas que se actualizan en vivo — así ve la gerencia su operación con SUPERCOR.</p>
+    </div>
+    <div class="hero-mockup fade-in">
       <div class="mockup-frame">
         <div class="mockup-topbar">
           <div class="mockup-dot"></div><div class="mockup-dot"></div><div class="mockup-dot"></div>
@@ -390,6 +401,7 @@
     </div>
   </div>
 </section>
+
 <section id="problema">
   <div class="container">
     <div class="text-center fade-in">
@@ -589,45 +601,6 @@
 </section>
 
 
-<section id="funcionalidades">
-  <div class="container">
-    <div class="text-center fade-in">
-      <div class="section-badge">Funcionalidades</div>
-      <h2 class="section-title">Todo lo que necesitas en una sola plataforma</h2>
-      <p class="section-subtitle">Adaptable a cualquier rubro o industria que requiera control operacional en terreno.</p>
-    </div>
-    <div class="features-grid">
-      <div class="feature-card fade-in"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div class="feature-title">Checklist digital configurable</div><div class="feature-desc">Define los ítems a controlar para documentos, infraestructura y personal. Completamente personalizable por empresa y proceso.</div></div>
-      <div class="feature-card fade-in"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div><div class="feature-title">Evidencia fotográfica obligatoria</div><div class="feature-desc">La app exige fotos antes de enviar la supervisión. Evidencia real con timestamp y geolocalización GPS irrefutable.</div></div>
-      <div class="feature-card fade-in"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div><div class="feature-title">Alertas automáticas por correo</div><div class="feature-desc">Cuando un control predeterminado no cumple el estándar, el sistema notifica al encargado responsable automáticamente. Nada se pasa por alto.</div></div>
-      <div class="feature-card fade-in"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><div class="feature-title">Dashboard gerencial en tiempo real</div><div class="feature-desc">Visibilidad en minutos del estado Operacional, Laboral, Riesgo y Cliente de tu organización. Alertas activas y mapa GPS incluidos.</div></div>
-      <div class="feature-card fade-in"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div class="feature-title">Modo pantalla completa</div><div class="feature-desc">Proyecta el dashboard en un monitor de tu empresa para que toda la gerencia vea en vivo el estado de los controles operacionales.</div></div>
-      <div class="feature-card fade-in"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><div class="feature-title">Reportes exportables a Excel y PDF</div><div class="feature-desc">Genera informes ejecutivos con un clic. Historial completo ideal para auditorías, reuniones de gerencia y rendición de cuentas.</div></div>
-      <div class="feature-card fade-in"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div class="feature-title">Geolocalización GPS automática</div><div class="feature-desc">Cada supervisión registra coordenadas GPS sin acción adicional. Confirma presencia real en terreno, sin posibilidad de falsificación.</div></div>
-      <div class="feature-card fade-in"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></div><div class="feature-title">Funciona sin internet</div><div class="feature-desc">Si no hay señal, la app guarda la supervisión offline y sincroniza automáticamente al recuperar conexión. Cero pérdida de datos.</div></div>
-      <div class="feature-card fade-in"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><div class="feature-title">Reportes programados automáticos</div><div class="feature-desc">Configura envíos automáticos de resúmenes operacionales por correo a los días y horarios que tu organización requiera.</div></div>
-    </div>
-  </div>
-</section>
-
-<section id="diferenciacion">
-  <div class="container">
-    <div class="text-center fade-in">
-      <div class="section-badge">¿Por qué SUPERCOR?</div>
-      <h2 class="section-title">Control operacional con impacto visible</h2>
-      <p class="section-subtitle">SUPERCOR combina evidencia verificable, trazabilidad y alertas preventivas para reducir riesgos, respaldar auditorías y mejorar la toma de decisiones en terreno.</p>
-    </div>
-    <div class="diff-grid">
-      <div class="diff-card fade-in"><div class="diff-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><div class="diff-title">Anticipa multas antes de que ocurran</div><div class="diff-desc">Detecta incumplimientos en tiempo real para corregirlos antes de una fiscalización, reclamo del cliente o pérdida operacional.</div></div>
-      <div class="diff-card fade-in"><div class="diff-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div class="diff-title">Evidencia que no se puede falsificar</div><div class="diff-desc">Las fotos se registran desde la app con fecha, hora y ubicación GPS. No se depende de imágenes antiguas ni respaldos enviados fuera del sistema.</div></div>
-      <div class="diff-card fade-in"><div class="diff-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><div class="diff-title">Respaldo ante auditorías</div><div class="diff-desc">Cada supervisión deja historial trazable con fotografías, observaciones, responsables y ubicación. Información lista para fiscalizaciones, mandantes o revisión interna.</div></div>
-      <div class="diff-card fade-in"><div class="diff-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><div class="diff-title">Decisiones con datos del terreno</div><div class="diff-desc">La gerencia visualiza cobertura, cumplimiento, alertas y evolución operacional sin depender de llamadas, planillas atrasadas o reportes manuales.</div></div>
-      <div class="diff-card fade-in"><div class="diff-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div class="diff-title">Operativo desde el primer día</div><div class="diff-desc">Funciona en la nube y desde el celular del equipo. No requiere servidores propios ni implementación compleja para comenzar a supervisar.</div></div>
-      <div class="diff-card fade-in"><div class="diff-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="diff-title">Más confianza frente al cliente</div><div class="diff-desc">Presenta reportes, evidencias y métricas de cumplimiento que demuestran profesionalismo y diferencian tu operación frente a la competencia.</div></div>
-    </div>
-  </div>
-</section>
-
 <section id="precios">
   <div class="container">
     <div class="text-center fade-in">
@@ -783,7 +756,7 @@
     <ul class="footer-links">
       <li><a href="#propuesta">Propuesta</a></li>
       <li><a href="#como-funciona">Cómo funciona</a></li>
-      <li><a href="#funcionalidades">Funcionalidades</a></li>
+      <li><a href="#plataforma">Plataforma</a></li>
       <li><a href="#precios">Precios</a></li>
 <li><a href="/ayuda">Ayuda</a></li>
       <li><a href="#demo">Demo</a></li>
