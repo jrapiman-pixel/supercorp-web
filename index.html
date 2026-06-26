@@ -838,7 +838,7 @@
     const outAhorro=document.getElementById('calc-ahorro');
     const outRisk=document.getElementById('calc-risk-label');
     if(!inGasto||!needle) return;
-    const GAUGE_MAX_POR_TRABAJADOR=100000; // CLP por trabajador/mes que representa "peligro máximo" en el gauge
+    const GAUGE_MAX_POR_TRABAJADOR=30000; // CLP por trabajador/mes que representa "peligro máximo" en el gauge
     const fmt=n=>'$'+Math.round(n).toLocaleString('es-CL');
     function update(){
       const gasto=Math.max(0,parseFloat(inGasto.value)||0);
