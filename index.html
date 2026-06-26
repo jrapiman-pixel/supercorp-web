@@ -294,9 +294,25 @@
       .hero-stats{gap:1.5rem}
       .mockup-grid{grid-template-columns:1fr 1fr}
       .demo-box{padding:1.5rem}
+      .calc-card{grid-template-columns:1fr;padding:1.75rem;gap:2rem}
       .footer-links{gap:1rem}
     }
     @media(max-width:480px){.app-screens{grid-template-columns:1fr}}
+    /* ===== Calculadora de diagnóstico de multas (velocímetro ROI) ===== */
+    #diagnostico{background:#F8FAFC;border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100)}
+    .calc-card{max-width:980px;margin:3rem auto 0;background:#fff;border:1px solid var(--gray-100);border-radius:14px;box-shadow:0 10px 40px rgba(15,23,42,.08);padding:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center}
+    .calc-form-intro{font-size:.9rem;color:var(--gray-600);line-height:1.6;margin-bottom:1.5rem}
+    .calc-gauge{text-align:center}
+    .calc-gauge svg{width:100%;max-width:300px;height:auto;display:block;margin:0 auto}
+    #calc-needle{transform-box:view-box;transform-origin:100px 100px;transform:rotate(-90deg);transition:transform .6s cubic-bezier(.34,1.4,.64,1)}
+    .calc-gauge-ends{display:flex;justify-content:space-between;max-width:300px;margin:.25rem auto 0;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+    .calc-risk{font-family:var(--font-title);font-size:1.05rem;font-weight:700;margin-top:.75rem;color:var(--gray-600);transition:color .3s}
+    .calc-savings{background:linear-gradient(135deg,var(--green-strong),var(--green));border-radius:10px;padding:1.25rem 1.5rem;text-align:center;margin-top:1.5rem;box-shadow:0 8px 24px rgba(0,163,0,.18)}
+    .calc-savings-label{font-size:.72rem;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.9);text-transform:uppercase}
+    .calc-savings-value{font-family:var(--font-title);font-size:2.3rem;font-weight:700;color:#fff;line-height:1.1;margin-top:2px}
+    .calc-cta{display:block;width:100%;text-align:center;margin-top:1rem;background:var(--green-strong);color:#fff;padding:.95rem 1.5rem;border-radius:8px;font-weight:700;font-size:1rem;text-decoration:none;border:none;cursor:pointer;font-family:var(--font-body);transition:background .2s}
+    .calc-cta:hover{background:var(--green)}
+    .calc-disclaimer{font-size:.72rem;color:var(--gray-400);text-align:center;margin-top:.75rem;line-height:1.5}
     .fade-in{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
     .fade-in.visible{opacity:1;transform:translateY(0)}
     /* === Callout Acompañamiento (integrado en #propuesta) === */
@@ -310,6 +326,7 @@
 <nav>
   <a href="#inicio" class="nav-logo"><img src="assets/Logo%20Verde.png" alt="SUPERCOR" /></a>
   <ul class="nav-links">
+    <li><a href="#diagnostico">Diagnóstico</a></li>
     <li><a href="#propuesta">Propuesta</a></li>
     <li><a href="#como-funciona">Cómo funciona</a></li>
     <li><a href="#funcionalidades">Funcionalidades</a></li>
@@ -387,6 +404,51 @@
       <div class="problem-card fade-in"><div class="problem-title">Gerencia sin visibilidad real</div><div class="problem-desc">La dirección toma decisiones con datos incompletos, tardíos o filtrados por terceros.</div></div>
       <div class="problem-card fade-in"><div class="problem-title">Información dispersa entre áreas</div><div class="problem-desc">Operaciones, Recursos Humanos y administración manejan datos distintos y contradictorios.</div></div>
       <div class="problem-card fade-in"><div class="problem-title">Riesgos detectados demasiado tarde</div><div class="problem-desc">Los problemas se conocen cuando ya hay consecuencias, no antes de que ocurran.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="diagnostico">
+  <div class="container">
+    <div class="text-center fade-in">
+      <div class="section-badge">Diagnóstico de ahorro</div>
+      <h2 class="section-title">¿Cuánto podría estar ahorrando su empresa?</h2>
+      <p class="section-subtitle">Calcule en segundos su nivel de riesgo y el ahorro mensual que podría lograr al prevenir multas e incumplimientos con SUPERCOR.</p>
+    </div>
+    <div class="calc-card fade-in">
+      <div class="calc-form">
+        <p class="calc-form-intro">Ingrese sus datos y vea en vivo cómo se mueve su nivel de riesgo y el ahorro estimado.</p>
+        <div class="form-group">
+          <label class="form-label" for="calc-trabajadores">Cantidad de Trabajadores en Terreno</label>
+          <input class="form-input" id="calc-trabajadores" type="number" min="0" inputmode="numeric" placeholder="Ej: 50" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="calc-gasto">Gasto Mensual Estimado en Multas (CLP)</label>
+          <input class="form-input" id="calc-gasto" type="number" min="0" inputmode="numeric" placeholder="Ej: 2000000" />
+        </div>
+      </div>
+      <div class="calc-result">
+        <div class="calc-gauge">
+          <svg viewBox="0 0 200 112" role="img" aria-label="Velocímetro de riesgo operacional">
+            <path d="M22,100 A78,78 0 0 1 36.9,54.15" fill="none" stroke="#00A300" stroke-width="16"/>
+            <path d="M36.9,54.15 A78,78 0 0 1 75.9,25.81" fill="none" stroke="#84CC16" stroke-width="16"/>
+            <path d="M75.9,25.81 A78,78 0 0 1 124.1,25.81" fill="none" stroke="#F59E0B" stroke-width="16"/>
+            <path d="M124.1,25.81 A78,78 0 0 1 163.1,54.15" fill="none" stroke="#F97316" stroke-width="16"/>
+            <path d="M163.1,54.15 A78,78 0 0 1 178,100" fill="none" stroke="#B91C1C" stroke-width="16"/>
+            <g id="calc-needle"><polygon points="100,34 96,99 104,99" fill="#111827"/></g>
+            <circle cx="100" cy="100" r="7" fill="#111827"/>
+            <circle cx="100" cy="100" r="3" fill="#fff"/>
+          </svg>
+          <div class="calc-gauge-ends"><span style="color:var(--green-strong)">Ahorro máximo</span><span style="color:#B91C1C">Peligro máximo</span></div>
+          <div class="calc-risk" id="calc-risk-label">Ingrese su gasto mensual</div>
+        </div>
+        <div class="calc-savings">
+          <div class="calc-savings-label">Ahorro mensual CLP</div>
+          <div class="calc-savings-value" id="calc-ahorro">$0</div>
+        </div>
+        <button type="button" class="calc-cta" onclick="calcSolicitar()">Solicitar Asesoría para Ahorrar</button>
+        <p class="calc-disclaimer">Estimación referencial basada en un ahorro del 85% del gasto declarado. El diagnóstico final se ajusta a su operación.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -767,6 +829,43 @@
   ];
   let ai=0;
   setInterval(()=>{ai=(ai+1)%AD.length;const d=AD[ai];document.getElementById('as1').textContent=d.s1;document.getElementById('as2').textContent=d.s2;document.getElementById('as3').textContent=d.s3;document.getElementById('as4').textContent=d.s4;document.getElementById('app-bar').style.width=d.b+'%';document.getElementById('app-bar-text').textContent=d.bt;},4000);
+
+  // ===== Calculadora de diagnóstico de multas (velocímetro ROI) =====
+  (function(){
+    const inGasto=document.getElementById('calc-gasto');
+    const inTrab=document.getElementById('calc-trabajadores');
+    const needle=document.getElementById('calc-needle');
+    const outAhorro=document.getElementById('calc-ahorro');
+    const outRisk=document.getElementById('calc-risk-label');
+    if(!inGasto||!needle) return;
+    const GAUGE_MAX=10000000; // CLP/mes que representa "peligro máximo" en el gauge (tope definido en diseño)
+    const fmt=n=>'$'+Math.round(n).toLocaleString('es-CL');
+    function update(){
+      const gasto=Math.max(0,parseFloat(inGasto.value)||0);
+      outAhorro.textContent=fmt(gasto*0.85); // ahorro = 85% del gasto declarado
+      const d=Math.min(1,gasto/GAUGE_MAX); // 0 (verde) .. 1 (rojo)
+      needle.style.transform='rotate('+((d-0.5)*180)+'deg)'; // -90° izquierda/verde, +90° derecha/rojo
+      let txt='Riesgo bajo',col='var(--green-strong)';
+      if(gasto<=0){txt='Ingrese su gasto mensual';col='var(--gray-600)';}
+      else if(d>=0.75){txt='Riesgo crítico';col='#B91C1C';}
+      else if(d>=0.5){txt='Riesgo alto';col='#F97316';}
+      else if(d>=0.25){txt='Riesgo medio';col='#F59E0B';}
+      outRisk.textContent=txt;outRisk.style.color=col;
+    }
+    inGasto.addEventListener('input',update);
+    inTrab.addEventListener('input',update);
+    update();
+  })();
+  function calcSolicitar(){
+    const gasto=Math.max(0,parseFloat((document.getElementById('calc-gasto')||{}).value)||0);
+    const trab=(document.getElementById('calc-trabajadores')||{}).value||'';
+    const fmt=n=>'$'+Math.round(n).toLocaleString('es-CL');
+    const msg='Hola SUPERCOR, quiero asesoría para ahorrar en multas.'+
+      (trab?(' Tengo '+trab+' trabajadores en terreno.'):'')+
+      (gasto>0?(' Mi gasto mensual estimado en multas es '+fmt(gasto)+' y mi ahorro potencial sería '+fmt(gasto*0.85)+'/mes.'):'')+
+      ' ¿Pueden orientarme?';
+    window.open('https://wa.me/56995950843?text='+encodeURIComponent(msg),'_blank');
+  }
 
   async function submitDemo(){
     const n=document.getElementById('demo-nombre').value.trim();
