@@ -838,12 +838,15 @@
     const outAhorro=document.getElementById('calc-ahorro');
     const outRisk=document.getElementById('calc-risk-label');
     if(!inGasto||!needle) return;
-    const GAUGE_MAX=10000000; // CLP/mes que representa "peligro máximo" en el gauge (tope definido en diseño)
+    const GAUGE_MAX_POR_TRABAJADOR=100000; // CLP por trabajador/mes que representa "peligro máximo" en el gauge
     const fmt=n=>'$'+Math.round(n).toLocaleString('es-CL');
     function update(){
       const gasto=Math.max(0,parseFloat(inGasto.value)||0);
-      outAhorro.textContent=fmt(gasto*0.85); // ahorro = 85% del gasto declarado
-      const d=Math.min(1,gasto/GAUGE_MAX); // 0 (verde) .. 1 (rojo)
+      const trab=Math.max(0,parseFloat(inTrab.value)||0);
+      outAhorro.textContent=fmt(gasto*0.85); // ahorro = 85% del GASTO TOTAL (no cambia)
+      // riesgo según gasto por trabajador (refleja margen real); trab 0/vacío => 0 (mínimo, evita división por cero)
+      const gastoPorTrabajador=trab>0?gasto/trab:0;
+      const d=Math.min(1,gastoPorTrabajador/GAUGE_MAX_POR_TRABAJADOR); // 0 (verde) .. 1 (rojo)
       needle.style.transform='rotate('+((d-0.5)*180)+'deg)'; // -90° izquierda/verde, +90° derecha/rojo
       let txt='Riesgo bajo',col='var(--green-strong)';
       if(gasto<=0){txt='Ingrese su gasto mensual';col='var(--gray-600)';}
