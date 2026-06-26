@@ -55,40 +55,39 @@
       --silver:#A7B0BC;--silver-dim:#94A3B8;--white:#FFFFFF;
       --gray-50:#F5F7FA;--gray-100:#E2E8F0;--gray-200:#CBD5E1;
       --gray-400:#94A3B8;--gray-600:#64748B;--gray-800:#0F172A;
-      --accent:#3B9EFF;--green:#16A34A;--red:#DC2626;--yellow:#F59E0B;
+      --accent:#00A300;--green:#00A300;--green-strong:#008A1C;--red:#DC2626;--yellow:#F59E0B;
       --font-title:'Barlow Semi Condensed',sans-serif;--font-body:'Source Sans 3',sans-serif;
     }
     html{scroll-behavior:smooth}
     body{font-family:var(--font-body);color:var(--gray-800);background:var(--white);line-height:1.6;overflow-x:hidden}
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,27,42,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(26,95,204,0.2);padding:0 2rem;height:72px;display:flex;align-items:center;justify-content:space-between}
-    .nav-logo img{height:64px;width:auto;mix-blend-mode:screen;filter:brightness(1.1)}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--gray-100);padding:0 2rem;height:84px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo img{height:64px;width:auto;display:block}
     .nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
-    .nav-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .2s}
-    .nav-links a:hover{color:var(--white)}
-    .nav-cta{background:var(--blue)!important;color:white!important;padding:.5rem 1.4rem!important;border-radius:4px;font-weight:700!important}
-    .nav-cta:hover{background:var(--blue-bright)!important}
+    .nav-links a{color:var(--gray-600);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .2s}
+    .nav-links a:hover{color:var(--green-strong)}
+    .nav-cta{background:var(--green-strong)!important;color:white!important;padding:.5rem 1.4rem!important;border-radius:4px;font-weight:700!important}
+    .nav-cta:hover{background:var(--green)!important}
     .nav-mobile-btn{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px}
-    .nav-mobile-btn span{display:block;width:24px;height:2px;background:white;border-radius:2px}
-    #inicio{min-height:100vh;background:var(--black);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:100px 2rem 60px;position:relative;overflow:hidden;text-align:center}
-    .hero-logo{margin-bottom:2rem;position:relative;z-index:2}
-    .hero-logo img{height:200px;width:auto;max-width:650px;mix-blend-mode:screen;filter:brightness(1.1)}
-    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(26,95,204,0.15);border:1px solid rgba(26,95,204,0.35);color:var(--accent);font-size:.75rem;font-weight:600;padding:6px 16px;border-radius:4px;margin-bottom:1.5rem;letter-spacing:.08em;text-transform:uppercase;position:relative;z-index:2}
-    .hero-badge::before{content:'';width:7px;height:7px;background:var(--accent);border-radius:50%;flex-shrink:0}
+    .nav-mobile-btn span{display:block;width:24px;height:2px;background:var(--navy);border-radius:2px}
+    #inicio{background:var(--white);padding:120px 2rem 70px;position:relative;overflow:hidden}
     @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.4)}}
-    .hero-tagline{font-size:clamp(.9rem,1.5vw,1rem);color:var(--accent);font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:1rem;position:relative;z-index:2}
-    .hero-title{font-family:var(--font-title);font-size:clamp(2.4rem,5vw,4.2rem);font-weight:700;color:var(--white);line-height:1.1;max-width:900px;margin:0 auto 1.25rem;position:relative;z-index:2}
-    .hero-title .accent{color:var(--accent)}
-    .hero-subtitle{font-size:clamp(1rem,2vw,1.15rem);color:var(--silver-dim);max-width:580px;margin:0 auto 2.5rem;line-height:1.75;position:relative;z-index:2}
-    .hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3.5rem;position:relative;z-index:2}
-    .btn-primary{background:var(--blue);color:white;padding:.9rem 2rem;border-radius:4px;font-weight:700;font-size:1rem;text-decoration:none;border:none;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body)}
-    .btn-primary:hover{background:var(--blue-bright)}
-    .btn-secondary{background:rgba(255,255,255,.06);color:var(--silver);padding:.9rem 2rem;border-radius:4px;font-weight:600;font-size:1rem;text-decoration:none;border:1px solid rgba(200,216,240,.2);cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body)}
-    .btn-secondary:hover{background:rgba(255,255,255,.1);color:white}
-    .hero-stats{display:flex;gap:3rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:2;margin-bottom:3rem}
+    .hero-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:3.5rem;align-items:center}
+    .hero-eyebrow{display:inline-block;color:var(--green-strong);font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1rem}
+    .hero-title{font-family:var(--font-title);font-size:clamp(2.2rem,4.2vw,3.6rem);font-weight:700;color:var(--gray-800);line-height:1.12;margin-bottom:1.25rem}
+    .hero-title .accent{color:var(--green-strong)}
+    .hero-subtitle{font-size:clamp(1rem,1.4vw,1.18rem);color:var(--gray-600);line-height:1.7;margin-bottom:2rem;max-width:560px}
+    .hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+    .btn-primary{background:var(--green-strong);color:#fff;padding:.95rem 2rem;border-radius:6px;font-weight:700;font-size:1rem;text-decoration:none;border:none;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body)}
+    .btn-primary:hover{background:var(--green)}
+    .btn-secondary{background:#fff;color:var(--gray-800);padding:.95rem 2rem;border-radius:6px;font-weight:600;font-size:1rem;text-decoration:none;border:1px solid var(--gray-200);cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body)}
+    .btn-secondary:hover{background:var(--gray-50);border-color:var(--gray-400);color:var(--navy)}
+    .hero-right{position:relative}
+    .hero-right img{width:100%;height:auto;display:block;filter:drop-shadow(0 16px 28px rgba(15,23,42,.20))}
+    .hero-stats{max-width:1200px;margin:3.5rem auto 0;display:flex;gap:3rem;justify-content:center;flex-wrap:wrap}
     .hero-stat{text-align:center}
-    .hero-stat-number{font-family:var(--font-title);font-size:2.2rem;font-weight:700;color:var(--white);line-height:1}
-    .hero-stat-number span{color:var(--accent)}
-    .hero-stat-label{font-size:.78rem;color:var(--silver-dim);margin-top:4px}
+    .hero-stat-number{font-family:var(--font-title);font-size:1.5rem;font-weight:700;color:var(--navy);line-height:1.1}
+    .hero-stat-number span{color:var(--green-strong)}
+    .hero-stat-label{font-size:.8rem;color:var(--gray-600);margin-top:4px}
     .hero-mockup{position:relative;z-index:2;max-width:960px;width:100%}
     .mockup-frame{background:rgba(13,27,42,0.95);border:1px solid rgba(26,95,204,0.25);border-radius:8px;padding:24px;box-shadow:0 40px 80px rgba(0,0,0,.8)}
     .mockup-topbar{display:flex;align-items:center;gap:8px;margin-bottom:20px}
@@ -122,7 +121,7 @@
     .mockup-alert.ok .mockup-alert-dot{background:#22C55E}
     section{padding:90px 2rem}
     .container{max-width:1100px;margin:0 auto}
-    .section-badge{display:inline-block;background:rgba(26,95,204,0.08);color:var(--blue);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:4px;margin-bottom:1rem;border:1px solid rgba(26,95,204,0.18)}
+    .section-badge{display:inline-block;background:rgba(0,163,0,0.08);color:var(--green-strong);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:4px;margin-bottom:1rem;border:1px solid rgba(0,163,0,0.2)}
     .section-title{font-family:var(--font-title);font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:700;color:var(--navy);line-height:1.15;margin-bottom:1rem}
     .section-subtitle{font-size:1.05rem;color:var(--gray-600);line-height:1.75;max-width:580px}
     .text-center{text-align:center}
@@ -291,9 +290,9 @@
       .solution-grid,.contact-grid{grid-template-columns:1fr}
       .app-screens{grid-template-columns:repeat(2,1fr)}
       .form-row{grid-template-columns:1fr}
+      .hero-grid{grid-template-columns:1fr;gap:2.5rem}
       .hero-stats{gap:1.5rem}
       .mockup-grid{grid-template-columns:1fr 1fr}
-      .hero-logo img{height:130px}
       .demo-box{padding:1.5rem}
       .footer-links{gap:1rem}
     }
@@ -309,7 +308,7 @@
 <body>
 
 <nav>
-  <a href="#inicio" class="nav-logo"><img src="logo_supercor_400w.png" alt="SUPERCOR" /></a>
+  <a href="#inicio" class="nav-logo"><img src="assets/Logo%20Verde.png" alt="SUPERCOR" /></a>
   <ul class="nav-links">
     <li><a href="#propuesta">Propuesta</a></li>
     <li><a href="#como-funciona">Cómo funciona</a></li>
@@ -317,50 +316,58 @@
     <li><a href="#precios">Precios</a></li>
 <li><a href="/ayuda">Ayuda</a></li>
 <li><a href="/seguridad-privada">Seguridad Privada</a></li>
- <li><a href="https://app.supercor.cl" target="_blank" style="color:rgba(255,255,255,0.7);text-decoration:none;font-size:.875rem;font-weight:500">Acceso clientes →</a></li>    
+ <li><a href="https://app.supercor.cl" target="_blank" style="color:var(--gray-600);text-decoration:none;font-size:.875rem;font-weight:500">Acceso clientes →</a></li>
     <li><a href="#demo" class="nav-cta">Solicitar Diagnóstico</a></li>
   </ul>
   <button class="nav-mobile-btn" onclick="toggleMenu()"><span></span><span></span><span></span></button>
 </nav>
 
 <section id="inicio">
-  <div class="hero-logo"><img src="logo_supercor_800w.png" alt="SUPERCOR" fetchpriority="high" /></div>
-  <div class="hero-badge">Control Operacional · Trazabilidad · Cumplimiento</div>
-  <div class="hero-tagline">Modelo preventivo de control operacional y cumplimiento</div>
-  <h1 class="hero-title">Detecta riesgos e incumplimientos antes de que se transformen en <span class="accent">multas y pérdidas</span>.</h1>
-  <p class="hero-subtitle">SUPERCOR ayuda a las empresas a recuperar el control real de su operación mediante visibilidad, trazabilidad y control preventivo en tiempo real. Tecnología en terreno, acompañamiento estratégico en gerencia.</p>
-  <div class="hero-actions">
-    <a href="#demo" class="btn-primary">Solicitar Diagnóstico</a>
-    <a href="#como-funciona" class="btn-secondary">Ver cómo funciona →</a>
+  <div class="hero-grid">
+    <div class="hero-left fade-in">
+      <span class="hero-eyebrow">Modelo preventivo de control operacional y cumplimiento</span>
+      <h1 class="hero-title">Detecte riesgos e incumplimientos antes de que se transformen en <span class="accent">multas y pérdidas</span>.</h1>
+      <p class="hero-subtitle">Supercor le entrega visibilidad total, control y reportes en tiempo real para una gestión de seguridad más eficiente y proactiva.</p>
+      <div class="hero-actions">
+        <a href="#demo" class="btn-primary">Solicitar Diagnóstico</a>
+        <a href="#como-funciona" class="btn-secondary">Ver cómo funciona →</a>
+      </div>
+    </div>
+    <div class="hero-right fade-in">
+      <img src="assets/hero-supercor.png" alt="Equipo de guardias de seguridad revisando la plataforma SUPERCOR en una tablet en terreno, con sello de cumplimiento de la Ley de Seguridad Privada" fetchpriority="high" />
+    </div>
   </div>
-  <div class="hero-stats">
+  <div class="hero-stats fade-in">
     <div class="hero-stat"><div class="hero-stat-number">Evidencia</div><div class="hero-stat-label">verificable por supervisión</div></div>
     <div class="hero-stat"><div class="hero-stat-number">Alertas</div><div class="hero-stat-label">preventivas en tiempo real</div></div>
     <div class="hero-stat"><div class="hero-stat-number">Trazabilidad</div><div class="hero-stat-label">completa por contrato</div></div>
     <div class="hero-stat"><div class="hero-stat-number">Visibilidad</div><div class="hero-stat-label">gerencial en tiempo real</div></div>
   </div>
-  <div class="hero-mockup fade-in">
-    <div class="mockup-frame">
-      <div class="mockup-topbar">
-        <div class="mockup-dot"></div><div class="mockup-dot"></div><div class="mockup-dot"></div>
-        <div class="mockup-url">app.supercor.cl — Dashboard Operacional</div>
-        <div class="live-badge">EN VIVO</div>
-      </div>
-      <div class="mockup-grid">
-        <div class="mockup-card"><div class="mockup-card-label">Supervisiones hoy</div><div class="mockup-card-value" id="stat-sup">47</div><div class="mockup-card-trend trend-up" id="trend-sup">↑ +3 última hora</div></div>
-        <div class="mockup-card"><div class="mockup-card-label">Cumplimiento</div><div class="mockup-card-value blue" id="stat-cum">94%</div><div class="mockup-card-trend trend-up" id="trend-cum">↑ sobre meta</div></div>
-        <div class="mockup-card"><div class="mockup-card-label">Alertas activas</div><div class="mockup-card-value yellow" id="stat-ale">3</div><div class="mockup-card-trend trend-down">↓ 2 resueltas hoy</div></div>
-        <div class="mockup-card"><div class="mockup-card-label">Sin visita hoy</div><div class="mockup-card-value red" id="stat-sin">2</div><div class="mockup-card-trend">de 38 instalaciones</div></div>
-      </div>
-      <div class="mockup-bar-row">
-        <div class="mockup-bar-header">
-          <div class="mockup-bar-label">Cobertura de instalaciones — Mes actual</div>
-          <div class="mockup-bar-pct" id="bar-pct">87%</div>
+  <!-- Mockup antiguo preservado oculto: el setInterval de Vanilla JS referencia estos IDs (stat-sup, bar-fill, a1, etc.). NO eliminar. -->
+  <div style="display:none" aria-hidden="true">
+    <div class="hero-mockup">
+      <div class="mockup-frame">
+        <div class="mockup-topbar">
+          <div class="mockup-dot"></div><div class="mockup-dot"></div><div class="mockup-dot"></div>
+          <div class="mockup-url">app.supercor.cl — Dashboard Operacional</div>
+          <div class="live-badge">EN VIVO</div>
         </div>
-        <div class="mockup-bar-track"><div class="mockup-bar-fill" id="bar-fill" style="width:87%"></div></div>
-        <div class="mockup-alerts">
-          <div class="mockup-alert" id="a1"><div class="mockup-alert-dot" id="a1dot"></div><span id="a1txt">Sin documentos — Contrato Norte</span></div>
-          <div class="mockup-alert ok" id="a2"><div class="mockup-alert-dot" id="a2dot" style="background:#22C55E"></div><span id="a2txt">Ronda completada — Centro</span></div>
+        <div class="mockup-grid">
+          <div class="mockup-card"><div class="mockup-card-label">Supervisiones hoy</div><div class="mockup-card-value" id="stat-sup">47</div><div class="mockup-card-trend trend-up" id="trend-sup">↑ +3 última hora</div></div>
+          <div class="mockup-card"><div class="mockup-card-label">Cumplimiento</div><div class="mockup-card-value blue" id="stat-cum">94%</div><div class="mockup-card-trend trend-up" id="trend-cum">↑ sobre meta</div></div>
+          <div class="mockup-card"><div class="mockup-card-label">Alertas activas</div><div class="mockup-card-value yellow" id="stat-ale">3</div><div class="mockup-card-trend trend-down">↓ 2 resueltas hoy</div></div>
+          <div class="mockup-card"><div class="mockup-card-label">Sin visita hoy</div><div class="mockup-card-value red" id="stat-sin">2</div><div class="mockup-card-trend">de 38 instalaciones</div></div>
+        </div>
+        <div class="mockup-bar-row">
+          <div class="mockup-bar-header">
+            <div class="mockup-bar-label">Cobertura de instalaciones — Mes actual</div>
+            <div class="mockup-bar-pct" id="bar-pct">87%</div>
+          </div>
+          <div class="mockup-bar-track"><div class="mockup-bar-fill" id="bar-fill" style="width:87%"></div></div>
+          <div class="mockup-alerts">
+            <div class="mockup-alert" id="a1"><div class="mockup-alert-dot" id="a1dot"></div><span id="a1txt">Sin documentos — Contrato Norte</span></div>
+            <div class="mockup-alert ok" id="a2"><div class="mockup-alert-dot" id="a2dot" style="background:#22C55E"></div><span id="a2txt">Ronda completada — Centro</span></div>
+          </div>
         </div>
       </div>
     </div>
@@ -741,7 +748,7 @@
 <script>
   const obs = new IntersectionObserver(es => es.forEach(e => {if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.1});
   document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
-  function toggleMenu(){const l=document.querySelector('.nav-links');if(l.style.display==='flex'){l.style.display='none';}else{l.style.display='flex';l.style.flexDirection='column';l.style.position='absolute';l.style.top='72px';l.style.left='0';l.style.right='0';l.style.background='rgba(5,12,24,0.98)';l.style.padding='1.5rem 2rem';l.style.gap='1.25rem';l.style.borderBottom='1px solid rgba(26,95,204,0.15)';}}
+  function toggleMenu(){const l=document.querySelector('.nav-links');if(l.style.display==='flex'){l.style.display='none';}else{l.style.display='flex';l.style.flexDirection='column';l.style.position='absolute';l.style.top='84px';l.style.left='0';l.style.right='0';l.style.background='rgba(255,255,255,0.98)';l.style.padding='1.5rem 2rem';l.style.gap='1.25rem';l.style.borderBottom='1px solid #E2E8F0';}}
   document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>{if(window.innerWidth<=768){document.querySelector('.nav-links').style.display='none';}}));
   const DD=[
     {s:47,c:94,a:3,sv:2,b:87,a1:'Sin documentos — Contrato Norte',a1ok:false,a2:'Ronda completada — Centro',a2ok:true},
