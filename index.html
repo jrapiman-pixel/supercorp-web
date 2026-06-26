@@ -858,12 +858,14 @@
   })();
   function calcSolicitar(){
     const gasto=Math.max(0,parseFloat((document.getElementById('calc-gasto')||{}).value)||0);
-    const trab=(document.getElementById('calc-trabajadores')||{}).value||'';
-    const fmt=n=>'$'+Math.round(n).toLocaleString('es-CL');
-    const msg='Hola SUPERCOR, quiero asesoría para ahorrar en multas.'+
-      (trab?(' Tengo '+trab+' trabajadores en terreno.'):'')+
-      (gasto>0?(' Mi gasto mensual estimado en multas es '+fmt(gasto)+' y mi ahorro potencial sería '+fmt(gasto*0.85)+'/mes.'):'')+
-      ' ¿Pueden orientarme?';
+    const trabVal=(document.getElementById('calc-trabajadores')||{}).value||'';
+    const trab=trabVal!==''?trabVal:'—';
+    const num=n=>Math.round(n).toLocaleString('es-CL');
+    const msg='Hola equipo de Supercor. Acabo de usar la Calculadora de Diagnóstico en su web y me gustaría recibir asesoría. Mis números son:\n\n'+
+      'Trabajadores en terreno: '+trab+'\n\n'+
+      'Gasto mensual en multas: $'+num(gasto)+'\n\n'+
+      'Ahorro mensual proyectado: $'+num(gasto*0.85)+'\n'+
+      'Quedo atento para conversar.';
     window.open('https://wa.me/56995950843?text='+encodeURIComponent(msg),'_blank');
   }
 
