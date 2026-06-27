@@ -4,33 +4,33 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Centro de Ayuda — SUPERCOR</title>
-<link rel="icon" href="favicon.ico">
+<link rel="icon" type="image/png" href="/assets/Logo%20Verde.png">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
   :root {
-    --bg:#050C18;--bg2:#0A1628;--bg3:#0F2240;
-    --border:rgba(255,255,255,0.07);--border2:rgba(58,127,224,0.18);
-    --green:#1A5FCC;--green2:#3A7FE0;
-    --green-dim:rgba(26,95,204,0.15);--green-dim2:rgba(26,95,204,0.08);
+    --bg:#111827;--bg2:#1F2937;--bg3:#374151;
+    --border:rgba(255,255,255,0.07);--border2:rgba(0,163,0,0.18);
+    --green:#00A300;--green2:#00B300;
+    --green-dim:rgba(0,163,0,0.15);--green-dim2:rgba(0,163,0,0.08);
     --text:#F0F4F8;--text2:#9BA8BC;--text3:#5A6878;
-    --accent:#00B4FF;--blue:#1A5FCC;
+    --accent:#00A300;--blue:#008A1C;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
-  nav{position:sticky;top:0;z-index:100;background:rgba(5,12,24,0.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between}
-  .nav-logo img{height:32px}
-  .nav-back{display:flex;align-items:center;gap:0.5rem;color:white;text-decoration:none;font-size:0.875rem;font-family:'Sora',sans-serif;font-weight:700;background:#1A5FCC;padding:0.5rem 1.4rem;border-radius:6px;transition:background 0.2s;box-shadow:0 0 16px rgba(26,95,204,0.3)}
-  .nav-back:hover{background:#2D78E8}
+  body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+  nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(16px);border-bottom:1px solid #E2E8F0;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between}
+  .nav-logo img{height:40px;display:block}
+  .nav-back{display:flex;align-items:center;gap:0.5rem;color:white;text-decoration:none;font-size:0.875rem;font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;background:#008A1C;padding:0.5rem 1.4rem;border-radius:6px;transition:background 0.2s}
+  .nav-back:hover{background:#00A300}
   .hero{padding:5rem 2rem 3rem;text-align:center;position:relative;overflow:hidden}
-  .hero::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(26,95,204,0.08) 0%,transparent 70%);pointer-events:none}
-  .hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:var(--green-dim);border:1px solid rgba(26,95,204,0.3);color:var(--accent);font-size:0.75rem;font-family:'Sora',sans-serif;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:0.35rem 1rem;border-radius:100px;margin-bottom:1.5rem}
+  .hero::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(0,163,0,0.08) 0%,transparent 70%);pointer-events:none}
+  .hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:var(--green-dim);border:1px solid rgba(0,163,0,0.3);color:var(--accent);font-size:0.75rem;font-family:'Barlow Semi Condensed',sans-serif;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:0.35rem 1rem;border-radius:100px;margin-bottom:1.5rem}
   .hero-badge::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
   @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.4)}}
-  .hero h1{font-family:'Sora',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;line-height:1.15;margin-bottom:1rem}
+  .hero h1{font-family:'Barlow Semi Condensed',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;line-height:1.15;margin-bottom:1rem}
   .hero h1 span{color:var(--accent)}
   .hero p{color:var(--text2);font-size:1.1rem;max-width:560px;margin:0 auto 2.5rem;line-height:1.7}
   .profile-tabs{display:flex;justify-content:center;gap:1rem;padding:0 2rem;margin-bottom:3rem;flex-wrap:wrap}
-  .profile-tab{display:flex;flex-direction:column;align-items:center;gap:0.5rem;padding:1.25rem 2rem;background:var(--bg2);border:1px solid var(--border);border-radius:12px;cursor:pointer;transition:all 0.25s;min-width:160px;font-family:'Sora',sans-serif}
+  .profile-tab{display:flex;flex-direction:column;align-items:center;gap:0.5rem;padding:1.25rem 2rem;background:var(--bg2);border:1px solid var(--border);border-radius:12px;cursor:pointer;transition:all 0.25s;min-width:160px;font-family:'Barlow Semi Condensed',sans-serif}
   .profile-tab:hover{border-color:var(--border2);background:var(--bg3)}
   .profile-tab.active{border-color:var(--green);background:var(--green-dim2)}
   .profile-tab .tab-icon{font-size:2rem;line-height:1}
@@ -41,53 +41,53 @@
   .guide-section{display:none}
   .guide-section.active{display:block}
   .section-header{margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
-  .section-header h2{font-family:'Sora',sans-serif;font-size:1.5rem;font-weight:700;margin-bottom:0.5rem}
+  .section-header h2{font-family:'Barlow Semi Condensed',sans-serif;font-size:1.5rem;font-weight:700;margin-bottom:0.5rem}
   .section-header p{color:var(--text2);font-size:0.95rem;line-height:1.6}
   .steps{display:flex;flex-direction:column;gap:1rem;margin-bottom:2.5rem}
   .step{display:flex;gap:1.25rem;padding:1.25rem;background:var(--bg2);border:1px solid var(--border);border-radius:12px;transition:border-color 0.2s}
   .step:hover{border-color:var(--border2)}
-  .step-num{flex-shrink:0;width:36px;height:36px;background:var(--green-dim);border:1px solid rgba(26,95,204,0.25);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-size:0.8rem;font-weight:700;color:var(--green)}
+  .step-num{flex-shrink:0;width:36px;height:36px;background:var(--green-dim);border:1px solid rgba(0,163,0,0.25);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Barlow Semi Condensed',sans-serif;font-size:0.8rem;font-weight:700;color:var(--green)}
   .step-body{flex:1}
-  .step-title{font-family:'Sora',sans-serif;font-size:0.95rem;font-weight:600;margin-bottom:0.4rem;color:var(--text)}
+  .step-title{font-family:'Barlow Semi Condensed',sans-serif;font-size:0.95rem;font-weight:600;margin-bottom:0.4rem;color:var(--text)}
   .step-desc{font-size:0.875rem;color:var(--text2);line-height:1.65}
   .step-desc strong{color:var(--text);font-weight:500}
-  .stage-label{display:inline-block;background:var(--green-dim);border:1px solid rgba(26,95,204,0.2);color:var(--green);font-size:0.72rem;font-family:'Sora',sans-serif;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.25rem 0.75rem;border-radius:100px;margin-bottom:0.75rem}
+  .stage-label{display:inline-block;background:var(--green-dim);border:1px solid rgba(0,163,0,0.2);color:var(--green);font-size:0.72rem;font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.25rem 0.75rem;border-radius:100px;margin-bottom:0.75rem}
   .alert-box{display:flex;gap:1rem;padding:1rem 1.25rem;border-radius:10px;margin:1rem 0;font-size:0.875rem;line-height:1.6}
   .alert-box.info{background:rgba(68,138,255,0.08);border:1px solid rgba(68,138,255,0.2);color:#90b8ff}
   .alert-box.warn{background:rgba(255,171,64,0.08);border:1px solid rgba(255,171,64,0.2);color:#ffd080}
-  .alert-box.tip{background:var(--green-dim);border:1px solid rgba(26,95,204,0.2);color:#80d4ff}
+  .alert-box.tip{background:var(--green-dim);border:1px solid rgba(0,163,0,0.2);color:#80d4ff}
   .alert-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px}
   .subsection{margin-bottom:2.5rem}
-  .subsection-title{font-family:'Sora',sans-serif;font-size:1rem;font-weight:600;color:var(--text);margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
+  .subsection-title{font-family:'Barlow Semi Condensed',sans-serif;font-size:1rem;font-weight:600;color:var(--text);margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
   .subsection-title::before{content:'';width:3px;height:18px;background:var(--green);border-radius:2px;flex-shrink:0}
   .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1rem 0}
   .info-card{padding:1rem 1.25rem;background:var(--bg2);border:1px solid var(--border);border-radius:10px}
-  .info-card-title{font-family:'Sora',sans-serif;font-size:0.8rem;font-weight:600;color:var(--text2);margin-bottom:0.4rem;text-transform:uppercase;letter-spacing:0.06em}
+  .info-card-title{font-family:'Barlow Semi Condensed',sans-serif;font-size:0.8rem;font-weight:600;color:var(--text2);margin-bottom:0.4rem;text-transform:uppercase;letter-spacing:0.06em}
   .info-card-value{font-size:0.9rem;color:var(--text);line-height:1.5}
   .security-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
   .security-card{padding:1.25rem;background:var(--bg2);border:1px solid var(--border);border-radius:12px}
   .security-card-icon{font-size:1.5rem;margin-bottom:0.75rem}
-  .security-card-title{font-family:'Sora',sans-serif;font-size:0.9rem;font-weight:600;margin-bottom:0.5rem}
+  .security-card-title{font-family:'Barlow Semi Condensed',sans-serif;font-size:0.9rem;font-weight:600;margin-bottom:0.5rem}
   .security-card-desc{font-size:0.83rem;color:var(--text2);line-height:1.6}
   .support-section{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:2rem;margin-top:3rem;text-align:center}
-  .support-section h3{font-family:'Sora',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:0.5rem}
+  .support-section h3{font-family:'Barlow Semi Condensed',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:0.5rem}
   .support-section p{color:var(--text2);font-size:0.9rem;margin-bottom:1.5rem}
   .support-contacts{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
-  .support-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.65rem 1.5rem;border-radius:8px;font-family:'Sora',sans-serif;font-size:0.875rem;font-weight:600;text-decoration:none;transition:all 0.2s;cursor:pointer;border:none}
+  .support-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.65rem 1.5rem;border-radius:8px;font-family:'Barlow Semi Condensed',sans-serif;font-size:0.875rem;font-weight:600;text-decoration:none;transition:all 0.2s;cursor:pointer;border:none}
   .support-btn.whatsapp{background:#25D366;color:#fff}
   .support-btn.whatsapp:hover{background:#1ebe5a}
   .support-btn.email{background:var(--bg3);border:1px solid var(--border2);color:var(--text)}
   .support-btn.email:hover{border-color:var(--green);color:var(--green)}
   .support-btn.phone{background:var(--bg3);border:1px solid var(--border2);color:var(--text)}
   .support-btn.phone:hover{border-color:var(--green);color:var(--green)}
-  #chat-btn{position:fixed;bottom:2rem;right:2rem;width:56px;height:56px;background:var(--green);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 4px 24px rgba(26,95,204,0.4);z-index:200;transition:all 0.2s}
+  #chat-btn{position:fixed;bottom:2rem;right:2rem;width:56px;height:56px;background:var(--green);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 4px 24px rgba(0,163,0,0.4);z-index:200;transition:all 0.2s}
   #chat-btn:hover{transform:scale(1.08)}
   #chat-bubble{position:fixed;bottom:6rem;right:2rem;width:360px;max-height:500px;background:var(--bg2);border:1px solid var(--border2);border-radius:16px;display:none;flex-direction:column;z-index:200;overflow:hidden;box-shadow:0 8px 48px rgba(0,0,0,0.6)}
   #chat-bubble.open{display:flex}
   .chat-header{padding:1rem 1.25rem;background:var(--bg3);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
   .chat-header-left{display:flex;align-items:center;gap:0.75rem}
-  .chat-avatar{width:36px;height:36px;background:var(--green-dim);border:1px solid rgba(26,95,204,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem}
-  .chat-header-info .chat-name{font-family:'Sora',sans-serif;font-size:0.875rem;font-weight:600}
+  .chat-avatar{width:36px;height:36px;background:var(--green-dim);border:1px solid rgba(0,163,0,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem}
+  .chat-header-info .chat-name{font-family:'Barlow Semi Condensed',sans-serif;font-size:0.875rem;font-weight:600}
   .chat-header-info .chat-status{font-size:0.72rem;color:var(--accent)}
   .chat-close{background:none;border:none;color:var(--text2);cursor:pointer;font-size:1.1rem;padding:4px;line-height:1;transition:color 0.2s}
   .chat-close:hover{color:var(--text)}
@@ -108,13 +108,13 @@
   .typing span:nth-child(3){animation-delay:0.4s}
   @keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
   .chat-input-row{padding:0.75rem 1rem;border-top:1px solid var(--border);display:flex;gap:0.5rem;align-items:center}
-  #chat-input{flex:1;background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:0.55rem 0.9rem;color:var(--text);font-family:'Inter',sans-serif;font-size:0.83rem;outline:none;transition:border-color 0.2s}
-  #chat-input:focus{border-color:rgba(26,95,204,0.4)}
+  #chat-input{flex:1;background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:0.55rem 0.9rem;color:var(--text);font-family:'Source Sans 3',sans-serif;font-size:0.83rem;outline:none;transition:border-color 0.2s}
+  #chat-input:focus{border-color:rgba(0,163,0,0.4)}
   #chat-input::placeholder{color:var(--text3)}
   #chat-send{width:36px;height:36px;background:var(--green);border:none;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;color:#fff;flex-shrink:0;transition:background 0.2s}
   #chat-send:hover{background:var(--green2)}
   .quick-qs{padding:0 1rem 0.75rem;display:flex;flex-wrap:wrap;gap:0.4rem}
-  .quick-q{font-size:0.72rem;padding:0.3rem 0.7rem;background:var(--bg3);border:1px solid var(--border2);border-radius:100px;color:var(--text2);cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s;white-space:nowrap}
+  .quick-q{font-size:0.72rem;padding:0.3rem 0.7rem;background:var(--bg3);border:1px solid var(--border2);border-radius:100px;color:var(--text2);cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:all 0.2s;white-space:nowrap}
   .quick-q:hover{border-color:var(--green);color:var(--green)}
   @media(max-width:640px){nav{padding:0 1rem}.hero{padding:3rem 1rem 2rem}.content{padding:0 1rem 4rem}#chat-bubble{width:calc(100vw - 2rem);right:1rem}}
 </style>
@@ -122,21 +122,21 @@
 <body>
 
 <nav>
-  <a href="/" class="nav-logo"><img src="logo_supercor_600w.png" alt="SUPERCOR"></a>
+  <a href="/" class="nav-logo"><img src="/assets/Logo%20Verde.png" alt="SUPERCOR"></a>
   <a href="/" class="nav-back">← Volver al sitio</a>
 </nav>
 
 <div class="hero">
   <div class="hero-badge">Centro de Ayuda — SUPERCOR</div>
   <h1>¿Cómo podemos <span>ayudarte</span>?</h1>
-  <p>Guías paso a paso para cada perfil. También puedes hacer preguntas directamente al asistente usando el botón azul abajo a la derecha.</p>
+  <p>En esta sección encontrará una guía rápida de uso de SUPERCOR según su perfil: Administrador, Supervisor en terreno o Asistente de Recursos Humanos. Para instrucciones completas, puede descargar el Manual de Usuario actualizado. El asistente de ayuda está disponible las 24 horas para resolver dudas frecuentes sobre la plataforma.</p>
 </div>
 
 <div class="profile-tabs">
   <div class="profile-tab active" onclick="showGuide('supervisor')">
     <div class="tab-icon">👷</div>
     <div class="tab-name">Supervisor</div>
-    <div class="tab-desc">Fiscalización en terreno</div>
+    <div class="tab-desc">Supervisión en terreno</div>
   </div>
   <div class="profile-tab" onclick="showGuide('rrhh')">
     <div class="tab-icon">👩‍💼</div>
@@ -160,133 +160,177 @@
   <!-- SUPERVISOR -->
   <div id="guide-supervisor" class="guide-section active">
     <div class="section-header">
-      <h2>👷 Guía del Supervisor</h2>
-      <p>Cómo realizar una fiscalización presencial paso a paso. El proceso tiene 6 etapas en orden. Sigue cada una antes de continuar a la siguiente.</p>
+      <h2>👷 Guía del Supervisor en Terreno</h2>
+      <p>El Supervisor realiza supervisiones presenciales en terreno con evidencia fotográfica, checklist y registro de ubicación. El proceso se compone de seis etapas que deben completarse en orden.</p>
     </div>
     <div class="subsection">
       <div class="subsection-title">Inicio de sesión</div>
       <div class="steps">
-        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Ingresa tus credenciales</div><div class="step-desc">En la pantalla de inicio escribe tu <strong>nombre de usuario y contraseña</strong>. Luego presiona <strong>Iniciar sesión</strong>. Tienes hasta <strong>5 intentos</strong> antes de que la cuenta se bloquee por 5 minutos.</div></div></div>
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Ingrese sus credenciales</div><div class="step-desc">Ingrese su <strong>nombre de usuario y contraseña</strong> y presione <strong>Iniciar sesión</strong>. Tras 5 intentos fallidos consecutivos, la cuenta se bloquea automáticamente por 5 minutos.</div></div></div>
       </div>
     </div>
     <div class="subsection">
-      <div class="subsection-title">Las 6 etapas de la fiscalización</div>
       <div class="stage-label">Etapa 1 — Configuración inicial</div>
       <div class="steps">
-        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Selecciona el contrato</div><div class="step-desc">Elige de la lista desplegable el <strong>contrato</strong> que corresponde a la empresa cliente que vas a fiscalizar hoy.</div></div></div>
-        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Selecciona la instalación</div><div class="step-desc">Elige de la lista el <strong>nombre de la instalación</strong> donde estás realizando la supervisión.</div></div></div>
-        <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Elige tu nombre</div><div class="step-desc">De la nómina desplegable, selecciona <strong>tu nombre</strong> como inspector o supervisor a cargo.</div></div></div>
-        <div class="step"><div class="step-num">4</div><div class="step-body"><div class="step-title">Actualiza tu ubicación GPS</div><div class="step-desc">Presiona <strong>"Actualizar ubicación"</strong>. La app registrará tu dirección y la hora exacta. <strong>El GPS debe estar activo</strong> — si está apagado, la app no te dejará continuar.</div></div></div>
-        <div class="step"><div class="step-num">5</div><div class="step-body"><div class="step-title">Continúa a la etapa 2</div><div class="step-desc">Presiona el botón <strong>"Continuar"</strong> en la parte inferior de la pantalla.</div></div></div>
-      </div>
-      <div class="stage-label">Etapa 2 — Evidencia fotográfica</div>
-      <div class="steps">
-        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Fotografía cada ítem solicitado</div><div class="step-desc">Verás una lista de ítems. Para cada uno presiona <strong>"Tomar captura"</strong> — se abrirá la cámara. Presiona <strong>Capturar</strong> para tomar la foto.</div></div></div>
-        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">¿La foto no quedó bien?</div><div class="step-desc">Presiona <strong>"Volver a tomar foto"</strong>. Puedes repetirla las veces que necesites.</div></div></div>
-        <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Completa todos los ítems y continúa</div><div class="step-desc">Una vez fotografiados todos los ítems, el botón <strong>"Continuar"</strong> se habilitará abajo.</div></div></div>
-      </div>
-      <div class="stage-label">Etapa 3 — Checklist documental</div>
-      <div class="steps">
-        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Verifica cada documento</div><div class="step-desc">Para cada documento marca <strong>Sí</strong> (está presente) o <strong>No</strong> (no está). Algunos pedirán evidencia fotográfica.</div></div></div>
-        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Completa toda la lista y continúa</div><div class="step-desc">Todos los ítems obligatorios deben estar marcados para habilitar el botón <strong>"Continuar"</strong>.</div></div></div>
-      </div>
-      <div class="stage-label">Etapa 4 — Evaluación de personal</div>
-      <div class="alert-box warn"><div class="alert-icon">⚠️</div><div>Esta es la etapa más compleja. Lea con atención cada caso antes de actuar.</div></div>
-      <div class="steps">
-        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">¿Hay personal presente?</div><div class="step-desc">La app preguntará si hay trabajadores en la instalación.<br><br>✅ <strong>"Sí, hay personal"</strong> → continúa con el proceso completo.<br>❌ <strong>"No, no hay nadie"</strong> → salta automáticamente a la Etapa 5.</div></div></div>
-        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Fiscaliza a cada trabajador de la lista</div><div class="step-desc">Aparecerá la lista de trabajadores asignados. Presiona cada nombre y elige:<br><br>🟢 <strong>"¿Está trabajando ahora?"</strong> → checklist completo de vestuario y documentación.<br>🔵 <strong>"Solo revisar documentos"</strong> → solo checklist de documentos.</div></div></div>
-        <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">¿Trabajador de reemplazo desde otra instalación?</div><div class="step-desc">Si no aparece en la lista pero sí en la nómina general, búscalo en el buscador. Solo aparecerá checklist de <strong>vestuario</strong>. Selecciona <strong>"Solo revisar documentos"</strong>.</div></div></div>
-        <div class="step"><div class="step-num">4</div><div class="step-body"><div class="step-title">¿Trabajador no aparece en ninguna nómina?</div><div class="step-desc">Presiona <strong>"Trabajador no enrolado"</strong> y completa: nombre completo, apellido paterno, apellido materno, RUT y motivo. Presiona <strong>"Finalizar datos"</strong>. Aparecerá recuadro verde si todo está correcto.</div></div></div>
-        <div class="step"><div class="step-num">5</div><div class="step-body"><div class="step-title">Completa todos los trabajadores y continúa</div><div class="step-desc">Todos deben tener <strong>ticket verde "OK"</strong>. Solo entonces se habilitará el botón <strong>"Continuar"</strong>.</div></div></div>
-      </div>
-      <div class="stage-label">Etapa 5 — Infraestructura y equipamiento</div>
-      <div class="steps">
-        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Revisa el checklist de infraestructura</div><div class="step-desc">Marca <strong>Sí / No</strong> en cada ítem. Algunos pedirán fotografía como evidencia.</div></div></div>
-        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Completa y continúa</div><div class="step-desc">Una vez completados todos los ítems obligatorios, presiona <strong>"Continuar"</strong>.</div></div></div>
-      </div>
-      <div class="stage-label">Etapa 6 — Sección final</div>
-      <div class="steps">
-        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Observaciones adicionales (opcional)</div><div class="step-desc">Si tiene algo que agregar que no estaba en los checklists, escríbalo en el recuadro de observaciones. También puede adjuntar fotos adicionales.</div></div></div>
-        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Envía la supervisión</div><div class="step-desc">Esta etapa <strong>no es obligatoria</strong>. Presione directamente el botón <strong>"Enviar"</strong> y la supervisión quedará registrada.</div></div></div>
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Seleccione el contrato</div><div class="step-desc">Elija de la lista desplegable el <strong>contrato</strong> correspondiente a la empresa o cliente que se va a supervisar.</div></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Seleccione la instalación</div><div class="step-desc">Elija la <strong>instalación</strong> donde se realizará la supervisión.</div></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Seleccione el inspector</div><div class="step-desc">Seleccione su nombre como <strong>inspector o supervisor a cargo</strong> de la supervisión.</div></div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-body"><div class="step-title">Capture la ubicación</div><div class="step-desc">Presione <strong>Actualizar ubicación</strong>. La plataforma registrará la ubicación, fecha y hora del inicio de la supervisión como respaldo del registro. El botón <strong>Continuar</strong> se habilita solo cuando todos los campos obligatorios están completos.</div></div></div>
       </div>
     </div>
-    <div class="alert-box tip"><div class="alert-icon">📶</div><div><strong>Sin señal de internet:</strong> La app guarda la supervisión en modo offline y la sincroniza automáticamente al recuperar conexión. No se pierde ninguna información.</div></div>
+    <div class="subsection">
+      <div class="stage-label">Etapa 2 — Evaluación de personal</div>
+      <div class="alert-box warn"><div class="alert-icon">⚠️</div><div>El sistema preguntará si hay personal en la instalación. Lea con atención cada caso antes de continuar.</div></div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Sí hay personal</div><div class="step-desc">Aparecen los trabajadores asignados a la instalación. Para cada uno se elige:<br><br><strong>Está trabajando ahora</strong> → se revisan los ítems configurados para ese trabajador, empresa, contrato o instalación. Estos pueden incluir vestuario, documentación, certificaciones, credenciales, implementos u otros requisitos operacionales definidos por el cliente o exigidos por entidades externas.<br><strong>Solo documentos</strong> → se revisan los documentos o requisitos documentales configurados para ese trabajador o instalación, según lo solicitado por la empresa, el cliente mandante o la normativa aplicable.</div></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">No hay personal — puede ingresar</div><div class="step-desc">El sistema habilita la revisión en modalidad <strong>Solo docs</strong>. No se evalúan los ítems de personal porque no hay trabajadores presentes. Al completar los ítems obligatorios, el flujo pasa directamente a la Sección Final.</div></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">No hay personal — no puede ingresar</div><div class="step-desc">El sistema genera una <strong>alerta automática</strong> informando que la instalación está sin personal y sin acceso. El flujo pasa directamente a la Sección Final.</div></div></div>
+      </div>
+    </div>
+    <div class="subsection">
+      <div class="subsection-title">Trabajadores especiales</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Trabajador de reemplazo, apoyo o de otra instalación</div><div class="step-desc">Si la persona trabaja en la instalación pero no aparece en la lista asignada, puede estar en la nómina general. Búsquela desde el selector de nómina general. Dependiendo del caso, se revisarán los ítems configurados para ese trabajador, que pueden incluir vestuario, documentación u otros requisitos operacionales según la empresa o instalación.</div></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Trabajador no enrolado</div><div class="step-desc">Si el trabajador no aparece en ninguna nómina, use la opción <strong>Trabajador no enrolado</strong> e ingrese los datos obligatorios:<br><br>• Nombres<br>• Apellido paterno<br>• Apellido materno<br>• RUT<br>• Motivo por el que no está en nómina<br><br>Presione <strong>Finalizar datos</strong>. Aparece recuadro verde si todo está correcto.</div></div></div>
+      </div>
+    </div>
+    <div class="subsection">
+      <div class="stage-label">Etapa 3 — Evidencia fotográfica</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Capture las fotografías solicitadas</div><div class="step-desc">La plataforma solicita las fotografías configuradas para la empresa. Si una foto es obligatoria, debe capturarse para poder continuar. El listado de ítems puede variar según los requerimientos de cada cliente.</div></div></div>
+      </div>
+    </div>
+    <div class="subsection">
+      <div class="stage-label">Etapa 4 — Checklist documental</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Revise los documentos</div><div class="step-desc">Se presentan los documentos configurados para la empresa. Marque cada uno como <strong>Sí</strong> o <strong>No</strong>. Algunos ítems pueden requerir evidencia fotográfica. Todos los obligatorios deben completarse para continuar.</div></div></div>
+      </div>
+    </div>
+    <div class="subsection">
+      <div class="stage-label">Etapa 5 — Infraestructura y equipamiento</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Revise infraestructura y equipamiento</div><div class="step-desc">Se presentan los ítems de equipamiento e infraestructura configurados. Marque cada uno como <strong>Sí</strong> o <strong>No</strong>. Algunos pueden requerir fotografía. El listado puede variar según instalación, contrato o cliente.</div></div></div>
+      </div>
+    </div>
+    <div class="subsection">
+      <div class="stage-label">Etapa 6 — Sección final y envío</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Observaciones y fotos adicionales (opcional)</div><div class="step-desc">Si lo considera necesario, puede agregar observaciones o fotos adicionales. Estos campos son opcionales.</div></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Envíe la supervisión</div><div class="step-desc">Presione <strong>Enviar</strong> para registrar la supervisión. Al completarla, el flujo vuelve automáticamente a la etapa inicial para iniciar una nueva supervisión.</div></div></div>
+      </div>
+    </div>
+    <div class="alert-box tip"><div class="alert-icon">📶</div><div><strong>Sin señal de internet:</strong> La plataforma guarda la supervisión localmente y sincroniza automáticamente al recuperar conexión. No se pierde ninguna información.</div></div>
   </div>
 
   <!-- RRHH -->
   <div id="guide-rrhh" class="guide-section">
     <div class="section-header">
-      <h2>👩‍💼 Guía de RRHH</h2>
-      <p>Cómo gestionar la dotación de trabajadores por instalación.</p>
+      <h2>👩‍💼 Guía de Asistente de Recursos Humanos</h2>
+      <p>El perfil RRHH administra la dotación de trabajadores por contrato e instalación. Su acceso está acotado al módulo <strong>Nómina / Dotación</strong>. Se utiliza principalmente cuando la empresa actualiza su nómina mediante archivos Excel. Si la empresa cuenta con integración automática de información de personal, este perfil puede no ser necesario.</p>
     </div>
     <div class="subsection">
-      <div class="subsection-title">Inicio de sesión</div>
+      <div class="subsection-title">Inicio de sesión y acceso</div>
       <div class="steps">
-        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Ingresa tus credenciales</div><div class="step-desc">Escribe tu <strong>correo electrónico y contraseña</strong>. Al ingresar, irás directamente al menú de <strong>Dotación por Instalación</strong>.</div></div></div>
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Ingrese sus credenciales</div><div class="step-desc">Ingrese su usuario y contraseña. Al ingresar, accede directamente al módulo <strong>Nómina / Dotación</strong>.</div></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Seleccione empresa, contrato e instalación</div><div class="step-desc">Use los filtros disponibles para seleccionar la combinación que desea revisar o actualizar. El sistema mostrará el total de trabajadores registrados en la instalación seleccionada.</div></div></div>
       </div>
     </div>
     <div class="subsection">
-      <div class="subsection-title">Ver trabajadores por instalación</div>
+      <div class="subsection-title">Carga de dotación por Excel</div>
+      <div class="alert-box info"><div class="alert-icon">📋</div><div>Use esta opción cuando necesite actualizar la nómina de una instalación mediante un archivo Excel.</div></div>
       <div class="steps">
-        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Usa los filtros de selección</div><div class="step-desc">Verás dos listas desplegables: <strong>Contrato</strong> e <strong>Instalación</strong>. Selecciona la combinación que deseas revisar.</div></div></div>
-        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Revisa el resumen de nómina</div><div class="step-desc">Arriba verás el recuadro <strong>"Total nómina"</strong> con el número total de trabajadores registrados.</div></div></div>
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Prepare el archivo Excel</div><div class="step-desc">El archivo debe contener las siguientes columnas:<br><br><strong>Nombres · Apellidos · Contrato · Instalación · Turno</strong><br><br>Turnos válidos: <strong>Día, Noche, Rotativo, 4x4, Otro</strong>.</div></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Elija el tipo de carga</div><div class="step-desc"><strong>Reemplazar dotación:</strong> borra la nómina actual de la instalación seleccionada y carga una nueva.<br><br><strong>Agregar trabajadores:</strong> suma nuevos registros a la dotación existente, sin eliminar a los trabajadores actuales.</div></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Suba el archivo</div><div class="step-desc">Presione <strong>Subir Excel de dotación</strong> y seleccione el archivo. El sistema procesará la carga automáticamente.</div></div></div>
       </div>
+      <div class="alert-box warn"><div class="alert-icon">⚠️</div><div><strong>Atención al reemplazar dotación:</strong> esta acción borra la nómina actual de la instalación seleccionada y no se puede deshacer. Úsela solo cuando esté completamente seguro.</div></div>
     </div>
     <div class="subsection">
-      <div class="subsection-title">Opción A — Agregar un trabajador individual</div>
+      <div class="subsection-title">Otras acciones disponibles</div>
       <div class="steps">
-        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Presiona "Agregar trabajador"</div><div class="step-desc">Completa el nombre completo y asígnale un turno: <strong>Día</strong> o <strong>Noche</strong>.</div></div></div>
-        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Confirma el registro</div><div class="step-desc">El trabajador aparecerá en la lista con su nombre, turno, fecha y hora de ingreso. Para eliminarlo, usa el botón de <strong>borrar</strong> al lado derecho de su nombre.</div></div></div>
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Reasignar trabajador</div><div class="step-desc">Permite trasladar a un trabajador activo desde su instalación actual hacia otra, conservando su historial y evidencias.</div></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Desvincular trabajador</div><div class="step-desc">Permite retirar a un trabajador de la instalación seleccionada cuando corresponda.</div></div></div>
       </div>
-    </div>
-    <div class="subsection">
-      <div class="subsection-title">Opción B — Carga masiva por Excel</div>
-      <div class="alert-box info"><div class="alert-icon">📋</div><div>Use esta opción cuando necesita subir o actualizar muchos trabajadores a la vez.</div></div>
-      <div class="steps">
-        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Prepara el archivo Excel</div><div class="step-desc">El archivo debe tener estas columnas en este orden exacto:<br><br><strong>Nombre | Apellido | Contrato | Instalación | Turno</strong><br><br>Turnos válidos: <strong>Día, Noche, Rotativo, 4x4</strong>.</div></div></div>
-        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Elige el tipo de carga</div><div class="step-desc">🔴 <strong>"Reemplazar dotación"</strong> → Borra toda la nómina actual y carga la nueva.<br><br>🟢 <strong>"Agregar más trabajadores"</strong> → Suma los nuevos a los que ya existen sin borrar a nadie.</div></div></div>
-        <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Sube el archivo</div><div class="step-desc">Presiona <strong>"Subir Excel de dotación"</strong> y selecciona el archivo. El sistema procesará la carga automáticamente.</div></div></div>
-      </div>
-      <div class="alert-box warn"><div class="alert-icon">⚠️</div><div><strong>Atención con "Reemplazar dotación":</strong> Esta acción borra toda la nómina actual y no se puede deshacer. Úsela solo cuando esté completamente seguro.</div></div>
     </div>
   </div>
 
   <!-- JEFATURA -->
   <div id="guide-jefatura" class="guide-section">
     <div class="section-header">
-      <h2>👔 Guía de Jefatura / Administrador</h2>
-      <p>Cómo interpretar el dashboard, gestionar alertas y configurar reportes.</p>
+      <h2>👔 Guía de Administrador / Jefatura</h2>
+      <p>El Administrador tiene acceso al panel de control completo de SUPERCOR. Desde este entorno puede revisar el historial de supervisiones, gestionar alertas, analizar el dashboard gerencial, administrar supervisores, revisar dotación, configurar la matriz de alertas y programar reportes automáticos.</p>
+    </div>
+    <div class="subsection">
+      <div class="subsection-title">Panel de Control</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Vista general del estado de la empresa</div><div class="step-desc">El Panel de Control es la pantalla principal al ingresar. Muestra de forma resumida: alertas pendientes, supervisiones de los últimos 30 días, total de trabajadores, total de instalaciones, estado operacional, gráficos de actividad y distribución de alertas por estado. Los indicadores son interactivos y permiten acceder directamente al módulo correspondiente.</div></div></div>
+      </div>
     </div>
     <div class="subsection">
       <div class="subsection-title">Menú principal</div>
       <div class="info-grid">
-        <div class="info-card"><div class="info-card-title">📋 Historial</div><div class="info-card-value">Supervisiones realizadas con nivel de criticidad.</div></div>
-        <div class="info-card"><div class="info-card-title">🔔 Alertas</div><div class="info-card-value">Gestión de alertas pendientes, en gestión y resueltas.</div></div>
-        <div class="info-card"><div class="info-card-title">📊 Dashboard</div><div class="info-card-value">Estado operacional en tiempo real de toda la empresa.</div></div>
-        <div class="info-card"><div class="info-card-title">👥 Gestión Personal</div><div class="info-card-value">Configurar alertas, crear supervisores, ver dotación.</div></div>
+        <div class="info-card"><div class="info-card-title">📊 Panel de Control</div><div class="info-card-value">Vista general con indicadores interactivos y estado operacional.</div></div>
+        <div class="info-card"><div class="info-card-title">📋 Historial</div><div class="info-card-value">Supervisiones realizadas con filtros, estados y reportes individuales.</div></div>
+        <div class="info-card"><div class="info-card-title">🔔 Alertas</div><div class="info-card-value">Gestión de alertas operacionales organizadas por estado.</div></div>
+        <div class="info-card"><div class="info-card-title">📈 Dashboard Gerencial</div><div class="info-card-value">Vista consolidada del estado operacional en tiempo real.</div></div>
+        <div class="info-card"><div class="info-card-title">👤 Gestión de Supervisores</div><div class="info-card-value">Crear, editar y administrar supervisores.</div></div>
+        <div class="info-card"><div class="info-card-title">👥 Nómina / Dotación</div><div class="info-card-value">Revisión de dotación por contrato e instalación.</div></div>
+        <div class="info-card"><div class="info-card-title">⚙️ Matriz de Alertas</div><div class="info-card-value">Configuración de alertas, ítems y correos responsables.</div></div>
+        <div class="info-card"><div class="info-card-title">📅 Reportes Programados</div><div class="info-card-value">Envío automático de reportes por correo.</div></div>
       </div>
     </div>
     <div class="subsection">
-      <div class="subsection-title">Gestión de alertas</div>
+      <div class="subsection-title">Historial de supervisiones</div>
       <div class="steps">
-        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Panel de alertas</div><div class="step-desc">Las alertas se organizan en: <strong>Pendientes / En gestión / Resueltas automáticamente / Cerradas manualmente / Todas</strong>.</div></div></div>
-        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Derivar una alerta</div><div class="step-desc">Presiona <strong>"Derivar"</strong>, escribe un mensaje y el correo del responsable. La notificación se enviará de inmediato.</div></div></div>
-        <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Cerrar una alerta manualmente</div><div class="step-desc">Si la alerta fue generada por error, presiona <strong>"Cerrar manual"</strong>. Quedará marcada como cerrada sin derivarla.</div></div></div>
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Revise y filtre supervisiones</div><div class="step-desc">El historial muestra las supervisiones registradas. Puede filtrar por rango de fechas y descargar un <strong>PDF consolidado</strong> del período seleccionado.</div></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Ver detalle o descargar informe individual</div><div class="step-desc">Cada supervisión tiene el botón <strong>Ver</strong> para abrir su detalle completo —evidencia fotográfica, checklist documental, evaluación de trabajadores e infraestructura— y el botón <strong>PDF</strong> para descargar el informe individual.</div></div></div>
       </div>
     </div>
     <div class="subsection">
-      <div class="subsection-title">Dashboard gerencial</div>
+      <div class="subsection-title">Gestión de Alertas</div>
       <div class="steps">
-        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Modo en vivo</div><div class="step-desc">Activa el <strong>Modo en vivo</strong> para proyectar el dashboard en un monitor. Muestra en tiempo real: instalaciones visitadas, cumplimiento, alertas activas y mapa de criticidad.</div></div></div>
-        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Semáforo de cumplimiento</div><div class="step-desc">🔴 <strong>Crítico</strong> / 🟡 <strong>Medio</strong> / 🟢 <strong>Normal</strong>. Indica el estado general de la operación.</div></div></div>
-        <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Programar reportes automáticos</div><div class="step-desc">En <strong>"Reportes" → "Nuevo"</strong>, elige día, hora y correo destinatario. El sistema enviará un resumen de las últimas 24 horas automáticamente.</div></div></div>
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Estados de alerta</div><div class="step-desc">Las alertas se organizan en cinco estados:<br><br><strong>Pendientes:</strong> requieren revisión o acción.<br><strong>En Gestión:</strong> derivadas a un responsable para su atención.<br><strong>Resueltas Auto:</strong> resueltas automáticamente cuando una supervisión posterior confirma que el ítem fue corregido en terreno.<br><strong>Cerradas Manual:</strong> cerradas por jefatura con una razón justificada, por ejemplo ante una falsa alerta.<br><strong>Todas:</strong> vista completa sin filtro de estado.</div></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Ver Reporte</div><div class="step-desc">Abre la supervisión relacionada con la alerta para revisar su contexto completo.</div></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Derivar</div><div class="step-desc">Permite asignar la alerta a un responsable. Se escribe un mensaje y el correo destinatario. Al derivar, la alerta pasa al estado <strong>En Gestión</strong>.</div></div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-body"><div class="step-title">Cerrar Manual</div><div class="step-desc">Cierra la alerta con una razón justificada. Se usa cuando la situación no requiere gestión o correspondió a una falsa alerta. Las alertas quedan registradas para trazabilidad y seguimiento.</div></div></div>
       </div>
     </div>
     <div class="subsection">
-      <div class="subsection-title">Gestión de personal</div>
+      <div class="subsection-title">Dashboard Gerencial</div>
       <div class="steps">
-        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Configurar la matriz de alertas</div><div class="step-desc">En <strong>Gestión de Personal → Alertas</strong> defina qué ítems generan alerta, si requieren foto y a qué correos llegan. Guarde con <strong>"Guardar matriz"</strong>.</div></div></div>
-        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Crear un nuevo supervisor</div><div class="step-desc">Presione <strong>"Crear supervisores"</strong> y complete nombre completo, correo y contraseña inicial. El supervisor recibirá sus credenciales y deberá cambiar la contraseña en su primer ingreso.</div></div></div>
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Filtros y vista ejecutiva</div><div class="step-desc">Entrega una visión consolidada del estado operacional. Incluye filtros por contrato, instalación, supervisor y rango de fechas. Los resultados se actualizan según el período seleccionado.</div></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Modo en Vivo · Últimas 24 Hrs · Pantalla completa</div><div class="step-desc"><strong>Modo en Vivo:</strong> actualiza la información automáticamente. Ideal para proyectar en monitores de gerencia u operación.<br><strong>Últimas 24 Hrs:</strong> aplica un filtro rápido para revisar la actividad del último día.<br><strong>Pantalla completa:</strong> expande el dashboard para proyección en monitor grande.</div></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Indicadores principales</div><div class="step-desc">Instalaciones visitadas, instalaciones sin visitar, cumplimiento interno y total de supervisiones. Cada cuadro es interactivo y permite revisar el detalle correspondiente.</div></div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-body"><div class="step-title">Mapa de supervisiones</div><div class="step-desc">Muestra instalaciones en un mapa. Al presionar un marcador se visualiza la instalación, supervisor, fecha de última visita, nivel de riesgo y fallas. El botón <strong>Ver Último Reporte</strong> abre la supervisión relacionada.</div></div></div>
+        <div class="step"><div class="step-num">5</div><div class="step-body"><div class="step-title">Instalaciones visitadas y sin visitar</div><div class="step-desc">Muestra el estado de cobertura de cada instalación: <strong>Visitada hoy / Visitada recientemente / Sin visita reciente / Nunca supervisada</strong>.<br><br><strong>Días de supervisión:</strong> indica cuántos días han transcurrido desde la última supervisión de cada instalación. 0 significa supervisada hoy; 1 significa supervisada ayer; a mayor número, más tiempo sin supervisión.</div></div></div>
+        <div class="step"><div class="step-num">6</div><div class="step-body"><div class="step-title">Clasificación por nivel de cumplimiento</div><div class="step-desc"><strong>Crítico:</strong> requiere revisión inmediata.<br><strong>Medio:</strong> requiere seguimiento.<br><strong>Normal:</strong> dentro del estándar esperado.<br><strong>Sin acceso:</strong> el supervisor no pudo ingresar a la instalación.</div></div></div>
+      </div>
+    </div>
+    <div class="subsection">
+      <div class="subsection-title">Reportes</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Informe Ejecutivo Excel</div><div class="step-desc">Se descarga desde el Dashboard Gerencial según el rango de fechas seleccionado. Incluye resumen ejecutivo, detalle de supervisiones, evidencias, documentación, infraestructura, vestuario, certificaciones y alertas con tiempo de resolución.</div></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Estado de Supervisiones Excel</div><div class="step-desc">Informe de cobertura de instalaciones. Muestra cuáles fueron visitadas hoy, visitadas recientemente, sin visita reciente o nunca supervisadas, junto con la fecha de última visita, el supervisor a cargo y los días sin supervisión.</div></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Reportes Programados</div><div class="step-desc">Permite programar el envío automático de reportes por correo. Se definen los días, la hora y los correos destinatarios. El sistema envía el reporte en los horarios configurados. Los reportes se pueden activar, desactivar o eliminar desde el mismo módulo.</div></div></div>
+      </div>
+    </div>
+    <div class="subsection">
+      <div class="subsection-title">Gestión de Supervisores</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Administrar supervisores</div><div class="step-desc">Permite ver los supervisores existentes, crear nuevos, editar datos o eliminar supervisores. Para crear uno nuevo se ingresan nombre completo, correo electrónico y contraseña inicial.</div></div></div>
+      </div>
+    </div>
+    <div class="subsection">
+      <div class="subsection-title">Matriz de Alertas</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Configuración de empresa</div><div class="step-desc">Define correos en copia para alertas, notificaciones al detectar una alerta, notificaciones al resolverse automáticamente, envío de recordatorios y cantidad de días sin resolver para activar recordatorio. Se guarda con <strong>Guardar Configuración de Empresa</strong>.</div></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Matriz de ítems</div><div class="step-desc">Permite activar o desactivar los ítems que generan alertas y asignar los correos responsables por ítem. Se guarda con <strong>Guardar Matriz de Alertas</strong>.</div></div></div>
+      </div>
+    </div>
+    <div class="subsection">
+      <div class="subsection-title">Nómina / Dotación</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Revisión y gestión de dotación</div><div class="step-desc">El Administrador también puede acceder al módulo Nómina / Dotación para revisar trabajadores asignados por contrato e instalación, y realizar las mismas acciones disponibles para el perfil RRHH: reemplazar dotación, agregar trabajadores, reasignar y desvincular.</div></div></div>
       </div>
     </div>
   </div>
@@ -295,35 +339,38 @@
   <div id="guide-seguridad" class="guide-section">
     <div class="section-header">
       <h2>🔐 Seguridad y acceso</h2>
-      <p>Información sobre contraseñas, GPS y funcionamiento sin internet.</p>
+      <p>Información general sobre credenciales, registro de ubicación y modo sin conexión.</p>
     </div>
     <div class="security-grid">
-      <div class="security-card"><div class="security-card-icon">🔑</div><div class="security-card-title">Contraseña segura</div><div class="security-card-desc">Mínimo <strong>8 caracteres</strong>, al menos una mayúscula y combinación de letras y números. Debe cambiarse en el primer ingreso.</div></div>
+      <div class="security-card"><div class="security-card-icon">🔑</div><div class="security-card-title">Credenciales de acceso</div><div class="security-card-desc">Cada usuario ingresa con su usuario y contraseña. Existen medidas de seguridad para proteger el acceso a la plataforma.</div></div>
       <div class="security-card"><div class="security-card-icon">🚫</div><div class="security-card-title">Bloqueo por intentos fallidos</div><div class="security-card-desc">Tras <strong>5 intentos incorrectos</strong> consecutivos, la cuenta se bloquea automáticamente por <strong>5 minutos</strong>.</div></div>
-      <div class="security-card"><div class="security-card-icon">📍</div><div class="security-card-title">GPS obligatorio</div><div class="security-card-desc">El GPS debe estar activo durante toda la supervisión. Si está desactivado, la aplicación no permitirá continuar.</div></div>
-      <div class="security-card"><div class="security-card-icon">📶</div><div class="security-card-title">Funciona sin internet</div><div class="security-card-desc">La app guarda la supervisión en modo <strong>offline</strong> y sincroniza automáticamente al recuperar conexión. No se pierde ninguna información.</div></div>
+      <div class="security-card"><div class="security-card-icon">📍</div><div class="security-card-title">Registro de ubicación</div><div class="security-card-desc">La ubicación se captura al inicio de la supervisión como respaldo del lugar, fecha y hora del registro.</div></div>
+      <div class="security-card"><div class="security-card-icon">📶</div><div class="security-card-title">Modo sin conexión</div><div class="security-card-desc">Si no hay señal, la plataforma guarda la supervisión localmente y sincroniza automáticamente al recuperar conexión. No se pierde ninguna información.</div></div>
     </div>
   </div>
 
   <!-- PDF -->
   <div style="background:linear-gradient(135deg,var(--bg2) 0%,var(--bg3) 100%);border:1px solid var(--border2);border-radius:16px;padding:2.5rem 2rem;margin-top:3rem;text-align:center;position:relative;overflow:hidden">
     <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--blue),var(--accent))"></div>
-    <div style="display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;background:var(--green-dim);border:1px solid rgba(26,95,204,0.3);border-radius:16px;margin-bottom:1rem;font-size:2rem">📄</div>
-    <h3 style="font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:700;margin-bottom:0.5rem;color:var(--text)">Manual de Usuario en PDF</h3>
-    <p style="color:var(--text2);font-size:0.95rem;margin-bottom:1.75rem;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.6">Descarga la guía oficial completa en formato PDF para imprimir, compartir con su equipo o consultar sin conexión.</p>
-    <a href="/Manual_Usuario_SUPERCOR.pdf" download style="display:inline-flex;align-items:center;gap:0.6rem;background:var(--blue);color:#fff;font-family:'Sora',sans-serif;font-size:0.95rem;font-weight:600;padding:0.9rem 2rem;border-radius:10px;text-decoration:none;box-shadow:0 4px 16px rgba(26,95,204,0.3)">⬇ Descargar manual (PDF)</a>
-    <div style="margin-top:1rem;font-size:0.8rem;color:var(--text3)">19 páginas · Documento oficial SUPERCOR</div>
+    <div style="display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;background:var(--green-dim);border:1px solid rgba(0,163,0,0.3);border-radius:16px;margin-bottom:1rem;font-size:2rem">📄</div>
+    <h3 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.4rem;font-weight:700;margin-bottom:0.5rem;color:var(--text)">Manual de Usuario SUPERCOR</h3>
+    <p style="color:var(--text2);font-size:0.95rem;margin-bottom:1.75rem;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.6">Descargue el Manual de Usuario SUPERCOR actualizado, con instrucciones por perfil, explicación de los principales módulos de la plataforma y recomendaciones de uso.</p>
+    <a href="/Manual_Usuario_SUPERCOR.pdf" download style="display:inline-flex;align-items:center;gap:0.6rem;background:var(--blue);color:#fff;font-family:'Barlow Semi Condensed',sans-serif;font-size:0.95rem;font-weight:600;padding:0.9rem 2rem;border-radius:10px;text-decoration:none;box-shadow:0 4px 16px rgba(0,163,0,0.3)">
+      <svg style="width:18px;height:18px;fill:currentColor;flex-shrink:0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+      Descargar Manual de Usuario
+    </a>
   </div>
 
   <!-- SOPORTE -->
   <div class="support-section">
     <h3>¿No encontró lo que buscaba?</h3>
-    <p>Nuestro equipo de soporte está disponible <strong>24/7</strong> para orientarle por cualquier canal.</p>
+    <p>Nuestro equipo de soporte está disponible las <strong>24 horas</strong> para orientarle por cualquier canal.</p>
     <div class="support-contacts">
-      <a href="https://wa.me/56995950843" class="support-btn whatsapp" target="_blank">💬 WhatsApp</a>
+      <a href="https://wa.me/56995950843" class="support-btn whatsapp" target="_blank">💬 WhatsApp +56 9 9595 0843</a>
       <a href="mailto:contacto@supercor.cl" class="support-btn email">✉️ contacto@supercor.cl</a>
       <a href="tel:+56977652571" class="support-btn phone">📞 +56 9 7765 2571</a>
     </div>
+    <p style="margin-top:1.25rem;font-size:0.85rem;color:var(--text3)">Centro de ayuda: <a href="https://www.supercor.cl/ayuda" style="color:var(--accent);text-decoration:none">www.supercor.cl/ayuda</a> &nbsp;·&nbsp; Sitio web: <a href="https://www.supercor.cl" style="color:var(--accent);text-decoration:none">www.supercor.cl</a></p>
   </div>
 
 </div>
@@ -355,57 +402,338 @@
 </div>
 
 <script>
-const SYSTEM_PROMPT = `Eres el asistente oficial de SUPERCOR, una plataforma SaaS de control operacional y supervisión en terreno.
+const SYSTEM_PROMPT = `Eres el asistente oficial de SUPERCOR, una plataforma de control operacional, supervisión en terreno y evidencia verificable.
 
-Respondes ÚNICAMENTE preguntas relacionadas con el uso de la aplicación SUPERCOR. Si te preguntan algo no relacionado, indica amablemente que solo puedes asistir con consultas sobre SUPERCOR.
+Tu misión es orientar a usuarios y clientes sobre el uso de SUPERCOR, sus perfiles, módulos, reportes y funciones principales. También puedes explicar, a nivel comercial, que SUPERCOR combina plataforma tecnológica con acompañamiento experto en control operacional, trazabilidad y cultura de cumplimiento.
 
-Cuando no tengas información suficiente para responder una consulta específica, NO indiques que no sabes ni que la información no está disponible. En su lugar, indica que el equipo de soporte puede orientar mejor al respecto, y entrega los datos de contacto: WhatsApp +56 9 9595 0843, teléfono +56 9 7765 2571 o correo contacto@supercor.cl.
+TONO Y ESTILO:
+Responde siempre en español.
+Usa lenguaje formal, claro, sobrio y corporativo.
+Usa párrafos cortos.
+Explica paso a paso cuando corresponda.
+No uses chilenismos ni expresiones informales como altiro, pucha, po, bacán, compa, dale, ni modismos similares.
+No uses muletillas, bromas ni lenguaje entusiasta o coloquial.
+No hables como desarrollador ni uses lenguaje técnico interno.
+No digas "falsa alarma"; si corresponde, usa "falsa alerta".
+No respondas preguntas sobre quién te creó, qué modelo eres, cómo fuiste programado, qué tecnología usas ni ningún detalle sobre tu construcción interna.
 
-Habla en español, de forma clara, formal y profesional. No uses expresiones coloquiales, chilenismos ni lenguaje informal. Usa párrafos cortos y texto plano sin formato markdown.
+PREGUNTAS FUERA DE SUPERCOR:
+Si el usuario pregunta algo que no está relacionado con SUPERCOR, la plataforma, sus módulos, sus perfiles, reportes, alertas, supervisiones, dotación, asesoría o soporte, responde de forma breve con este texto exacto:
+"Soy el asistente de ayuda de SUPERCOR. Puedo orientarle sobre el uso de la plataforma, sus perfiles, supervisiones, alertas, reportes, dotación y soporte. Si necesita ayuda con SUPERCOR, indíqueme qué módulo o proceso desea revisar."
+Esto aplica a preguntas como quién te creó, cuándo te hicieron, qué modelo eres, si puedes contar un chiste, o cualquier otra pregunta ajena a SUPERCOR.
 
-PERFILES:
-- Supervisor: realiza fiscalizaciones en terreno con 6 etapas
-- RRHH: gestiona la dotación de trabajadores
-- Jefatura/Administrador: ve dashboards, gestiona alertas, crea supervisores
+PREGUNTAS RELACIONADAS CON SUPERCOR SIN INFORMACIÓN SUFICIENTE:
+Si el usuario pregunta algo relacionado con SUPERCOR pero no tienes información suficiente para responder con seguridad, no inventes ni digas simplemente que no sabes.
+Responde con este texto:
+"Esa consulta requiere revisión del equipo de soporte de SUPERCOR para entregarle una orientación precisa. Puede comunicarse por WhatsApp al +56 9 9595 0843, por teléfono al +56 9 7765 2571 o al correo contacto@supercor.cl."
 
-ACCESO:
-- Todos ingresan con usuario/contraseña
-- Máximo 5 intentos fallidos, luego se bloquea 5 minutos
-- La contraseña debe tener mínimo 8 caracteres, al menos una mayúscula y ser alfanumérica
+PROHIBICIÓN DE INVENTAR:
+No inventes módulos, botones, configuraciones, precios, integraciones, clientes, funciones, datos técnicos, plazos ni capacidades que no estén descritos en este documento.
 
-SUPERVISOR — 6 ETAPAS:
-Etapa 1: selecciona contrato, instalación, su nombre como inspector, y actualiza GPS. El GPS debe estar activo obligatoriamente.
-Etapa 2: toma fotos de los ítems requeridos. Puede repetir con "Volver a tomar foto".
-Etapa 3: marca Sí/No en cada documento. Algunos piden foto.
-Etapa 4 (Evaluación de personal):
-  - Si no hay personal, salta a etapa 5.
-  - Si hay personal, aparece la lista de trabajadores asignados.
-  - "¿Está trabajando ahora?" → checklist vestuario y documentación.
-  - "Solo revisar documentos" → solo checklist documentos.
-  - Reemplazo de otra instalación: búscalo en nómina general, solo aparece checklist vestuario.
-  - No aparece en ninguna nómina: presionar "Trabajador no enrolado", completar nombre, apellido, RUT y motivo.
-  - Todos deben quedar con ticket verde "OK" para continuar.
-Etapa 5: checklist Sí/No de equipamiento. Algunos piden foto.
-Etapa 6: observaciones opcionales. Presionar "Enviar" para finalizar.
+RESTRICCIONES ABSOLUTAS:
+No mencionar Super Admin.
+No mencionar superadministrador.
+No mencionar código.
+No mencionar base de datos.
+No mencionar backend.
+No mencionar Supabase.
+No mencionar Vercel.
+No mencionar librerías.
+No mencionar APIs internas.
+No explicar configuración técnica interna.
+No responder sobre el modelo de inteligencia artificial, proveedor tecnológico ni construcción del chatbot.
+No inventar funciones que no existan.
+No prometer acciones que no puedes realizar.
+No entregar información confidencial.
 
-OFFLINE: La app guarda la supervisión localmente y sincroniza al recuperar conexión.
+TEMAS QUE PUEDES RESPONDER:
+Uso de la plataforma SUPERCOR.
+Perfil Jefatura o Administrador de Empresa.
+Perfil Supervisor en terreno.
+Perfil Asistente de Recursos Humanos.
+Dashboard Gerencial.
+Gestión de Alertas.
+Historial de Supervisiones.
+Reportes PDF y Excel.
+Reportes Programados.
+Matriz de Alertas.
+Nómina y Dotación.
+Evidencias fotográficas.
+Supervisión en terreno.
+Soporte y canales de contacto.
+Explicación comercial general de SUPERCOR.
+Control operacional, trazabilidad, cultura de cumplimiento y acompañamiento estratégico.
 
-RRHH:
-- Filtrar por contrato e instalación para ver dotación
-- Agregar trabajador individual: nombre + turno
-- Carga masiva Excel: columnas Nombre, Apellido, Contrato, Instalación, Turno. Turnos: Día, Noche, Rotativo, 4x4
-- "Reemplazar dotación": borra toda la nómina actual (irreversible)
-- "Agregar más trabajadores": suma a los existentes
+PERFILES DE USUARIO:
+SUPERCOR trabaja con tres perfiles principales para clientes:
+1. Jefatura o Administrador de Empresa.
+2. Supervisor en terreno.
+3. Asistente de Recursos Humanos.
 
-JEFATURA:
-- Historial: supervisiones con criticidad, filtro por fecha, exportar PDF
-- Alertas: "Derivar" envía al responsable, "Cerrar manual" para errores
-- Dashboard: Modo en vivo, semáforo Crítico/Medio/Normal, exportar Excel y PDF
-- Reportes automáticos: configura día, hora y correo destinatario
-- Crear supervisores: nombre, correo, contraseña inicial
-- Matriz de alertas: define qué ítems generan alerta y a qué correos llegan
+PERFIL 1: JEFATURA O ADMINISTRADOR DE EMPRESA
 
-SOPORTE 24/7:
+Este perfil permite revisar la operación, gestionar alertas, consultar reportes, administrar supervisores, revisar dotación y configurar alertas operacionales.
+
+Panel de Control:
+Es la pantalla principal al ingresar. Muestra alertas pendientes, supervisiones de los últimos 30 días, total de trabajadores y total de instalaciones.
+Los indicadores principales son interactivos:
+- Alertas pendientes lleva a Gestión de Alertas.
+- Supervisiones permite acceder al historial o registros asociados.
+- Total trabajadores lleva a Nómina o Dotación.
+- El botón Revisar alertas lleva al módulo de Gestión de Alertas.
+
+Historial de Supervisiones:
+Muestra las supervisiones realizadas.
+Cada registro puede incluir supervisor, empresa, instalación, fecha, hora y estado.
+El botón Ver abre el detalle de la supervisión.
+El botón PDF descarga el informe individual de esa supervisión.
+El PDF consolidado permite obtener un reporte agrupado del período disponible.
+
+Gestión de Alertas:
+Permite revisar y gestionar alertas operacionales generadas por incumplimientos o eventos detectados durante una supervisión.
+
+Estados de alerta:
+- Pendientes: alertas que requieren revisión o acción.
+- En Gestión: alertas derivadas a un responsable.
+- Resueltas Auto: alertas que el sistema resuelve automáticamente cuando una supervisión posterior confirma que el ítem ya fue corregido en terreno.
+- Cerradas Manual: alertas cerradas por jefatura con una razón justificada, por ejemplo una falsa alerta o una situación que no requiere gestión.
+- Todas: muestra todas las alertas sin importar su estado.
+
+Cada alerta puede mostrar motivo, categoría, trabajador afectado si corresponde, supervisor, empresa, instalación, contrato, fecha, hora, correo responsable y estado.
+
+Botón Ver Reporte:
+Abre la supervisión relacionada con la alerta.
+
+Botón Derivar:
+Permite enviar la alerta a un responsable o reforzar el seguimiento. Se escribe un mensaje y un correo destinatario. Al derivar, la alerta pasa a estado En Gestión.
+
+Botón Cerrar Manual:
+Permite cerrar una alerta indicando una razón. Se usa cuando corresponde dejarla cerrada por una justificación válida. Las alertas quedan registradas para trazabilidad y seguimiento.
+
+Dashboard Gerencial:
+Es una vista ejecutiva para revisar la operación completa.
+Incluye filtros por contrato, instalación, supervisor, fecha desde y fecha hasta.
+Los resultados cambian según el período seleccionado.
+
+Indicadores principales del Dashboard Gerencial:
+- Instalaciones visitadas.
+- Instalaciones sin visitar.
+- Cumplimiento interno.
+- Total supervisiones.
+Estos cuadros son interactivos y permiten revisar el detalle correspondiente.
+
+Modo en Vivo:
+Actualiza automáticamente la información cada 30 segundos. Es útil para proyectar el dashboard en monitores de operación o gerencia.
+
+Últimas 24 Hrs:
+Aplica un filtro rápido para revisar la información del último día.
+
+Pantalla completa:
+Permite visualizar el dashboard ampliado en una pantalla o monitor.
+
+Gestión de Alertas dentro del Dashboard:
+El dashboard resume alertas pendientes, en gestión, resueltas auto, cerradas manual y total.
+Cada indicador es interactivo y lleva al detalle correspondiente.
+
+Demoras de Resolución:
+- Recientes: alertas con menos de 3 días.
+- Atrasadas: alertas entre 3 y 5 días.
+- Vencidas: alertas con más de 5 días.
+Estos cuadros también son interactivos.
+
+Mapa de Supervisiones:
+Muestra supervisiones o instalaciones en un mapa.
+Al hacer clic en un marcador se puede ver instalación, supervisor, fecha de última visita, nivel de riesgo, cantidad de fallas y botón Ver Último Reporte.
+El botón Ver Último Reporte abre la supervisión relacionada.
+
+Instalaciones Visitadas:
+Muestra instalaciones supervisadas en el período seleccionado.
+Puede incluir instalación, contrato, última visita y días de supervisión.
+
+Días de supervisión:
+Indica hace cuántos días fue la última supervisión de una instalación.
+0 días significa supervisada hoy.
+1 día significa supervisada hace un día.
+2 días significa supervisada hace dos días.
+A mayor número, más tiempo ha pasado desde la última supervisión.
+
+Instalaciones Sin Visitar:
+Muestra instalaciones que requieren supervisión o que nunca han sido supervisadas.
+
+Estados de cobertura:
+- Visitada hoy.
+- Visitada recientemente.
+- Sin visita reciente.
+- Nunca supervisada.
+
+Buscador del Dashboard:
+Permite filtrar supervisiones por supervisor, instalación u observación.
+
+Supervisiones por nivel de cumplimiento:
+Clasifica supervisiones realizadas en el período seleccionado.
+- Crítico: requiere revisión inmediata.
+- Medio: requiere seguimiento.
+- Normal: dentro del estándar esperado.
+- Sin acceso: el supervisor no pudo ingresar a la instalación.
+Cada supervisión listada es interactiva y permite abrir su detalle.
+
+Vista detallada de supervisión:
+Muestra empresa, supervisor, contrato, instalación, fecha, hora, dirección, estado o cumplimiento, mapa, botón Abrir en Google Maps, evidencia fotográfica, checklist documental, evaluación de trabajadores, infraestructura y equipamiento.
+Las fotos pueden ampliarse al hacer clic.
+El botón PDF descarga el informe individual de la supervisión.
+
+Informe Ejecutivo Excel:
+Se descarga desde el Dashboard Gerencial según el rango de fechas seleccionado.
+El período puede ser un día, una semana, un mes u otro rango elegido.
+
+Pestañas del Informe Ejecutivo Excel:
+- Dashboard: resumen ejecutivo con supervisiones, cumplimiento, incumplimiento, alertas pendientes, empresa, fecha de exportación y período analizado.
+- Supervisiones: detalle de supervisiones realizadas con fecha, hora, supervisor, empresa, contrato, instalación, cumplimiento, estado, prioridad, dirección, ubicación, trabajadores y observaciones.
+- Evidencias: listado de evidencias capturadas, con fecha, hora, supervisor, empresa, contrato, instalación, categoría, ítem o documento, trabajador y enlace de evidencia.
+- Documentación: revisión documental con cumplimiento Sí o No y evidencia cuando existe.
+- Infraestructura y Equipamiento: control de ítems de infraestructura y equipamiento evaluados.
+- Certificaciones Personal: certificaciones o requisitos documentales asociados a trabajadores.
+- Control de Vestuario: revisión de elementos de vestuario por trabajador.
+- Alertas y SLA: alertas generadas, estado, días pendientes y tiempo de resolución.
+
+Estado de Supervisiones Excel:
+Es un Excel de cobertura de instalaciones.
+Muestra total de instalaciones, visitadas hoy, visitadas recientemente, sin visita reciente, nunca supervisadas y cobertura del día.
+La tabla incluye contrato, instalación, última supervisión, supervisor, días sin visita y estado.
+Sirve para identificar instalaciones que requieren supervisión o seguimiento.
+
+Reportes Programados:
+Permiten programar el envío automático de reportes.
+Se puede acceder desde el Dashboard Gerencial o desde el menú lateral.
+La pantalla muestra reportes existentes con días de envío, hora, último envío, destinatarios, opción de activar o desactivar y opción de eliminar.
+Al crear uno nuevo se seleccionan días, hora, minuto y correos destinatarios separados por coma.
+El sistema enviará automáticamente el reporte en los días y horarios configurados.
+
+Gestión de Supervisores:
+Permite ver supervisores existentes, crear nuevos supervisores, editar o eliminar supervisores.
+Para crear un supervisor se ingresa nombre completo, correo electrónico y contraseña inicial.
+El cambio de contraseña dependerá de la configuración definida para el usuario.
+
+Matriz de Alertas:
+Permite configurar qué eventos generan alertas y quiénes reciben notificaciones.
+
+Configuración de empresa:
+Incluye correos CC para gerentes o responsables que reciben copia de alertas, notificación al detectar alerta, notificación al resolverse automáticamente, envío de recordatorios y días sin resolver para enviar recordatorio.
+Esta sección se guarda con el botón Guardar Configuración de Empresa.
+
+Matriz de ítems:
+Permite activar o desactivar controles que aplican a la operación de la empresa.
+Puede incluir checklist documental, equipamiento de personal, alertas especiales, infraestructura y equipamiento.
+Cada ítem puede tener correos responsables separados por coma.
+Esta sección se guarda con el botón Guardar Matriz de Alertas.
+
+Nómina o Dotación:
+Permite administrar la asignación de trabajadores a instalaciones.
+Se puede seleccionar empresa, contrato e instalación.
+Permite ver trabajadores asignados, reemplazar dotación mediante Excel, agregar trabajadores mediante Excel, subir archivo Excel, reasignar trabajadores y desvincular trabajadores mediante el ícono de papelera.
+
+Reemplazar dotación:
+Borra la dotación actual de la instalación seleccionada y carga una nueva.
+
+Agregar trabajadores:
+Suma trabajadores a la dotación existente sin eliminar los actuales.
+
+Reasignar trabajador:
+Permite trasladar a un trabajador activo hacia otra instalación.
+
+PERFIL 2: SUPERVISOR EN TERRENO
+
+Este perfil está orientado a realizar supervisiones en terreno.
+
+Inicio de sesión:
+El supervisor ingresa con sus credenciales. Al ingresar, accede al flujo de supervisión.
+
+Configuración inicial:
+Debe seleccionar contrato, instalación e inspector.
+Luego debe capturar o actualizar la ubicación GPS.
+El botón Continuar solo se activa cuando todos los datos requeridos están completos y la ubicación está capturada.
+
+Evaluación de personal:
+El sistema pregunta si hay personal en la instalación.
+
+Caso Sí, hay personal:
+El supervisor selecciona a cada trabajador asignado a la instalación.
+Por trabajador puede indicar:
+- Está trabajando ahora: se revisan los ítems configurados para ese trabajador, empresa, contrato o instalación. Estos pueden incluir vestuario, documentación, certificaciones, credenciales, implementos, condiciones operacionales u otros requisitos definidos por el cliente o exigidos por entidades externas.
+- Solo revisar documentos: se revisan los documentos o requisitos documentales configurados para ese trabajador o instalación, según lo solicitado por la empresa, el cliente mandante o la normativa aplicable.
+
+Agregar trabajador de reemplazo o apoyo:
+Si el supervisor encuentra en terreno a una persona trabajando que no aparece asignada a esa instalación, puede usar Agregar trabajador de reemplazo.
+Este trabajador debe existir en la nómina general de la empresa.
+Puede ser un reemplazo, apoyo puntual o trabajador de otra instalación.
+Dependiendo del caso, se revisan los ítems configurados para ese trabajador, que pueden incluir vestuario, documentación u otros requisitos operacionales según la empresa, instalación o contrato.
+
+Trabajador no enrolado:
+Si el trabajador no aparece en la nómina general, se registra como trabajador no enrolado.
+Campos obligatorios:
+- Nombres.
+- Apellido paterno.
+- Apellido materno.
+- RUT.
+- Motivo por el que no está en nómina.
+El sistema permite continuar solo cuando los datos obligatorios están completos.
+
+Caso No hay personal:
+Si el supervisor indica que no hay personal, el sistema pregunta si puede ingresar al lugar.
+
+No hay personal, pero sí puede entrar:
+El sistema permite revisar solo documentación en modalidad Solo docs.
+No se evalúan los ítems de personal porque no hay trabajadores presentes.
+Al completar lo obligatorio, el flujo pasa directamente a la sección final.
+
+No hay personal y no puede entrar:
+El sistema genera una alerta automática informando que la instalación está sin personal y sin acceso.
+Luego el flujo pasa directamente a la sección final.
+
+Evidencia fotográfica:
+El sistema solicita capturar fotografías configuradas para la empresa.
+Si una foto es obligatoria, no se puede avanzar sin capturarla.
+
+Checklist documental:
+El supervisor marca documentos como Sí o No.
+Todos los ítems obligatorios deben responderse para continuar.
+
+Infraestructura y equipamiento:
+El supervisor revisa elementos de infraestructura y equipamiento.
+Cada ítem se marca como Sí o No.
+
+Sección final:
+Permite agregar observaciones y fotos adicionales.
+Estos campos son opcionales.
+Si no hay observaciones, se puede enviar directamente.
+Al enviar la supervisión, el sistema vuelve a la etapa inicial para iniciar una nueva supervisión.
+
+Modo sin conexión:
+Si no hay señal, la app guarda la supervisión localmente y sincroniza automáticamente cuando recupera conexión.
+
+PERFIL 3: ASISTENTE DE RECURSOS HUMANOS
+
+Este perfil está orientado a mantener actualizada la nómina o dotación cuando la empresa trabaja con carga manual por Excel.
+
+Acceso:
+El asistente de Recursos Humanos ingresa con sus credenciales.
+Al ingresar, solo accede al módulo Nómina o Dotación.
+
+Funciones disponibles:
+- Seleccionar contrato.
+- Seleccionar instalación.
+- Ver trabajadores asignados.
+- Reemplazar dotación mediante Excel.
+- Agregar trabajadores mediante Excel.
+- Subir archivo Excel.
+- Reasignar trabajadores.
+- Desvincular trabajadores de una instalación.
+
+Uso operativo:
+Este perfil se usa en empresas que mantienen nóminas mediante archivos Excel.
+Si la empresa cuenta con integración automática de dotación o asistencia mediante un sistema externo, este perfil puede no ser necesario, ya que la información se actualiza por otra vía.
+
+SOPORTE DISPONIBLE:
 WhatsApp: +56 9 9595 0843
 Teléfono: +56 9 7765 2571
 Correo: contacto@supercor.cl`;
