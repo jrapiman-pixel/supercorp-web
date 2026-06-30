@@ -700,7 +700,9 @@
     calcRevealTimer=setTimeout(()=>{
       chartTotal.textContent=fmt(perdidaAnual);
       const COSTO_SUPERCOR_POR_TRABAJADOR=1400; // CLP mensuales por trabajador; uso interno, nunca se muestra en la UI
-      const costoAnualSupercor=trab*COSTO_SUPERCOR_POR_TRABAJADOR*12;
+      const COSTO_MINIMO_MENSUAL=300000; // CLP netos, piso mínimo de cobro mensual
+      const costoMensualSupercor=Math.max(COSTO_MINIMO_MENSUAL,trab*COSTO_SUPERCOR_POR_TRABAJADOR);
+      const costoAnualSupercor=costoMensualSupercor*12;
       const recuperable=Math.max(0,perdidaAnual-costoAnualSupercor); // nunca negativo
       outPerdida.textContent=fmt(perdidaAnual);
       outRecuperable.textContent=fmt(recuperable);
@@ -731,8 +733,10 @@
     const trabTxt=trabVal!==''?trabVal:'—';
     const num=n=>Math.round(n).toLocaleString('es-CL');
     const COSTO_SUPERCOR_POR_TRABAJADOR=1400; // CLP mensuales por trabajador; uso interno, nunca se muestra en la UI
+    const COSTO_MINIMO_MENSUAL=300000; // CLP netos, piso mínimo de cobro mensual
     const perdidaAnual=gasto*12;
-    const costoAnualSupercor=trabNum*COSTO_SUPERCOR_POR_TRABAJADOR*12;
+    const costoMensualSupercor=Math.max(COSTO_MINIMO_MENSUAL,trabNum*COSTO_SUPERCOR_POR_TRABAJADOR);
+    const costoAnualSupercor=costoMensualSupercor*12;
     const recuperable=Math.max(0,perdidaAnual-costoAnualSupercor); // nunca negativo
     const msg='Hola, me interesa SUPERCOR. Mi empresa tiene '+trabTxt+' trabajadores y un gasto mensual en multas de $'+num(gasto)+'. '+
       'Vi en su calculadora que mi pérdida anual proyectada es de $'+num(perdidaAnual)+' y podría recuperar ≈ $'+num(recuperable)+' al año con su plataforma. '+
