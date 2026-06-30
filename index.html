@@ -246,11 +246,29 @@
     #calc-needle{transform-box:view-box;transform-origin:100px 100px;transform:rotate(-90deg);transition:transform .6s cubic-bezier(.34,1.4,.64,1)}
     .calc-gauge-ends{display:flex;justify-content:space-between;max-width:300px;margin:.25rem auto 0;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
     .calc-risk{font-family:var(--font-title);font-size:1.05rem;font-weight:700;margin-top:.75rem;color:var(--gray-600);transition:color .3s}
-    .calc-loss{background:#FEF2F2;border:1px solid rgba(185,28,28,.25);border-radius:10px;padding:1.25rem 1.5rem;text-align:center;margin-top:1.5rem}
-    .calc-loss-label{font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#B91C1C;text-transform:uppercase}
-    .calc-loss-value{font-family:var(--font-title);font-size:2.3rem;font-weight:700;color:#B91C1C;line-height:1.1;margin-top:2px}
-    .calc-recovery{font-size:.85rem;font-weight:700;color:var(--green-strong);margin-top:.5rem}
-    .calc-cta{display:block;width:100%;text-align:center;margin-top:1rem;background:var(--green-strong);color:#fff;padding:.95rem 1.5rem;border-radius:8px;font-weight:700;font-size:1rem;text-decoration:none;border:none;cursor:pointer;font-family:var(--font-body);transition:background .2s}
+    .calc-actions{display:flex;align-items:center;gap:1.25rem;margin-top:1.25rem;flex-wrap:wrap}
+    .calc-link-reset{background:none;border:none;padding:0;font-size:.85rem;color:var(--gray-400);cursor:pointer;text-decoration:underline;text-decoration-color:transparent;transition:color .2s,text-decoration-color .2s;font-family:var(--font-body)}
+    .calc-link-reset:hover{color:var(--gray-600);text-decoration-color:var(--gray-400)}
+    .calc-loading{display:none;text-align:center;padding:1.25rem 0}
+    .calc-loading.active{display:block}
+    .calc-loading-bar{width:100%;max-width:280px;height:6px;background:var(--gray-100);border-radius:99px;margin:0 auto;overflow:hidden}
+    .calc-loading-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--green-strong),var(--green));border-radius:99px;transition:width 1.4s linear}
+    .calc-loading-text{margin-top:.85rem;font-size:.85rem;font-weight:600;color:var(--gray-600)}
+    .calc-panel{display:none}
+    .calc-panel.visible{display:block;animation:calcReveal .5s ease forwards}
+    @keyframes calcReveal{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+    @media (prefers-reduced-motion: reduce){.calc-loading-fill{transition:none}.calc-panel.visible{animation:none}}
+    .calc-tier{border-radius:10px;padding:1.1rem 1.5rem;text-align:center}
+    .calc-tier+.calc-tier{margin-top:.85rem}
+    .calc-tier-loss{background:#FEF2F2;border:1px solid rgba(185,28,28,.25)}
+    .calc-tier-recovery{background:rgba(0,163,0,.08);border:1px solid rgba(0,163,0,.25)}
+    .calc-tier-label{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+    .calc-tier-loss .calc-tier-label{color:#B91C1C}
+    .calc-tier-recovery .calc-tier-label{color:var(--green-strong)}
+    .calc-tier-value{font-family:var(--font-title);font-size:2.3rem;font-weight:700;line-height:1.1;margin-top:2px}
+    .calc-tier-loss .calc-tier-value{color:#B91C1C}
+    .calc-tier-recovery .calc-tier-value{color:var(--green-strong)}
+    .calc-cta{display:block;width:100%;text-align:center;margin-top:1.25rem;background:var(--green-strong);color:#fff;padding:.95rem 1.5rem;border-radius:8px;font-weight:700;font-size:1rem;text-decoration:none;border:none;cursor:pointer;font-family:var(--font-body);transition:background .2s}
     .calc-cta:hover{background:var(--green)}
     .calc-disclaimer{font-size:.72rem;color:var(--gray-400);text-align:center;margin-top:.75rem;line-height:1.5}
     .fade-in{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
@@ -355,13 +373,13 @@
 <section id="diagnostico">
   <div class="container">
     <div class="text-center fade-in">
-      <div class="section-badge">Diagnóstico de ahorro</div>
-      <h2 class="section-title">¿Cuánto podría estar ahorrando su empresa?</h2>
-      <p class="section-subtitle">Calcule en segundos su nivel de riesgo y el ahorro mensual que podría lograr al prevenir multas e incumplimientos con SUPERCOR.</p>
+      <div class="section-badge">Diagnóstico de riesgo financiero</div>
+      <h2 class="section-title">Descubra cuánto pierde al año en multas — y cuánto puede recuperar</h2>
+      <p class="section-subtitle">Calcule en segundos su nivel de riesgo y la pérdida anual que podría estar evitando con SUPERCOR.</p>
     </div>
     <div class="calc-card fade-in">
       <div class="calc-form">
-        <p class="calc-form-intro">Ingrese sus datos y vea en vivo cómo se mueve su nivel de riesgo y el ahorro estimado.</p>
+        <p class="calc-form-intro">Ingrese sus datos y vea en vivo cómo se mueve su nivel de riesgo. Presione Calcular para ver su pérdida y ahorro proyectado.</p>
         <div class="form-group">
           <label class="form-label" for="calc-trabajadores">Cantidad de Trabajadores en Terreno</label>
           <input class="form-input" id="calc-trabajadores" type="number" min="0" inputmode="numeric" placeholder="Ej: 50" />
@@ -369,6 +387,10 @@
         <div class="form-group">
           <label class="form-label" for="calc-gasto">Gasto Mensual Estimado en Multas (CLP)</label>
           <input class="form-input" id="calc-gasto" type="number" min="0" inputmode="numeric" placeholder="Ej: 2000000" />
+        </div>
+        <div class="calc-actions">
+          <button type="button" class="btn-primary" onclick="calcCalcular()">Calcular</button>
+          <button type="button" class="calc-link-reset" onclick="calcReset()">Limpiar datos</button>
         </div>
       </div>
       <div class="calc-result">
@@ -383,16 +405,25 @@
             <circle cx="100" cy="100" r="7" fill="#111827"/>
             <circle cx="100" cy="100" r="3" fill="#fff"/>
           </svg>
-          <div class="calc-gauge-ends"><span style="color:var(--green-strong)">Ahorro máximo</span><span style="color:#B91C1C">Peligro máximo</span></div>
+          <div class="calc-gauge-ends"><span style="color:var(--green-strong)">Riesgo bajo</span><span style="color:#B91C1C">Riesgo crítico</span></div>
           <div class="calc-risk" id="calc-risk-label">Ingrese su gasto mensual</div>
         </div>
-        <div class="calc-loss">
-          <div class="calc-loss-label">Pérdida Anual Proyectada</div>
-          <div class="calc-loss-value" id="calc-perdida">$0</div>
-          <div class="calc-recovery" id="calc-recovery">≈ $0 recuperables al año con SUPERCOR</div>
+        <div class="calc-loading" id="calc-loading">
+          <div class="calc-loading-bar"><div class="calc-loading-fill" id="calc-loading-fill"></div></div>
+          <div class="calc-loading-text" id="calc-loading-text">Analizando riesgo...</div>
         </div>
-        <button type="button" class="calc-cta" onclick="calcSolicitar()">Solicitar Asesoría para Ahorrar</button>
-        <p class="calc-disclaimer">Pérdida anual = gasto mensual en multas × 12. Monto recuperable descuenta el costo anual estimado de SUPERCOR ($1.400 CLP/trabajador al mes). El diagnóstico final se ajusta a su operación.</p>
+        <div class="calc-panel" id="calc-panel">
+          <div class="calc-tier calc-tier-loss">
+            <div class="calc-tier-label">Pérdida Anual Proyectada</div>
+            <div class="calc-tier-value" id="calc-perdida">$0</div>
+          </div>
+          <div class="calc-tier calc-tier-recovery">
+            <div class="calc-tier-label">Recuperable con SUPERCOR</div>
+            <div class="calc-tier-value" id="calc-recuperable">$0</div>
+          </div>
+          <button type="button" class="calc-cta" onclick="calcSolicitar()">Quiero recuperar este dinero</button>
+          <p class="calc-disclaimer">Cifras estimadas con fines referenciales. Solicite un diagnóstico para el cálculo exacto de su operación.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -614,21 +645,12 @@
     const inGasto=document.getElementById('calc-gasto');
     const inTrab=document.getElementById('calc-trabajadores');
     const needle=document.getElementById('calc-needle');
-    const outPerdida=document.getElementById('calc-perdida');
-    const outRecovery=document.getElementById('calc-recovery');
     const outRisk=document.getElementById('calc-risk-label');
     if(!inGasto||!needle) return;
     const GAUGE_MAX_POR_TRABAJADOR=30000; // CLP por trabajador/mes que representa "peligro máximo" en el gauge
-    const COSTO_SUPERCOR_POR_TRABAJADOR=1400; // CLP mensuales por trabajador
-    const fmt=n=>'$'+Math.round(n).toLocaleString('es-CL');
     function update(){
       const gasto=Math.max(0,parseFloat(inGasto.value)||0);
       const trab=Math.max(0,parseFloat(inTrab.value)||0);
-      const perdidaAnual=gasto*12;
-      const costoAnualSupercor=trab*COSTO_SUPERCOR_POR_TRABAJADOR*12;
-      const ahorroAnualNeto=Math.max(0,perdidaAnual-costoAnualSupercor); // nunca negativo
-      outPerdida.textContent=fmt(perdidaAnual);
-      outRecovery.textContent='≈ '+fmt(ahorroAnualNeto)+' recuperables al año con SUPERCOR';
       // riesgo según gasto por trabajador (refleja margen real); trab 0/vacío => 0 (mínimo, evita división por cero)
       const gastoPorTrabajador=trab>0?gasto/trab:0;
       const d=Math.min(1,gastoPorTrabajador/GAUGE_MAX_POR_TRABAJADOR); // 0 (verde) .. 1 (rojo)
@@ -644,18 +666,60 @@
     inTrab.addEventListener('input',update);
     update();
   })();
+  let calcTextTimer=null,calcRevealTimer=null;
+  function calcCalcular(){
+    const inGasto=document.getElementById('calc-gasto');
+    const loading=document.getElementById('calc-loading');
+    const loadingFill=document.getElementById('calc-loading-fill');
+    const loadingText=document.getElementById('calc-loading-text');
+    const panel=document.getElementById('calc-panel');
+    const outPerdida=document.getElementById('calc-perdida');
+    const outRecuperable=document.getElementById('calc-recuperable');
+    const gasto=Math.max(0,parseFloat(inGasto.value)||0);
+    if(gasto<=0){inGasto.focus();return;}
+    clearInterval(calcTextTimer);clearTimeout(calcRevealTimer);
+    panel.classList.remove('visible');
+    loadingFill.style.width='0%';
+    loading.classList.add('active');
+    const textos=['Analizando riesgo...','Proyectando a 12 meses...','Calculando recuperación...'];
+    let ti=0;
+    loadingText.textContent=textos[0];
+    calcTextTimer=setInterval(()=>{ti=(ti+1)%textos.length;loadingText.textContent=textos[ti];},500);
+    requestAnimationFrame(()=>{loadingFill.style.width='100%';});
+    calcRevealTimer=setTimeout(()=>{
+      clearInterval(calcTextTimer);
+      loading.classList.remove('active');
+      const fmt=n=>'$'+Math.round(n).toLocaleString('es-CL');
+      const perdidaAnual=gasto*12;
+      const recuperable=perdidaAnual*0.85; // estimación bruta referencial, sin descontar precio
+      outPerdida.textContent=fmt(perdidaAnual);
+      outRecuperable.textContent=fmt(recuperable);
+      panel.classList.add('visible');
+    },1500);
+  }
+  function calcReset(){
+    clearInterval(calcTextTimer);clearTimeout(calcRevealTimer);
+    const inGasto=document.getElementById('calc-gasto');
+    const inTrab=document.getElementById('calc-trabajadores');
+    const needle=document.getElementById('calc-needle');
+    const outRisk=document.getElementById('calc-risk-label');
+    inGasto.value='';
+    inTrab.value='';
+    needle.style.transform='rotate(-90deg)';
+    outRisk.textContent='Ingrese su gasto mensual';
+    outRisk.style.color='var(--gray-600)';
+    document.getElementById('calc-loading').classList.remove('active');
+    document.getElementById('calc-panel').classList.remove('visible');
+  }
   function calcSolicitar(){
     const gasto=Math.max(0,parseFloat((document.getElementById('calc-gasto')||{}).value)||0);
     const trabVal=(document.getElementById('calc-trabajadores')||{}).value||'';
-    const trabNum=Math.max(0,parseFloat(trabVal)||0);
     const trabTxt=trabVal!==''?trabVal:'—';
-    const COSTO_SUPERCOR_POR_TRABAJADOR=1400; // CLP mensuales por trabajador
     const num=n=>Math.round(n).toLocaleString('es-CL');
     const perdidaAnual=gasto*12;
-    const costoAnualSupercor=trabNum*COSTO_SUPERCOR_POR_TRABAJADOR*12;
-    const ahorroAnualNeto=Math.max(0,perdidaAnual-costoAnualSupercor); // nunca negativo
+    const recuperable=perdidaAnual*0.85; // estimación bruta referencial, sin descontar precio
     const msg='Hola, me interesa SUPERCOR. Mi empresa tiene '+trabTxt+' trabajadores y un gasto mensual en multas de $'+num(gasto)+'. '+
-      'Vi en su calculadora que mi pérdida anual proyectada es de $'+num(perdidaAnual)+' y podría recuperar ≈ $'+num(ahorroAnualNeto)+' al año con su plataforma. '+
+      'Vi en su calculadora que mi pérdida anual proyectada es de $'+num(perdidaAnual)+' y podría recuperar ≈ $'+num(recuperable)+' al año con su plataforma. '+
       'Solicito asesoría.';
     window.open('https://wa.me/56995950843?text='+encodeURIComponent(msg),'_blank');
   }
