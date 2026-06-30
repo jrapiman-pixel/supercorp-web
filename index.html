@@ -246,9 +246,10 @@
     #calc-needle{transform-box:view-box;transform-origin:100px 100px;transform:rotate(-90deg);transition:transform .6s cubic-bezier(.34,1.4,.64,1)}
     .calc-gauge-ends{display:flex;justify-content:space-between;max-width:300px;margin:.25rem auto 0;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
     .calc-risk{font-family:var(--font-title);font-size:1.05rem;font-weight:700;margin-top:.75rem;color:var(--gray-600);transition:color .3s}
-    .calc-savings{background:linear-gradient(135deg,var(--green-strong),var(--green));border-radius:10px;padding:1.25rem 1.5rem;text-align:center;margin-top:1.5rem;box-shadow:0 8px 24px rgba(0,163,0,.18)}
-    .calc-savings-label{font-size:.72rem;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.9);text-transform:uppercase}
-    .calc-savings-value{font-family:var(--font-title);font-size:2.3rem;font-weight:700;color:#fff;line-height:1.1;margin-top:2px}
+    .calc-loss{background:#FEF2F2;border:1px solid rgba(185,28,28,.25);border-radius:10px;padding:1.25rem 1.5rem;text-align:center;margin-top:1.5rem}
+    .calc-loss-label{font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#B91C1C;text-transform:uppercase}
+    .calc-loss-value{font-family:var(--font-title);font-size:2.3rem;font-weight:700;color:#B91C1C;line-height:1.1;margin-top:2px}
+    .calc-recovery{font-size:.85rem;font-weight:700;color:var(--green-strong);margin-top:.5rem}
     .calc-cta{display:block;width:100%;text-align:center;margin-top:1rem;background:var(--green-strong);color:#fff;padding:.95rem 1.5rem;border-radius:8px;font-weight:700;font-size:1rem;text-decoration:none;border:none;cursor:pointer;font-family:var(--font-body);transition:background .2s}
     .calc-cta:hover{background:var(--green)}
     .calc-disclaimer{font-size:.72rem;color:var(--gray-400);text-align:center;margin-top:.75rem;line-height:1.5}
@@ -385,12 +386,13 @@
           <div class="calc-gauge-ends"><span style="color:var(--green-strong)">Ahorro máximo</span><span style="color:#B91C1C">Peligro máximo</span></div>
           <div class="calc-risk" id="calc-risk-label">Ingrese su gasto mensual</div>
         </div>
-        <div class="calc-savings">
-          <div class="calc-savings-label">Ahorro mensual CLP</div>
-          <div class="calc-savings-value" id="calc-ahorro">$0</div>
+        <div class="calc-loss">
+          <div class="calc-loss-label">Pérdida Anual Proyectada</div>
+          <div class="calc-loss-value" id="calc-perdida">$0</div>
+          <div class="calc-recovery" id="calc-recovery">≈ $0 recuperables al año con SUPERCOR</div>
         </div>
         <button type="button" class="calc-cta" onclick="calcSolicitar()">Solicitar Asesoría para Ahorrar</button>
-        <p class="calc-disclaimer">Estimación referencial basada en un ahorro del 85% del gasto declarado. El diagnóstico final se ajusta a su operación.</p>
+        <p class="calc-disclaimer">Pérdida anual = gasto mensual en multas × 12. Monto recuperable descuenta el costo anual estimado de SUPERCOR ($1.400 CLP/trabajador al mes). El diagnóstico final se ajusta a su operación.</p>
       </div>
     </div>
   </div>
@@ -612,15 +614,21 @@
     const inGasto=document.getElementById('calc-gasto');
     const inTrab=document.getElementById('calc-trabajadores');
     const needle=document.getElementById('calc-needle');
-    const outAhorro=document.getElementById('calc-ahorro');
+    const outPerdida=document.getElementById('calc-perdida');
+    const outRecovery=document.getElementById('calc-recovery');
     const outRisk=document.getElementById('calc-risk-label');
     if(!inGasto||!needle) return;
     const GAUGE_MAX_POR_TRABAJADOR=30000; // CLP por trabajador/mes que representa "peligro máximo" en el gauge
+    const COSTO_SUPERCOR_POR_TRABAJADOR=1400; // CLP mensuales por trabajador
     const fmt=n=>'$'+Math.round(n).toLocaleString('es-CL');
     function update(){
       const gasto=Math.max(0,parseFloat(inGasto.value)||0);
       const trab=Math.max(0,parseFloat(inTrab.value)||0);
-      outAhorro.textContent=fmt(gasto*0.85); // ahorro = 85% del GASTO TOTAL (no cambia)
+      const perdidaAnual=gasto*12;
+      const costoAnualSupercor=trab*COSTO_SUPERCOR_POR_TRABAJADOR*12;
+      const ahorroAnualNeto=Math.max(0,perdidaAnual-costoAnualSupercor); // nunca negativo
+      outPerdida.textContent=fmt(perdidaAnual);
+      outRecovery.textContent='≈ '+fmt(ahorroAnualNeto)+' recuperables al año con SUPERCOR';
       // riesgo según gasto por trabajador (refleja margen real); trab 0/vacío => 0 (mínimo, evita división por cero)
       const gastoPorTrabajador=trab>0?gasto/trab:0;
       const d=Math.min(1,gastoPorTrabajador/GAUGE_MAX_POR_TRABAJADOR); // 0 (verde) .. 1 (rojo)
