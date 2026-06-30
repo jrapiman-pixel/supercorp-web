@@ -669,6 +669,7 @@
   let calcTextTimer=null,calcRevealTimer=null;
   function calcCalcular(){
     const inGasto=document.getElementById('calc-gasto');
+    const inTrab=document.getElementById('calc-trabajadores');
     const loading=document.getElementById('calc-loading');
     const loadingFill=document.getElementById('calc-loading-fill');
     const loadingText=document.getElementById('calc-loading-text');
@@ -676,6 +677,7 @@
     const outPerdida=document.getElementById('calc-perdida');
     const outRecuperable=document.getElementById('calc-recuperable');
     const gasto=Math.max(0,parseFloat(inGasto.value)||0);
+    const trab=Math.max(0,parseFloat(inTrab.value)||0);
     if(gasto<=0){inGasto.focus();return;}
     clearInterval(calcTextTimer);clearTimeout(calcRevealTimer);
     panel.classList.remove('visible');
@@ -690,8 +692,10 @@
       clearInterval(calcTextTimer);
       loading.classList.remove('active');
       const fmt=n=>'$'+Math.round(n).toLocaleString('es-CL');
+      const COSTO_SUPERCOR_POR_TRABAJADOR=1400; // CLP mensuales por trabajador; uso interno, nunca se muestra en la UI
       const perdidaAnual=gasto*12;
-      const recuperable=perdidaAnual*0.85; // estimación bruta referencial, sin descontar precio
+      const costoAnualSupercor=trab*COSTO_SUPERCOR_POR_TRABAJADOR*12;
+      const recuperable=Math.max(0,perdidaAnual-costoAnualSupercor); // nunca negativo
       outPerdida.textContent=fmt(perdidaAnual);
       outRecuperable.textContent=fmt(recuperable);
       panel.classList.add('visible');
@@ -714,10 +718,13 @@
   function calcSolicitar(){
     const gasto=Math.max(0,parseFloat((document.getElementById('calc-gasto')||{}).value)||0);
     const trabVal=(document.getElementById('calc-trabajadores')||{}).value||'';
+    const trabNum=Math.max(0,parseFloat(trabVal)||0);
     const trabTxt=trabVal!==''?trabVal:'—';
     const num=n=>Math.round(n).toLocaleString('es-CL');
+    const COSTO_SUPERCOR_POR_TRABAJADOR=1400; // CLP mensuales por trabajador; uso interno, nunca se muestra en la UI
     const perdidaAnual=gasto*12;
-    const recuperable=perdidaAnual*0.85; // estimación bruta referencial, sin descontar precio
+    const costoAnualSupercor=trabNum*COSTO_SUPERCOR_POR_TRABAJADOR*12;
+    const recuperable=Math.max(0,perdidaAnual-costoAnualSupercor); // nunca negativo
     const msg='Hola, me interesa SUPERCOR. Mi empresa tiene '+trabTxt+' trabajadores y un gasto mensual en multas de $'+num(gasto)+'. '+
       'Vi en su calculadora que mi pérdida anual proyectada es de $'+num(perdidaAnual)+' y podría recuperar ≈ $'+num(recuperable)+' al año con su plataforma. '+
       'Solicito asesoría.';
