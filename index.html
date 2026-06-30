@@ -647,13 +647,16 @@
   function calcSolicitar(){
     const gasto=Math.max(0,parseFloat((document.getElementById('calc-gasto')||{}).value)||0);
     const trabVal=(document.getElementById('calc-trabajadores')||{}).value||'';
-    const trab=trabVal!==''?trabVal:'—';
+    const trabNum=Math.max(0,parseFloat(trabVal)||0);
+    const trabTxt=trabVal!==''?trabVal:'—';
+    const COSTO_SUPERCOR_POR_TRABAJADOR=1400; // CLP mensuales por trabajador
     const num=n=>Math.round(n).toLocaleString('es-CL');
-    const msg='Hola equipo de Supercor. Acabo de usar la Calculadora de Diagnóstico en su web y me gustaría recibir asesoría. Mis números son:\n\n'+
-      'Trabajadores en terreno: '+trab+'\n\n'+
-      'Gasto mensual en multas: $'+num(gasto)+'\n\n'+
-      'Ahorro mensual proyectado: $'+num(gasto*0.85)+'\n'+
-      'Quedo atento para conversar.';
+    const perdidaAnual=gasto*12;
+    const costoAnualSupercor=trabNum*COSTO_SUPERCOR_POR_TRABAJADOR*12;
+    const ahorroAnualNeto=Math.max(0,perdidaAnual-costoAnualSupercor); // nunca negativo
+    const msg='Hola, me interesa SUPERCOR. Mi empresa tiene '+trabTxt+' trabajadores y un gasto mensual en multas de $'+num(gasto)+'. '+
+      'Vi en su calculadora que mi pérdida anual proyectada es de $'+num(perdidaAnual)+' y podría recuperar ≈ $'+num(ahorroAnualNeto)+' al año con su plataforma. '+
+      'Solicito asesoría.';
     window.open('https://wa.me/56995950843?text='+encodeURIComponent(msg),'_blank');
   }
 
