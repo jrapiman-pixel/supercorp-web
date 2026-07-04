@@ -269,6 +269,16 @@
     .calc-cta{display:block;width:100%;text-align:center;margin-top:1.25rem;background:var(--green-strong);color:#fff;padding:.95rem 1.5rem;border-radius:8px;font-weight:700;font-size:1rem;text-decoration:none;border:none;cursor:pointer;font-family:var(--font-body);transition:background .2s}
     .calc-cta:hover{background:var(--green)}
     .calc-disclaimer{font-size:.72rem;color:var(--gray-400);text-align:center;margin-top:.75rem;line-height:1.5}
+    /* Lead Gate — recuperable bloqueado hasta que entregan correo */
+    #calc-recuperable{transition:filter .7s ease}
+    .calc-value-blurred{filter:blur(7px);user-select:none;pointer-events:none}
+    .calc-lock-hint{font-size:.7rem;font-weight:700;letter-spacing:.06em;color:var(--green-strong);margin-top:.5rem;display:none}
+    .calc-gate{background:linear-gradient(135deg,rgba(0,138,28,.04),rgba(0,163,0,.08));border:1px solid rgba(0,138,28,.18);border-radius:10px;padding:1.25rem 1.5rem;margin-top:.85rem;text-align:center;display:none}
+    .calc-gate-badge{display:inline-block;background:var(--green-strong);color:#fff;font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:4px 16px;border-radius:20px;margin-bottom:.8rem}
+    .calc-gate-text{font-size:.87rem;color:var(--gray-600);line-height:1.6;margin-bottom:.9rem}
+    .calc-gate-input{margin-bottom:.65rem}
+    .calc-gate-btn{width:100%;justify-content:center;margin-top:.3rem}
+    .calc-gate-note{font-size:.7rem;color:var(--gray-400);margin-top:.65rem;line-height:1.5}
     .fade-in{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
     .fade-in.visible{opacity:1;transform:translateY(0)}
     /* === Callout Acompañamiento (integrado en #propuesta) === */
@@ -419,9 +429,20 @@
           <div class="calc-tier calc-tier-recovery">
             <div class="calc-tier-label">Recuperable con SUPERCOR</div>
             <div class="calc-tier-value" id="calc-recuperable">$0</div>
+            <div class="calc-lock-hint" id="calc-lock-hint">🔒 Ingrese su correo para ver su ahorro</div>
           </div>
-          <button type="button" class="calc-cta" onclick="calcSolicitar()">Quiero recuperar este dinero</button>
-          <p class="calc-disclaimer">Cifras estimadas con fines referenciales. Solicite un diagnóstico para el cálculo exacto de su operación.</p>
+          <div class="calc-gate" id="calc-gate">
+            <div class="calc-gate-badge">🎁 Diagnóstico personalizado sin costo — oferta limitada</div>
+            <p class="calc-gate-text">Desbloquee su estimación de ahorro.<br>Le incluimos un <strong>diagnóstico operacional sin costo</strong> con un ejecutivo de SUPERCOR, sin compromiso.</p>
+            <input type="email" class="form-input calc-gate-input" id="calc-gate-email" placeholder="Correo corporativo *" autocomplete="email" onkeydown="if(event.key==='Enter')calcDesbloquear()" />
+            <input type="text" class="form-input calc-gate-input" id="calc-gate-nombre" placeholder="Su nombre (opcional)" autocomplete="name" onkeydown="if(event.key==='Enter')calcDesbloquear()" />
+            <button type="button" class="btn-primary calc-gate-btn" onclick="calcDesbloquear()">Ver mi ahorro →</button>
+            <p class="calc-gate-note">Sin spam. Un ejecutivo le contactará solo una vez con su diagnóstico.</p>
+          </div>
+          <div id="calc-unlocked-cta" style="display:none">
+            <button type="button" class="calc-cta" onclick="calcSolicitar()">Quiero recuperar este dinero</button>
+            <p class="calc-disclaimer">Cifras estimadas con fines referenciales. Solicite un diagnóstico para el cálculo exacto de su operación.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -666,6 +687,7 @@
     inTrab.addEventListener('input',update);
     update();
   })();
+  const LEAD_GATE_ENABLED=true; // Cambiar a false para desactivar el gate y volver al comportamiento anterior
   let calcBarTimers=[],calcOdoRaf=null,calcRevealTimer=null;
   function calcCalcular(){
     const inGasto=document.getElementById('calc-gasto');
@@ -682,6 +704,14 @@
     if(calcOdoRaf)cancelAnimationFrame(calcOdoRaf);
     clearTimeout(calcRevealTimer);
     panel.classList.remove('visible');
+    if(LEAD_GATE_ENABLED){
+      document.getElementById('calc-recuperable').classList.remove('calc-value-blurred');
+      document.getElementById('calc-gate-email').value='';
+      document.getElementById('calc-gate-nombre').value='';
+      document.getElementById('calc-gate').style.display='none';
+      document.getElementById('calc-lock-hint').style.display='none';
+      document.getElementById('calc-unlocked-cta').style.display='none';
+    }
     const fmt=n=>'$'+Math.round(n).toLocaleString('es-CL');
     const perdidaAnual=gasto*12;
     bars.forEach(b=>{b.style.height='0%';});
@@ -706,6 +736,16 @@
       const recuperable=Math.max(0,perdidaAnual-costoAnualSupercor); // nunca negativo
       outPerdida.textContent=fmt(perdidaAnual);
       outRecuperable.textContent=fmt(recuperable);
+      if(LEAD_GATE_ENABLED){
+        outRecuperable.classList.add('calc-value-blurred');
+        document.getElementById('calc-lock-hint').style.display='block';
+        document.getElementById('calc-gate').style.display='block';
+        document.getElementById('calc-unlocked-cta').style.display='none';
+      }else{
+        document.getElementById('calc-lock-hint').style.display='none';
+        document.getElementById('calc-gate').style.display='none';
+        document.getElementById('calc-unlocked-cta').style.display='block';
+      }
       panel.classList.add('visible');
     },DURATION);
   }
@@ -725,6 +765,51 @@
     chartTotal.textContent='$0';
     bars.forEach(b=>{b.style.height='0%';});
     document.getElementById('calc-panel').classList.remove('visible');
+    if(LEAD_GATE_ENABLED){
+      document.getElementById('calc-recuperable').classList.remove('calc-value-blurred');
+      document.getElementById('calc-gate').style.display='none';
+      document.getElementById('calc-lock-hint').style.display='none';
+      document.getElementById('calc-unlocked-cta').style.display='none';
+    }
+  }
+  async function calcDesbloquear(){
+    const emailEl=document.getElementById('calc-gate-email');
+    const nombreEl=document.getElementById('calc-gate-nombre');
+    const email=(emailEl.value||'').trim();
+    const nombre=(nombreEl.value||'').trim();
+    if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){emailEl.style.borderColor='#B91C1C';emailEl.focus();return;}
+    emailEl.style.borderColor='';
+    const gasto=Math.max(0,parseFloat((document.getElementById('calc-gasto')||{}).value)||0);
+    const trabVal=(document.getElementById('calc-trabajadores')||{}).value||'';
+    const trabNum=Math.max(0,parseFloat(trabVal)||0);
+    const num=n=>Math.round(n).toLocaleString('es-CL');
+    const COSTO_SUPERCOR_POR_TRABAJADOR=1400;
+    const COSTO_MINIMO_MENSUAL=300000;
+    const perdidaAnual=gasto*12;
+    const costoMensualSupercor=Math.max(COSTO_MINIMO_MENSUAL,trabNum*COSTO_SUPERCOR_POR_TRABAJADOR);
+    const costoAnualSupercor=costoMensualSupercor*12;
+    const recuperable=Math.max(0,perdidaAnual-costoAnualSupercor);
+    try{
+      await fetch('https://formspree.io/f/mjgjjodn',{
+        method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify({
+          _subject:`🔒 Lead Calculadora SUPERCOR — ${email}`,
+          tipo:'Lead Calculadora ROI',
+          email:email,
+          nombre:nombre||'No indicado',
+          trabajadores:trabVal||'No indicado',
+          gasto_mensual:'$'+num(gasto)+' CLP/mes',
+          perdida_anual:'$'+num(perdidaAnual)+' CLP/año',
+          recuperable:'$'+num(recuperable)+' CLP/año',
+          _replyto:email
+        })
+      });
+    }catch(err){console.error(err);}
+    document.getElementById('calc-recuperable').classList.remove('calc-value-blurred');
+    document.getElementById('calc-lock-hint').style.display='none';
+    document.getElementById('calc-gate').style.display='none';
+    document.getElementById('calc-unlocked-cta').style.display='block';
   }
   function calcSolicitar(){
     const gasto=Math.max(0,parseFloat((document.getElementById('calc-gasto')||{}).value)||0);
