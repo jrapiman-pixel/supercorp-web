@@ -796,13 +796,12 @@
         body:JSON.stringify({
           _subject:`Lead Calculadora SUPERCOR - ${email}`,
           tipo:'Lead Calculadora ROI',
-          email:email,
           nombre:nombre||'No indicado',
+          email:email,
           trabajadores:trabVal||'No indicado',
           gasto_mensual:'$'+num(gasto)+' CLP/mes',
           perdida_anual:'$'+num(perdidaAnual)+' CLP/año',
-          recuperable:'$'+num(recuperable)+' CLP/año',
-          _replyto:email
+          recuperable:'$'+num(recuperable)+' CLP/año'
         })
       });
     }catch(err){console.error(err);}
