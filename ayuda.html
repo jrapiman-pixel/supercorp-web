@@ -202,13 +202,13 @@
     <div class="subsection">
       <div class="stage-label">Etapa 3 — Evidencia fotográfica</div>
       <div class="steps">
-        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Capture las fotografías solicitadas</div><div class="step-desc">La plataforma solicita las fotografías configuradas para la empresa. Si una foto es obligatoria, debe capturarse para poder continuar. El listado de ítems puede variar según los requerimientos de cada cliente.</div></div></div>
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Capture las fotografías solicitadas</div><div class="step-desc">La plataforma solicita las fotografías configuradas para la empresa y, si corresponde, las específicas de la instalación que se está supervisando. Si una foto es obligatoria, debe capturarse para poder continuar. Las fotos deben tomarse en el momento con la cámara del dispositivo — <strong>no se permite subir imágenes desde la galería</strong>. El listado varía según la empresa y la instalación.</div></div></div>
       </div>
     </div>
     <div class="subsection">
       <div class="stage-label">Etapa 4 — Checklist documental</div>
       <div class="steps">
-        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Revise los documentos</div><div class="step-desc">Se presentan los documentos configurados para la empresa. Marque cada uno como <strong>Sí</strong> o <strong>No</strong>. Algunos ítems pueden requerir evidencia fotográfica. Todos los obligatorios deben completarse para continuar.</div></div></div>
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Revise los documentos</div><div class="step-desc">Se presentan los documentos generales de la empresa más los específicos de la instalación supervisada. Marque cada uno como <strong>Sí</strong> o <strong>No</strong>. Algunos ítems pueden requerir evidencia fotográfica. Todos los obligatorios deben completarse para continuar. El listado puede variar entre instalaciones según lo configurado.</div></div></div>
       </div>
     </div>
     <div class="subsection">
@@ -253,7 +253,7 @@
     <div class="subsection">
       <div class="subsection-title">Otras acciones disponibles</div>
       <div class="steps">
-        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Reasignar trabajador</div><div class="step-desc">Permite trasladar a un trabajador activo desde su instalación actual hacia otra, conservando su historial y evidencias.</div></div></div>
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Reasignar trabajador</div><div class="step-desc">Permite trasladar a un trabajador activo desde su instalación actual hacia otra, conservando su historial y evidencias. El sistema cierra automáticamente las alertas abiertas asociadas al traslado.</div></div></div>
         <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Desvincular trabajador</div><div class="step-desc">Permite retirar a un trabajador de la instalación seleccionada cuando corresponda.</div></div></div>
       </div>
     </div>
@@ -268,13 +268,14 @@
     <div class="subsection">
       <div class="subsection-title">Panel de Control</div>
       <div class="steps">
-        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Vista general del estado de la empresa</div><div class="step-desc">El Panel de Control es la pantalla principal al ingresar. Muestra de forma resumida: alertas pendientes, supervisiones de los últimos 30 días, total de trabajadores, total de instalaciones, estado operacional, gráficos de actividad y distribución de alertas por estado. Los indicadores son interactivos y permiten acceder directamente al módulo correspondiente.</div></div></div>
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Centro de mando con 6 indicadores y tendencia</div><div class="step-desc">El Panel de Control es la pantalla principal al ingresar. Presenta seis indicadores clave de los últimos 30 días, cada uno con una flecha de tendencia respecto al período anterior: <strong>Supervisiones 30D</strong>, <strong>Cumplimiento promedio</strong>, <strong>Alertas pendientes</strong>, <strong>Instalaciones críticas</strong> (acceso directo a la Torre de Control), <strong>Cobertura 30D</strong> y <strong>Trabajadores activos</strong>. Más abajo muestra la actividad diaria, la distribución de alertas por estado, las alertas creadas vs. resueltas por semana, un embudo operacional, la tabla de últimas supervisiones y el bloque <strong>Requieren atención</strong>. Todos los elementos son interactivos.</div></div></div>
       </div>
     </div>
     <div class="subsection">
       <div class="subsection-title">Menú principal</div>
       <div class="info-grid">
-        <div class="info-card"><div class="info-card-title">📊 Panel de Control</div><div class="info-card-value">Vista general con indicadores interactivos y estado operacional.</div></div>
+        <div class="info-card"><div class="info-card-title">📊 Panel de Control</div><div class="info-card-value">6 indicadores con tendencia, actividad diaria, embudo operacional y acceso rápido a alertas.</div></div>
+        <div class="info-card"><div class="info-card-title">🗼 Torre de Control</div><div class="info-card-value">Semáforo por instalación con etiqueta de motivo, contadores de estado y Modo TV para pantalla completa.</div></div>
         <div class="info-card"><div class="info-card-title">📋 Historial</div><div class="info-card-value">Supervisiones realizadas con filtros, estados y reportes individuales.</div></div>
         <div class="info-card"><div class="info-card-title">🔔 Alertas</div><div class="info-card-value">Gestión de alertas operacionales organizadas por estado.</div></div>
         <div class="info-card"><div class="info-card-title">📈 Dashboard Gerencial</div><div class="info-card-value">Vista consolidada del estado operacional en tiempo real.</div></div>
@@ -285,9 +286,18 @@
       </div>
     </div>
     <div class="subsection">
+      <div class="subsection-title">Torre de Control <span style="background:#008A1C;color:#fff;font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 10px;border-radius:4px;margin-left:8px;vertical-align:middle">NUEVO</span></div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Semáforo por instalación</div><div class="step-desc">Muestra una tarjeta por cada instalación con un semáforo de color. Los contadores superiores distribuyen el total en tres estados: <strong>Al día (verde)</strong>, <strong>Atención (amarillo)</strong> y <strong>Crítica (rojo)</strong>. Cada tarjeta incluye una etiqueta de motivo que indica exactamente por qué está en ese color, por ejemplo "Crítico: 23 días sin visita" o "Atención: 2 alertas pendientes". Las tarjetas con problemas aparecen primero. Al presionar una tarjeta se abre el último reporte de esa instalación.</div></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Criterios de cada estado</div><div class="step-desc"><strong>Verde (Al día):</strong> visitada recientemente, buen cumplimiento y sin alertas pendientes.<br><strong>Amarillo (Atención):</strong> se acerca al umbral sin visita, cumplimiento entre 70% y 89%, o 1–2 alertas pendientes.<br><strong>Rojo (Crítica):</strong> nunca supervisada, superó el umbral de días sin visita, cumplimiento bajo 70%, o 3 o más alertas pendientes.</div></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Modo TV</div><div class="step-desc">El botón <strong>Modo TV</strong> proyecta la Torre de Control en pantalla completa con reloj y actualización automática cada 60 segundos. Ideal para un monitor en la sala de operaciones o en gerencia.</div></div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-body"><div class="step-title">Umbral configurable</div><div class="step-desc">El umbral de días sin supervisión que define cuándo una instalación pasa a rojo se configura en la Matriz de Alertas. Es el mismo umbral que activa el correo diario de instalaciones sin visita.</div></div></div>
+      </div>
+    </div>
+    <div class="subsection">
       <div class="subsection-title">Historial de supervisiones</div>
       <div class="steps">
-        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Revise y filtre supervisiones</div><div class="step-desc">El historial muestra las supervisiones registradas. Puede filtrar por rango de fechas y descargar un <strong>PDF consolidado</strong> del período seleccionado.</div></div></div>
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Revise y filtre supervisiones</div><div class="step-desc">El historial muestra las supervisiones registradas con supervisor, empresa, instalación, fecha, hora y nivel de cumplimiento. Puede filtrar por rango de fechas y descargar un <strong>PDF consolidado</strong> del período seleccionado. El PDF consolidado incluye un resumen ejecutivo con cumplimiento general, distribución por categoría, tendencia diaria y el detalle del período completo. Es el documento ideal para entregar a la jefatura o al mandante.</div></div></div>
         <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Ver detalle o descargar informe individual</div><div class="step-desc">Cada supervisión tiene el botón <strong>Ver</strong> para abrir su detalle completo —evidencia fotográfica, checklist documental, evaluación de trabajadores e infraestructura— y el botón <strong>PDF</strong> para descargar el informe individual.</div></div></div>
       </div>
     </div>
@@ -328,7 +338,7 @@
     <div class="subsection">
       <div class="subsection-title">Matriz de Alertas</div>
       <div class="steps">
-        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Configuración de empresa</div><div class="step-desc">Define correos en copia para alertas, notificaciones al detectar una alerta, notificaciones al resolverse automáticamente, envío de recordatorios y cantidad de días sin resolver para activar recordatorio. Se guarda con <strong>Guardar Configuración de Empresa</strong>.</div></div></div>
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Configuración de empresa</div><div class="step-desc">Define correos en copia para alertas, notificaciones al detectar una alerta, notificaciones al resolverse automáticamente, envío de recordatorios y cantidad de días sin resolver para activar recordatorio. Incluye la opción <strong>Avisar instalaciones sin supervisión</strong> <span style="background:#008A1C;color:#fff;font-size:.6rem;font-weight:700;padding:1px 7px;border-radius:3px">NUEVO</span>: cuando una instalación lleva más días sin visita que el umbral configurado, el sistema envía automáticamente un correo diario a jefatura. Este mismo umbral es el que define el color rojo en la Torre de Control. Se guarda con <strong>Guardar Configuración de Empresa</strong>.</div></div></div>
         <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Matriz de ítems</div><div class="step-desc">Permite activar o desactivar los ítems que generan alertas y asignar los correos responsables por ítem. Se guarda con <strong>Guardar Matriz de Alertas</strong>.</div></div></div>
       </div>
     </div>
@@ -459,15 +469,18 @@ Uso de la plataforma SUPERCOR.
 Perfil Jefatura o Administrador de Empresa.
 Perfil Supervisor en terreno.
 Perfil Asistente de Recursos Humanos.
+Panel de Control y sus indicadores con tendencia.
+Torre de Control y semáforo de instalaciones.
 Dashboard Gerencial.
 Gestión de Alertas.
 Historial de Supervisiones.
 Reportes PDF y Excel.
 Reportes Programados.
-Matriz de Alertas.
+Matriz de Alertas y aviso de instalaciones sin supervisión.
+Checklists y fotos por instalación (modelo general y específico).
 Nómina y Dotación.
 Evidencias fotográficas.
-Supervisión en terreno.
+Supervisión en terreno y flujo de 6 etapas.
 Soporte y canales de contacto.
 Explicación comercial general de SUPERCOR.
 Control operacional, trazabilidad, cultura de cumplimiento y acompañamiento estratégico.
@@ -482,20 +495,32 @@ PERFIL 1: JEFATURA O ADMINISTRADOR DE EMPRESA
 
 Este perfil permite revisar la operación, gestionar alertas, consultar reportes, administrar supervisores, revisar dotación y configurar alertas operacionales.
 
-Panel de Control:
-Es la pantalla principal al ingresar. Muestra alertas pendientes, supervisiones de los últimos 30 días, total de trabajadores y total de instalaciones.
-Los indicadores principales son interactivos:
-- Alertas pendientes lleva a Gestión de Alertas.
-- Supervisiones permite acceder al historial o registros asociados.
-- Total trabajadores lleva a Nómina o Dotación.
+Panel de Control (renovado):
+Es la pantalla principal al ingresar y funciona como un centro de mando. Presenta seis indicadores clave de los últimos 30 días, cada uno con una flecha de tendencia respecto al período anterior:
+- Supervisiones 30D: total de supervisiones realizadas y su variación.
+- Cumplimiento promedio: nota promedio de las visitas del período.
+- Alertas pendientes: hallazgos abiertos que requieren gestión. Enlaza a Gestión de Alertas.
+- Instalaciones críticas: recintos que requieren atención inmediata. Enlaza a la Torre de Control.
+- Cobertura 30D: porcentaje de instalaciones supervisadas en el período.
+- Trabajadores activos: dotación vigente de la empresa.
+Más abajo muestra: actividad diaria de los últimos 30 días (supervisiones y cumplimiento), distribución de alertas por estado, alertas creadas vs. resueltas por semana, embudo operacional que resume desde cobertura hasta resolución, tabla de últimas supervisiones y bloque Requieren atención. Todos los elementos son interactivos.
 - El botón Revisar alertas lleva al módulo de Gestión de Alertas.
 
+Torre de Control (NUEVO):
+Responde una sola pregunta: ¿qué instalación tengo descuidada ahora? Muestra una tarjeta por cada instalación con un semáforo de color. Los contadores superiores distribuyen el total en tres estados:
+- Verde (Al día): visitada recientemente, buen cumplimiento y sin alertas pendientes.
+- Amarillo (Atención): se acerca al umbral sin visita, cumplimiento entre 70% y 89%, o 1–2 alertas pendientes.
+- Rojo (Crítica): nunca supervisada, superó el umbral de días sin visita, cumplimiento bajo 70%, o 3 o más alertas pendientes.
+Cada tarjeta incluye una etiqueta de motivo que indica exactamente por qué está en ese color, por ejemplo "Crítico: 23 días sin visita" o "Atención: 2 alertas pendientes". Las tarjetas con problemas aparecen primero. Al presionar una tarjeta se abre el último reporte de esa instalación.
+El umbral de días sin supervisión que define el rojo se configura en la Matriz de Alertas y es el mismo que activa el correo diario de instalaciones sin visita.
+Modo TV: el botón Modo TV proyecta la Torre de Control en pantalla completa con reloj y actualización automática cada 60 segundos. Ideal para un monitor en la sala de operaciones.
+
 Historial de Supervisiones:
-Muestra las supervisiones realizadas.
+Muestra las supervisiones realizadas con supervisor, empresa, instalación, fecha, hora y nivel de cumplimiento.
 Cada registro puede incluir supervisor, empresa, instalación, fecha, hora y estado.
 El botón Ver abre el detalle de la supervisión.
 El botón PDF descarga el informe individual de esa supervisión.
-El PDF consolidado permite obtener un reporte agrupado del período disponible.
+El PDF consolidado permite obtener un reporte agrupado del período disponible. Incluye un resumen ejecutivo con cumplimiento general, distribución por categoría, tendencia diaria y el detalle del período. Es el documento ideal para entregar a la jefatura o al mandante.
 
 Gestión de Alertas:
 Permite revisar y gestionar alertas operacionales generadas por incumplimientos o eventos detectados durante una supervisión.
@@ -627,6 +652,7 @@ Permite configurar qué eventos generan alertas y quiénes reciben notificacione
 
 Configuración de empresa:
 Incluye correos CC para gerentes o responsables que reciben copia de alertas, notificación al detectar alerta, notificación al resolverse automáticamente, envío de recordatorios y días sin resolver para enviar recordatorio.
+Incluye la opción Avisar instalaciones sin supervisión (NUEVO): cuando una instalación lleva más días sin visita que el umbral configurado, el sistema envía automáticamente un correo diario a jefatura. Este mismo umbral define el color rojo en la Torre de Control.
 Esta sección se guarda con el botón Guardar Configuración de Empresa.
 
 Matriz de ítems:
@@ -647,7 +673,14 @@ Agregar trabajadores:
 Suma trabajadores a la dotación existente sin eliminar los actuales.
 
 Reasignar trabajador:
-Permite trasladar a un trabajador activo hacia otra instalación.
+Permite trasladar a un trabajador activo hacia otra instalación, conservando su historial y evidencias. El sistema cierra automáticamente las alertas abiertas asociadas al traslado.
+
+CHECKLISTS Y FOTOS POR INSTALACIÓN (NUEVO):
+SUPERCOR permite que cada instalación tenga su propio checklist y sus propias fotos obligatorias, sin perder lo común a toda la empresa. El modelo funciona con dos ámbitos:
+- General: los ítems y fotos marcados como generales aparecen en todas las instalaciones de la empresa (por ejemplo "Libro de Asistencia").
+- Por instalación: los ítems y fotos específicos aparecen solo en la instalación indicada (por ejemplo un control particular de una planta).
+Cuando el supervisor realiza una supervisión, el sistema le muestra automáticamente los ítems generales más los específicos de la instalación que eligió. De esta forma, dos instalaciones distintas pueden tener checklists completamente diferentes entre sí, y el reporte de cada supervisión guarda exactamente lo que se evaluó en terreno.
+La definición de checklists y fotos (generales o por instalación) se realiza desde la configuración de la plataforma. La jefatura y los supervisores no necesitan hacer nada especial: el flujo de supervisión se adapta automáticamente a cada instalación.
 
 PERFIL 2: SUPERVISOR EN TERRENO
 
@@ -699,8 +732,9 @@ El sistema genera una alerta automática informando que la instalación está si
 Luego el flujo pasa directamente a la sección final.
 
 Evidencia fotográfica:
-El sistema solicita capturar fotografías configuradas para la empresa.
+El sistema solicita capturar las fotografías configuradas para la empresa y, si corresponde, las específicas de la instalación supervisada.
 Si una foto es obligatoria, no se puede avanzar sin capturarla.
+Las fotos deben tomarse con la cámara del dispositivo en el momento de la supervisión. No se permite subir imágenes desde la galería.
 
 Checklist documental:
 El supervisor marca documentos como Sí o No.
