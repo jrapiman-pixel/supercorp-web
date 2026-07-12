@@ -238,47 +238,56 @@
       .footer-links{gap:1rem}
     }
     /* ===== Calculadora de diagnóstico de multas (velocímetro ROI) ===== */
-    #diagnostico{background:#F8FAFC;border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100)}
-    .calc-card{max-width:980px;margin:3rem auto 0;background:#fff;border:1px solid var(--gray-100);border-radius:14px;box-shadow:0 10px 40px rgba(15,23,42,.08);padding:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center}
-    .calc-form-intro{font-size:.9rem;color:var(--gray-600);line-height:1.6;margin-bottom:1.5rem}
+    #diagnostico{background:radial-gradient(ellipse 70% 55% at 15% 50%,rgba(0,138,28,.06),transparent),radial-gradient(ellipse 55% 60% at 85% 50%,rgba(185,28,28,.05),transparent),var(--navy);border-top:none;border-bottom:none;position:relative;overflow:hidden}
+    #diagnostico::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,163,0,.5),transparent);pointer-events:none}
+    #diagnostico::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,163,0,.5),transparent);pointer-events:none}
+    #diagnostico .section-badge{background:rgba(0,163,0,.15);color:var(--accent);border-color:rgba(0,163,0,.3)}
+    #diagnostico .section-title{color:#fff}
+    #diagnostico .section-subtitle{color:var(--silver-dim)}
+    .calc-card{max-width:980px;margin:3rem auto 0;background:rgba(31,41,55,.65);border:1px solid rgba(0,163,0,.2);border-radius:14px;box-shadow:0 0 0 1px rgba(0,163,0,.07),0 20px 80px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.04);padding:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center}
+    .calc-form-intro{font-size:.9rem;color:var(--silver-dim);line-height:1.6;margin-bottom:1.5rem}
     .calc-chart{text-align:center}
-    .calc-chart-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-400)}
-    .calc-chart-total{font-family:var(--font-title);font-size:2.1rem;font-weight:700;color:#B91C1C;line-height:1.1;margin:.15rem 0 1rem}
+    .calc-chart-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+    .calc-chart-total{font-family:var(--font-title);font-size:2.1rem;font-weight:700;color:#f87171;line-height:1.1;margin:.15rem 0 1rem;text-shadow:0 0 30px rgba(248,113,113,.3)}
     .calc-chart-bars{display:flex;align-items:flex-end;justify-content:center;gap:6px;height:140px;max-width:320px;margin:0 auto;padding:0 4px}
     .calc-bar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
     .calc-bar-fill{width:100%;max-width:18px;height:0%;background:linear-gradient(180deg,#F97316,#B91C1C);border-radius:3px 3px 0 0;transition:height .4s cubic-bezier(.34,1.4,.64,1)}
-    .calc-bar-month{font-size:.55rem;color:var(--gray-400);margin-top:.35rem;font-weight:600;text-transform:uppercase}
-    .calc-risk{font-family:var(--font-title);font-size:1.05rem;font-weight:700;margin-top:1rem;color:var(--gray-600);transition:color .3s}
+    .calc-bar-month{font-size:.55rem;color:rgba(255,255,255,.25);margin-top:.35rem;font-weight:600;text-transform:uppercase}
+    .calc-risk{font-family:var(--font-title);font-size:1.05rem;font-weight:700;margin-top:1rem;color:rgba(255,255,255,.45);transition:color .3s}
     .calc-actions{display:flex;align-items:center;gap:1.25rem;margin-top:1.25rem;flex-wrap:wrap}
-    .calc-link-reset{background:none;border:none;padding:0;font-size:.85rem;color:var(--gray-400);cursor:pointer;text-decoration:underline;text-decoration-color:transparent;transition:color .2s,text-decoration-color .2s;font-family:var(--font-body)}
-    .calc-link-reset:hover{color:var(--gray-600);text-decoration-color:var(--gray-400)}
+    .calc-link-reset{background:none;border:none;padding:0;font-size:.85rem;color:rgba(255,255,255,.3);cursor:pointer;text-decoration:underline;text-decoration-color:transparent;transition:color .2s,text-decoration-color .2s;font-family:var(--font-body)}
+    .calc-link-reset:hover{color:rgba(255,255,255,.6);text-decoration-color:rgba(255,255,255,.3)}
     .calc-panel{display:none}
     .calc-panel.visible{display:block;animation:calcReveal .5s ease forwards}
     @keyframes calcReveal{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
     @media (prefers-reduced-motion: reduce){.calc-bar-fill{transition:none}.calc-panel.visible{animation:none}}
     .calc-tier{border-radius:10px;padding:1.1rem 1.5rem;text-align:center}
     .calc-tier+.calc-tier{margin-top:.85rem}
-    .calc-tier-loss{background:#FEF2F2;border:1px solid rgba(185,28,28,.25)}
-    .calc-tier-recovery{background:rgba(0,163,0,.08);border:1px solid rgba(0,163,0,.25)}
+    .calc-tier-loss{background:rgba(185,28,28,.12);border:1px solid rgba(185,28,28,.3)}
+    .calc-tier-recovery{background:rgba(0,163,0,.1);border:1px solid rgba(0,163,0,.25)}
     .calc-tier-label{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
-    .calc-tier-loss .calc-tier-label{color:#B91C1C}
-    .calc-tier-recovery .calc-tier-label{color:var(--green-strong)}
+    .calc-tier-loss .calc-tier-label{color:#f87171}
+    .calc-tier-recovery .calc-tier-label{color:#4ade80}
     .calc-tier-value{font-family:var(--font-title);font-size:2.3rem;font-weight:700;line-height:1.1;margin-top:2px}
-    .calc-tier-loss .calc-tier-value{color:#B91C1C}
-    .calc-tier-recovery .calc-tier-value{color:var(--green-strong)}
+    .calc-tier-loss .calc-tier-value{color:#f87171;text-shadow:0 0 20px rgba(248,113,113,.25)}
+    .calc-tier-recovery .calc-tier-value{color:#4ade80;text-shadow:0 0 20px rgba(74,222,128,.2)}
     .calc-cta{display:block;width:100%;text-align:center;margin-top:1.25rem;background:var(--green-strong);color:#fff;padding:.95rem 1.5rem;border-radius:8px;font-weight:700;font-size:1rem;text-decoration:none;border:none;cursor:pointer;font-family:var(--font-body);transition:background .2s}
     .calc-cta:hover{background:var(--green)}
-    .calc-disclaimer{font-size:.72rem;color:var(--gray-400);text-align:center;margin-top:.75rem;line-height:1.5}
+    .calc-disclaimer{font-size:.72rem;color:rgba(255,255,255,.25);text-align:center;margin-top:.75rem;line-height:1.5}
     /* Lead Gate — recuperable bloqueado hasta que entregan correo */
     #calc-recuperable{transition:filter .7s ease}
     .calc-value-blurred{filter:blur(7px);user-select:none;pointer-events:none}
-    .calc-lock-hint{font-size:.7rem;font-weight:700;letter-spacing:.06em;color:var(--green-strong);margin-top:.5rem;display:none}
-    .calc-gate{background:linear-gradient(135deg,rgba(0,138,28,.04),rgba(0,163,0,.08));border:1px solid rgba(0,138,28,.18);border-radius:10px;padding:1.25rem 1.5rem;margin-top:.85rem;text-align:center;display:none}
+    .calc-lock-hint{font-size:.7rem;font-weight:700;letter-spacing:.06em;color:#4ade80;margin-top:.5rem;display:none}
+    .calc-gate{background:rgba(0,138,28,.08);border:1px solid rgba(0,163,0,.2);border-radius:10px;padding:1.25rem 1.5rem;margin-top:.85rem;text-align:center;display:none}
     .calc-gate-badge{display:inline-block;background:var(--green-strong);color:#fff;font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:4px 16px;border-radius:20px;margin-bottom:.8rem}
-    .calc-gate-text{font-size:.87rem;color:var(--gray-600);line-height:1.6;margin-bottom:.9rem}
+    .calc-gate-text{font-size:.87rem;color:var(--silver-dim);line-height:1.6;margin-bottom:.9rem}
     .calc-gate-input{margin-bottom:.65rem}
     .calc-gate-btn{width:100%;justify-content:center;margin-top:.3rem}
-    .calc-gate-note{font-size:.7rem;color:var(--gray-400);margin-top:.65rem;line-height:1.5}
+    .calc-gate-note{font-size:.7rem;color:rgba(255,255,255,.25);margin-top:.65rem;line-height:1.5}
+    #diagnostico .form-label{color:rgba(255,255,255,.7)}
+    #diagnostico .form-input{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1);color:#fff}
+    #diagnostico .form-input::placeholder{color:rgba(255,255,255,.3)}
+    #diagnostico .form-input:focus{border-color:var(--accent);background:rgba(255,255,255,.08)}
     .fade-in{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
     .fade-in.visible{opacity:1;transform:translateY(0)}
     /* === Callout Acompañamiento (integrado en #propuesta) === */
@@ -670,14 +679,14 @@
     function update(){
       const gasto=Math.max(0,parseFloat(inGasto.value)||0);
       const trab=Math.max(0,parseFloat(inTrab.value)||0);
-      let txt='Riesgo bajo',col='var(--green-strong)';
+      let txt='Riesgo bajo',col='#4ade80';
       if(gasto<=0){
-        txt='Ingrese su gasto mensual';col='var(--gray-600)';
+        txt='Ingrese su gasto mensual';col='rgba(255,255,255,.4)';
       }else if(trab<=0){
-        txt='Ingrese su cantidad de trabajadores';col='var(--gray-600)'; // evita falso "riesgo bajo" cuando aun no hay dato de trabajadores
+        txt='Ingrese su cantidad de trabajadores';col='rgba(255,255,255,.4)'; // evita falso "riesgo bajo" cuando aun no hay dato de trabajadores
       }else{
         const d=Math.min(1,(gasto/trab)/GAUGE_MAX_POR_TRABAJADOR); // 0 (bajo) .. 1 (crítico), riesgo per cápita
-        if(d>=0.75){txt='Riesgo crítico';col='#B91C1C';}
+        if(d>=0.75){txt='Riesgo crítico';col='#f87171';}
         else if(d>=0.5){txt='Riesgo alto';col='#F97316';}
         else if(d>=0.25){txt='Riesgo medio';col='#F59E0B';}
       }
@@ -761,7 +770,7 @@
     inGasto.value='';
     inTrab.value='';
     outRisk.textContent='Ingrese su gasto mensual';
-    outRisk.style.color='var(--gray-600)';
+    outRisk.style.color='rgba(255,255,255,.4)';
     chartTotal.textContent='$0';
     bars.forEach(b=>{b.style.height='0%';});
     document.getElementById('calc-panel').classList.remove('visible');
