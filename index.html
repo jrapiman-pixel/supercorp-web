@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SUPERCOR — Control Operacional y Cultura de Cumplimiento</title>
-  <meta name="description" content="No vendemos una plataforma, vendemos Control Operacional y Cultura de Cumplimiento. Digitaliza tu supervisión en terreno y opera con visibilidad real." />
+  <title>SUPERCOR — Cumplimiento Preventivo Digital en Terreno</title>
+  <meta name="description" content="SUPERCOR es el guardián operacional del cumplimiento. Mientras un ERP administra información, verificamos en terreno y demostramos cumplimiento con evidencia, antes de una fiscalización." />
   <link rel="canonical" href="https://www.supercor.cl/" />
-  <meta property="og:title" content="SUPERCOR — Control Operacional en Terreno" />
-  <meta property="og:description" content="Digitaliza tu supervisión operacional con evidencia fotográfica, GPS y alertas automáticas. Plataforma SaaS chilena." />
+  <meta property="og:title" content="SUPERCOR — El guardián operacional del cumplimiento" />
+  <meta property="og:description" content="Los ERP administran información. SUPERCOR demuestra cumplimiento: verifica en terreno, previene incumplimientos y genera evidencia antes de una fiscalización." />
   <meta property="og:image" content="https://www.supercor.cl/assets/og-supercor.png" />
   <meta property="og:url" content="https://www.supercor.cl" />
   <meta property="og:type" content="website" />
@@ -19,7 +19,7 @@
     "name": "SUPERCOR",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web, iOS, Android",
-    "description": "Plataforma SaaS chilena de control de riesgo empresarial y supervisión operacional en terreno.",
+    "description": "Cumplimiento Preventivo Digital: SUPERCOR verifica en terreno el cumplimiento operacional, previene incumplimientos y genera evidencia demostrable antes de una fiscalización.",
     "url": "https://www.supercor.cl",
     "creator": {
       "@type": "Organization",
@@ -291,6 +291,57 @@
     .fade-in{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
     .fade-in.visible{opacity:1;transform:translateY(0)}
     /* === Callout Acompañamiento (integrado en #propuesta) === */
+    /* ===== La brecha: lo que cree vs lo que ocurre ===== */
+    #brecha{background:var(--gray-50);border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100)}
+    .brecha-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:1.5rem;align-items:stretch;margin-top:3rem}
+    .brecha-col{border-radius:12px;padding:2rem 1.75rem}
+    .brecha-col-cree{background:#fff;border:1px solid var(--gray-100)}
+    .brecha-col-ocurre{background:#FEF2F2;border:1px solid rgba(185,28,28,.2)}
+    .brecha-col-head{display:flex;align-items:center;gap:.6rem;font-family:var(--font-title);font-size:1.05rem;font-weight:700;margin-bottom:1.25rem;line-height:1.2}
+    .brecha-col-cree .brecha-col-head{color:var(--gray-600)}
+    .brecha-col-ocurre .brecha-col-head{color:#B91C1C}
+    .brecha-list{list-style:none;display:flex;flex-direction:column;gap:.85rem}
+    .brecha-list li{display:flex;align-items:flex-start;gap:.65rem;font-size:.92rem;line-height:1.5;color:var(--gray-600)}
+    .brecha-list li::before{content:'';width:7px;height:7px;min-width:7px;border-radius:50%;margin-top:.45rem}
+    .brecha-col-cree .brecha-list li::before{background:var(--gray-200)}
+    .brecha-col-ocurre .brecha-list li{color:var(--gray-800)}
+    .brecha-col-ocurre .brecha-list li::before{background:#DC2626}
+    .brecha-vs{display:flex;align-items:center;justify-content:center;font-family:var(--font-title);font-size:.9rem;font-weight:700;color:var(--gray-400);align-self:center;letter-spacing:.05em}
+    .brecha-bridge{max-width:660px;margin:2.75rem auto 0;text-align:center}
+    .brecha-bridge-line{font-family:var(--font-title);font-size:clamp(1.2rem,2.4vw,1.6rem);font-weight:700;color:var(--navy);line-height:1.3}
+    .brecha-bridge-line .accent{color:var(--green-strong)}
+    /* ===== Diferenciación: no es un ERP ===== */
+    #diferenciacion{background:#fff}
+    .dif-table{max-width:840px;margin:3rem auto 0;border:1px solid var(--gray-100);border-radius:12px;overflow:hidden;box-shadow:0 10px 40px rgba(15,23,42,.06)}
+    .dif-row{display:grid;grid-template-columns:1fr 1.35fr;gap:1rem;padding:1.15rem 1.75rem;border-bottom:1px solid var(--gray-100);align-items:center}
+    .dif-row:last-child{border-bottom:none}
+    .dif-row-cat{font-weight:700;color:var(--gray-800);font-size:.95rem}
+    .dif-row-desc{color:var(--gray-600);font-size:.92rem}
+    .dif-row.supercor{background:var(--navy)}
+    .dif-row.supercor .dif-row-cat{color:#fff;font-family:var(--font-title);font-size:1.15rem;display:flex;align-items:center;gap:.5rem}
+    .dif-row.supercor .dif-row-desc{color:var(--accent);font-weight:600}
+    .dif-quote{max-width:720px;margin:2.5rem auto 0;text-align:center;font-family:var(--font-title);font-size:clamp(1.3rem,2.6vw,1.85rem);font-weight:700;color:var(--navy);line-height:1.3}
+    .dif-quote .accent{color:var(--green-strong)}
+    /* ===== Modelo de valor: 4 pilares ===== */
+    #valor{background:var(--navy)}
+    #valor .section-badge{background:rgba(0,163,0,.15);color:var(--accent);border-color:rgba(0,163,0,.3)}
+    #valor .section-title{color:#fff}
+    #valor .section-subtitle{color:var(--silver-dim)}
+    .valor-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:3rem}
+    .valor-card{background:rgba(255,255,255,.04);border:1px solid rgba(0,163,0,.15);border-radius:12px;padding:1.75rem 1.5rem;transition:border-color .2s,background .2s}
+    .valor-card:hover{border-color:rgba(0,163,0,.4);background:rgba(0,163,0,.06)}
+    .valor-card-num{font-family:var(--font-title);font-size:.8rem;font-weight:700;color:var(--accent);letter-spacing:.1em}
+    .valor-card-title{font-family:var(--font-title);font-size:1.25rem;font-weight:700;color:#fff;margin:.45rem 0}
+    .valor-card-desc{font-size:.9rem;color:var(--silver-dim);line-height:1.55}
+    .valor-close{max-width:740px;margin:2.75rem auto 0;text-align:center;font-size:1.05rem;color:rgba(255,255,255,.85);line-height:1.65}
+    .valor-close strong{color:var(--accent)}
+    @media(max-width:768px){
+      .brecha-grid{grid-template-columns:1fr;gap:1rem}
+      .brecha-vs{padding:.35rem 0}
+      .valor-grid{grid-template-columns:1fr 1fr}
+      .dif-row{grid-template-columns:1fr;gap:.3rem;padding:1rem 1.25rem}
+    }
+    @media(max-width:480px){.valor-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -298,9 +349,9 @@
 <nav>
   <a href="#inicio" class="nav-logo"><img src="assets/Logo%20Verde.png" alt="SUPERCOR" /></a>
   <ul class="nav-links">
+    <li><a href="#diferenciacion">Por qué SUPERCOR</a></li>
     <li><a href="#diagnostico">Diagnóstico</a></li>
     <li><a href="#como-funciona">Cómo funciona</a></li>
-    <li><a href="#plataforma">Plataforma</a></li>
     <li><a href="#precios">Precios</a></li>
 <li><a href="/ayuda">Ayuda</a></li>
 <li><a href="/seguridad-privada">Seguridad Privada</a></li>
@@ -313,9 +364,9 @@
 <section id="inicio">
   <div class="hero-grid">
     <div class="hero-left fade-in">
-      <span class="hero-eyebrow">Modelo preventivo de control operacional y cumplimiento</span>
-      <h1 class="hero-title">Detecte riesgos e incumplimientos antes de que se transformen en <span class="accent">multas y pérdidas</span>.</h1>
-      <p class="hero-subtitle">Supercor le entrega visibilidad total, control y reportes en tiempo real para una gestión de seguridad más eficiente y proactiva.</p>
+      <span class="hero-eyebrow">Cumplimiento Preventivo Digital</span>
+      <h1 class="hero-title">El <span class="accent">guardián operacional</span> de su cumplimiento.</h1>
+      <p class="hero-subtitle">Mientras un ERP administra información, SUPERCOR verifica en terreno que los controles, la documentación y la evidencia realmente estén donde deben — <strong>antes</strong> de una fiscalización.</p>
       <div class="hero-actions">
         <a href="#diagnostico" class="btn-primary">Calcular mi ahorro</a>
         <a href="#como-funciona" class="btn-secondary">Ver cómo funciona →</a>
@@ -326,10 +377,44 @@
     </div>
   </div>
   <div class="hero-stats fade-in">
-    <div class="hero-stat"><div class="hero-stat-number">Evidencia</div><div class="hero-stat-label">verificable por supervisión</div></div>
-    <div class="hero-stat"><div class="hero-stat-number">Alertas</div><div class="hero-stat-label">preventivas en tiempo real</div></div>
-    <div class="hero-stat"><div class="hero-stat-number">Trazabilidad</div><div class="hero-stat-label">completa por contrato</div></div>
-    <div class="hero-stat"><div class="hero-stat-number">Visibilidad</div><div class="hero-stat-label">gerencial en tiempo real</div></div>
+    <div class="hero-stat"><div class="hero-stat-number">Control</div><div class="hero-stat-label">saber qué ocurre en terreno</div></div>
+    <div class="hero-stat"><div class="hero-stat-number">Prevención</div><div class="hero-stat-label">detectar antes del problema</div></div>
+    <div class="hero-stat"><div class="hero-stat-number">Evidencia</div><div class="hero-stat-label">demostrar cumplimiento</div></div>
+    <div class="hero-stat"><div class="hero-stat-number">Rentabilidad</div><div class="hero-stat-label">reducir pérdidas por multas</div></div>
+  </div>
+</section>
+
+<section id="brecha">
+  <div class="container">
+    <div class="text-center fade-in">
+      <div class="section-badge">El problema real</div>
+      <h2 class="section-title">Existe una brecha entre lo que se declara y lo que ocurre en terreno</h2>
+      <p class="section-subtitle">La mayoría de las empresas no falla por falta de documentos. Falla porque nadie verifica, día a día, que lo que está en el papel realmente se cumpla en terreno.</p>
+    </div>
+    <div class="brecha-grid fade-in">
+      <div class="brecha-col brecha-col-cree">
+        <div class="brecha-col-head">Lo que la empresa cree que ocurre</div>
+        <ul class="brecha-list">
+          <li>Documentación disponible y al día</li>
+          <li>Procesos definidos y conocidos</li>
+          <li>Sistemas implementados</li>
+          <li>Responsabilidades asignadas</li>
+        </ul>
+      </div>
+      <div class="brecha-vs">VS</div>
+      <div class="brecha-col brecha-col-ocurre">
+        <div class="brecha-col-head">Lo que realmente ocurre en terreno</div>
+        <ul class="brecha-list">
+          <li>Documentos vencidos o incompletos</li>
+          <li>Falta de evidencia operacional</li>
+          <li>Supervisiones deficientes o no registradas</li>
+          <li>Incumplimientos detectados cuando ya es tarde</li>
+        </ul>
+      </div>
+    </div>
+    <div class="brecha-bridge fade-in">
+      <p class="brecha-bridge-line">SUPERCOR es el <span class="accent">puente</span> entre lo que su empresa declara y lo que realmente ocurre en terreno.</p>
+    </div>
   </div>
 </section>
 
@@ -372,9 +457,9 @@
 <section id="problema">
   <div class="container">
     <div class="text-center fade-in">
-      <div class="section-badge">El problema actual</div>
+      <div class="section-badge">Señales de alerta</div>
       <h2 class="section-title">¿Reconoce alguno de estos problemas?</h2>
-      <p class="section-subtitle">La mayoría de las empresas no pierde el control de un día para otro. Lo pierde lentamente, cuando la información se dispersa y los problemas se detectan demasiado tarde.</p>
+      <p class="section-subtitle">Cuando llega la fiscalización, ya es tarde para corregir. Estas son las señales de que su operación todavía no puede demostrar control efectivo en terreno.</p>
     </div>
     <div class="problem-grid">
       <div class="problem-card fade-in"><div class="problem-title">Multas por incumplimientos evitables</div><div class="problem-desc">Fiscalizaciones que encuentran irregularidades que nadie detectó ni reportó a tiempo.</div></div>
@@ -384,6 +469,23 @@
       <div class="problem-card fade-in"><div class="problem-title">Información dispersa entre áreas</div><div class="problem-desc">Operaciones, Recursos Humanos y administración manejan datos distintos y contradictorios.</div></div>
       <div class="problem-card fade-in"><div class="problem-title">Riesgos detectados demasiado tarde</div><div class="problem-desc">Los problemas se conocen cuando ya hay consecuencias, no antes de que ocurran.</div></div>
     </div>
+  </div>
+</section>
+
+<section id="diferenciacion">
+  <div class="container">
+    <div class="text-center fade-in">
+      <div class="section-badge">Por qué somos distintos</div>
+      <h2 class="section-title">SUPERCOR no es un software más de gestión</h2>
+      <p class="section-subtitle">Los ERP, los sistemas de asistencia y los gestores documentales administran información. SUPERCOR verifica la ejecución en terreno y genera evidencia preventiva.</p>
+    </div>
+    <div class="dif-table fade-in">
+      <div class="dif-row other"><div class="dif-row-cat">ERP de Recursos Humanos</div><div class="dif-row-desc">Administra información</div></div>
+      <div class="dif-row other"><div class="dif-row-cat">Sistema de asistencia</div><div class="dif-row-desc">Registra marcaciones</div></div>
+      <div class="dif-row other"><div class="dif-row-cat">Gestión documental</div><div class="dif-row-desc">Ordena archivos</div></div>
+      <div class="dif-row supercor"><div class="dif-row-cat">SUPERCOR</div><div class="dif-row-desc">Controla la ejecución operacional y genera evidencia preventiva</div></div>
+    </div>
+    <p class="dif-quote fade-in">Los ERP administran información. <span class="accent">SUPERCOR demuestra cumplimiento.</span></p>
   </div>
 </section>
 
@@ -461,9 +563,9 @@
 <section id="como-funciona">
   <div class="container">
     <div class="text-center fade-in">
-      <div class="section-badge">Proceso simple</div>
-      <h2 class="section-title">En 4 pasos tienes control total</h2>
-      <p class="section-subtitle">Configuración rápida. Sin instalar servidores. Sin soporte técnico permanente.</p>
+      <div class="section-badge">Cómo funciona</div>
+      <h2 class="section-title">Del terreno a la evidencia, en 4 pasos</h2>
+      <p class="section-subtitle">Supervisión digital en terreno, detección preventiva y gestión de alertas. Configuración rápida, sin instalar servidores ni soporte técnico permanente.</p>
     </div>
     <div class="steps-grid">
       <div class="step-card fade-in"><div class="step-number">1</div><div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="1"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg></div><div class="step-title">Configuras tu organización</div><div class="step-desc">Cargamos tus contratos, instalaciones y checklists según tus procesos y estándares internos.</div></div>
@@ -474,6 +576,23 @@
     <div class="steps-photo fade-in">
       <img src="assets/app-terreno.webp" alt="Supervisores usando la app SUPERCOR en una tablet durante una supervisión en terreno" loading="lazy" />
     </div>
+  </div>
+</section>
+
+<section id="valor">
+  <div class="container">
+    <div class="text-center fade-in">
+      <div class="section-badge">Modelo de valor</div>
+      <h2 class="section-title">No entregamos solo tecnología. Entregamos control.</h2>
+      <p class="section-subtitle">Cada incumplimiento evitado significa menos multas, menos reprocesos y mayor continuidad operacional. Este es el valor real que recibe su empresa.</p>
+    </div>
+    <div class="valor-grid fade-in">
+      <div class="valor-card"><div class="valor-card-num">01</div><div class="valor-card-title">Control</div><div class="valor-card-desc">Saber qué ocurre realmente en terreno, todos los días.</div></div>
+      <div class="valor-card"><div class="valor-card-num">02</div><div class="valor-card-title">Prevención</div><div class="valor-card-desc">Detectar la brecha antes de que se transforme en un problema.</div></div>
+      <div class="valor-card"><div class="valor-card-num">03</div><div class="valor-card-title">Evidencia</div><div class="valor-card-desc">Demostrar cumplimiento con respaldo verificable en cualquier momento.</div></div>
+      <div class="valor-card"><div class="valor-card-num">04</div><div class="valor-card-title">Rentabilidad</div><div class="valor-card-desc">Reducir las pérdidas por incumplimiento y proteger sus contratos.</div></div>
+    </div>
+    <p class="valor-close fade-in">Saber, anticipar, demostrar y proteger: <strong>porque una operación controlada es una operación rentable.</strong></p>
   </div>
 </section>
 
@@ -553,7 +672,7 @@
     <div class="text-center fade-in">
       <div class="section-badge">Diagnóstico Inicial</div>
       <h2 class="section-title">Solicite su diagnóstico operacional</h2>
-      <p class="section-subtitle">Configuramos su cuenta y le acompañamos durante todo el proceso.</p>
+      <p class="section-subtitle">Cada día sin control es una oportunidad para que un incumplimiento se transforme en una multa. Solicite su diagnóstico y transforme el cumplimiento en control, evidencia y protección para su negocio.</p>
     </div>
     <div class="demo-box fade-in">
       <div id="demo-form">
