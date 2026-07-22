@@ -342,6 +342,48 @@
       .dif-row{grid-template-columns:1fr;gap:.3rem;padding:1rem 1.25rem}
     }
     @media(max-width:480px){.valor-grid{grid-template-columns:1fr}}
+    /* ===== Franja de clientes (prueba social) ===== */
+    #clientes{background:#fff;border-top:1px solid var(--gray-100);padding:2.5rem 2rem}
+    .clientes-label{text-align:center;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-400);margin-bottom:1.5rem}
+    .clientes-row{display:flex;align-items:center;justify-content:center;gap:3.5rem;flex-wrap:wrap;max-width:900px;margin:0 auto}
+    .clientes-row img{height:72px;width:auto;filter:grayscale(1);opacity:.75;transition:filter .3s,opacity .3s}
+    .clientes-row img:hover{filter:grayscale(0);opacity:1}
+    /* ===== Obligaciones fiscalizables (3 pilares) ===== */
+    #obligaciones{background:#fff}
+    .oblig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+    .oblig-card{background:var(--gray-50);border:1px solid var(--gray-100);border-radius:12px;padding:2rem 1.75rem;border-top:4px solid var(--green-strong);transition:box-shadow .2s}
+    .oblig-card:hover{box-shadow:0 12px 40px rgba(15,23,42,.1)}
+    .oblig-card-title{font-family:var(--font-title);font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:.75rem}
+    .oblig-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.9rem}
+    .oblig-chip{background:rgba(0,138,28,.08);border:1px solid rgba(0,138,28,.2);color:var(--green-strong);font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:12px}
+    .oblig-card-desc{font-size:.87rem;color:var(--gray-600);line-height:1.6}
+    .oblig-tagline{max-width:720px;margin:2.75rem auto 0;text-align:center;font-family:var(--font-title);font-size:clamp(1.2rem,2.4vw,1.6rem);font-weight:700;color:var(--navy)}
+    .oblig-tagline span{color:var(--green-strong)}
+    /* ===== Litanía y bloque integración (diferenciación) ===== */
+    .dif-litany{max-width:760px;margin:2.25rem auto 0;text-align:center;font-family:var(--font-title);font-size:clamp(1.05rem,2vw,1.3rem);font-weight:700;color:var(--gray-400);line-height:1.55}
+    .dif-litany strong{display:block;color:var(--navy);margin-top:.4rem}
+    .dif-integra{max-width:840px;margin:2.5rem auto 0;background:var(--gray-50);border:1px solid var(--gray-100);border-radius:12px;padding:1.75rem 2rem;text-align:center}
+    .dif-integra-title{font-family:var(--font-title);font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:.6rem}
+    .dif-integra-chips{display:flex;justify-content:center;flex-wrap:wrap;gap:.5rem;margin:.9rem 0}
+    .dif-integra-chip{background:#fff;border:1px solid var(--gray-200);color:var(--gray-600);font-size:.78rem;font-weight:600;padding:4px 14px;border-radius:16px}
+    .dif-integra-text{font-size:.9rem;color:var(--gray-600);line-height:1.65;max-width:640px;margin:0 auto}
+    /* ===== SUPERCOR en los medios ===== */
+    #prensa{background:var(--gray-50);border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100)}
+    .prensa-box{max-width:760px;margin:0 auto;text-align:center}
+    .prensa-box img{height:56px;width:auto;margin:0 auto 1.5rem;display:block}
+    .prensa-quote{font-family:var(--font-title);font-size:clamp(1.25rem,2.6vw,1.7rem);font-weight:700;color:var(--navy);line-height:1.4;font-style:italic;margin-bottom:1rem}
+    .prensa-quote span{color:var(--green-strong)}
+    .prensa-attr{font-size:.85rem;color:var(--gray-600);margin-bottom:1.75rem}
+    /* ===== Urgencia antes de la calculadora ===== */
+    .calc-urgency{display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:980px;margin:2.5rem auto 0}
+    .calc-urgency-item{background:rgba(185,28,28,.1);border:1px solid rgba(185,28,28,.28);border-radius:10px;padding:1rem 1.4rem;font-size:.92rem;color:rgba(255,255,255,.85);line-height:1.55}
+    .calc-urgency-item strong{color:#f87171}
+    @media(max-width:768px){
+      .clientes-row{gap:2rem}
+      .clientes-row img{height:52px}
+      .oblig-grid{grid-template-columns:1fr}
+      .calc-urgency{grid-template-columns:1fr}
+    }
   </style>
 </head>
 <body>
@@ -364,7 +406,7 @@
 <section id="inicio">
   <div class="hero-grid">
     <div class="hero-left fade-in">
-      <span class="hero-eyebrow">Cumplimiento Preventivo Digital</span>
+      <span class="hero-eyebrow">Controle su operación antes de que la fiscalización lo haga</span>
       <h1 class="hero-title">El <span class="accent">guardián operacional</span> de su cumplimiento.</h1>
       <p class="hero-subtitle">Mientras un ERP administra información, SUPERCOR verifica en terreno que los controles, la documentación y la evidencia realmente estén donde deben — <strong>antes</strong> de una fiscalización.</p>
       <div class="hero-actions">
@@ -384,12 +426,20 @@
   </div>
 </section>
 
+<section id="clientes">
+  <div class="clientes-label fade-in">Empresas de seguridad que ya operan con SUPERCOR</div>
+  <div class="clientes-row fade-in">
+    <img src="assets/logo-surov.png" alt="Surov Seguridad — cliente SUPERCOR" loading="lazy" />
+    <img src="assets/logo-ingproseg.png" alt="Ingproseg — cliente SUPERCOR" loading="lazy" />
+  </div>
+</section>
+
 <section id="brecha">
   <div class="container">
     <div class="text-center fade-in">
       <div class="section-badge">El problema real</div>
-      <h2 class="section-title">Existe una brecha entre lo que se declara y lo que ocurre en terreno</h2>
-      <p class="section-subtitle">La mayoría de las empresas no falla por falta de documentos. Falla porque nadie verifica, día a día, que lo que está en el papel realmente se cumpla en terreno.</p>
+      <h2 class="section-title">¿Qué pasa cuando llega una fiscalización?</h2>
+      <p class="section-subtitle">Muchas empresas creen que están preparadas — hasta que comienza la inspección. Ahí aparece la brecha entre lo que se declara y lo que realmente ocurre en terreno.</p>
     </div>
     <div class="brecha-grid fade-in">
       <div class="brecha-col brecha-col-cree">
@@ -399,6 +449,8 @@
           <li>Procesos definidos y conocidos</li>
           <li>Sistemas implementados</li>
           <li>Responsabilidades asignadas</li>
+          <li>Personal acreditado y vigente</li>
+          <li>Información consistente entre áreas</li>
         </ul>
       </div>
       <div class="brecha-vs">VS</div>
@@ -409,12 +461,42 @@
           <li>Falta de evidencia operacional</li>
           <li>Supervisiones deficientes o no registradas</li>
           <li>Incumplimientos detectados cuando ya es tarde</li>
+          <li>Personal sin acreditaciones vigentes</li>
+          <li>Información distinta entre RR.HH. y Operaciones</li>
         </ul>
       </div>
     </div>
     <div class="brecha-bridge fade-in">
       <p class="brecha-bridge-line">SUPERCOR es el <span class="accent">puente</span> entre lo que su empresa declara y lo que realmente ocurre en terreno.</p>
     </div>
+  </div>
+</section>
+
+<section id="obligaciones">
+  <div class="container">
+    <div class="text-center fade-in">
+      <div class="section-badge">Cumplimiento regulatorio</div>
+      <h2 class="section-title">Un solo sistema para controlar las obligaciones que más fiscalizan a su empresa</h2>
+      <p class="section-subtitle">Las empresas hoy deben cumplir simultáneamente múltiples exigencias legales. SUPERCOR permite supervisarlas diariamente, generar evidencia digital y detectar desviaciones antes de que se transformen en multas, accidentes o responsabilidades legales.</p>
+    </div>
+    <div class="oblig-grid fade-in">
+      <div class="oblig-card">
+        <div class="oblig-card-title">Cumplimiento Laboral</div>
+        <div class="oblig-chips"><span class="oblig-chip">Ley 16.744</span><span class="oblig-chip">DS 44</span><span class="oblig-chip">DS 594</span></div>
+        <div class="oblig-card-desc">Supervisión diaria de las obligaciones laborales y de seguridad y salud en el trabajo, con evidencia verificable de cada control.</div>
+      </div>
+      <div class="oblig-card">
+        <div class="oblig-card-title">Cumplimiento en Seguridad Privada</div>
+        <div class="oblig-chips"><span class="oblig-chip">Ley 21.659</span><span class="oblig-chip">Supervisión operacional</span><span class="oblig-chip">Evidencia</span><span class="oblig-chip">Planes y controles</span></div>
+        <div class="oblig-card-desc">Control del cumplimiento normativo del rubro: acreditaciones, directivas, dotaciones y supervisión en terreno con respaldo digital.</div>
+      </div>
+      <div class="oblig-card">
+        <div class="oblig-card-title">Cumplimiento de Protección de Datos</div>
+        <div class="oblig-chips"><span class="oblig-chip">Ley 21.719</span><span class="oblig-chip">Trazabilidad</span><span class="oblig-chip">Registros</span></div>
+        <div class="oblig-card-desc">Evidencias, trazabilidad y registros que respaldan los controles operacionales asociados al tratamiento de datos.</div>
+      </div>
+    </div>
+    <p class="oblig-tagline fade-in">Una plataforma. Todas las obligaciones. <span>Un solo modelo de control.</span></p>
   </div>
 </section>
 
@@ -479,6 +561,7 @@
       <h2 class="section-title">SUPERCOR no es un software más de gestión</h2>
       <p class="section-subtitle">Los ERP, los sistemas de asistencia y los gestores documentales administran información. SUPERCOR verifica la ejecución en terreno y genera evidencia preventiva.</p>
     </div>
+    <p class="dif-litany fade-in">No es un software. No es un ERP. No es un gestor documental. No es un sistema de asistencia.<strong>Es el sistema que verifica que toda su operación realmente esté funcionando.</strong></p>
     <div class="dif-table fade-in">
       <div class="dif-row other"><div class="dif-row-cat">ERP de Recursos Humanos</div><div class="dif-row-desc">Administra información</div></div>
       <div class="dif-row other"><div class="dif-row-cat">Sistema de asistencia</div><div class="dif-row-desc">Registra marcaciones</div></div>
@@ -486,6 +569,25 @@
       <div class="dif-row supercor"><div class="dif-row-cat">SUPERCOR</div><div class="dif-row-desc">Controla la ejecución operacional y genera evidencia preventiva</div></div>
     </div>
     <p class="dif-quote fade-in">Los ERP administran información. <span class="accent">SUPERCOR demuestra cumplimiento.</span></p>
+    <div class="dif-integra fade-in">
+      <div class="dif-integra-title">SUPERCOR no reemplaza sus sistemas — trabaja sobre ellos</div>
+      <div class="dif-integra-chips"><span class="dif-integra-chip">ERP de RR.HH.</span><span class="dif-integra-chip">Control de asistencia</span><span class="dif-integra-chip">Planificación</span><span class="dif-integra-chip">Gestión documental</span></div>
+      <p class="dif-integra-text">SUPERCOR integra la información proveniente de sus sistemas actuales y verifica que, en la operación, todo ocurra realmente como fue planificado.</p>
+    </div>
+  </div>
+</section>
+
+<section id="prensa">
+  <div class="container">
+    <div class="text-center fade-in">
+      <div class="section-badge">En los medios</div>
+    </div>
+    <div class="prensa-box fade-in">
+      <img src="assets/logo-revista-sd.png" alt="Revista Seguridad & Defensa" loading="lazy" />
+      <p class="prensa-quote">"Cada incumplimiento detectado a tiempo representa <span>una multa evitada</span>, una contingencia controlada y una operación mejor gestionada."</p>
+      <p class="prensa-attr">Publicación en Revista Seguridad &amp; Defensa — Edición Nº64, junio 2026</p>
+      <a href="https://revistaseguridad.cl/3d-flip-book/edicion-no64/#edicion-no64/24/" target="_blank" rel="noopener" class="btn-primary">Leer el reportaje →</a>
+    </div>
   </div>
 </section>
 
@@ -495,6 +597,10 @@
       <div class="section-badge">Diagnóstico de riesgo financiero</div>
       <h2 class="section-title">Descubra cuánto pierde al año en multas — y cuánto puede recuperar</h2>
       <p class="section-subtitle">Calcule en segundos su nivel de riesgo y la pérdida anual que podría estar evitando con SUPERCOR.</p>
+    </div>
+    <div class="calc-urgency fade-in">
+      <div class="calc-urgency-item">Las empresas pierden <strong>millones cada año</strong> por incumplimientos detectados demasiado tarde.</div>
+      <div class="calc-urgency-item">Un solo incumplimiento puede generar <strong>multas, pérdida de contratos y daño reputacional</strong>.</div>
     </div>
     <div class="calc-card fade-in">
       <div class="calc-form">
