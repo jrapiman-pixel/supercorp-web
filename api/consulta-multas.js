@@ -24,6 +24,13 @@ export default async function handler(req, res) {
     const apiKey = process.env.SCRAPER_API_KEY;
     if (!apiKey) return res.status(503).json({ error: 'Servicio no configurado.' });
 
+    // Modo diagnóstico temporal: devuelve HTML crudo para inspeccionar el paginador
+    if ((req.body || {}).debug === 'dt-inspect-2026') {
+      const raw = await scrapeDT(rutDT, apiKey, { raw: true });
+      res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+      return res.status(200).send(String(raw).slice(0, 200000));
+    }
+
     const [data, utm] = await Promise.all([
       scrapeDT(rutDT, apiKey),
       getUTM()
@@ -129,7 +136,7 @@ async function getUTM() {
 
 // ─── ScrapingBee → Dirección del Trabajo ─────────────────────────────────────
 
-async function scrapeDT(rutDT, apiKey) {
+async function scrapeDT(rutDT, apiKey, opts = {}) {
   // Script que corre en el browser de ScrapingBee para extraer las filas
   const extractScript = `(function(){
     try{
@@ -187,7 +194,7 @@ async function scrapeDT(rutDT, apiKey) {
       { fill: ['#tbxRut', rutDT] },
       { click: '#btnConsulta' },
       { wait: 6000 },
-      { evaluate: extractScript }
+      ...(opts.raw ? [] : [{ evaluate: extractScript }])
     ]
   };
 
@@ -210,6 +217,8 @@ async function scrapeDT(rutDT, apiKey) {
   }
 
   const text = await resp.text();
+
+  if (opts.raw) return text;
 
   // ScrapingBee puede devolver: (a) el resultado del evaluate como texto, o (b) el HTML completo
   try {
