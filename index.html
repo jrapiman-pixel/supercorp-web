@@ -238,29 +238,32 @@
       .footer-links{gap:1rem}
     }
     /* ===== Calculadora de diagnóstico de multas (velocímetro ROI) ===== */
-    #diagnostico{background:radial-gradient(ellipse 70% 55% at 15% 50%,rgba(0,138,28,.06),transparent),radial-gradient(ellipse 55% 60% at 85% 50%,rgba(185,28,28,.05),transparent),var(--navy);border-top:none;border-bottom:none;position:relative;overflow:hidden}
+    #diagnostico{background:radial-gradient(ellipse 60% 50% at 12% 15%,rgba(220,38,38,.16),transparent 70%),radial-gradient(ellipse 60% 55% at 88% 85%,rgba(0,163,0,.15),transparent 70%),var(--navy);border-top:none;border-bottom:none;position:relative;overflow:hidden}
     #diagnostico::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,163,0,.5),transparent);pointer-events:none}
     #diagnostico::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,163,0,.5),transparent);pointer-events:none}
-    #diagnostico .section-badge{background:rgba(0,163,0,.15);color:var(--accent);border-color:rgba(0,163,0,.3)}
-    #diagnostico .section-title{color:#fff}
-    #diagnostico .section-subtitle{color:var(--silver-dim)}
-    .calc-card{max-width:980px;margin:3rem auto 0;background:rgba(31,41,55,.65);border:1px solid rgba(0,163,0,.2);border-radius:14px;box-shadow:0 0 0 1px rgba(0,163,0,.07),0 20px 80px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.04);padding:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center}
-    .calc-form-intro{font-size:.9rem;color:var(--silver-dim);line-height:1.6;margin-bottom:1.5rem}
+    #diagnostico .section-badge{background:rgba(0,163,0,.15);color:var(--accent);border-color:rgba(0,163,0,.3);font-size:.8rem;padding:7px 18px}
+    #diagnostico .section-title{color:#fff;font-size:clamp(2.2rem,4.2vw,3.4rem)}
+    #diagnostico .section-title em{font-style:normal;color:#f87171;text-shadow:0 0 22px rgba(248,113,113,.5)}
+    #diagnostico .section-title span{color:#4ade80;text-shadow:0 0 22px rgba(74,222,128,.5)}
+    #diagnostico .section-subtitle{color:var(--silver-dim);font-size:1.15rem}
+    .calc-card{max-width:980px;margin:3rem auto 0;background:rgba(31,41,55,.65);border:1px solid rgba(0,163,0,.35);border-radius:14px;padding:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;animation:calcBreath 3.2s ease-in-out infinite}
+    @keyframes calcBreath{0%,100%{box-shadow:0 0 0 1px rgba(0,163,0,.1),0 20px 80px rgba(0,0,0,.5),0 0 30px rgba(0,163,0,.12)}50%{box-shadow:0 0 0 1px rgba(0,163,0,.28),0 20px 80px rgba(0,0,0,.5),0 0 60px rgba(0,163,0,.28)}}
+    .calc-form-intro{font-size:1rem;color:var(--silver-dim);line-height:1.65;margin-bottom:1.5rem}
     .calc-chart{text-align:center}
-    .calc-chart-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4)}
-    .calc-chart-total{font-family:var(--font-title);font-size:2.1rem;font-weight:700;color:#f87171;line-height:1.1;margin:.15rem 0 1rem;text-shadow:0 0 30px rgba(248,113,113,.3)}
+    .calc-chart-label{font-size:.8rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#fca5a5}
+    .calc-chart-total{font-family:var(--font-title);font-size:clamp(2.4rem,4vw,3.1rem);font-weight:700;color:#f87171;line-height:1.1;margin:.15rem 0 1rem;text-shadow:0 0 34px rgba(248,113,113,.5)}
     .calc-chart-bars{display:flex;align-items:flex-end;justify-content:center;gap:6px;height:140px;max-width:320px;margin:0 auto;padding:0 4px}
     .calc-bar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
-    .calc-bar-fill{width:100%;max-width:18px;height:0%;background:linear-gradient(180deg,#F97316,#B91C1C);border-radius:3px 3px 0 0;transition:height .4s cubic-bezier(.34,1.4,.64,1)}
+    .calc-bar-fill{width:100%;max-width:18px;height:0%;background:linear-gradient(180deg,#F97316,#B91C1C);border-radius:3px 3px 0 0;transition:height .4s cubic-bezier(.34,1.4,.64,1);box-shadow:0 0 10px rgba(249,115,22,.35)}
     .calc-bar-month{font-size:.55rem;color:rgba(255,255,255,.25);margin-top:.35rem;font-weight:600;text-transform:uppercase}
-    .calc-risk{font-family:var(--font-title);font-size:1.05rem;font-weight:700;margin-top:1rem;color:rgba(255,255,255,.45);transition:color .3s}
+    .calc-risk{font-family:var(--font-title);font-size:1.2rem;font-weight:700;margin-top:1rem;color:rgba(255,255,255,.45);transition:color .3s}
     .calc-actions{display:flex;align-items:center;gap:1.25rem;margin-top:1.25rem;flex-wrap:wrap}
     .calc-link-reset{background:none;border:none;padding:0;font-size:.85rem;color:rgba(255,255,255,.3);cursor:pointer;text-decoration:underline;text-decoration-color:transparent;transition:color .2s,text-decoration-color .2s;font-family:var(--font-body)}
     .calc-link-reset:hover{color:rgba(255,255,255,.6);text-decoration-color:rgba(255,255,255,.3)}
     .calc-panel{display:none}
     .calc-panel.visible{display:block;animation:calcReveal .5s ease forwards}
     @keyframes calcReveal{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-    @media (prefers-reduced-motion: reduce){.calc-bar-fill{transition:none}.calc-panel.visible{animation:none}}
+    @media (prefers-reduced-motion: reduce){.calc-bar-fill{transition:none}.calc-panel.visible{animation:none}.calc-card{animation:none;box-shadow:0 0 0 1px rgba(0,163,0,.15),0 20px 80px rgba(0,0,0,.5)}#diagnostico .calc-actions .btn-primary{animation:none}}
     .calc-tier{border-radius:10px;padding:1.1rem 1.5rem;text-align:center}
     .calc-tier+.calc-tier{margin-top:.85rem}
     .calc-tier-loss{background:rgba(185,28,28,.12);border:1px solid rgba(185,28,28,.3)}
@@ -268,7 +271,7 @@
     .calc-tier-label{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
     .calc-tier-loss .calc-tier-label{color:#f87171}
     .calc-tier-recovery .calc-tier-label{color:#4ade80}
-    .calc-tier-value{font-family:var(--font-title);font-size:2.3rem;font-weight:700;line-height:1.1;margin-top:2px}
+    .calc-tier-value{font-family:var(--font-title);font-size:2.55rem;font-weight:700;line-height:1.1;margin-top:2px}
     .calc-tier-loss .calc-tier-value{color:#f87171;text-shadow:0 0 20px rgba(248,113,113,.25)}
     .calc-tier-recovery .calc-tier-value{color:#4ade80;text-shadow:0 0 20px rgba(74,222,128,.2)}
     .calc-cta{display:block;width:100%;text-align:center;margin-top:1.25rem;background:var(--green-strong);color:#fff;padding:.95rem 1.5rem;border-radius:8px;font-weight:700;font-size:1rem;text-decoration:none;border:none;cursor:pointer;font-family:var(--font-body);transition:background .2s}
@@ -284,8 +287,13 @@
     .calc-gate-input{margin-bottom:.65rem}
     .calc-gate-btn{width:100%;justify-content:center;margin-top:.3rem}
     .calc-gate-note{font-size:.7rem;color:rgba(255,255,255,.25);margin-top:.65rem;line-height:1.5}
-    #diagnostico .form-label{color:rgba(255,255,255,.7)}
-    #diagnostico .form-input{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1);color:#fff}
+    #diagnostico .form-label{color:#e2e8f0;font-size:.95rem;font-weight:700}
+    #diagnostico .form-input{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.22);color:#fff;font-size:1.1rem;padding:.95rem 1.1rem}
+    #diagnostico .calc-actions{flex-direction:column;align-items:stretch;gap:.9rem}
+    #diagnostico .calc-actions .btn-primary{justify-content:center;font-size:1.12rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:1.05rem 2rem;background:linear-gradient(90deg,var(--green-strong),var(--green));box-shadow:0 8px 30px rgba(0,163,0,.45);animation:calcBtnPulse 2s ease-in-out infinite}
+    #diagnostico .calc-actions .btn-primary:hover{filter:brightness(1.08)}
+    #diagnostico .calc-link-reset{text-align:center}
+    @keyframes calcBtnPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
     #diagnostico .form-input::placeholder{color:rgba(255,255,255,.3)}
     #diagnostico .form-input:focus{border-color:var(--accent);background:rgba(255,255,255,.08)}
     .fade-in{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
@@ -662,7 +670,7 @@
   <div class="container">
     <div class="text-center fade-in">
       <div class="section-badge">Diagnóstico de riesgo financiero</div>
-      <h2 class="section-title">Descubra cuánto pierde al año en multas — y cuánto puede recuperar</h2>
+      <h2 class="section-title">¿Cuánto <em>pierde</em> hoy en multas… y cuánto podría <span>recuperar</span>?</h2>
       <p class="section-subtitle">Calcule en segundos su nivel de riesgo y la pérdida anual que podría estar evitando con SUPERCOR.</p>
     </div>
     <div class="calc-urgency fade-in">
@@ -681,7 +689,7 @@
           <input class="form-input" id="calc-gasto" type="number" min="0" inputmode="numeric" placeholder="Ej: 2000000" />
         </div>
         <div class="calc-actions">
-          <button type="button" class="btn-primary" onclick="calcCalcular()">Calcular</button>
+          <button type="button" class="btn-primary" onclick="calcCalcular()">🔍 Calcular ahora</button>
           <button type="button" class="calc-link-reset" onclick="calcReset()">Limpiar datos</button>
         </div>
       </div>
