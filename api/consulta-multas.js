@@ -88,6 +88,7 @@ export default async function handler(req, res) {
       avgAnual,
       muestra,
       utm,
+      _clicks: data._clicks,
       consultadoEl: new Date().toISOString()
     });
 
@@ -196,7 +197,12 @@ async function scrapeDT(rutDT, apiKey) {
         if(nx&&firstKey&&firstKey!==window.__scLastSig&&faltan){
           window.__scLastSig=firstKey;
           window.__scClicks++;
-          nx.click();
+          // Disparo confiable del postback RadAjax: llamar AjaxNS.AR directo (con respaldo a click)
+          var href=nx.getAttribute('href')||'';
+          var am=href.match(/AjaxNS\.AR\(\s*'([^']*)'\s*,\s*'([^']*)'\s*,\s*'([^']*)'/);
+          if(am&&window.AjaxNS&&typeof window.AjaxNS.AR==='function'){
+            try{window.AjaxNS.AR(am[1],am[2],am[3],window.event||{});}catch(e){try{nx.click();}catch(e2){}}
+          }else{try{nx.click();}catch(e){}}
         }
       }catch(e){}
     };
@@ -216,16 +222,16 @@ async function scrapeDT(rutDT, apiKey) {
   })()`;
 
   // Escenario: llenar RUT → consultar → recorrer páginas (con reintentos ante cargas lentas) → finalizar
-  const NUM_STEPS = 9; // pasos de raspado: cubre ~6 páginas reales + margen para páginas que tardan en cargar
+  const NUM_STEPS = 10; // pasos de raspado: cubre ~6 páginas reales + amplio margen para cargas lentas
   const instr = [
     { wait_for: '#tbxRut' },
     { fill: ['#tbxRut', rutDT] },
     { click: '#btnConsulta' },
-    { wait: 4500 }
+    { wait: 5000 }
   ];
   instr.push({ evaluate: setupScript }); // define funciones + raspa página 1
   for (let p = 1; p < NUM_STEPS; p++) {
-    instr.push({ wait: 2400 });
+    instr.push({ wait: 2600 });
     instr.push({ evaluate: 'window.__scStep&&window.__scStep()' });
   }
   instr.push({ evaluate: 'window.__scFin&&window.__scFin()' });
@@ -241,7 +247,7 @@ async function scrapeDT(rutDT, apiKey) {
   });
 
   const resp = await fetch(`https://app.scrapingbee.com/api/v1/?${params}`, {
-    signal: AbortSignal.timeout(48000)
+    signal: AbortSignal.timeout(52000)
   });
 
   if (!resp.ok) {
