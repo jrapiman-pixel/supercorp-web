@@ -77,6 +77,13 @@
     .hero-title .accent{color:var(--green-strong)}
     .hero-subtitle{font-size:clamp(1rem,1.4vw,1.18rem);color:var(--gray-600);line-height:1.7;margin-bottom:2rem;max-width:560px}
     .hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+    /* ===== Chips-sello de leyes en el hero ===== */
+    .hero-leyes{margin-top:1.6rem}
+    .hero-leyes-label{display:block;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-400);margin-bottom:.6rem}
+    .hero-leyes-chips{display:flex;flex-wrap:wrap;gap:.5rem}
+    .ley-chip{display:inline-flex;align-items:center;gap:.4rem;background:linear-gradient(180deg,rgba(0,163,0,.06),rgba(0,138,28,.13));border:1px solid rgba(0,138,28,.35);color:var(--green-strong);font-size:.82rem;font-weight:800;padding:.42rem .9rem;border-radius:20px;text-decoration:none;box-shadow:0 2px 8px rgba(0,138,28,.12);transition:background .2s,color .2s,transform .2s,box-shadow .2s}
+    .ley-chip:hover{background:var(--green-strong);color:#fff;transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,138,28,.3)}
+    .ley-chip svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
     .btn-primary{background:var(--green-strong);color:#fff;padding:.95rem 2rem;border-radius:6px;font-weight:700;font-size:1rem;text-decoration:none;border:none;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body)}
     .btn-primary:hover{background:var(--green)}
     .btn-secondary{background:#fff;color:var(--gray-800);padding:.95rem 2rem;border-radius:6px;font-weight:600;font-size:1rem;text-decoration:none;border:1px solid var(--gray-200);cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body)}
@@ -468,6 +475,16 @@
       <div class="hero-actions">
         <a href="#diagnostico" class="btn-primary">Calcular mi ahorro</a>
         <a href="#como-funciona" class="btn-secondary">Ver cómo funciona →</a>
+      </div>
+      <div class="hero-leyes">
+        <span class="hero-leyes-label">Cubre las exigencias que más fiscalizan</span>
+        <div class="hero-leyes-chips">
+          <a href="#obligaciones" class="ley-chip"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>Ley 21.659</a>
+          <a href="#obligaciones" class="ley-chip"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>Ley 16.744</a>
+          <a href="#obligaciones" class="ley-chip"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>DS 44</a>
+          <a href="#obligaciones" class="ley-chip"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>DS 594</a>
+          <a href="#obligaciones" class="ley-chip"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>Ley 21.719</a>
+        </div>
       </div>
     </div>
     <div class="hero-right fade-in">
