@@ -169,9 +169,13 @@ async function scrapeDT(rutDT, apiKey) {
   // mínimo, para no exceder el límite de largo de la URL de ScrapingBee (8 KB).
   // String.raw preserva las barras invertidas de las expresiones regulares.
   const setupScript = String.raw`(function(){
-    window.__scAll={};window.__scOrder=[];window.__scTotal=0;
+    window.__scAll={};window.__scOrder=[];window.__scTotal=0;window.__scLastPage=0;
     window.__scStep=function(){
       try{
+        var bt=document.body.innerText||'';
+        var pm=bt.match(/página\s+(\d+)\s+de\s+(\d+)/i);
+        var curPage=pm?parseInt(pm[1],10):1;
+        var totPages=pm?parseInt(pm[2],10):1;
         var trs=document.querySelectorAll('tr');
         for(var i=0;i<trs.length;i++){
           var tds=trs[i].querySelectorAll('td');
@@ -184,11 +188,14 @@ async function scrapeDT(rutDT, apiKey) {
           window.__scAll[key]={procedencia:c[0]||'',multa:c[1]||'',estado:c[2]||'',fecha:c[3]||'',cantidad:parseFloat((c[4]||'0').replace(/\./g,'').replace(',','.'))||0,tipo:tipo,enunciado:(c[6]||'').replace(/[<>]/g,' ').slice(0,110)};
           window.__scOrder.push(key);
         }
-        var bt=document.body.innerText||'';
         var mt=bt.match(/items?\s+\d+\s+hasta\s+\d+\s+de\s+(\d+)/i);
         if(mt){var z=parseInt(mt[1],10);if(z>window.__scTotal)window.__scTotal=z;}
-        var nx=document.querySelector('a[title="página siguiente"]');
-        if(nx)nx.click();
+        // Avanzar SOLO si la página ya cambió (cargó) y hay más páginas → evita re-clic durante la transición AJAX
+        if(curPage>window.__scLastPage&&curPage<totPages){
+          window.__scLastPage=curPage;
+          var nx=document.querySelector('a[title="página siguiente"]');
+          if(nx)nx.click();
+        }
       }catch(e){}
     };
     window.__scFin=function(){
@@ -206,8 +213,8 @@ async function scrapeDT(rutDT, apiKey) {
     window.__scStep();
   })()`;
 
-  // Escenario: llenar RUT → consultar → recorrer hasta MAX_PAGES páginas → finalizar
-  const MAX_PAGES = 6; // hasta ~60 multas; suficiente para casi todas las empresas
+  // Escenario: llenar RUT → consultar → recorrer páginas (con reintentos ante cargas lentas) → finalizar
+  const NUM_STEPS = 9; // pasos de raspado: cubre ~6 páginas reales + margen para páginas que tardan en cargar
   const instr = [
     { wait_for: '#tbxRut' },
     { fill: ['#tbxRut', rutDT] },
@@ -215,8 +222,8 @@ async function scrapeDT(rutDT, apiKey) {
     { wait: 4500 }
   ];
   instr.push({ evaluate: setupScript }); // define funciones + raspa página 1
-  for (let p = 1; p < MAX_PAGES; p++) {
-    instr.push({ wait: 2200 });
+  for (let p = 1; p < NUM_STEPS; p++) {
+    instr.push({ wait: 2400 });
     instr.push({ evaluate: 'window.__scStep&&window.__scStep()' });
   }
   instr.push({ evaluate: 'window.__scFin&&window.__scFin()' });
