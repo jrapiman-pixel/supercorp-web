@@ -342,8 +342,9 @@
     .dt-more{text-align:center;font-size:.78rem;color:rgba(255,255,255,.42);padding:.65rem 0 .2rem;font-weight:600}
     .dt-close-line{font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.5;margin:.8rem 0 1rem;text-align:center;font-style:italic}
     .dt-close-line strong{color:#a7f3d0;font-style:normal}
-    .dt-recuperable-tier .calc-tier-value{font-size:2.4rem}
-    .dt-recuperable-anual{font-size:.85rem;color:#4ade80;opacity:.82;font-weight:600;margin-top:.15rem}
+    .dt-recuperable-tier .calc-tier-value{font-size:2.5rem}
+    .dt-rec-hasta{font-size:.42em;opacity:.7;font-weight:600;vertical-align:middle;letter-spacing:.02em}
+    .dt-recuperable-anual{font-size:.82rem;color:#4ade80;opacity:.78;font-weight:600;margin-top:.25rem}
     .dt-iceberg{font-size:.76rem;color:rgba(255,255,255,.38);background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);border-radius:8px;padding:.8rem 1rem;line-height:1.55;margin:.2rem 0 .2rem}
     .dt-iceberg strong{color:rgba(255,255,255,.6)}
     .dt-loader{display:flex;align-items:center;gap:.75rem;color:rgba(255,255,255,.5);font-size:.88rem;margin-top:1rem}
@@ -825,7 +826,7 @@
         <div class="dt-total-meta" id="dt-total-meta"></div>
         <div id="dt-year-bars" class="dt-year-bars"></div>
         <div class="dt-avg-caption" id="dt-avg-caption" style="display:none"></div>
-        <div class="dt-hook" id="dt-hook" style="display:none">🛡️ La mayoría de estas multas nacen de incumplimientos que <strong>SUPERCOR detecta en terreno y alerta</strong> — antes de que la DT las curse.</div>
+        <div class="dt-hook" id="dt-hook" style="display:none">🛡️ Estas multas nacen de incumplimientos que <strong>SUPERCOR detecta en terreno y alerta</strong> — antes de que la DT las curse.</div>
         <div class="dt-table" id="dt-table" style="display:none"></div>
         <div class="dt-iceberg" id="dt-iceberg" style="display:none">⚠️ <strong>Solo la DT.</strong> No incluye OS-10, Ley 21.659 ni descuentos de mandantes. El costo real es mayor — y SUPERCOR previene todos.</div>
         <div class="dt-close-line" id="dt-close-line" style="display:none">Cada una de estas multas pudo haber empezado como una <strong>simple alerta resuelta a tiempo</strong>.</div>
@@ -1345,8 +1346,9 @@
     document.getElementById('dt-total-clp').textContent=dtFmt(data.totalClp);
     let meta=data.totalMultas+' multa'+(data.totalMultas!==1?'s':'')+' en la DT';
     if(data.parcial)meta+=' (muestra '+data.multasMuestra+')';
-    const trend=dtTendencia(data.porAnio);
-    if(trend)meta+=' · '+trend;
+    const yrs=(data.porAnio||[]).map(a=>a.year);
+    if(yrs.length>1)meta+=' · '+yrs[0]+'–'+yrs[yrs.length-1];
+    else if(yrs.length===1)meta+=' · '+yrs[0];
     document.getElementById('dt-total-meta').innerHTML=meta;
     // 2) Barras por año (últimos 3)
     const barsEl=document.getElementById('dt-year-bars');barsEl.innerHTML='';
@@ -1361,22 +1363,18 @@
         barsEl.appendChild(wrap);
       });
     }
-    // 3) Promedio como nota chica: anual · mensual
-    if(data.avgAnual>0){
-      document.getElementById('dt-avg-caption').innerHTML='Promedio: <strong>'+dtFmtC(data.avgAnual)+' al año</strong> · '+dtFmtC(data.avgAnual/12)+' al mes';
-      show('dt-avg-caption','block');
-    }else show('dt-avg-caption','none');
+    // 3) (Sin "Promedio": el año inicial de empresas nuevas lo diluye y confunde)
+    show('dt-avg-caption','none');
     // 4) Frase gancho + tabla de las 5 multas
     const tabla=document.getElementById('dt-table');tabla.innerHTML='';
     if(data.muestra&&data.muestra.length>0){
       show('dt-hook','block');
       data.muestra.forEach(m=>{
         const motivo=(m.motivo||'Infracción registrada').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-        const tag=m.prevenible?'<span class="dt-tag">✓ SUPERCOR lo alerta</span>':'';
         const row=document.createElement('div');row.className='dt-row';
         row.innerHTML='<div class="dt-row-date">'+dtFechaCorta(m.fecha)+'</div>'+
-          '<div class="dt-row-main"><div class="dt-row-motivo">'+motivo+'</div>'+tag+'</div>'+
-          '<div class="dt-row-monto">'+dtFmtC(m.clp)+'</div>';
+          '<div class="dt-row-main"><div class="dt-row-motivo">'+motivo+'</div></div>'+
+          '<div class="dt-row-monto">'+dtFmt(m.clp)+'</div>';
         tabla.appendChild(row);
       });
       const restantes=data.totalMultas-data.muestra.length;
@@ -1388,16 +1386,15 @@
       show('dt-table','block');show('dt-close-line','block');
     }else{show('dt-hook','none');show('dt-table','none');show('dt-close-line','none');}
     show('dt-iceberg','block');
-    // 5) La esperanza: recuperable MENSUAL grande + anual chico (~80% del promedio anual)
-    const baseAnual=data.avgAnual>0?data.avgAnual:data.totalClp;
-    const recAnual=Math.round(baseAnual*0.8);
-    const recMensual=Math.round(recAnual/12);
+    // 5) La esperanza: recuperable = 80% del TOTAL del período (verde XL, siempre el número más alto)
+    const recTotal=Math.round(data.totalClp*0.8);
     const recEl=document.getElementById('dt-recuperable');
     const recAnualEl=document.getElementById('dt-recuperable-anual');
-    recEl.textContent=dtFmt(recMensual)+' /mes';
-    recAnualEl.textContent='≈ '+dtFmt(recAnual)+' al año';
+    recEl.innerHTML='<span class="dt-rec-hasta">hasta</span> '+dtFmt(recTotal);
+    let periodo='de su historial';
+    if(yrs.length>1)periodo='de su historial ('+yrs[0]+'–'+yrs[yrs.length-1]+')';
+    recAnualEl.textContent='en multas evitables '+periodo;
     recEl.classList.add('calc-value-blurred');
-    recAnualEl.classList.add('calc-value-blurred');
     show('dt-recuperable-block','block');
     show('dt-lock-hint','block');
     show('dt-gate','block');
