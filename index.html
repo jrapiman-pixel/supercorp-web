@@ -342,12 +342,19 @@
       .dif-row{grid-template-columns:1fr;gap:.3rem;padding:1rem 1.25rem}
     }
     @media(max-width:480px){.valor-grid{grid-template-columns:1fr}}
-    /* ===== Franja de clientes (prueba social) ===== */
-    #clientes{background:#fff;border-top:1px solid var(--gray-100);padding:2.5rem 2rem}
-    .clientes-label{text-align:center;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-400);margin-bottom:1.5rem}
-    .clientes-row{display:flex;align-items:center;justify-content:center;gap:3.5rem;flex-wrap:wrap;max-width:900px;margin:0 auto}
-    .clientes-row img{height:72px;width:auto;filter:grayscale(1);opacity:.75;transition:filter .3s,opacity .3s}
-    .clientes-row img:hover{filter:grayscale(0);opacity:1}
+    /* ===== Franja de clientes (prueba social, marquee animado) ===== */
+    #clientes{background:#fff;border-top:1px solid var(--gray-100);padding:3.25rem 0 3.5rem;overflow:hidden}
+    .clientes-label{text-align:center;font-size:.85rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-600);margin-bottom:2rem;padding:0 2rem}
+    .clientes-marquee{position:relative;max-width:1200px;margin:0 auto;overflow:hidden}
+    .clientes-marquee::before,.clientes-marquee::after{content:'';position:absolute;top:0;bottom:0;width:90px;z-index:2;pointer-events:none}
+    .clientes-marquee::before{left:0;background:linear-gradient(90deg,#fff,transparent)}
+    .clientes-marquee::after{right:0;background:linear-gradient(270deg,#fff,transparent)}
+    .clientes-track{display:flex;align-items:center;gap:5rem;width:max-content;animation:clientesScroll 30s linear infinite}
+    .clientes-track img{height:110px;width:auto}
+    .clientes-marquee:hover .clientes-track{animation-play-state:paused}
+    @keyframes clientesScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    @media (prefers-reduced-motion: reduce){.clientes-track{animation:none;flex-wrap:wrap;justify-content:center;width:auto}}
+    @media(max-width:768px){.clientes-track{gap:3rem}.clientes-track img{height:76px}}
     /* ===== Obligaciones fiscalizables (3 pilares) ===== */
     #obligaciones{background:#fff}
     .oblig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
@@ -367,20 +374,28 @@
     .dif-integra-chips{display:flex;justify-content:center;flex-wrap:wrap;gap:.5rem;margin:.9rem 0}
     .dif-integra-chip{background:#fff;border:1px solid var(--gray-200);color:var(--gray-600);font-size:.78rem;font-weight:600;padding:4px 14px;border-radius:16px}
     .dif-integra-text{font-size:.9rem;color:var(--gray-600);line-height:1.65;max-width:640px;margin:0 auto}
-    /* ===== SUPERCOR en los medios ===== */
+    /* ===== SUPERCOR en los medios (versión grande con página del reportaje) ===== */
     #prensa{background:var(--gray-50);border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100)}
-    .prensa-box{max-width:760px;margin:0 auto;text-align:center}
-    .prensa-box img{height:56px;width:auto;margin:0 auto 1.5rem;display:block}
-    .prensa-quote{font-family:var(--font-title);font-size:clamp(1.25rem,2.6vw,1.7rem);font-weight:700;color:var(--navy);line-height:1.4;font-style:italic;margin-bottom:1rem}
+    .prensa-grid{max-width:1040px;margin:2.5rem auto 0;display:grid;grid-template-columns:minmax(260px,380px) 1fr;gap:3.5rem;align-items:center}
+    .prensa-mag{display:block;border-radius:10px;overflow:hidden;box-shadow:0 24px 60px rgba(15,23,42,.25);transform:rotate(-2deg);transition:transform .3s}
+    .prensa-mag:hover{transform:rotate(0deg) scale(1.02)}
+    .prensa-mag img{width:100%;height:auto;display:block}
+    .prensa-content{text-align:left}
+    .prensa-content>img{height:72px;width:auto;margin-bottom:1.5rem;display:block}
+    .prensa-quote{font-family:var(--font-title);font-size:clamp(1.5rem,3vw,2.1rem);font-weight:700;color:var(--navy);line-height:1.35;font-style:italic;margin-bottom:1.25rem}
     .prensa-quote span{color:var(--green-strong)}
-    .prensa-attr{font-size:.85rem;color:var(--gray-600);margin-bottom:1.75rem}
+    .prensa-attr{font-size:1rem;color:var(--gray-600);margin-bottom:2rem}
+    @media(max-width:768px){
+      .prensa-grid{grid-template-columns:1fr;gap:2.5rem}
+      .prensa-mag{max-width:320px;margin:0 auto;transform:rotate(0)}
+      .prensa-content{text-align:center}
+      .prensa-content>img{margin-left:auto;margin-right:auto}
+    }
     /* ===== Urgencia antes de la calculadora ===== */
     .calc-urgency{display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:980px;margin:2.5rem auto 0}
     .calc-urgency-item{background:rgba(185,28,28,.1);border:1px solid rgba(185,28,28,.28);border-radius:10px;padding:1rem 1.4rem;font-size:.92rem;color:rgba(255,255,255,.85);line-height:1.55}
     .calc-urgency-item strong{color:#f87171}
     @media(max-width:768px){
-      .clientes-row{gap:2rem}
-      .clientes-row img{height:52px}
       .oblig-grid{grid-template-columns:1fr}
       .calc-urgency{grid-template-columns:1fr}
     }
@@ -428,10 +443,21 @@
 
 <section id="clientes">
   <div class="clientes-label fade-in">Empresas de seguridad que ya operan con SUPERCOR</div>
-  <div class="clientes-row fade-in">
-    <img src="assets/logo-surov.png" alt="Surov Seguridad — cliente SUPERCOR" loading="lazy" />
-    <img src="assets/logo-ingproseg.png" alt="Ingproseg — cliente SUPERCOR" loading="lazy" />
-    <img src="assets/logo-securityservice.png" alt="Security Service, Seguridad y Outsourcing de Personal — cliente SUPERCOR" loading="lazy" />
+  <div class="clientes-marquee fade-in">
+    <div class="clientes-track">
+      <img src="assets/logo-surov.png" alt="Surov Seguridad — cliente SUPERCOR" loading="lazy" />
+      <img src="assets/logo-ingproseg.png" alt="Ingproseg — cliente SUPERCOR" loading="lazy" />
+      <img src="assets/logo-securityservice.png" alt="Security Service, Seguridad y Outsourcing de Personal — cliente SUPERCOR" loading="lazy" />
+      <img src="assets/logo-surov.png" alt="" aria-hidden="true" loading="lazy" />
+      <img src="assets/logo-ingproseg.png" alt="" aria-hidden="true" loading="lazy" />
+      <img src="assets/logo-securityservice.png" alt="" aria-hidden="true" loading="lazy" />
+      <img src="assets/logo-surov.png" alt="" aria-hidden="true" loading="lazy" />
+      <img src="assets/logo-ingproseg.png" alt="" aria-hidden="true" loading="lazy" />
+      <img src="assets/logo-securityservice.png" alt="" aria-hidden="true" loading="lazy" />
+      <img src="assets/logo-surov.png" alt="" aria-hidden="true" loading="lazy" />
+      <img src="assets/logo-ingproseg.png" alt="" aria-hidden="true" loading="lazy" />
+      <img src="assets/logo-securityservice.png" alt="" aria-hidden="true" loading="lazy" />
+    </div>
   </div>
 </section>
 
@@ -551,6 +577,8 @@
       <div class="problem-card fade-in"><div class="problem-title">Gerencia sin visibilidad real</div><div class="problem-desc">La dirección toma decisiones con datos incompletos, tardíos o filtrados por terceros.</div></div>
       <div class="problem-card fade-in"><div class="problem-title">Información dispersa entre áreas</div><div class="problem-desc">Operaciones, Recursos Humanos y administración manejan datos distintos y contradictorios.</div></div>
       <div class="problem-card fade-in"><div class="problem-title">Riesgos detectados demasiado tarde</div><div class="problem-desc">Los problemas se conocen cuando ya hay consecuencias, no antes de que ocurran.</div></div>
+      <div class="problem-card fade-in"><div class="problem-title">Instalaciones semanas sin supervisión</div><div class="problem-desc">Puntos que llevan días o semanas sin visita, sin que nadie se dé cuenta a tiempo.</div></div>
+      <div class="problem-card fade-in"><div class="problem-title">Horas perdidas en reportes manuales</div><div class="problem-desc">Planillas y correos armados a mano para informar al cliente mandante, con datos que el sistema debería consolidar solo.</div></div>
     </div>
   </div>
 </section>
@@ -583,11 +611,16 @@
     <div class="text-center fade-in">
       <div class="section-badge">En los medios</div>
     </div>
-    <div class="prensa-box fade-in">
-      <img src="assets/logo-revista-sd.png" alt="Revista Seguridad & Defensa" loading="lazy" />
-      <p class="prensa-quote">"Cada incumplimiento detectado a tiempo representa <span>una multa evitada</span>, una contingencia controlada y una operación mejor gestionada."</p>
-      <p class="prensa-attr">Publicación en Revista Seguridad &amp; Defensa — Edición Nº64, junio 2026</p>
-      <a href="https://revistaseguridad.cl/3d-flip-book/edicion-no64/#edicion-no64/24/" target="_blank" rel="noopener" class="btn-primary">Leer el reportaje →</a>
+    <div class="prensa-grid fade-in">
+      <a class="prensa-mag" href="https://revistaseguridad.cl/3d-flip-book/edicion-no64/#edicion-no64/24/" target="_blank" rel="noopener" aria-label="Ver el reportaje completo en la edición Nº64 de Revista Seguridad y Defensa">
+        <img src="assets/reportaje-supercor.jpg" alt="Página del reportaje a SUPERCOR publicado en Revista Seguridad & Defensa, edición Nº64" loading="lazy" />
+      </a>
+      <div class="prensa-content">
+        <img src="assets/logo-revista-sd.png" alt="Revista Seguridad & Defensa" loading="lazy" />
+        <p class="prensa-quote">"Cada incumplimiento detectado a tiempo representa <span>una multa evitada</span>, una contingencia controlada y una operación mejor gestionada."</p>
+        <p class="prensa-attr">Publicación en Revista Seguridad &amp; Defensa — Edición Nº64, junio 2026</p>
+        <a href="https://revistaseguridad.cl/3d-flip-book/edicion-no64/#edicion-no64/24/" target="_blank" rel="noopener" class="btn-primary">Leer el reportaje completo →</a>
+      </div>
     </div>
   </div>
 </section>
