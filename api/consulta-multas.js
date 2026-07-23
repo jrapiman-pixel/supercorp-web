@@ -88,7 +88,6 @@ export default async function handler(req, res) {
       avgAnual,
       muestra,
       utm,
-      _clicks: data._clicks,
       consultadoEl: new Date().toISOString()
     });
 
