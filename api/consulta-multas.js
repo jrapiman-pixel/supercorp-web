@@ -170,7 +170,7 @@ async function scrapeDT(rutDT, apiKey) {
   // mínimo, para no exceder el límite de largo de la URL de ScrapingBee (8 KB).
   // String.raw preserva las barras invertidas de las expresiones regulares.
   const setupScript = String.raw`(function(){
-    window.__scAll={};window.__scOrder=[];window.__scTotal=0;window.__scLastSig='';window.__scClicks=0;
+    window.__scAll={};window.__scOrder=[];window.__scTotal=0;window.__scLastSig='';window.__scClicks=0;window.__scStall=0;
     window.__scStep=function(){
       try{
         var trs=document.querySelectorAll('tr');
@@ -190,19 +190,29 @@ async function scrapeDT(rutDT, apiKey) {
         var bt=document.body.innerText||'';
         var mt=bt.match(/items?\s+\d+\s+hasta\s+\d+\s+de\s+(\d+)/i);
         if(mt){var z=parseInt(mt[1],10);if(z>window.__scTotal)window.__scTotal=z;}
-        // Avanzar por CONTENIDO: solo si la primera multa visible cambió (la página realmente avanzó)
-        // y existe botón siguiente y aún faltan filas por juntar → evita re-clic en transición y bucles
         var faltan=(window.__scTotal===0)||(window.__scOrder.length<window.__scTotal);
         var nx=document.querySelector('a[title="página siguiente"]');
-        if(nx&&firstKey&&firstKey!==window.__scLastSig&&faltan){
-          window.__scLastSig=firstKey;
+        // Dispara el postback RadAjax de la página siguiente (AjaxNS.AR directo, respaldo a click)
+        var avanzar=function(){
+          if(!nx)return;
           window.__scClicks++;
-          // Disparo confiable del postback RadAjax: llamar AjaxNS.AR directo (con respaldo a click)
           var href=nx.getAttribute('href')||'';
           var am=href.match(/AjaxNS\.AR\(\s*'([^']*)'\s*,\s*'([^']*)'\s*,\s*'([^']*)'/);
           if(am&&window.AjaxNS&&typeof window.AjaxNS.AR==='function'){
-            try{window.AjaxNS.AR(am[1],am[2],am[3],window.event||{});}catch(e){try{nx.click();}catch(e2){}}
-          }else{try{nx.click();}catch(e){}}
+            try{window.AjaxNS.AR(am[1],am[2],am[3],window.event||{});return;}catch(e){}
+          }
+          try{nx.click();}catch(e){}
+        };
+        if(faltan&&nx&&firstKey){
+          if(firstKey!==window.__scLastSig){
+            // Página nueva (ya cargó): la raspamos arriba y pedimos la siguiente
+            window.__scLastSig=firstKey;window.__scStall=0;avanzar();
+          }else{
+            // Misma página: puede estar cargando O el disparo se perdió (la DT lo ignora si está ocupada).
+            // Tras 2 pasos sin cambio, REINTENTAMOS el disparo.
+            window.__scStall=(window.__scStall||0)+1;
+            if(window.__scStall>=2){window.__scStall=0;avanzar();}
+          }
         }
       }catch(e){}
     };
@@ -227,7 +237,7 @@ async function scrapeDT(rutDT, apiKey) {
     { wait_for: '#tbxRut' },
     { fill: ['#tbxRut', rutDT] },
     { click: '#btnConsulta' },
-    { wait: 5000 }
+    { wait: 6000 }
   ];
   instr.push({ evaluate: setupScript }); // define funciones + raspa página 1
   for (let p = 1; p < NUM_STEPS; p++) {
