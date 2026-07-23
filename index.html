@@ -253,7 +253,9 @@
     #diagnostico .section-title em{font-style:normal;color:#f87171;text-shadow:0 0 22px rgba(248,113,113,.5)}
     #diagnostico .section-title span{color:#4ade80;text-shadow:0 0 22px rgba(74,222,128,.5)}
     #diagnostico .section-subtitle{color:var(--silver-dim);font-size:1.15rem}
-    .calc-card{max-width:980px;margin:0 auto;background:rgba(31,41,55,.65);border:1px solid rgba(0,163,0,.35);border-radius:0 14px 14px 14px;padding:2.5rem;display:block;animation:calcBreath 3.2s ease-in-out infinite}
+    .calc-card{max-width:980px;margin:3rem auto 0;background:rgba(31,41,55,.65);border:1px solid rgba(0,163,0,.35);border-radius:14px;padding:2.5rem;display:block;animation:calcBreath 3.2s ease-in-out infinite}
+    .calc-alt-link{display:inline-block;margin-top:1.4rem;background:none;border:none;padding:0;color:var(--accent);font-family:var(--font-body);font-size:.85rem;cursor:pointer;text-decoration:underline;text-decoration-color:transparent;transition:text-decoration-color .2s,opacity .2s;opacity:.85}
+    .calc-alt-link:hover{text-decoration-color:var(--accent);opacity:1}
     @keyframes calcBreath{0%,100%{box-shadow:0 0 0 1px rgba(0,163,0,.1),0 20px 80px rgba(0,0,0,.5),0 0 30px rgba(0,163,0,.12)}50%{box-shadow:0 0 0 1px rgba(0,163,0,.28),0 20px 80px rgba(0,0,0,.5),0 0 60px rgba(0,163,0,.28)}}
     .calc-form-intro{font-size:1rem;color:var(--silver-dim);line-height:1.65;margin-bottom:1.5rem}
     .calc-chart{text-align:center}
@@ -715,21 +717,17 @@
   <div class="container">
     <div class="text-center fade-in">
       <div class="section-badge">Diagnóstico de riesgo financiero</div>
-      <h2 class="section-title">¿Cuánto <em>pierde</em> hoy en multas… y cuánto podría <span>recuperar</span>?</h2>
-      <p class="section-subtitle">Calcule en segundos su nivel de riesgo y la pérdida anual que podría estar evitando con SUPERCOR.</p>
+      <h2 class="section-title">Vea las multas <em>reales</em> de su empresa… y cuánto podría <span>recuperar</span>.</h2>
+      <p class="section-subtitle">Ingrese el RUT de su empresa y consulte en vivo su historial de multas en la Dirección del Trabajo. Datos reales, no estimaciones.</p>
     </div>
     <div class="calc-urgency fade-in">
       <div class="calc-urgency-item">Las empresas pierden <strong>millones cada año</strong> por incumplimientos detectados demasiado tarde.</div>
       <div class="calc-urgency-item">Un solo incumplimiento puede generar <strong>multas, pérdida de contratos y daño reputacional</strong>.</div>
     </div>
-    <div class="calc-tabs">
-      <button class="calc-tab active" onclick="setCalcTab('estimar')">📊 Estimar ahorro</button>
-      <button class="calc-tab" onclick="setCalcTab('dt')">🔍 Multas DT real</button>
-    </div>
     <div class="calc-card fade-in">
-    <div id="est-panel" class="calc-panel-inner">
+    <div id="est-panel" class="calc-panel-inner" style="display:none">
       <div class="calc-form">
-        <p class="calc-form-intro">Ingrese sus datos y vea en vivo cómo se mueve su nivel de riesgo. Presione Calcular para ver su pérdida y ahorro proyectado.</p>
+        <p class="calc-form-intro">Estimación manual, para empresas sin multas registradas en la DT o que prefieren proyectar su riesgo. Ingrese sus datos y vea en vivo su pérdida y ahorro proyectado.</p>
         <div class="form-group">
           <label class="form-label" for="calc-trabajadores">Cantidad de Trabajadores en Terreno</label>
           <input class="form-input" id="calc-trabajadores" type="number" min="0" inputmode="numeric" placeholder="Ej: 50" />
@@ -742,6 +740,7 @@
           <button type="button" class="btn-primary" onclick="calcCalcular()">🔍 Calcular ahora</button>
           <button type="button" class="calc-link-reset" onclick="calcReset()">Limpiar datos</button>
         </div>
+        <button type="button" class="calc-alt-link" onclick="setCalcTab('dt')">← Volver a la consulta real por RUT</button>
       </div>
       <div class="calc-result">
         <div class="calc-chart">
@@ -788,9 +787,9 @@
         </div>
       </div>
     </div>
-    <div id="dt-panel" class="calc-panel-inner" style="display:none">
+    <div id="dt-panel" class="calc-panel-inner">
       <div class="calc-form">
-        <p class="calc-form-intro">Consulte en tiempo real las multas registradas en la Dirección del Trabajo para su empresa. Solo ingrese el RUT.</p>
+        <p class="calc-form-intro">Consulte en tiempo real todo el historial de multas de su empresa en la Dirección del Trabajo. Solo ingrese el RUT — la consulta tarda unos segundos.</p>
         <div class="form-group">
           <label class="form-label" for="dt-rut">RUT de la empresa</label>
           <input class="form-input" id="dt-rut" type="text" inputmode="text" placeholder="Ej: 76.543.210-9" maxlength="13" autocomplete="off" oninput="dtFormatRut(this)" onkeydown="if(event.key==='Enter')dtConsultar()" />
@@ -799,8 +798,9 @@
           <button type="button" class="btn-primary" id="dt-btn" onclick="dtConsultar()">🔍 Consultar en la DT</button>
           <button type="button" class="calc-link-reset" onclick="dtReset()">Limpiar</button>
         </div>
-        <div id="dt-loader" class="dt-loader" style="display:none"><div class="dt-loader-spinner"></div><span>Consultando Dirección del Trabajo…</span></div>
+        <div id="dt-loader" class="dt-loader" style="display:none"><div class="dt-loader-spinner"></div><span>Consultando la Dirección del Trabajo… (esto puede tardar hasta 30 segundos)</span></div>
         <div id="dt-error" class="dt-error" style="display:none"></div>
+        <button type="button" class="calc-alt-link" onclick="setCalcTab('estimar')">¿Su empresa no aparece en la DT? Haga una estimación manual →</button>
       </div>
       <div class="calc-result" id="dt-result-panel" style="opacity:0;transition:opacity .5s ease">
         <div class="calc-chart">
@@ -1262,17 +1262,14 @@
     setTimeout(()=>window.open(`https://wa.me/56995950843?text=${encodeURIComponent(msg)}`,'_blank'),1500);
   }
 
-  // ─── Tabs calculadora ──────────────────────────────────────────────────────
+  // ─── Alterna entre consulta real por RUT y estimación manual ────────────────
   function setCalcTab(tab){
     const estPanel=document.getElementById('est-panel');
     const dtPanel=document.getElementById('dt-panel');
-    const tabs=document.querySelectorAll('.calc-tab');
     if(tab==='estimar'){
       estPanel.style.display='';dtPanel.style.display='none';
-      tabs[0].classList.add('active');tabs[1].classList.remove('active');
     }else{
       estPanel.style.display='none';dtPanel.style.display='';
-      tabs[0].classList.remove('active');tabs[1].classList.add('active');
     }
   }
   // ─── DT multas ─────────────────────────────────────────────────────────────
@@ -1330,9 +1327,10 @@
     }
     if(data.avgAnual>0){document.getElementById('dt-avg-value').textContent=fmt(data.avgAnual)+'/año';document.getElementById('dt-avg-block').style.display='block';}
     document.getElementById('dt-iceberg').style.display='block';
-    const COSTO_ANUAL=300000*12;
-    const recuperable=Math.max(0,data.totalClp-COSTO_ANUAL);
-    document.getElementById('dt-recuperable').textContent=fmt(recuperable);
+    // Recuperable anual: SUPERCOR previene la mayoría de estos incumplimientos (~80%), no el 100%
+    const baseAnual=data.avgAnual>0?data.avgAnual:data.totalClp;
+    const recuperable=Math.round(baseAnual*0.8);
+    document.getElementById('dt-recuperable').textContent=fmt(recuperable)+'/año';
     document.getElementById('dt-recuperable').classList.add('calc-value-blurred');
     document.getElementById('dt-recuperable-block').style.display='block';
     document.getElementById('dt-lock-hint').style.display='block';

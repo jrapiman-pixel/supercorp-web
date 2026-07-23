@@ -1,7 +1,7 @@
 // Endpoint: consulta multas reales DT via ScrapingBee
 // Solo datos de la Dirección del Trabajo — no incluye OS-10, Ley 21.659, ni mandantes
 
-export const config = { maxDuration: 30 };
+export const config = { maxDuration: 60 };
 
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -114,8 +114,11 @@ function asegurarGuion(rut) {
 
 function extraerAnio(fecha) {
   if (!fecha) return 'N/D';
-  const m = fecha.match(/(\d{4})/);
-  return m ? m[1] : 'N/D';
+  // Formato DT: dd-mm-yyyy → el año es el tercer grupo
+  const m = fecha.match(/(\d{1,2})[-/](\d{1,2})[-/](\d{4})/);
+  if (m) return m[3];
+  const y = fecha.match(/(19\d{2}|20\d{2})/);
+  return y ? y[1] : 'N/D';
 }
 
 // ─── UTM vigente ──────────────────────────────────────────────────────────────
@@ -137,66 +140,70 @@ async function getUTM() {
 // ─── ScrapingBee → Dirección del Trabajo ─────────────────────────────────────
 
 async function scrapeDT(rutDT, apiKey, opts = {}) {
-  // Script que corre en el browser de ScrapingBee para extraer las filas
-  const extractScript = `(function(){
+  // Paso de raspado: acumula filas de la página actual (dedupe por N° resolución)
+  // y avanza a la siguiente página. Se repite una vez por página del RadGrid.
+  // String.raw preserva las barras invertidas de las expresiones regulares.
+  const stepScript = String.raw`(function(){
     try{
-      var rows=[];
-      var allTrs=document.querySelectorAll('tr');
-      for(var i=0;i<allTrs.length;i++){
-        var tds=allTrs[i].querySelectorAll('td');
+      if(!window.__scAll){window.__scAll={};window.__scOrder=[];window.__scTotal=0;}
+      var trs=document.querySelectorAll('tr');
+      for(var i=0;i<trs.length;i++){
+        var tds=trs[i].querySelectorAll('td');
         if(tds.length<6)continue;
-        var cells=Array.prototype.map.call(tds,function(td){return td.innerText.trim();});
-        var tipo=cells[5];
-        if(tipo==='UTM'||tipo==='IMM'){
-          rows.push({
-            procedencia:cells[0]||'',
-            multa:cells[1]||'',
-            estado:cells[2]||'',
-            fecha:cells[3]||'',
-            cantidad:parseFloat((cells[4]||'0').replace(',','.'))||0,
-            tipo:tipo,
-            enunciado:cells[6]||''
-          });
-        }
+        var c=[];
+        for(var k=0;k<tds.length;k++)c.push((tds[k].innerText||'').trim());
+        var tipo=c[5];
+        if(tipo!=='UTM'&&tipo!=='IMM')continue;
+        var key=c[1]||(c[3]+'|'+c[4]+'|'+c[0]);
+        if(window.__scAll[key])continue;
+        window.__scAll[key]={
+          procedencia:c[0]||'',multa:c[1]||'',estado:c[2]||'',fecha:c[3]||'',
+          cantidad:parseFloat((c[4]||'0').replace(/\./g,'').replace(',','.'))||0,tipo:tipo
+        };
+        window.__scOrder.push(key);
       }
-      var totalReg=0;
-      var allEls=document.querySelectorAll('span,td,div');
-      for(var j=0;j<allEls.length;j++){
-        var txt=(allEls[j].innerText||'').trim();
-        var m=txt.match(/Página\s*(\d+)\s*de\s*(\d+)/i)||txt.match(/(\d+)\s*de\s*(\d+)\s*páginas/i);
-        if(m){totalReg=parseInt(m[2])*10;break;}
-        var m2=txt.match(/(\d+)\s*(?:registros|multas|resultados)/i);
-        if(m2&&parseInt(m2[1])>totalReg)totalReg=parseInt(m2[1]);
-      }
-      var bodyTxt=document.body.innerText||'';
-      var sinRes=bodyTxt.toLowerCase().indexOf('no existen multas')>=0||
-                 bodyTxt.toLowerCase().indexOf('no se encontraron')>=0||
-                 bodyTxt.toLowerCase().indexOf('sin multas')>=0||
-                 bodyTxt.toLowerCase().indexOf('no hay registros')>=0;
-      var result=JSON.stringify({
-        rows:rows,
-        totalRegistros:totalReg||rows.length,
-        tieneResultados:rows.length>0&&!sinRes,
-        paginaActual:1
-      });
-      var el=document.getElementById('__sc_dt')||document.createElement('div');
-      el.id='__sc_dt';el.style.display='none';el.textContent=result;
-      if(!el.parentNode)document.body.appendChild(el);
-      return result;
-    }catch(e){
-      return JSON.stringify({rows:[],totalRegistros:0,tieneResultados:false,err:e.message});
-    }
+      var bt=document.body.innerText||'';
+      var mt=bt.match(/items?\s+\d+\s+hasta\s+\d+\s+de\s+(\d+)/i);
+      if(mt){var z=parseInt(mt[1],10);if(z>window.__scTotal)window.__scTotal=z;}
+      var nx=document.querySelector('a[title="página siguiente"]');
+      if(nx)nx.click();
+      return 'ok:'+window.__scOrder.length+'/'+window.__scTotal;
+    }catch(e){return 'err:'+e.message;}
   })()`;
 
-  const scenario = {
-    instructions: [
-      { wait_for: '#tbxRut' },
-      { fill: ['#tbxRut', rutDT] },
-      { click: '#btnConsulta' },
-      { wait: 6000 },
-      ...(opts.raw ? [] : [{ evaluate: extractScript }])
-    ]
-  };
+  const finalizeScript = String.raw`(function(){
+    try{
+      var all=window.__scAll||{};var order=window.__scOrder||[];
+      var rows=[];for(var i=0;i<order.length;i++)rows.push(all[order[i]]);
+      var total=window.__scTotal||rows.length;
+      var bt=document.body.innerText||'';
+      var sin=rows.length===0&&/no\s+(existen|hay|se\s+encontraron|se\s+registran)/i.test(bt);
+      var out=JSON.stringify({rows:rows,totalRegistros:total,tieneResultados:rows.length>0&&!sin});
+      var el=document.getElementById('__sc_dt')||document.createElement('div');
+      el.id='__sc_dt';el.style.display='none';el.textContent=out;
+      if(!el.parentNode)document.body.appendChild(el);
+      return out;
+    }catch(e){return JSON.stringify({rows:[],totalRegistros:0,tieneResultados:false,err:e.message});}
+  })()`;
+
+  // Escenario: llenar RUT → consultar → recorrer hasta MAX_PAGES páginas → finalizar
+  const MAX_PAGES = 6; // hasta ~60 multas; suficiente para casi todas las empresas
+  const instr = [
+    { wait_for: '#tbxRut' },
+    { fill: ['#tbxRut', rutDT] },
+    { click: '#btnConsulta' },
+    { wait: 4500 }
+  ];
+  if (opts.raw) {
+    // Modo diagnóstico: solo la primera página, sin recorrer
+  } else {
+    for (let p = 0; p < MAX_PAGES; p++) {
+      instr.push({ evaluate: stepScript });
+      if (p < MAX_PAGES - 1) instr.push({ wait: 2200 });
+    }
+    instr.push({ evaluate: finalizeScript });
+  }
+  const scenario = { instructions: instr };
 
   const params = new URLSearchParams({
     api_key: apiKey,
@@ -208,7 +215,7 @@ async function scrapeDT(rutDT, apiKey, opts = {}) {
   });
 
   const resp = await fetch(`https://app.scrapingbee.com/api/v1/?${params}`, {
-    signal: AbortSignal.timeout(25000)
+    signal: AbortSignal.timeout(48000)
   });
 
   if (!resp.ok) {
