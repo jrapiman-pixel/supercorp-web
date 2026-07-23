@@ -82,10 +82,14 @@
     /* ===== Chips-sello de leyes en el hero ===== */
     .hero-leyes{margin-top:1.6rem}
     .hero-leyes-label{display:block;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-400);margin-bottom:.6rem}
-    .hero-leyes-chips{display:flex;flex-wrap:wrap;gap:.5rem}
-    .ley-chip{display:inline-flex;align-items:center;gap:.4rem;background:linear-gradient(180deg,rgba(0,163,0,.06),rgba(0,138,28,.13));border:1px solid rgba(0,138,28,.35);color:var(--green-strong);font-size:.82rem;font-weight:800;padding:.42rem .9rem;border-radius:20px;text-decoration:none;box-shadow:0 2px 8px rgba(0,138,28,.12);transition:background .2s,color .2s,transform .2s,box-shadow .2s}
-    .ley-chip:hover{background:var(--green-strong);color:#fff;transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,138,28,.3)}
-    .ley-chip svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+    .hero-leyes-chips{display:flex;flex-wrap:wrap;gap:.7rem}
+    /* Sellos de cumplimiento normativo (mismo lenguaje visual que el sello de la Ley 21.659) */
+    .ley-sello{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:76px;height:76px;border-radius:50%;background:radial-gradient(circle at 50% 32%,rgba(0,163,0,.16),rgba(0,138,28,.06));border:2px solid rgba(0,138,28,.45);box-shadow:0 2px 10px rgba(0,138,28,.15),inset 0 0 0 3px rgba(255,255,255,.55);color:var(--green-strong);text-decoration:none;flex-shrink:0;transition:transform .2s,box-shadow .2s}
+    .ley-sello:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 8px 20px rgba(0,138,28,.32),inset 0 0 0 3px rgba(255,255,255,.55)}
+    .ley-sello-top{font-size:.5rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;opacity:.72;line-height:1}
+    .ley-sello-num{font-family:var(--font-title);font-size:.85rem;font-weight:700;line-height:1.15;margin-top:1px}
+    .ley-sello svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round;margin-top:2px;opacity:.85}
+    @media (max-width:520px){.ley-sello{width:66px;height:66px}.ley-sello-num{font-size:.76rem}}
     .btn-primary{background:var(--green-strong);color:#fff;padding:.95rem 2rem;border-radius:6px;font-weight:700;font-size:1rem;text-decoration:none;border:none;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body)}
     .btn-primary:hover{background:var(--green)}
     .btn-secondary{background:#fff;color:var(--gray-800);padding:.95rem 2rem;border-radius:6px;font-weight:600;font-size:1rem;text-decoration:none;border:1px solid var(--gray-200);cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body)}
@@ -318,35 +322,41 @@
     .calc-tab:not(.active):hover{background:rgba(255,255,255,.07);color:rgba(255,255,255,.7)}
     /* Panel inner dentro del calc-card */
     .calc-panel-inner{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start}
-    /* Resultados DT */
-    .dt-total-clp{font-family:var(--font-title);font-size:clamp(2.6rem,5vw,3.9rem);font-weight:700;color:#f87171;line-height:1.05;margin:.15rem 0 .3rem;text-shadow:0 0 42px rgba(248,113,113,.55)}
-    .dt-total-meta{font-size:.82rem;color:rgba(255,255,255,.5);margin-bottom:.85rem;line-height:1.5;font-weight:600}
-    .dt-trend{font-weight:800;white-space:nowrap}
-    .dt-trend-up{color:#f87171}
-    .dt-trend-down{color:#4ade80}
-    .dt-year-bars{display:flex;align-items:flex-end;justify-content:center;gap:10px;height:94px;margin:.4rem auto .5rem;max-width:250px}
+    /* Resultados DT — diseño compacto */
+    .dt-empresa{margin-bottom:.6rem}
+    .dt-empresa-nombre{font-family:var(--font-title);font-size:1.35rem;font-weight:700;color:#fff;line-height:1.2}
+    .dt-empresa-rut{font-size:.8rem;color:rgba(255,255,255,.45);font-weight:600;margin-top:.1rem}
+    .dt-badge-multas{display:inline-block;background:rgba(185,28,28,.15);border:1px solid rgba(248,113,113,.35);color:#fca5a5;font-size:.78rem;font-weight:700;padding:5px 14px;border-radius:20px;margin-bottom:.7rem}
+    .dt-year-bars{display:flex;align-items:flex-end;justify-content:center;gap:14px;height:74px;margin:.3rem auto .4rem;max-width:270px}
     .dt-year-bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;cursor:default}
+    .dt-year-monto{font-size:.6rem;color:#fca5a5;font-weight:700;margin-bottom:3px;white-space:nowrap}
     .dt-year-bar-fill{width:100%;max-width:26px;background:linear-gradient(180deg,#f87171,#b91c1c);border-radius:3px 3px 0 0;min-height:4px;box-shadow:0 0 8px rgba(248,113,113,.3);transition:height .6s cubic-bezier(.34,1.4,.64,1)}
-    .dt-year-label{font-size:.6rem;color:rgba(255,255,255,.4);margin-top:.35rem;font-weight:700}
-    .dt-avg-caption{font-size:.8rem;color:rgba(255,255,255,.42);text-align:center;margin:0 0 1.1rem;line-height:1.4}
-    .dt-avg-caption strong{color:rgba(255,255,255,.72);font-weight:700}
-    .dt-hook{font-size:.84rem;color:#a7f3d0;background:rgba(0,163,0,.08);border:1px solid rgba(0,163,0,.2);border-radius:8px;padding:.7rem .9rem;line-height:1.5;margin-bottom:.9rem}
-    .dt-hook strong{color:#4ade80}
-    .dt-table{margin-bottom:.4rem}
-    .dt-row{display:grid;grid-template-columns:auto 1fr auto;gap:.65rem;align-items:center;padding:.55rem 0;border-bottom:1px solid rgba(255,255,255,.07)}
-    .dt-row-date{font-size:.68rem;color:rgba(255,255,255,.4);font-weight:600;white-space:nowrap}
+    .dt-year-label{font-size:.6rem;color:rgba(255,255,255,.4);margin-top:.3rem;font-weight:700}
+    .dt-table{margin-bottom:.2rem;border-top:1px solid rgba(255,255,255,.08)}
+    .dt-row{display:grid;grid-template-columns:auto 1fr auto;gap:.6rem;align-items:center;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.07)}
+    .dt-row-date{font-size:.66rem;color:rgba(255,255,255,.4);font-weight:600;white-space:nowrap}
     .dt-row-main{min-width:0}
-    .dt-row-motivo{font-size:.8rem;color:rgba(255,255,255,.82);line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
-    .dt-tag{display:inline-block;margin-top:.25rem;font-size:.62rem;font-weight:700;color:#4ade80;background:rgba(0,163,0,.12);border:1px solid rgba(0,163,0,.3);border-radius:20px;padding:1px 8px;white-space:nowrap}
-    .dt-row-monto{font-family:var(--font-title);font-size:.92rem;font-weight:700;color:#f87171;white-space:nowrap;text-align:right}
-    .dt-more{text-align:center;font-size:.78rem;color:rgba(255,255,255,.42);padding:.65rem 0 .2rem;font-weight:600}
-    .dt-close-line{font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.5;margin:.8rem 0 1rem;text-align:center;font-style:italic}
-    .dt-close-line strong{color:#a7f3d0;font-style:normal}
-    .dt-recuperable-tier .calc-tier-value{font-size:2.5rem}
-    .dt-rec-hasta{font-size:.42em;opacity:.7;font-weight:600;vertical-align:middle;letter-spacing:.02em}
-    .dt-recuperable-anual{font-size:.82rem;color:#4ade80;opacity:.78;font-weight:600;margin-top:.25rem}
-    .dt-iceberg{font-size:.76rem;color:rgba(255,255,255,.38);background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);border-radius:8px;padding:.8rem 1rem;line-height:1.55;margin:.2rem 0 .2rem}
-    .dt-iceberg strong{color:rgba(255,255,255,.6)}
+    .dt-row-motivo{font-size:.78rem;color:rgba(255,255,255,.82);line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+    .dt-row-monto{font-family:var(--font-title);font-size:.88rem;font-weight:700;color:#f87171;white-space:nowrap;text-align:right}
+    .dt-vermas{display:block;width:100%;background:none;border:none;color:var(--accent);font-family:var(--font-body);font-size:.8rem;font-weight:600;cursor:pointer;padding:.55rem 0 .7rem;text-decoration:underline;text-decoration-color:transparent;transition:text-decoration-color .2s}
+    .dt-vermas:hover{text-decoration-color:var(--accent)}
+    /* Las dos cajas lado a lado: rojo (pérdida) vs verde (recuperable) */
+    .dt-boxes{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:.3rem 0 .7rem}
+    .dt-box{border-radius:10px;padding:.9rem .8rem;text-align:center}
+    .dt-box-red{background:rgba(185,28,28,.14);border:1px solid rgba(185,28,28,.35)}
+    .dt-box-green{background:rgba(0,163,0,.12);border:1px solid rgba(0,163,0,.3)}
+    .dt-box-label{font-size:.63rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;line-height:1.25;margin-bottom:.25rem}
+    .dt-box-red .dt-box-label{color:#f87171}
+    .dt-box-green .dt-box-label{color:#4ade80}
+    .dt-box-value{font-family:var(--font-title);font-size:clamp(1.35rem,2.6vw,1.85rem);font-weight:700;line-height:1.1}
+    .dt-box-red .dt-box-value{color:#f87171;text-shadow:0 0 22px rgba(248,113,113,.4)}
+    .dt-box-green .dt-box-value{color:#4ade80;text-shadow:0 0 22px rgba(74,222,128,.3)}
+    .dt-rec-hasta{font-size:.5em;opacity:.75;font-weight:600;vertical-align:middle}
+    .dt-nota{font-size:.72rem;color:rgba(255,255,255,.4);line-height:1.5;margin-bottom:.3rem}
+    .dt-nota strong{color:#86efac}
+    .dt-fuente{display:flex;align-items:flex-start;gap:.55rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:.65rem .8rem;margin-top:1rem;font-size:.74rem;color:rgba(255,255,255,.5);line-height:1.45}
+    .dt-fuente strong{color:rgba(255,255,255,.78)}
+    .dt-fuente-icono{font-size:.95rem;line-height:1;flex-shrink:0}
     .dt-loader{display:flex;align-items:center;gap:.75rem;color:rgba(255,255,255,.5);font-size:.88rem;margin-top:1rem}
     .dt-loader-spinner{width:18px;height:18px;border:2px solid rgba(255,255,255,.12);border-top-color:var(--accent);border-radius:50%;animation:dtSpin .7s linear infinite;flex-shrink:0}
     @keyframes dtSpin{to{transform:rotate(360deg)}}
@@ -527,11 +537,11 @@
       <div class="hero-leyes">
         <span class="hero-leyes-label">Cubre las exigencias que más fiscalizan</span>
         <div class="hero-leyes-chips">
-          <a href="#obligaciones" class="ley-chip"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>Ley 21.659</a>
-          <a href="#obligaciones" class="ley-chip"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>Ley 16.744</a>
-          <a href="#obligaciones" class="ley-chip"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>DS 44</a>
-          <a href="#obligaciones" class="ley-chip"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>DS 594</a>
-          <a href="#obligaciones" class="ley-chip"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>Ley 21.719</a>
+          <a href="#obligaciones" class="ley-sello" title="Ley 21.659 — Seguridad Privada"><span class="ley-sello-top">Ley</span><span class="ley-sello-num">21.659</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></a>
+          <a href="#obligaciones" class="ley-sello" title="Ley 16.744 — Accidentes del Trabajo y Enfermedades Profesionales"><span class="ley-sello-top">Ley</span><span class="ley-sello-num">16.744</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></a>
+          <a href="#obligaciones" class="ley-sello" title="D.S. 44 — Gestión Preventiva de Riesgos Laborales"><span class="ley-sello-top">D.S.</span><span class="ley-sello-num">44</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></a>
+          <a href="#obligaciones" class="ley-sello" title="D.S. 594 — Condiciones Sanitarias y Ambientales en los Lugares de Trabajo"><span class="ley-sello-top">D.S.</span><span class="ley-sello-num">594</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></a>
+          <a href="#obligaciones" class="ley-sello" title="Ley 21.719 — Protección de Datos Personales"><span class="ley-sello-top">Ley</span><span class="ley-sello-num">21.719</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></a>
         </div>
       </div>
     </div>
@@ -818,24 +828,33 @@
         </div>
         <div id="dt-loader" class="dt-loader" style="display:none"><div class="dt-loader-spinner"></div><span>Consultando la Dirección del Trabajo… (esto puede tardar hasta 30 segundos)</span></div>
         <div id="dt-error" class="dt-error" style="display:none"></div>
+        <div class="dt-fuente">
+          <span class="dt-fuente-icono">🏛️</span>
+          <span><strong>Fuente oficial: Dirección del Trabajo</strong> — consulta pública de multas ejecutoriadas. Sin estimaciones.</span>
+        </div>
         <button type="button" class="calc-alt-link" onclick="setCalcTab('estimar')">¿Su empresa no aparece en la DT? Haga una estimación manual →</button>
       </div>
       <div class="calc-result" id="dt-result-panel" style="opacity:0;transition:opacity .5s ease">
-        <div class="calc-chart-label">Total multas — historial Dirección del Trabajo</div>
-        <div class="dt-total-clp" id="dt-total-clp">—</div>
-        <div class="dt-total-meta" id="dt-total-meta"></div>
-        <div id="dt-year-bars" class="dt-year-bars"></div>
-        <div class="dt-avg-caption" id="dt-avg-caption" style="display:none"></div>
-        <div class="dt-hook" id="dt-hook" style="display:none">🛡️ Estas multas nacen de incumplimientos que <strong>SUPERCOR detecta en terreno y alerta</strong> — antes de que la DT las curse.</div>
-        <div class="dt-table" id="dt-table" style="display:none"></div>
-        <div class="dt-iceberg" id="dt-iceberg" style="display:none">⚠️ <strong>Solo la DT.</strong> No incluye OS-10, Ley 21.659 ni descuentos de mandantes. El costo real es mayor — y SUPERCOR previene todos.</div>
-        <div class="dt-close-line" id="dt-close-line" style="display:none">Cada una de estas multas pudo haber empezado como una <strong>simple alerta resuelta a tiempo</strong>.</div>
-        <div class="calc-tier calc-tier-recovery dt-recuperable-tier" id="dt-recuperable-block" style="display:none">
-          <div class="calc-tier-label">Recuperable con SUPERCOR</div>
-          <div class="calc-tier-value" id="dt-recuperable">$0</div>
-          <div class="dt-recuperable-anual" id="dt-recuperable-anual"></div>
-          <div class="calc-lock-hint" id="dt-lock-hint">🔒 Ingrese su correo para ver su ahorro</div>
+        <div class="dt-empresa" id="dt-empresa" style="display:none">
+          <div class="dt-empresa-nombre" id="dt-empresa-nombre"></div>
+          <div class="dt-empresa-rut" id="dt-empresa-rut"></div>
         </div>
+        <div class="dt-badge-multas" id="dt-badge-multas" style="display:none"></div>
+        <div id="dt-year-bars" class="dt-year-bars"></div>
+        <div class="dt-table" id="dt-table" style="display:none"></div>
+        <button type="button" class="dt-vermas" id="dt-vermas" style="display:none" onclick="dtVerMas()"></button>
+        <div class="dt-boxes" id="dt-boxes" style="display:none">
+          <div class="dt-box dt-box-red">
+            <div class="dt-box-label">Total real en multas</div>
+            <div class="dt-box-value" id="dt-total-clp">$0</div>
+          </div>
+          <div class="dt-box dt-box-green" id="dt-recuperable-block">
+            <div class="dt-box-label">Recuperable con SUPERCOR</div>
+            <div class="dt-box-value" id="dt-recuperable">$0</div>
+            <div class="calc-lock-hint" id="dt-lock-hint">🔒 Ingrese su correo</div>
+          </div>
+        </div>
+        <div class="dt-nota" id="dt-nota" style="display:none">🛡️ Estas multas nacen de incumplimientos que <strong>SUPERCOR detecta y alerta en terreno</strong>. ⚠️ Solo incluye multas de la DT (no OS-10, Ley 21.659 ni descuentos de mandantes) — el costo real es mayor.</div>
         <div class="calc-gate" id="dt-gate" style="display:none">
           <div class="calc-gate-badge">🎁 Diagnóstico gratuito de su historial DT</div>
           <p class="calc-gate-text">Vea cuánto podría recuperar con SUPERCOR.<br>Le incluimos un <strong>diagnóstico sin costo</strong>.</p>
@@ -1316,41 +1335,49 @@
     }finally{loader.style.display='none';btnEl.disabled=false;}
   }
   const dtFmt=n=>'$'+Math.round(n).toLocaleString('es-CL');
-  function dtFmtC(n){ // formato compacto: $4,3M · $820K
+  function dtFechaCorta(f){ return (f||'').replace(/^(\d{1,2})[-/](\d{1,2})[-/]\d{2}(\d{2})$/,'$1-$2-$3'); }
+  function dtFmtCorto(n){ // para las barras: $3,2M
     n=Math.round(n);
     if(n>=1000000)return '$'+(n/1000000).toLocaleString('es-CL',{maximumFractionDigits:1})+'M';
     if(n>=1000)return '$'+Math.round(n/1000)+'K';
     return '$'+n.toLocaleString('es-CL');
   }
-  function dtTendencia(porAnio){ // compara el último año con el anterior
-    if(!porAnio||porAnio.length<2)return '';
-    const ult=porAnio[porAnio.length-1],prev=porAnio[porAnio.length-2];
-    if(prev.clp<=0)return '';
-    const pct=Math.round((ult.clp-prev.clp)/prev.clp*100);
-    if(pct>=5)return '<span class="dt-trend dt-trend-up">↑ subió '+pct+'% el último año</span>';
-    if(pct<=-5)return '<span class="dt-trend dt-trend-down">↓ bajó '+Math.abs(pct)+'% el último año</span>';
-    return '<span class="dt-trend">→ estable el último año</span>';
+  const DT_VISIBLES=3; // multas visibles antes de "ver más"
+  function dtFilaHTML(m){
+    const motivo=(m.motivo||'Infracción registrada').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    return '<div class="dt-row"><div class="dt-row-date">'+dtFechaCorta(m.fecha)+'</div>'+
+      '<div class="dt-row-main"><div class="dt-row-motivo">'+motivo+'</div></div>'+
+      '<div class="dt-row-monto">'+dtFmt(m.clp)+'</div></div>';
   }
-  function dtFechaCorta(f){ return (f||'').replace(/^(\d{1,2})[-/](\d{1,2})[-/]\d{2}(\d{2})$/,'$1-$2-$3'); }
+  function dtVerMas(){ // despliega el resto de las multas (sin pedir nada)
+    if(!dtDatos||!dtDatos.multas)return;
+    document.getElementById('dt-table').innerHTML=dtDatos.multas.map(dtFilaHTML).join('');
+    document.getElementById('dt-vermas').style.display='none';
+  }
   function dtMostrarResultados(data){
     const resultPanel=document.getElementById('dt-result-panel');
     const show=(id,d)=>{const el=document.getElementById(id);if(el)el.style.display=d;};
+    const yrs=(data.porAnio||[]).map(a=>a.year);
+    // Encabezado: razón social + RUT (da confianza de que es SU empresa)
+    if(data.razonSocial){
+      document.getElementById('dt-empresa-nombre').textContent=data.razonSocial;
+      document.getElementById('dt-empresa-rut').textContent='RUT '+data.rut;
+      show('dt-empresa','block');
+    }else show('dt-empresa','none');
     if(data.sinMultas){
-      document.getElementById('dt-total-clp').textContent='$0';
-      document.getElementById('dt-total-meta').textContent='Sin multas registradas en la DT ✓';
+      document.getElementById('dt-badge-multas').textContent='✓ Sin multas registradas en la DT';
+      show('dt-badge-multas','inline-block');
       document.getElementById('dt-year-bars').innerHTML='';
-      ['dt-avg-caption','dt-hook','dt-table','dt-iceberg','dt-close-line','dt-recuperable-block','dt-gate','dt-unlocked-cta'].forEach(id=>show(id,'none'));
+      ['dt-table','dt-vermas','dt-boxes','dt-nota','dt-gate','dt-unlocked-cta'].forEach(id=>show(id,'none'));
       resultPanel.style.opacity='1';return;
     }
-    // 1) El susto: total gigante
-    document.getElementById('dt-total-clp').textContent=dtFmt(data.totalClp);
-    let meta=data.totalMultas+' multa'+(data.totalMultas!==1?'s':'')+' en la DT';
-    if(data.parcial)meta+=' (muestra '+data.multasMuestra+')';
-    const yrs=(data.porAnio||[]).map(a=>a.year);
-    if(yrs.length>1)meta+=' · '+yrs[0]+'–'+yrs[yrs.length-1];
-    else if(yrs.length===1)meta+=' · '+yrs[0];
-    document.getElementById('dt-total-meta').innerHTML=meta;
-    // 2) Barras por año (últimos 3)
+    // Insignia con el conteo oficial + rango de años
+    let badge='⚠️ '+data.totalMultas+' multa'+(data.totalMultas!==1?'s':'')+' ejecutoriada'+(data.totalMultas!==1?'s':'');
+    if(yrs.length>1)badge+=' · '+yrs[0]+'–'+yrs[yrs.length-1];
+    else if(yrs.length===1)badge+=' · '+yrs[0];
+    document.getElementById('dt-badge-multas').textContent=badge;
+    show('dt-badge-multas','inline-block');
+    // Barras por año, con el monto de cada año encima
     const barsEl=document.getElementById('dt-year-bars');barsEl.innerHTML='';
     const anios=(data.porAnio||[]).slice(-3);
     if(anios.length>0){
@@ -1359,44 +1386,33 @@
         const pct=maxClp>0?(clp/maxClp*100):0;
         const wrap=document.createElement('div');wrap.className='dt-year-bar-wrap';
         wrap.title=year+': '+dtFmt(clp);
-        wrap.innerHTML='<div class="dt-year-bar-fill" style="height:'+Math.max(pct,3)+'%"></div><div class="dt-year-label">'+year+'</div>';
+        wrap.innerHTML='<div class="dt-year-monto">'+dtFmtCorto(clp)+'</div>'+
+          '<div class="dt-year-bar-fill" style="height:'+Math.max(pct,3)+'%"></div>'+
+          '<div class="dt-year-label">'+year+'</div>';
         barsEl.appendChild(wrap);
       });
     }
-    // 3) (Sin "Promedio": el año inicial de empresas nuevas lo diluye y confunde)
-    show('dt-avg-caption','none');
-    // 4) Frase gancho + tabla de las 5 multas
-    const tabla=document.getElementById('dt-table');tabla.innerHTML='';
-    if(data.muestra&&data.muestra.length>0){
-      show('dt-hook','block');
-      data.muestra.forEach(m=>{
-        const motivo=(m.motivo||'Infracción registrada').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-        const row=document.createElement('div');row.className='dt-row';
-        row.innerHTML='<div class="dt-row-date">'+dtFechaCorta(m.fecha)+'</div>'+
-          '<div class="dt-row-main"><div class="dt-row-motivo">'+motivo+'</div></div>'+
-          '<div class="dt-row-monto">'+dtFmt(m.clp)+'</div>';
-        tabla.appendChild(row);
-      });
-      const restantes=data.totalMultas-data.muestra.length;
+    // Tabla: 3 multas + botón para desplegar el resto
+    const multas=data.multas||[];
+    const tabla=document.getElementById('dt-table');
+    if(multas.length>0){
+      tabla.innerHTML=multas.slice(0,DT_VISIBLES).map(dtFilaHTML).join('');
+      show('dt-table','block');
+      const restantes=multas.length-DT_VISIBLES;
+      const btn=document.getElementById('dt-vermas');
       if(restantes>0){
-        const more=document.createElement('div');more.className='dt-more';
-        more.textContent='+ '+restantes+' multa'+(restantes!==1?'s':'')+' más en su historial…';
-        tabla.appendChild(more);
-      }
-      show('dt-table','block');show('dt-close-line','block');
-    }else{show('dt-hook','none');show('dt-table','none');show('dt-close-line','none');}
-    show('dt-iceberg','block');
-    // 5) La esperanza: recuperable = 80% del TOTAL del período (verde XL, siempre el número más alto)
-    const recTotal=Math.round(data.totalClp*0.8);
+        btn.textContent='Ver las '+restantes+' multas restantes ↓';
+        show('dt-vermas','block');
+      }else show('dt-vermas','none');
+    }else{show('dt-table','none');show('dt-vermas','none');}
+    // Las dos cajas: total real (rojo) vs recuperable (verde, 80% del total)
+    document.getElementById('dt-total-clp').textContent=dtFmt(data.totalClp);
     const recEl=document.getElementById('dt-recuperable');
-    const recAnualEl=document.getElementById('dt-recuperable-anual');
-    recEl.innerHTML='<span class="dt-rec-hasta">hasta</span> '+dtFmt(recTotal);
-    let periodo='de su historial';
-    if(yrs.length>1)periodo='de su historial ('+yrs[0]+'–'+yrs[yrs.length-1]+')';
-    recAnualEl.textContent='en multas evitables '+periodo;
+    recEl.innerHTML='<span class="dt-rec-hasta">hasta</span> '+dtFmt(Math.round(data.totalClp*0.8));
     recEl.classList.add('calc-value-blurred');
-    show('dt-recuperable-block','block');
+    show('dt-boxes','grid');
     show('dt-lock-hint','block');
+    show('dt-nota','block');
     show('dt-gate','block');
     show('dt-unlocked-cta','none');
     resultPanel.style.opacity='1';
@@ -1414,12 +1430,12 @@
     if(dtDatos){
       try{
         await fetch('https://formspree.io/f/mjgjjodn',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
-          body:JSON.stringify({_subject:'🔍 Lead Multas DT — '+email,tipo:'Lead Multas DT',nombre:nombre||'No indicado',email,
-            trabajadores:trab||'No indicado',rut:dtDatos.rut||'—',total_multas:dtDatos.totalMultas||0,total_clp:fmt(dtDatos.totalClp||0),avg_anual:fmt(dtDatos.avgAnual||0),utm:dtDatos.utm||'—'})});
+          body:JSON.stringify({_subject:'🔍 Lead Multas DT — '+(dtDatos.razonSocial||email),tipo:'Lead Multas DT',nombre:nombre||'No indicado',email,
+            trabajadores:trab||'No indicado',rut:dtDatos.rut||'—',razon_social:dtDatos.razonSocial||'No informada',
+            total_multas:dtDatos.totalMultas||0,total_clp:fmt(dtDatos.totalClp||0),utm:dtDatos.utm||'—'})});
       }catch(err){console.error(err);}
     }
     document.getElementById('dt-recuperable').classList.remove('calc-value-blurred');
-    document.getElementById('dt-recuperable-anual').classList.remove('calc-value-blurred');
     document.getElementById('dt-lock-hint').style.display='none';
     document.getElementById('dt-gate').style.display='none';
     document.getElementById('dt-unlocked-cta').style.display='block';
@@ -1427,7 +1443,8 @@
   function dtSolicitar(){
     if(!dtDatos)return;
     const fmt=n=>'$'+Math.round(n).toLocaleString('es-CL');
-    const msg='Hola SUPERCOR, consulté el RUT '+dtDatos.rut+' y tiene '+dtDatos.totalMultas+' multas en la DT por un total de '+fmt(dtDatos.totalClp)+'. Promedio anual: '+fmt(dtDatos.avgAnual)+'. Quiero saber cómo SUPERCOR puede ayudarme.';
+    const emp=dtDatos.razonSocial?(' ('+dtDatos.razonSocial+')'):'';
+    const msg='Hola SUPERCOR, consulté el RUT '+dtDatos.rut+emp+' y tiene '+dtDatos.totalMultas+' multas en la DT por un total de '+fmt(dtDatos.totalClp)+'. Quiero saber cómo SUPERCOR puede ayudarme.';
     window.open('https://wa.me/56995950843?text='+encodeURIComponent(msg),'_blank');
   }
   function dtReset(){

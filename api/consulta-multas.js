@@ -33,13 +33,17 @@ export default async function handler(req, res) {
       return res.status(502).json({ error: 'No se pudo conectar con la Dirección del Trabajo. Intente en unos minutos.' });
     }
 
-    const { rows, totalRegistros, tieneResultados } = data;
+    const { rows, totalRegistros, tieneResultados, razonSocial } = data;
 
     if (!tieneResultados || rows.length === 0) {
-      return res.status(200).json({ sinMultas: true, rut: rutDT, totalMultas: 0, totalClp: 0, porAnio: [], avgAnual: 0, utm });
+      await notificarConsulta({ rut: rutDT, razonSocial, totalMultas: 0, totalClp: 0 });
+      return res.status(200).json({ sinMultas: true, rut: rutDT, razonSocial: razonSocial || '', totalMultas: 0, totalClp: 0, porAnio: [], avgAnual: 0, utm });
     }
 
-    const IMM = 510114; // Ingreso Mínimo Mensual Chile 2024 — actualizar cada año por ley
+    // Ingreso Mínimo Mensual "para fines no remuneracionales" — es el que se usa para calcular
+    // multas. Vigente desde 01-05-2026 (Ley N°21.830): $356.815. Cambia ~1 vez al año por ley;
+    // se puede actualizar sin tocar código con la variable de entorno IMM_NO_REMUNERACIONAL.
+    const IMM = Number(process.env.IMM_NO_REMUNERACIONAL) || 356815;
 
     const convertidas = rows.map(r => ({
       ...r,
@@ -65,28 +69,31 @@ export default async function handler(req, res) {
     const avgAnual = aniosSet.size > 0 ? totalClp / aniosSet.size : totalClp;
     const total = totalRegistros || rows.length;
 
-    // Las 5 multas más recientes, con detalle y marca de "prevenible por SUPERCOR"
-    const muestra = [...convertidas]
+    // Todas las multas capturadas, de la más reciente a la más antigua
+    // (el front muestra 3 y despliega el resto con "ver más")
+    const multas = [...convertidas]
       .sort((a, b) => parseFechaMs(b.fecha) - parseFechaMs(a.fecha))
-      .slice(0, 5)
       .map(m => ({
         fecha: m.fecha,
         motivo: (m.enunciado || '').trim(),
         clp: Math.round(m.clp),
         cantidad: m.cantidad,
-        tipo: m.tipo,
-        prevenible: esPrevenible(m.enunciado)
+        tipo: m.tipo
       }));
+
+    // Aviso al equipo: alguien consultó (aunque todavía no deje sus datos)
+    await notificarConsulta({ rut: rutDT, razonSocial, totalMultas: total, totalClp });
 
     return res.status(200).json({
       rut: rutDT,
+      razonSocial: razonSocial || '',
       totalMultas: total,
       multasMuestra: rows.length,
       parcial: total > rows.length,
       totalClp,
       porAnio,
       avgAnual,
-      muestra,
+      multas,
       utm,
       consultadoEl: new Date().toISOString()
     });
@@ -133,16 +140,28 @@ function parseFechaMs(fecha) {
   return m ? new Date(+m[3], +m[2] - 1, +m[1]).getTime() : 0;
 }
 
-// Palabras clave de infracciones que corresponden a lo que SUPERCOR controla en terreno
-// (asistencia, documentación, EPP, reglamento, jornada, etc.) → marca "prevenible"
-const CONTROLES_SUPERCOR = ['asistencia', 'registro', 'jornada', 'hora', 'contrato', 'document',
-  'exhib', 'reglamento', 'proteccion', 'epp', 'elemento', 'seguridad', 'higiene', 'condicion',
-  'feriado', 'descanso', 'libro', 'remunera', 'cotiza', 'previsional', 'prevencion', 'accidente',
-  'capacita', 'informa', 'obligacion', 'implemento', 'sanitari'];
+// ─── Aviso interno: alguien consultó un RUT (aunque aún no deje sus datos) ────
+// Nunca lanza: si el aviso falla, la consulta del usuario igual responde bien.
 
-function esPrevenible(enunciado) {
-  const n = (enunciado || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-  return CONTROLES_SUPERCOR.some(k => n.includes(k));
+async function notificarConsulta({ rut, razonSocial, totalMultas, totalClp }) {
+  try {
+    await fetch('https://formspree.io/f/mjgjjodn', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        _subject: `🔎 Consulta DT — ${razonSocial || rut}`,
+        tipo: 'Consulta de multas DT (aún sin contacto)',
+        rut,
+        razon_social: razonSocial || 'No informada',
+        total_multas: totalMultas || 0,
+        total_en_multas: '$' + Math.round(totalClp || 0).toLocaleString('es-CL'),
+        fecha: new Date().toLocaleString('es-CL', { timeZone: 'America/Santiago' })
+      }),
+      signal: AbortSignal.timeout(4000)
+    });
+  } catch (err) {
+    console.error('[consulta-multas] aviso no enviado:', err?.message || err);
+  }
 }
 
 // ─── UTM vigente ──────────────────────────────────────────────────────────────
@@ -170,8 +189,18 @@ async function scrapeDT(rutDT, apiKey) {
   // String.raw preserva las barras invertidas de las expresiones regulares.
   const setupScript = String.raw`(function(){
     window.__scAll={};window.__scOrder=[];window.__scTotal=0;window.__scLastSig='';window.__scClicks=0;window.__scStall=0;
+    window.__scRazon='';window.__scOficial=0;
     window.__scStep=function(){
       try{
+        // La DT publica razón social y conteo oficial en #lblMensaje
+        var lm=document.getElementById('lblMensaje');
+        if(lm){
+          var t=(lm.innerText||'').replace(/\s+/g,' ');
+          var rm=t.match(/Raz[óo]n social:\s*(.+?)\s*(?:multas encontradas|fecha de consulta|$)/i);
+          if(rm&&rm[1]&&!window.__scRazon)window.__scRazon=rm[1].trim().slice(0,120);
+          var cm=t.match(/multas encontradas:\s*(\d+)/i);
+          if(cm){var q=parseInt(cm[1],10);if(q>window.__scOficial)window.__scOficial=q;}
+        }
         var trs=document.querySelectorAll('tr');
         var firstKey='';
         for(var i=0;i<trs.length;i++){
@@ -221,7 +250,7 @@ async function scrapeDT(rutDT, apiKey) {
       var total=window.__scTotal||rows.length;
       var bt=document.body.innerText||'';
       var sin=rows.length===0&&/no\s+(existen|hay|se\s+encontraron|se\s+registran)/i.test(bt);
-      var out=JSON.stringify({rows:rows,totalRegistros:total,tieneResultados:rows.length>0&&!sin,_clicks:window.__scClicks});
+      var out=JSON.stringify({rows:rows,totalRegistros:window.__scOficial||total,razonSocial:window.__scRazon||'',tieneResultados:rows.length>0&&!sin});
       var el=document.getElementById('__sc_dt')||document.createElement('div');
       el.id='__sc_dt';el.style.display='none';el.textContent=out;
       if(!el.parentNode)document.body.appendChild(el);
