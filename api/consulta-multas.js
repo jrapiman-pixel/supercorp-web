@@ -24,13 +24,6 @@ export default async function handler(req, res) {
     const apiKey = process.env.SCRAPER_API_KEY;
     if (!apiKey) return res.status(503).json({ error: 'Servicio no configurado.' });
 
-    // Modo diagnóstico temporal: devuelve HTML crudo para inspeccionar el paginador
-    if ((req.body || {}).debug === 'dt-inspect-2026') {
-      const raw = await scrapeDT(rutDT, apiKey, { raw: true });
-      res.setHeader('Content-Type', 'text/plain; charset=utf-8');
-      return res.status(200).send(String(raw).slice(0, 200000));
-    }
-
     const [data, utm] = await Promise.all([
       scrapeDT(rutDT, apiKey),
       getUTM()
@@ -72,6 +65,19 @@ export default async function handler(req, res) {
     const avgAnual = aniosSet.size > 0 ? totalClp / aniosSet.size : totalClp;
     const total = totalRegistros || rows.length;
 
+    // Las 5 multas más recientes, con detalle y marca de "prevenible por SUPERCOR"
+    const muestra = [...convertidas]
+      .sort((a, b) => parseFechaMs(b.fecha) - parseFechaMs(a.fecha))
+      .slice(0, 5)
+      .map(m => ({
+        fecha: m.fecha,
+        motivo: (m.enunciado || '').trim(),
+        clp: Math.round(m.clp),
+        cantidad: m.cantidad,
+        tipo: m.tipo,
+        prevenible: esPrevenible(m.enunciado)
+      }));
+
     return res.status(200).json({
       rut: rutDT,
       totalMultas: total,
@@ -80,17 +86,14 @@ export default async function handler(req, res) {
       totalClp,
       porAnio,
       avgAnual,
+      muestra,
       utm,
       consultadoEl: new Date().toISOString()
     });
 
   } catch (err) {
     console.error('[consulta-multas]', err?.message || err);
-    const showDebug = /^(dt-inspect-2026|full)$/.test((req.body || {}).debug || '');
-    return res.status(500).json({
-      error: 'Error inesperado. Intente nuevamente.',
-      ...(showDebug ? { _debug: String(err?.message || err), _stack: String(err?.stack || '').slice(0, 500) } : {})
-    });
+    return res.status(500).json({ error: 'Error inesperado. Intente nuevamente.' });
   }
 }
 
@@ -125,6 +128,23 @@ function extraerAnio(fecha) {
   return y ? y[1] : 'N/D';
 }
 
+function parseFechaMs(fecha) {
+  const m = (fecha || '').match(/(\d{1,2})[-/](\d{1,2})[-/](\d{4})/);
+  return m ? new Date(+m[3], +m[2] - 1, +m[1]).getTime() : 0;
+}
+
+// Palabras clave de infracciones que corresponden a lo que SUPERCOR controla en terreno
+// (asistencia, documentación, EPP, reglamento, jornada, etc.) → marca "prevenible"
+const CONTROLES_SUPERCOR = ['asistencia', 'registro', 'jornada', 'hora', 'contrato', 'document',
+  'exhib', 'reglamento', 'proteccion', 'epp', 'elemento', 'seguridad', 'higiene', 'condicion',
+  'feriado', 'descanso', 'libro', 'remunera', 'cotiza', 'previsional', 'prevencion', 'accidente',
+  'capacita', 'informa', 'obligacion', 'implemento', 'sanitari'];
+
+function esPrevenible(enunciado) {
+  const n = (enunciado || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  return CONTROLES_SUPERCOR.some(k => n.includes(k));
+}
+
 // ─── UTM vigente ──────────────────────────────────────────────────────────────
 
 async function getUTM() {
@@ -143,7 +163,7 @@ async function getUTM() {
 
 // ─── ScrapingBee → Dirección del Trabajo ─────────────────────────────────────
 
-async function scrapeDT(rutDT, apiKey, opts = {}) {
+async function scrapeDT(rutDT, apiKey) {
   // Definimos las funciones de raspado UNA sola vez en la página (window.__scStep
   // y window.__scFin). Luego cada página solo invoca window.__scStep() — texto
   // mínimo, para no exceder el límite de largo de la URL de ScrapingBee (8 KB).
@@ -161,7 +181,7 @@ async function scrapeDT(rutDT, apiKey, opts = {}) {
           if(tipo!=='UTM'&&tipo!=='IMM')continue;
           var key=c[1]||(c[3]+'|'+c[4]+'|'+c[0]);
           if(window.__scAll[key])continue;
-          window.__scAll[key]={procedencia:c[0]||'',multa:c[1]||'',estado:c[2]||'',fecha:c[3]||'',cantidad:parseFloat((c[4]||'0').replace(/\./g,'').replace(',','.'))||0,tipo:tipo};
+          window.__scAll[key]={procedencia:c[0]||'',multa:c[1]||'',estado:c[2]||'',fecha:c[3]||'',cantidad:parseFloat((c[4]||'0').replace(/\./g,'').replace(',','.'))||0,tipo:tipo,enunciado:(c[6]||'').replace(/[<>]/g,' ').slice(0,110)};
           window.__scOrder.push(key);
         }
         var bt=document.body.innerText||'';
@@ -194,14 +214,12 @@ async function scrapeDT(rutDT, apiKey, opts = {}) {
     { click: '#btnConsulta' },
     { wait: 4500 }
   ];
-  if (!opts.raw) {
-    instr.push({ evaluate: setupScript }); // define funciones + raspa página 1
-    for (let p = 1; p < MAX_PAGES; p++) {
-      instr.push({ wait: 2200 });
-      instr.push({ evaluate: 'window.__scStep&&window.__scStep()' });
-    }
-    instr.push({ evaluate: 'window.__scFin&&window.__scFin()' });
+  instr.push({ evaluate: setupScript }); // define funciones + raspa página 1
+  for (let p = 1; p < MAX_PAGES; p++) {
+    instr.push({ wait: 2200 });
+    instr.push({ evaluate: 'window.__scStep&&window.__scStep()' });
   }
+  instr.push({ evaluate: 'window.__scFin&&window.__scFin()' });
   const scenario = { instructions: instr };
 
   const params = new URLSearchParams({
@@ -223,8 +241,6 @@ async function scrapeDT(rutDT, apiKey, opts = {}) {
   }
 
   const text = await resp.text();
-
-  if (opts.raw) return text;
 
   // ScrapingBee puede devolver: (a) el resultado del evaluate como texto, o (b) el HTML completo
   try {

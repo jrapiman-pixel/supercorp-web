@@ -67,6 +67,8 @@
     .nav-links a:hover{color:var(--green-strong)}
     .nav-cta{background:var(--green-strong)!important;color:white!important;padding:.5rem 1.4rem!important;border-radius:4px;font-weight:700!important}
     .nav-cta:hover{background:var(--green)!important}
+    .nav-dt{background:rgba(220,38,38,.1)!important;color:#dc2626!important;font-weight:800!important;padding:.42rem 1rem!important;border-radius:20px;border:1px solid rgba(220,38,38,.35);transition:background .2s,transform .2s;white-space:nowrap}
+    .nav-dt:hover{background:rgba(220,38,38,.18)!important;transform:translateY(-1px)}
     .nav-mobile-btn{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px}
     .nav-mobile-btn span{display:block;width:24px;height:2px;background:var(--navy);border-radius:2px}
     #inicio{background:var(--white);padding:176px 2rem 70px;position:relative;overflow:hidden}
@@ -317,16 +319,32 @@
     /* Panel inner dentro del calc-card */
     .calc-panel-inner{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start}
     /* Resultados DT */
-    .dt-total-clp{font-family:var(--font-title);font-size:clamp(2.4rem,4.5vw,3.5rem);font-weight:700;color:#f87171;line-height:1.1;margin:.2rem 0 .35rem;text-shadow:0 0 40px rgba(248,113,113,.5)}
-    .dt-total-meta{font-size:.78rem;color:rgba(255,255,255,.38);margin-bottom:.75rem;line-height:1.4}
-    .dt-year-bars{display:flex;align-items:flex-end;justify-content:center;gap:6px;height:110px;margin:.5rem auto .75rem;max-width:300px}
+    .dt-total-clp{font-family:var(--font-title);font-size:clamp(2.6rem,5vw,3.9rem);font-weight:700;color:#f87171;line-height:1.05;margin:.15rem 0 .3rem;text-shadow:0 0 42px rgba(248,113,113,.55)}
+    .dt-total-meta{font-size:.82rem;color:rgba(255,255,255,.5);margin-bottom:.85rem;line-height:1.5;font-weight:600}
+    .dt-trend{font-weight:800;white-space:nowrap}
+    .dt-trend-up{color:#f87171}
+    .dt-trend-down{color:#4ade80}
+    .dt-year-bars{display:flex;align-items:flex-end;justify-content:center;gap:10px;height:94px;margin:.4rem auto .5rem;max-width:250px}
     .dt-year-bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;cursor:default}
-    .dt-year-bar-fill{width:100%;max-width:22px;background:linear-gradient(180deg,#f87171,#b91c1c);border-radius:3px 3px 0 0;min-height:4px;box-shadow:0 0 8px rgba(248,113,113,.3);transition:height .5s cubic-bezier(.34,1.4,.64,1)}
-    .dt-year-label{font-size:.55rem;color:rgba(255,255,255,.3);margin-top:.3rem;font-weight:700}
-    .dt-avg-block{text-align:center;margin:.2rem 0 .75rem}
-    .dt-avg-label{font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35)}
-    .dt-avg-value{font-family:var(--font-title);font-size:1.45rem;font-weight:700;color:#fca5a5}
-    .dt-iceberg{font-size:.76rem;color:rgba(255,255,255,.38);background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);border-radius:8px;padding:.8rem 1rem;line-height:1.55;margin-top:.6rem}
+    .dt-year-bar-fill{width:100%;max-width:26px;background:linear-gradient(180deg,#f87171,#b91c1c);border-radius:3px 3px 0 0;min-height:4px;box-shadow:0 0 8px rgba(248,113,113,.3);transition:height .6s cubic-bezier(.34,1.4,.64,1)}
+    .dt-year-label{font-size:.6rem;color:rgba(255,255,255,.4);margin-top:.35rem;font-weight:700}
+    .dt-avg-caption{font-size:.8rem;color:rgba(255,255,255,.42);text-align:center;margin:0 0 1.1rem;line-height:1.4}
+    .dt-avg-caption strong{color:rgba(255,255,255,.72);font-weight:700}
+    .dt-hook{font-size:.84rem;color:#a7f3d0;background:rgba(0,163,0,.08);border:1px solid rgba(0,163,0,.2);border-radius:8px;padding:.7rem .9rem;line-height:1.5;margin-bottom:.9rem}
+    .dt-hook strong{color:#4ade80}
+    .dt-table{margin-bottom:.4rem}
+    .dt-row{display:grid;grid-template-columns:auto 1fr auto;gap:.65rem;align-items:center;padding:.55rem 0;border-bottom:1px solid rgba(255,255,255,.07)}
+    .dt-row-date{font-size:.68rem;color:rgba(255,255,255,.4);font-weight:600;white-space:nowrap}
+    .dt-row-main{min-width:0}
+    .dt-row-motivo{font-size:.8rem;color:rgba(255,255,255,.82);line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+    .dt-tag{display:inline-block;margin-top:.25rem;font-size:.62rem;font-weight:700;color:#4ade80;background:rgba(0,163,0,.12);border:1px solid rgba(0,163,0,.3);border-radius:20px;padding:1px 8px;white-space:nowrap}
+    .dt-row-monto{font-family:var(--font-title);font-size:.92rem;font-weight:700;color:#f87171;white-space:nowrap;text-align:right}
+    .dt-more{text-align:center;font-size:.78rem;color:rgba(255,255,255,.42);padding:.65rem 0 .2rem;font-weight:600}
+    .dt-close-line{font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.5;margin:.8rem 0 1rem;text-align:center;font-style:italic}
+    .dt-close-line strong{color:#a7f3d0;font-style:normal}
+    .dt-recuperable-tier .calc-tier-value{font-size:2.4rem}
+    .dt-recuperable-anual{font-size:.85rem;color:#4ade80;opacity:.82;font-weight:600;margin-top:.15rem}
+    .dt-iceberg{font-size:.76rem;color:rgba(255,255,255,.38);background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);border-radius:8px;padding:.8rem 1rem;line-height:1.55;margin:.2rem 0 .2rem}
     .dt-iceberg strong{color:rgba(255,255,255,.6)}
     .dt-loader{display:flex;align-items:center;gap:.75rem;color:rgba(255,255,255,.5);font-size:.88rem;margin-top:1rem}
     .dt-loader-spinner{width:18px;height:18px;border:2px solid rgba(255,255,255,.12);border-top-color:var(--accent);border-radius:50%;animation:dtSpin .7s linear infinite;flex-shrink:0}
@@ -468,22 +486,22 @@
 <a class="diag-banner" href="#diagnostico" aria-label="Diagnostique aquí su empresa gratis — ir a la calculadora de diagnóstico">
   <div class="diag-ticker" aria-hidden="true">
     <div class="diag-ticker-track">
-      <span class="diag-ticker-item">🔍 Diagnostique aquí su empresa gratis</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item">Descubra cuánto pierde al año en multas</span><span class="diag-ticker-sep">•</span>
-      <span class="diag-ticker-item">🔍 Diagnostique aquí su empresa gratis</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item">Descubra cuánto pierde al año en multas</span><span class="diag-ticker-sep">•</span>
-      <span class="diag-ticker-item">🔍 Diagnostique aquí su empresa gratis</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item">Descubra cuánto pierde al año en multas</span><span class="diag-ticker-sep">•</span>
-      <span class="diag-ticker-item">🔍 Diagnostique aquí su empresa gratis</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item">Descubra cuánto pierde al año en multas</span><span class="diag-ticker-sep">•</span>
-      <span class="diag-ticker-item">🔍 Diagnostique aquí su empresa gratis</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item">Descubra cuánto pierde al año en multas</span><span class="diag-ticker-sep">•</span>
-      <span class="diag-ticker-item">🔍 Diagnostique aquí su empresa gratis</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item">Descubra cuánto pierde al año en multas</span><span class="diag-ticker-sep">•</span>
+      <span class="diag-ticker-item">🔍 NUEVO: Consulte GRATIS las multas reales de su empresa en la DT</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item">Descubra cuánto pierde al año en multas</span><span class="diag-ticker-sep">•</span>
+      <span class="diag-ticker-item">🔍 NUEVO: Consulte GRATIS las multas reales de su empresa en la DT</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item">Descubra cuánto pierde al año en multas</span><span class="diag-ticker-sep">•</span>
+      <span class="diag-ticker-item">🔍 NUEVO: Consulte GRATIS las multas reales de su empresa en la DT</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item">Descubra cuánto pierde al año en multas</span><span class="diag-ticker-sep">•</span>
+      <span class="diag-ticker-item">🔍 NUEVO: Consulte GRATIS las multas reales de su empresa en la DT</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item">Descubra cuánto pierde al año en multas</span><span class="diag-ticker-sep">•</span>
+      <span class="diag-ticker-item">🔍 NUEVO: Consulte GRATIS las multas reales de su empresa en la DT</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item">Descubra cuánto pierde al año en multas</span><span class="diag-ticker-sep">•</span>
+      <span class="diag-ticker-item">🔍 NUEVO: Consulte GRATIS las multas reales de su empresa en la DT</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item">Descubra cuánto pierde al año en multas</span><span class="diag-ticker-sep">•</span>
     </div>
   </div>
-  <span class="diag-banner-btn">Diagnosticar ahora →</span>
+  <span class="diag-banner-btn">Consultar ahora →</span>
 </a>
 
 <nav>
   <a href="#inicio" class="nav-logo"><img src="assets/Logo%20Verde.png" alt="SUPERCOR" /></a>
   <ul class="nav-links">
     <li><a href="#diferenciacion">Por qué SUPERCOR</a></li>
-    <li><a href="#diagnostico">Diagnóstico</a></li>
+    <li><a href="#diagnostico" class="nav-dt">🔍 Multas DT</a></li>
     <li><a href="#como-funciona">Cómo funciona</a></li>
     <li><a href="#prensa">Reportaje</a></li>
     <li><a href="#precios">Precios</a></li>
@@ -498,12 +516,11 @@
 <section id="inicio">
   <div class="hero-grid">
     <div class="hero-left fade-in">
-      <a href="#diagnostico" class="hero-dt-badge"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>&nbsp;<strong>NUEVO</strong>&nbsp;— Consulte GRATIS las multas reales de su empresa en la DT</a>
       <span class="hero-eyebrow">Controle su operación antes de que la fiscalización lo haga</span>
       <h1 class="hero-title">El <span class="accent">guardián operacional</span> de su cumplimiento.</h1>
       <p class="hero-subtitle">Mientras un ERP administra información, SUPERCOR verifica en terreno que los controles, la documentación y la evidencia realmente estén donde deben — <strong>antes</strong> de una fiscalización.</p>
       <div class="hero-actions">
-        <a href="#diagnostico" class="btn-primary">Calcular mi ahorro</a>
+        <a href="#diagnostico" class="btn-primary">🔍 Consultar mis multas reales</a>
         <a href="#como-funciona" class="btn-secondary">Ver cómo funciona →</a>
       </div>
       <div class="hero-leyes">
@@ -803,32 +820,33 @@
         <button type="button" class="calc-alt-link" onclick="setCalcTab('estimar')">¿Su empresa no aparece en la DT? Haga una estimación manual →</button>
       </div>
       <div class="calc-result" id="dt-result-panel" style="opacity:0;transition:opacity .5s ease">
-        <div class="calc-chart">
-          <div class="calc-chart-label">Total multas — historial Dirección del Trabajo</div>
-          <div class="dt-total-clp" id="dt-total-clp">—</div>
-          <div class="dt-total-meta" id="dt-total-meta"></div>
-          <div id="dt-year-bars" class="dt-year-bars"></div>
-          <div id="dt-avg-block" class="dt-avg-block" style="display:none"><div class="dt-avg-label">Promedio anual</div><div class="dt-avg-value" id="dt-avg-value"></div></div>
-          <div class="dt-iceberg" id="dt-iceberg" style="display:none">⚠️ <strong>Solo la DT.</strong> No incluye OS-10, Ley 21.659 ni descuentos de mandantes. El costo real es mayor — y SUPERCOR previene todos.</div>
+        <div class="calc-chart-label">Total multas — historial Dirección del Trabajo</div>
+        <div class="dt-total-clp" id="dt-total-clp">—</div>
+        <div class="dt-total-meta" id="dt-total-meta"></div>
+        <div id="dt-year-bars" class="dt-year-bars"></div>
+        <div class="dt-avg-caption" id="dt-avg-caption" style="display:none"></div>
+        <div class="dt-hook" id="dt-hook" style="display:none">🛡️ La mayoría de estas multas nacen de incumplimientos que <strong>SUPERCOR detecta en terreno y alerta</strong> — antes de que la DT las curse.</div>
+        <div class="dt-table" id="dt-table" style="display:none"></div>
+        <div class="dt-iceberg" id="dt-iceberg" style="display:none">⚠️ <strong>Solo la DT.</strong> No incluye OS-10, Ley 21.659 ni descuentos de mandantes. El costo real es mayor — y SUPERCOR previene todos.</div>
+        <div class="dt-close-line" id="dt-close-line" style="display:none">Cada una de estas multas pudo haber empezado como una <strong>simple alerta resuelta a tiempo</strong>.</div>
+        <div class="calc-tier calc-tier-recovery dt-recuperable-tier" id="dt-recuperable-block" style="display:none">
+          <div class="calc-tier-label">Recuperable con SUPERCOR</div>
+          <div class="calc-tier-value" id="dt-recuperable">$0</div>
+          <div class="dt-recuperable-anual" id="dt-recuperable-anual"></div>
+          <div class="calc-lock-hint" id="dt-lock-hint">🔒 Ingrese su correo para ver su ahorro</div>
         </div>
-        <div>
-          <div class="calc-tier calc-tier-recovery" id="dt-recuperable-block" style="display:none">
-            <div class="calc-tier-label">Recuperable con SUPERCOR</div>
-            <div class="calc-tier-value" id="dt-recuperable">$0</div>
-            <div class="calc-lock-hint" id="dt-lock-hint">🔒 Ingrese su correo para ver su ahorro</div>
-          </div>
-          <div class="calc-gate" id="dt-gate" style="display:none">
-            <div class="calc-gate-badge">🎁 Diagnóstico gratuito de su historial DT</div>
-            <p class="calc-gate-text">Vea cuánto podría recuperar con SUPERCOR.<br>Le incluimos un <strong>diagnóstico sin costo</strong>.</p>
-            <input type="email" class="form-input calc-gate-input" id="dt-gate-email" placeholder="Correo de contacto *" autocomplete="email" onkeydown="if(event.key==='Enter')dtDesbloquear()" />
-            <input type="text" class="form-input calc-gate-input" id="dt-gate-nombre" placeholder="Su nombre (opcional)" autocomplete="name" onkeydown="if(event.key==='Enter')dtDesbloquear()" />
-            <button type="button" class="btn-primary calc-gate-btn" onclick="dtDesbloquear()">Ver mi ahorro →</button>
-            <p class="calc-gate-note">Sin spam. Un ejecutivo le contactará con su diagnóstico.</p>
-          </div>
-          <div id="dt-unlocked-cta" style="display:none">
-            <button type="button" class="calc-cta" onclick="dtSolicitar()">Quiero dejar de pagar estas multas</button>
-            <p class="calc-disclaimer">Datos obtenidos de la Dirección del Trabajo. Solo incluye multas DT — para el análisis completo consulte a SUPERCOR.</p>
-          </div>
+        <div class="calc-gate" id="dt-gate" style="display:none">
+          <div class="calc-gate-badge">🎁 Diagnóstico gratuito de su historial DT</div>
+          <p class="calc-gate-text">Vea cuánto podría recuperar con SUPERCOR.<br>Le incluimos un <strong>diagnóstico sin costo</strong>.</p>
+          <input type="email" class="form-input calc-gate-input" id="dt-gate-email" placeholder="Correo de contacto *" autocomplete="email" onkeydown="if(event.key==='Enter')dtDesbloquear()" />
+          <input type="text" class="form-input calc-gate-input" id="dt-gate-nombre" placeholder="Su nombre (opcional)" autocomplete="name" onkeydown="if(event.key==='Enter')dtDesbloquear()" />
+          <input type="number" min="0" class="form-input calc-gate-input" id="dt-gate-trab" placeholder="N° de trabajadores (opcional)" inputmode="numeric" onkeydown="if(event.key==='Enter')dtDesbloquear()" />
+          <button type="button" class="btn-primary calc-gate-btn" onclick="dtDesbloquear()">Ver mi ahorro →</button>
+          <p class="calc-gate-note">Sin spam. Un ejecutivo le contactará con su diagnóstico.</p>
+        </div>
+        <div id="dt-unlocked-cta" style="display:none">
+          <button type="button" class="calc-cta" onclick="dtSolicitar()">Quiero dejar de pagar estas multas</button>
+          <p class="calc-disclaimer">Datos obtenidos de la Dirección del Trabajo. Solo incluye multas DT — para el análisis completo consulte a SUPERCOR.</p>
         </div>
       </div>
     </div>
@@ -1296,53 +1314,103 @@
       errEl.textContent=err.message||'Error de conexión. Intente nuevamente.';errEl.style.display='block';
     }finally{loader.style.display='none';btnEl.disabled=false;}
   }
+  const dtFmt=n=>'$'+Math.round(n).toLocaleString('es-CL');
+  function dtFmtC(n){ // formato compacto: $4,3M · $820K
+    n=Math.round(n);
+    if(n>=1000000)return '$'+(n/1000000).toLocaleString('es-CL',{maximumFractionDigits:1})+'M';
+    if(n>=1000)return '$'+Math.round(n/1000)+'K';
+    return '$'+n.toLocaleString('es-CL');
+  }
+  function dtTendencia(porAnio){ // compara el último año con el anterior
+    if(!porAnio||porAnio.length<2)return '';
+    const ult=porAnio[porAnio.length-1],prev=porAnio[porAnio.length-2];
+    if(prev.clp<=0)return '';
+    const pct=Math.round((ult.clp-prev.clp)/prev.clp*100);
+    if(pct>=5)return '<span class="dt-trend dt-trend-up">↑ subió '+pct+'% el último año</span>';
+    if(pct<=-5)return '<span class="dt-trend dt-trend-down">↓ bajó '+Math.abs(pct)+'% el último año</span>';
+    return '<span class="dt-trend">→ estable el último año</span>';
+  }
+  function dtFechaCorta(f){ return (f||'').replace(/^(\d{1,2})[-/](\d{1,2})[-/]\d{2}(\d{2})$/,'$1-$2-$3'); }
   function dtMostrarResultados(data){
     const resultPanel=document.getElementById('dt-result-panel');
-    const fmt=n=>'$'+Math.round(n).toLocaleString('es-CL');
+    const show=(id,d)=>{const el=document.getElementById(id);if(el)el.style.display=d;};
     if(data.sinMultas){
       document.getElementById('dt-total-clp').textContent='$0';
       document.getElementById('dt-total-meta').textContent='Sin multas registradas en la DT ✓';
       document.getElementById('dt-year-bars').innerHTML='';
-      document.getElementById('dt-avg-block').style.display='none';
-      document.getElementById('dt-iceberg').style.display='none';
-      document.getElementById('dt-recuperable-block').style.display='none';
-      document.getElementById('dt-gate').style.display='none';
-      document.getElementById('dt-unlocked-cta').style.display='none';
+      ['dt-avg-caption','dt-hook','dt-table','dt-iceberg','dt-close-line','dt-recuperable-block','dt-gate','dt-unlocked-cta'].forEach(id=>show(id,'none'));
       resultPanel.style.opacity='1';return;
     }
-    document.getElementById('dt-total-clp').textContent=fmt(data.totalClp);
+    // 1) El susto: total gigante
+    document.getElementById('dt-total-clp').textContent=dtFmt(data.totalClp);
     let meta=data.totalMultas+' multa'+(data.totalMultas!==1?'s':'')+' en la DT';
-    if(data.parcial)meta+=' (muestra: '+data.multasMuestra+')';
-    document.getElementById('dt-total-meta').textContent=meta;
+    if(data.parcial)meta+=' (muestra '+data.multasMuestra+')';
+    const trend=dtTendencia(data.porAnio);
+    if(trend)meta+=' · '+trend;
+    document.getElementById('dt-total-meta').innerHTML=meta;
+    // 2) Barras por año (últimos 3)
     const barsEl=document.getElementById('dt-year-bars');barsEl.innerHTML='';
-    if(data.porAnio&&data.porAnio.length>0){
-      const maxClp=Math.max(...data.porAnio.map(a=>a.clp));
-      data.porAnio.forEach(({year,clp})=>{
+    const anios=(data.porAnio||[]).slice(-3);
+    if(anios.length>0){
+      const maxClp=Math.max(...anios.map(a=>a.clp));
+      anios.forEach(({year,clp})=>{
         const pct=maxClp>0?(clp/maxClp*100):0;
         const wrap=document.createElement('div');wrap.className='dt-year-bar-wrap';
-        wrap.title=year+': '+fmt(clp);
+        wrap.title=year+': '+dtFmt(clp);
         wrap.innerHTML='<div class="dt-year-bar-fill" style="height:'+Math.max(pct,3)+'%"></div><div class="dt-year-label">'+year+'</div>';
         barsEl.appendChild(wrap);
       });
     }
-    if(data.avgAnual>0){document.getElementById('dt-avg-value').textContent=fmt(data.avgAnual)+'/año';document.getElementById('dt-avg-block').style.display='block';}
-    document.getElementById('dt-iceberg').style.display='block';
-    // Recuperable anual: SUPERCOR previene la mayoría de estos incumplimientos (~80%), no el 100%
+    // 3) Promedio como nota chica: anual · mensual
+    if(data.avgAnual>0){
+      document.getElementById('dt-avg-caption').innerHTML='Promedio: <strong>'+dtFmtC(data.avgAnual)+' al año</strong> · '+dtFmtC(data.avgAnual/12)+' al mes';
+      show('dt-avg-caption','block');
+    }else show('dt-avg-caption','none');
+    // 4) Frase gancho + tabla de las 5 multas
+    const tabla=document.getElementById('dt-table');tabla.innerHTML='';
+    if(data.muestra&&data.muestra.length>0){
+      show('dt-hook','block');
+      data.muestra.forEach(m=>{
+        const motivo=(m.motivo||'Infracción registrada').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        const tag=m.prevenible?'<span class="dt-tag">✓ SUPERCOR lo alerta</span>':'';
+        const row=document.createElement('div');row.className='dt-row';
+        row.innerHTML='<div class="dt-row-date">'+dtFechaCorta(m.fecha)+'</div>'+
+          '<div class="dt-row-main"><div class="dt-row-motivo">'+motivo+'</div>'+tag+'</div>'+
+          '<div class="dt-row-monto">'+dtFmtC(m.clp)+'</div>';
+        tabla.appendChild(row);
+      });
+      const restantes=data.totalMultas-data.muestra.length;
+      if(restantes>0){
+        const more=document.createElement('div');more.className='dt-more';
+        more.textContent='+ '+restantes+' multa'+(restantes!==1?'s':'')+' más en su historial…';
+        tabla.appendChild(more);
+      }
+      show('dt-table','block');show('dt-close-line','block');
+    }else{show('dt-hook','none');show('dt-table','none');show('dt-close-line','none');}
+    show('dt-iceberg','block');
+    // 5) La esperanza: recuperable MENSUAL grande + anual chico (~80% del promedio anual)
     const baseAnual=data.avgAnual>0?data.avgAnual:data.totalClp;
-    const recuperable=Math.round(baseAnual*0.8);
-    document.getElementById('dt-recuperable').textContent=fmt(recuperable)+'/año';
-    document.getElementById('dt-recuperable').classList.add('calc-value-blurred');
-    document.getElementById('dt-recuperable-block').style.display='block';
-    document.getElementById('dt-lock-hint').style.display='block';
-    document.getElementById('dt-gate').style.display='block';
-    document.getElementById('dt-unlocked-cta').style.display='none';
+    const recAnual=Math.round(baseAnual*0.8);
+    const recMensual=Math.round(recAnual/12);
+    const recEl=document.getElementById('dt-recuperable');
+    const recAnualEl=document.getElementById('dt-recuperable-anual');
+    recEl.textContent=dtFmt(recMensual)+' /mes';
+    recAnualEl.textContent='≈ '+dtFmt(recAnual)+' al año';
+    recEl.classList.add('calc-value-blurred');
+    recAnualEl.classList.add('calc-value-blurred');
+    show('dt-recuperable-block','block');
+    show('dt-lock-hint','block');
+    show('dt-gate','block');
+    show('dt-unlocked-cta','none');
     resultPanel.style.opacity='1';
   }
   async function dtDesbloquear(){
     const emailEl=document.getElementById('dt-gate-email');
     const nombreEl=document.getElementById('dt-gate-nombre');
+    const trabEl=document.getElementById('dt-gate-trab');
     const email=(emailEl.value||'').trim();
     const nombre=(nombreEl.value||'').trim();
+    const trab=(trabEl.value||'').trim();
     if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){emailEl.style.borderColor='#B91C1C';emailEl.focus();return;}
     emailEl.style.borderColor='';
     const fmt=n=>'$'+Math.round(n).toLocaleString('es-CL');
@@ -1350,10 +1418,11 @@
       try{
         await fetch('https://formspree.io/f/mjgjjodn',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
           body:JSON.stringify({_subject:'🔍 Lead Multas DT — '+email,tipo:'Lead Multas DT',nombre:nombre||'No indicado',email,
-            rut:dtDatos.rut||'—',total_multas:dtDatos.totalMultas||0,total_clp:fmt(dtDatos.totalClp||0),avg_anual:fmt(dtDatos.avgAnual||0),utm:dtDatos.utm||'—'})});
+            trabajadores:trab||'No indicado',rut:dtDatos.rut||'—',total_multas:dtDatos.totalMultas||0,total_clp:fmt(dtDatos.totalClp||0),avg_anual:fmt(dtDatos.avgAnual||0),utm:dtDatos.utm||'—'})});
       }catch(err){console.error(err);}
     }
     document.getElementById('dt-recuperable').classList.remove('calc-value-blurred');
+    document.getElementById('dt-recuperable-anual').classList.remove('calc-value-blurred');
     document.getElementById('dt-lock-hint').style.display='none';
     document.getElementById('dt-gate').style.display='none';
     document.getElementById('dt-unlocked-cta').style.display='block';
