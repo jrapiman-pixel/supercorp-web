@@ -88,6 +88,7 @@ export default async function handler(req, res) {
       avgAnual,
       muestra,
       utm,
+      _clicks: data._clicks,
       consultadoEl: new Date().toISOString()
     });
 
@@ -169,14 +170,11 @@ async function scrapeDT(rutDT, apiKey) {
   // mínimo, para no exceder el límite de largo de la URL de ScrapingBee (8 KB).
   // String.raw preserva las barras invertidas de las expresiones regulares.
   const setupScript = String.raw`(function(){
-    window.__scAll={};window.__scOrder=[];window.__scTotal=0;window.__scLastPage=0;
+    window.__scAll={};window.__scOrder=[];window.__scTotal=0;window.__scLastSig='';window.__scClicks=0;
     window.__scStep=function(){
       try{
-        var bt=document.body.innerText||'';
-        var pm=bt.match(/página\s+(\d+)\s+de\s+(\d+)/i);
-        var curPage=pm?parseInt(pm[1],10):1;
-        var totPages=pm?parseInt(pm[2],10):1;
         var trs=document.querySelectorAll('tr');
+        var firstKey='';
         for(var i=0;i<trs.length;i++){
           var tds=trs[i].querySelectorAll('td');
           if(tds.length<6)continue;
@@ -184,17 +182,22 @@ async function scrapeDT(rutDT, apiKey) {
           var tipo=c[5];
           if(tipo!=='UTM'&&tipo!=='IMM')continue;
           var key=c[1]||(c[3]+'|'+c[4]+'|'+c[0]);
+          if(!firstKey)firstKey=key;
           if(window.__scAll[key])continue;
           window.__scAll[key]={procedencia:c[0]||'',multa:c[1]||'',estado:c[2]||'',fecha:c[3]||'',cantidad:parseFloat((c[4]||'0').replace(/\./g,'').replace(',','.'))||0,tipo:tipo,enunciado:(c[6]||'').replace(/[<>]/g,' ').slice(0,110)};
           window.__scOrder.push(key);
         }
+        var bt=document.body.innerText||'';
         var mt=bt.match(/items?\s+\d+\s+hasta\s+\d+\s+de\s+(\d+)/i);
         if(mt){var z=parseInt(mt[1],10);if(z>window.__scTotal)window.__scTotal=z;}
-        // Avanzar SOLO si la página ya cambió (cargó) y hay más páginas → evita re-clic durante la transición AJAX
-        if(curPage>window.__scLastPage&&curPage<totPages){
-          window.__scLastPage=curPage;
-          var nx=document.querySelector('a[title="página siguiente"]');
-          if(nx)nx.click();
+        // Avanzar por CONTENIDO: solo si la primera multa visible cambió (la página realmente avanzó)
+        // y existe botón siguiente y aún faltan filas por juntar → evita re-clic en transición y bucles
+        var faltan=(window.__scTotal===0)||(window.__scOrder.length<window.__scTotal);
+        var nx=document.querySelector('a[title="página siguiente"]');
+        if(nx&&firstKey&&firstKey!==window.__scLastSig&&faltan){
+          window.__scLastSig=firstKey;
+          window.__scClicks++;
+          nx.click();
         }
       }catch(e){}
     };
@@ -204,7 +207,7 @@ async function scrapeDT(rutDT, apiKey) {
       var total=window.__scTotal||rows.length;
       var bt=document.body.innerText||'';
       var sin=rows.length===0&&/no\s+(existen|hay|se\s+encontraron|se\s+registran)/i.test(bt);
-      var out=JSON.stringify({rows:rows,totalRegistros:total,tieneResultados:rows.length>0&&!sin});
+      var out=JSON.stringify({rows:rows,totalRegistros:total,tieneResultados:rows.length>0&&!sin,_clicks:window.__scClicks});
       var el=document.getElementById('__sc_dt')||document.createElement('div');
       el.id='__sc_dt';el.style.display='none';el.textContent=out;
       if(!el.parentNode)document.body.appendChild(el);
