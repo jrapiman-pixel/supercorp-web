@@ -60,7 +60,7 @@
     }
     html{scroll-behavior:smooth}
     body{font-family:var(--font-body);color:var(--gray-800);background:var(--white);line-height:1.6;overflow-x:hidden}
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--gray-100);padding:0 2rem;height:84px;display:flex;align-items:center;justify-content:space-between}
+    nav{position:fixed;top:44px;left:0;right:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--gray-100);padding:0 2rem;height:84px;display:flex;align-items:center;justify-content:space-between}
     .nav-logo img{height:64px;width:auto;display:block}
     .nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
     .nav-links a{color:var(--gray-600);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .2s}
@@ -69,7 +69,7 @@
     .nav-cta:hover{background:var(--green)!important}
     .nav-mobile-btn{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px}
     .nav-mobile-btn span{display:block;width:24px;height:2px;background:var(--navy);border-radius:2px}
-    #inicio{background:var(--white);padding:120px 2rem 70px;position:relative;overflow:hidden}
+    #inicio{background:var(--white);padding:164px 2rem 70px;position:relative;overflow:hidden}
     @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.4)}}
     .hero-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:3.5rem;align-items:center}
     .hero-eyebrow{display:inline-block;color:var(--green-strong);font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1rem}
@@ -391,6 +391,17 @@
       .prensa-content{text-align:center}
       .prensa-content>img{margin-left:auto;margin-right:auto}
     }
+    /* ===== Banner superior fijo: diagnóstico ===== */
+    .diag-banner{position:fixed;top:0;left:0;right:0;z-index:101;height:44px;display:flex;align-items:center;justify-content:center;gap:.5rem;background:linear-gradient(90deg,var(--green-strong),var(--green) 50%,var(--green-strong));color:#fff;font-weight:800;font-size:.92rem;letter-spacing:.04em;text-decoration:none;padding:0 1rem;transition:filter .2s}
+    .diag-banner:hover{filter:brightness(1.1)}
+    .diag-banner-main{text-transform:uppercase}
+    .diag-banner-icon{display:inline-block;animation:diagPulse 2s ease-in-out infinite}
+    .diag-banner-arrow{display:inline-block;transition:transform .2s}
+    .diag-banner:hover .diag-banner-arrow{transform:translateX(5px)}
+    @keyframes diagPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.25)}}
+    section[id]{scroll-margin-top:130px}
+    @media(max-width:1450px){.nav-links{gap:1.15rem}.nav-links a{font-size:.82rem}}
+    @media(max-width:768px){.diag-banner{font-size:.8rem;letter-spacing:.02em}.diag-banner-extra{display:none}}
     /* ===== Urgencia antes de la calculadora ===== */
     .calc-urgency{display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:980px;margin:2.5rem auto 0}
     .calc-urgency-item{background:rgba(185,28,28,.1);border:1px solid rgba(185,28,28,.28);border-radius:10px;padding:1rem 1.4rem;font-size:.92rem;color:rgba(255,255,255,.85);line-height:1.55}
@@ -403,12 +414,20 @@
 </head>
 <body>
 
+<a class="diag-banner" href="#diagnostico">
+  <span class="diag-banner-icon">🔍</span>
+  <span class="diag-banner-main">Diagnostique aquí su empresa gratis</span>
+  <span class="diag-banner-extra">— descubra cuánto pierde al año en multas</span>
+  <span class="diag-banner-arrow">→</span>
+</a>
+
 <nav>
   <a href="#inicio" class="nav-logo"><img src="assets/Logo%20Verde.png" alt="SUPERCOR" /></a>
   <ul class="nav-links">
     <li><a href="#diferenciacion">Por qué SUPERCOR</a></li>
     <li><a href="#diagnostico">Diagnóstico</a></li>
     <li><a href="#como-funciona">Cómo funciona</a></li>
+    <li><a href="#prensa">Reportaje</a></li>
     <li><a href="#precios">Precios</a></li>
 <li><a href="/ayuda">Ayuda</a></li>
 <li><a href="/seguridad-privada">Seguridad Privada</a></li>
