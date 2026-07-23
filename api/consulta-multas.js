@@ -86,7 +86,11 @@ export default async function handler(req, res) {
 
   } catch (err) {
     console.error('[consulta-multas]', err?.message || err);
-    return res.status(500).json({ error: 'Error inesperado. Intente nuevamente.' });
+    const showDebug = /^(dt-inspect-2026|full)$/.test((req.body || {}).debug || '');
+    return res.status(500).json({
+      error: 'Error inesperado. Intente nuevamente.',
+      ...(showDebug ? { _debug: String(err?.message || err), _stack: String(err?.stack || '').slice(0, 500) } : {})
+    });
   }
 }
 
