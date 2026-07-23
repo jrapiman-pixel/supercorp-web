@@ -144,41 +144,36 @@ async function getUTM() {
 // ─── ScrapingBee → Dirección del Trabajo ─────────────────────────────────────
 
 async function scrapeDT(rutDT, apiKey, opts = {}) {
-  // Paso de raspado: acumula filas de la página actual (dedupe por N° resolución)
-  // y avanza a la siguiente página. Se repite una vez por página del RadGrid.
+  // Definimos las funciones de raspado UNA sola vez en la página (window.__scStep
+  // y window.__scFin). Luego cada página solo invoca window.__scStep() — texto
+  // mínimo, para no exceder el límite de largo de la URL de ScrapingBee (8 KB).
   // String.raw preserva las barras invertidas de las expresiones regulares.
-  const stepScript = String.raw`(function(){
-    try{
-      if(!window.__scAll){window.__scAll={};window.__scOrder=[];window.__scTotal=0;}
-      var trs=document.querySelectorAll('tr');
-      for(var i=0;i<trs.length;i++){
-        var tds=trs[i].querySelectorAll('td');
-        if(tds.length<6)continue;
-        var c=[];
-        for(var k=0;k<tds.length;k++)c.push((tds[k].innerText||'').trim());
-        var tipo=c[5];
-        if(tipo!=='UTM'&&tipo!=='IMM')continue;
-        var key=c[1]||(c[3]+'|'+c[4]+'|'+c[0]);
-        if(window.__scAll[key])continue;
-        window.__scAll[key]={
-          procedencia:c[0]||'',multa:c[1]||'',estado:c[2]||'',fecha:c[3]||'',
-          cantidad:parseFloat((c[4]||'0').replace(/\./g,'').replace(',','.'))||0,tipo:tipo
-        };
-        window.__scOrder.push(key);
-      }
-      var bt=document.body.innerText||'';
-      var mt=bt.match(/items?\s+\d+\s+hasta\s+\d+\s+de\s+(\d+)/i);
-      if(mt){var z=parseInt(mt[1],10);if(z>window.__scTotal)window.__scTotal=z;}
-      var nx=document.querySelector('a[title="página siguiente"]');
-      if(nx)nx.click();
-      return 'ok:'+window.__scOrder.length+'/'+window.__scTotal;
-    }catch(e){return 'err:'+e.message;}
-  })()`;
-
-  const finalizeScript = String.raw`(function(){
-    try{
-      var all=window.__scAll||{};var order=window.__scOrder||[];
-      var rows=[];for(var i=0;i<order.length;i++)rows.push(all[order[i]]);
+  const setupScript = String.raw`(function(){
+    window.__scAll={};window.__scOrder=[];window.__scTotal=0;
+    window.__scStep=function(){
+      try{
+        var trs=document.querySelectorAll('tr');
+        for(var i=0;i<trs.length;i++){
+          var tds=trs[i].querySelectorAll('td');
+          if(tds.length<6)continue;
+          var c=[];for(var k=0;k<tds.length;k++)c.push((tds[k].innerText||'').trim());
+          var tipo=c[5];
+          if(tipo!=='UTM'&&tipo!=='IMM')continue;
+          var key=c[1]||(c[3]+'|'+c[4]+'|'+c[0]);
+          if(window.__scAll[key])continue;
+          window.__scAll[key]={procedencia:c[0]||'',multa:c[1]||'',estado:c[2]||'',fecha:c[3]||'',cantidad:parseFloat((c[4]||'0').replace(/\./g,'').replace(',','.'))||0,tipo:tipo};
+          window.__scOrder.push(key);
+        }
+        var bt=document.body.innerText||'';
+        var mt=bt.match(/items?\s+\d+\s+hasta\s+\d+\s+de\s+(\d+)/i);
+        if(mt){var z=parseInt(mt[1],10);if(z>window.__scTotal)window.__scTotal=z;}
+        var nx=document.querySelector('a[title="página siguiente"]');
+        if(nx)nx.click();
+      }catch(e){}
+    };
+    window.__scFin=function(){
+      var order=window.__scOrder||[],all=window.__scAll||{},rows=[];
+      for(var i=0;i<order.length;i++)rows.push(all[order[i]]);
       var total=window.__scTotal||rows.length;
       var bt=document.body.innerText||'';
       var sin=rows.length===0&&/no\s+(existen|hay|se\s+encontraron|se\s+registran)/i.test(bt);
@@ -187,7 +182,8 @@ async function scrapeDT(rutDT, apiKey, opts = {}) {
       el.id='__sc_dt';el.style.display='none';el.textContent=out;
       if(!el.parentNode)document.body.appendChild(el);
       return out;
-    }catch(e){return JSON.stringify({rows:[],totalRegistros:0,tieneResultados:false,err:e.message});}
+    };
+    window.__scStep();
   })()`;
 
   // Escenario: llenar RUT → consultar → recorrer hasta MAX_PAGES páginas → finalizar
@@ -198,14 +194,13 @@ async function scrapeDT(rutDT, apiKey, opts = {}) {
     { click: '#btnConsulta' },
     { wait: 4500 }
   ];
-  if (opts.raw) {
-    // Modo diagnóstico: solo la primera página, sin recorrer
-  } else {
-    for (let p = 0; p < MAX_PAGES; p++) {
-      instr.push({ evaluate: stepScript });
-      if (p < MAX_PAGES - 1) instr.push({ wait: 2200 });
+  if (!opts.raw) {
+    instr.push({ evaluate: setupScript }); // define funciones + raspa página 1
+    for (let p = 1; p < MAX_PAGES; p++) {
+      instr.push({ wait: 2200 });
+      instr.push({ evaluate: 'window.__scStep&&window.__scStep()' });
     }
-    instr.push({ evaluate: finalizeScript });
+    instr.push({ evaluate: 'window.__scFin&&window.__scFin()' });
   }
   const scenario = { instructions: instr };
 
