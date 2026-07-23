@@ -184,9 +184,9 @@ async function scrapeDT(rutDT, apiKey) {
   const scenario = {
     instructions: [
       { wait_for: '#tbxRut' },
-      { fill: { selector: '#tbxRut', value: rutDT } },
+      { fill: ['#tbxRut', rutDT] },
       { click: '#btnConsulta' },
-      { wait: 5000 },
+      { wait: 6000 },
       { evaluate: extractScript }
     ]
   };
