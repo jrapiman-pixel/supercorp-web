@@ -260,7 +260,7 @@ async function scrapeDT(rutDT, apiKey) {
   })()`;
 
   // Escenario: llenar RUT → consultar → recorrer páginas (con reintentos ante cargas lentas) → finalizar
-  const NUM_STEPS = 10; // pasos de raspado: cubre ~6 páginas reales + amplio margen para cargas lentas
+  const NUM_STEPS = 13; // pasos de raspado: cubre ~6 páginas reales + margen amplio de reintentos
   const instr = [
     { wait_for: '#tbxRut' },
     { fill: ['#tbxRut', rutDT] },
@@ -269,7 +269,7 @@ async function scrapeDT(rutDT, apiKey) {
   ];
   instr.push({ evaluate: setupScript }); // define funciones + raspa página 1
   for (let p = 1; p < NUM_STEPS; p++) {
-    instr.push({ wait: 2600 });
+    instr.push({ wait: 2200 });
     instr.push({ evaluate: 'window.__scStep&&window.__scStep()' });
   }
   instr.push({ evaluate: 'window.__scFin&&window.__scFin()' });
