@@ -176,16 +176,6 @@
     .dif-showcase-text ul li::before{content:'●';color:var(--green-strong);position:absolute;left:0;top:0;font-size:.9rem}
     .dif-showcase .laptop-frame{margin:0}
     @media(max-width:900px){.dif-showcase{grid-template-columns:1fr;gap:2rem}}
-    /* ═══ Sección #como-funciona: captura de alertas con overlay del email ═══ */
-    .alertas-showcase{max-width:1080px;margin:3.5rem auto 0}
-    .alertas-frame{position:relative;border-radius:12px;overflow:hidden;box-shadow:0 20px 50px rgba(15,23,42,.18);border:1px solid var(--gray-100);transition:transform .35s ease;container-type:inline-size}
-    .alertas-showcase:hover .alertas-frame{transform:translateY(-3px);box-shadow:0 25px 60px rgba(15,23,42,.22)}
-    .alertas-frame img{width:100%;height:auto;display:block}
-    /* Overlay que tapa jrapimaseguridad@gmail.com y muestra supervisor@empresa.cl */
-    .email-overlay{position:absolute;background:#0f1220;color:#94a3b8;font-family:'Source Sans 3',sans-serif;font-weight:400;padding:0;border-radius:1px;white-space:nowrap;line-height:1;display:flex;align-items:center;justify-content:flex-start;font-size:1.25cqw;letter-spacing:-.005em;overflow:hidden}
-    .email-overlay-1{top:37.1%;left:27.15%;height:2.6%;width:11.8%}
-    .email-overlay-2{top:69.6%;left:27.15%;height:2.6%;width:11.8%}
-    .alertas-caption{text-align:center;margin:1.75rem auto 0;max-width:640px;color:var(--gray-600);font-size:.9rem;font-style:italic;line-height:1.6}
     /* ═══ Sección #valor: dashboard-mapa + reporte-pdf lado a lado ═══ */
     .valor-showcase{display:grid;grid-template-columns:1.25fr 1fr;gap:2rem;margin-top:3.5rem;align-items:start}
     .valor-shot{position:relative;transition:transform .35s ease}
@@ -484,8 +474,10 @@
     .clientes-marquee::after{right:0;background:linear-gradient(270deg,#fff,transparent)}
     .clientes-track{display:flex;align-items:center;gap:5rem;width:max-content;animation:clientesScroll 30s linear infinite}
     .clientes-track img{height:110px;width:auto}
+    .clientes-track a{display:flex;align-items:center;text-decoration:none;transition:transform .25s ease,opacity .25s ease;flex-shrink:0}
+    .clientes-track a:hover{transform:scale(1.06)}
     .clientes-marquee:hover .clientes-track{animation-play-state:paused}
-    @keyframes clientesScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    @keyframes clientesScroll{from{transform:translateX(0)}to{transform:translateX(-33.3333%)}}
     @media (prefers-reduced-motion: reduce){.clientes-track{animation:none;flex-wrap:wrap;justify-content:center;width:auto}}
     @media(max-width:768px){.clientes-track{gap:3rem}.clientes-track img{height:76px}}
     /* ===== Obligaciones fiscalizables (3 pilares) ===== */
@@ -621,18 +613,18 @@
   <div class="clientes-label fade-in">Empresas de seguridad que ya operan con SUPERCOR</div>
   <div class="clientes-marquee fade-in">
     <div class="clientes-track">
-      <img src="assets/logo-surov.png" alt="Surov Seguridad — cliente SUPERCOR" loading="lazy" />
-      <img src="assets/logo-ingproseg.png" alt="Ingproseg — cliente SUPERCOR" loading="lazy" />
-      <img src="assets/logo-securityservice.png" alt="Security Service, Seguridad y Outsourcing de Personal — cliente SUPERCOR" loading="lazy" />
-      <img src="assets/logo-surov.png" alt="" aria-hidden="true" loading="lazy" />
-      <img src="assets/logo-ingproseg.png" alt="" aria-hidden="true" loading="lazy" />
-      <img src="assets/logo-securityservice.png" alt="" aria-hidden="true" loading="lazy" />
-      <img src="assets/logo-surov.png" alt="" aria-hidden="true" loading="lazy" />
-      <img src="assets/logo-ingproseg.png" alt="" aria-hidden="true" loading="lazy" />
-      <img src="assets/logo-securityservice.png" alt="" aria-hidden="true" loading="lazy" />
-      <img src="assets/logo-surov.png" alt="" aria-hidden="true" loading="lazy" />
-      <img src="assets/logo-ingproseg.png" alt="" aria-hidden="true" loading="lazy" />
-      <img src="assets/logo-securityservice.png" alt="" aria-hidden="true" loading="lazy" />
+      <a href="https://surovseguridad.cl/" target="_blank" rel="noopener" aria-label="Visitar el sitio de Surov Seguridad"><img src="assets/logo-surov.png" alt="Surov Seguridad — cliente SUPERCOR" loading="lazy" /></a>
+      <a href="https://ingproseg.com/" target="_blank" rel="noopener" aria-label="Visitar el sitio de Ingproseg"><img src="assets/logo-ingproseg.png" alt="Ingproseg — cliente SUPERCOR" loading="lazy" /></a>
+      <a href="https://www.securityservice.cl/" target="_blank" rel="noopener" aria-label="Visitar el sitio de Security Service"><img src="assets/logo-securityservice.png" alt="Security Service, Seguridad y Outsourcing de Personal — cliente SUPERCOR" loading="lazy" /></a>
+      <a href="https://loyaltyseguridad.cl/" target="_blank" rel="noopener" aria-label="Visitar el sitio de Loyalty Seguridad"><img src="assets/logo-loyalty-seguridad.jpg" alt="Loyalty Seguridad — cliente SUPERCOR" loading="lazy" /></a>
+      <a href="https://surovseguridad.cl/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="assets/logo-surov.png" alt="" loading="lazy" /></a>
+      <a href="https://ingproseg.com/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="assets/logo-ingproseg.png" alt="" loading="lazy" /></a>
+      <a href="https://www.securityservice.cl/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="assets/logo-securityservice.png" alt="" loading="lazy" /></a>
+      <a href="https://loyaltyseguridad.cl/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="assets/logo-loyalty-seguridad.jpg" alt="" loading="lazy" /></a>
+      <a href="https://surovseguridad.cl/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="assets/logo-surov.png" alt="" loading="lazy" /></a>
+      <a href="https://ingproseg.com/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="assets/logo-ingproseg.png" alt="" loading="lazy" /></a>
+      <a href="https://www.securityservice.cl/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="assets/logo-securityservice.png" alt="" loading="lazy" /></a>
+      <a href="https://loyaltyseguridad.cl/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><img src="assets/logo-loyalty-seguridad.jpg" alt="" loading="lazy" /></a>
     </div>
   </div>
 </section>
@@ -976,14 +968,6 @@
     </div>
     <div class="steps-photo fade-in">
       <img src="assets/app-terreno.webp" alt="Supervisores usando la app SUPERCOR en una tablet durante una supervisión en terreno" loading="lazy" />
-    </div>
-    <div class="alertas-showcase fade-in">
-      <div class="alertas-frame">
-        <img src="assets/screenshots/alertas.png" alt="Panel de Gestión de Alertas SUPERCOR con pestañas Pendientes, En Gestión, Resueltas Auto y Cerradas Manual — cada alerta muestra el trabajador, supervisor, instalación, fecha y destinatario de la derivación" loading="lazy" />
-        <div class="email-overlay email-overlay-1">supervisor@empresa.cl</div>
-        <div class="email-overlay email-overlay-2">supervisor@empresa.cl</div>
-      </div>
-      <p class="alertas-caption">Cada alerta se deriva automáticamente al responsable configurado. Nada queda flotando. Nada se pierde. Cada resolución queda registrada con fecha y hora.</p>
     </div>
   </div>
 </section>
