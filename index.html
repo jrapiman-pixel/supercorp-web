@@ -138,6 +138,66 @@
     .mockup-alert.ok{background:rgba(34,197,94,0.08);border-color:rgba(34,197,94,0.2)}
     .mockup-alert-dot{width:7px;height:7px;min-width:7px;border-radius:50%;background:#EF4444;transition:background .5s ease}
     .mockup-alert.ok .mockup-alert-dot{background:#22C55E}
+    /* ═══ Frame de laptop MacBook: envuelve capturas del panel admin ═══ */
+    .laptop-frame{max-width:1080px;margin:2.5rem auto 0;position:relative}
+    .laptop-screen{background:#0a0e14;border:2px solid #2c2f36;border-radius:16px 16px 5px 5px;padding:16px 14px 18px;box-shadow:0 30px 60px -20px rgba(0,0,0,.55),0 8px 20px -6px rgba(0,0,0,.4);position:relative;overflow:hidden}
+    .laptop-screen::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:70px;height:16px;background:#1a1d24;border-radius:0 0 10px 10px;z-index:2}
+    .laptop-screen img{width:100%;height:auto;display:block;border-radius:4px;transition:transform .4s ease}
+    .laptop-frame:hover .laptop-screen img{transform:scale(1.005)}
+    .laptop-base{width:104%;height:16px;background:linear-gradient(180deg,#d5d8df 0%,#a0a3aa 50%,#6f7279 100%);margin:0 -2%;border-radius:0 0 16px 16px;position:relative;box-shadow:0 8px 24px -4px rgba(0,0,0,.35)}
+    .laptop-base::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:110px;height:6px;background:rgba(0,0,0,.18);border-radius:0 0 10px 10px}
+    .laptop-caption{text-align:center;margin:1.75rem auto 0;max-width:640px;color:var(--gray-600);font-size:.9rem;font-style:italic;line-height:1.6}
+    #plataforma .laptop-caption{color:var(--silver-dim)}
+    @media(max-width:640px){
+      .laptop-screen{padding:8px 6px 10px;border-radius:8px 8px 3px 3px}
+      .laptop-screen::before{width:40px;height:8px}
+      .laptop-base{height:9px;border-radius:0 0 8px 8px}
+      .laptop-base::before{width:60px;height:3px}
+    }
+    /* ═══ Mockup animado achicado en #plataforma (arriba de la captura real) ═══ */
+    #plataforma .hero-mockup{max-width:560px;margin:2.25rem auto 0;opacity:.9}
+    #plataforma .hero-mockup .mockup-frame{padding:14px;box-shadow:0 20px 40px rgba(0,0,0,.5)}
+    #plataforma .hero-mockup .mockup-topbar{margin-bottom:12px}
+    #plataforma .hero-mockup .mockup-card-value{font-size:1.35rem}
+    #plataforma .hero-mockup .mockup-grid{gap:8px;margin-bottom:8px}
+    #plataforma .hero-mockup .mockup-card{padding:10px}
+    #plataforma .hero-mockup .mockup-bar-row{padding:12px}
+    .plataforma-preview-label{text-align:center;color:rgba(255,255,255,.35);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;margin:2rem 0 .25rem;font-weight:700}
+    .plataforma-real-label{text-align:center;color:var(--accent);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;margin:3rem 0 .25rem;font-weight:700}
+    .plataforma-real-label::before{content:'';display:inline-block;width:6px;height:6px;background:var(--accent);border-radius:50%;margin-right:6px;vertical-align:middle;animation:pulse 1.5s infinite}
+    /* ═══ Sección #diferenciacion: torre-control con texto al lado ═══ */
+    .dif-showcase{display:grid;grid-template-columns:.85fr 1.15fr;gap:2.5rem;align-items:center;margin-top:3.5rem;padding-top:3rem;border-top:1px solid var(--gray-100)}
+    .dif-showcase-text .showcase-tag{display:inline-block;background:rgba(0,163,0,0.08);color:var(--green-strong);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:4px;margin-bottom:1rem;border:1px solid rgba(0,163,0,0.2)}
+    .dif-showcase-text h3{font-family:var(--font-title);font-size:clamp(1.35rem,2.2vw,1.7rem);font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:1rem}
+    .dif-showcase-text h3 span{color:var(--green-strong)}
+    .dif-showcase-text p{color:var(--gray-600);line-height:1.7;font-size:1rem;margin-bottom:.85rem}
+    .dif-showcase-text ul{list-style:none;margin-top:1rem;display:flex;flex-direction:column;gap:.55rem}
+    .dif-showcase-text ul li{font-size:.92rem;color:var(--gray-600);padding-left:1.5rem;position:relative;line-height:1.5}
+    .dif-showcase-text ul li::before{content:'●';color:var(--green-strong);position:absolute;left:0;top:0;font-size:.9rem}
+    .dif-showcase .laptop-frame{margin:0}
+    @media(max-width:900px){.dif-showcase{grid-template-columns:1fr;gap:2rem}}
+    /* ═══ Sección #como-funciona: captura de alertas con overlay del email ═══ */
+    .alertas-showcase{max-width:1080px;margin:3.5rem auto 0}
+    .alertas-frame{position:relative;border-radius:12px;overflow:hidden;box-shadow:0 20px 50px rgba(15,23,42,.18);border:1px solid var(--gray-100);transition:transform .35s ease;container-type:inline-size}
+    .alertas-showcase:hover .alertas-frame{transform:translateY(-3px);box-shadow:0 25px 60px rgba(15,23,42,.22)}
+    .alertas-frame img{width:100%;height:auto;display:block}
+    /* Overlay que tapa jrapimaseguridad@gmail.com y muestra supervisor@empresa.cl */
+    .email-overlay{position:absolute;background:#0f1220;color:#94a3b8;font-family:'Source Sans 3',sans-serif;font-weight:400;padding:0;border-radius:1px;white-space:nowrap;line-height:1;display:flex;align-items:center;justify-content:flex-start;font-size:1.25cqw;letter-spacing:-.005em;overflow:hidden}
+    .email-overlay-1{top:37.1%;left:27.15%;height:2.6%;width:11.8%}
+    .email-overlay-2{top:69.6%;left:27.15%;height:2.6%;width:11.8%}
+    .alertas-caption{text-align:center;margin:1.75rem auto 0;max-width:640px;color:var(--gray-600);font-size:.9rem;font-style:italic;line-height:1.6}
+    /* ═══ Sección #valor: dashboard-mapa + reporte-pdf lado a lado ═══ */
+    .valor-showcase{display:grid;grid-template-columns:1.25fr 1fr;gap:2rem;margin-top:3.5rem;align-items:start}
+    .valor-shot{position:relative;transition:transform .35s ease}
+    .valor-shot:hover{transform:translateY(-4px)}
+    .valor-shot-inner{border-radius:10px;overflow:hidden;box-shadow:0 18px 45px rgba(15,23,42,.15);border:1px solid var(--gray-100);background:#0a0e14;position:relative}
+    .valor-shot-inner img{width:100%;height:auto;display:block}
+    .valor-shot-label{margin-top:1rem;font-size:.88rem;color:var(--gray-600);text-align:center;line-height:1.5}
+    .valor-shot-label strong{color:var(--navy);font-weight:700;display:block;font-size:.95rem;margin-bottom:.2rem}
+    /* El reporte PDF tiene fondo blanco: le doy trato de documento con esquina doblada */
+    .valor-shot.pdf .valor-shot-inner{background:#ffffff;border:1px solid var(--gray-200)}
+    .valor-shot.pdf .valor-shot-inner::after{content:'';position:absolute;top:0;right:0;width:36px;height:36px;background:linear-gradient(225deg,#f5f7fa 0%,#f5f7fa 48%,#cbd5e1 50%,#e2e8f0 100%);z-index:2;box-shadow:-2px 2px 4px rgba(0,0,0,.06)}
+    @media(max-width:900px){.valor-showcase{grid-template-columns:1fr}}
     section{padding:90px 2rem}
     .container{max-width:1100px;margin:0 auto}
     .section-badge{display:inline-block;background:rgba(0,163,0,0.08);color:var(--green-strong);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:4px;margin-bottom:1rem;border:1px solid rgba(0,163,0,0.2)}
@@ -650,6 +710,7 @@
       <h2 class="section-title">Tu operación, viva en el dashboard</h2>
       <p class="section-subtitle">Indicadores, cobertura y alertas que se actualizan en vivo — así ve la gerencia su operación con SUPERCOR.</p>
     </div>
+    <div class="plataforma-preview-label fade-in">Vista previa animada</div>
     <div class="hero-mockup fade-in">
       <div class="mockup-frame">
         <div class="mockup-topbar">
@@ -676,6 +737,14 @@
         </div>
       </div>
     </div>
+    <div class="plataforma-real-label fade-in">Panel real — cliente en producción</div>
+    <div class="laptop-frame fade-in">
+      <div class="laptop-screen">
+        <img src="assets/screenshots/panel-control.png" alt="Panel de Control administrativo SUPERCOR con KPIs de supervisiones, cumplimiento, alertas y trabajadores activos, más gráficos de actividad diaria y distribución de alertas" loading="lazy" />
+      </div>
+      <div class="laptop-base"></div>
+    </div>
+    <p class="laptop-caption fade-in">142 supervisiones, 596 alertas, 100 trabajadores activos. Cada número es una operación real, medida en el momento en que ocurre.</p>
   </div>
 </section>
 
@@ -718,6 +787,24 @@
       <div class="dif-integra-title">SUPERCOR no reemplaza sus sistemas — trabaja sobre ellos</div>
       <div class="dif-integra-chips"><span class="dif-integra-chip">ERP de RR.HH.</span><span class="dif-integra-chip">Control de asistencia</span><span class="dif-integra-chip">Planificación</span><span class="dif-integra-chip">Gestión documental</span></div>
       <p class="dif-integra-text">SUPERCOR integra la información proveniente de sus sistemas actuales y verifica que, en la operación, todo ocurra realmente como fue planificado.</p>
+    </div>
+    <div class="dif-showcase fade-in">
+      <div class="dif-showcase-text">
+        <span class="showcase-tag">Torre de Control</span>
+        <h3>Toda la operación en <span>un solo semáforo</span></h3>
+        <p>Cada tarjeta es una instalación. El color indica su estado: verde al día, amarillo requiere atención, rojo crítico. Gerencia ve en segundos qué está funcionando y qué no.</p>
+        <ul>
+          <li>Items sin cumplir, alertas activas y cumplimiento de la última visita — por instalación</li>
+          <li>Semáforo configurable según los días que su operación puede tolerar sin supervisión</li>
+          <li>Modo TV para pantalla de sala de operaciones — actualización automática</li>
+        </ul>
+      </div>
+      <div class="laptop-frame">
+        <div class="laptop-screen">
+          <img src="assets/screenshots/torre-control.png" alt="Torre de Control SUPERCOR mostrando 36 instalaciones con semáforo de estado: 0 al día, 6 en atención, 30 críticas — cada tarjeta detalla items sin cumplir, cumplimiento y días desde la última visita" loading="lazy" />
+        </div>
+        <div class="laptop-base"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -890,6 +977,14 @@
     <div class="steps-photo fade-in">
       <img src="assets/app-terreno.webp" alt="Supervisores usando la app SUPERCOR en una tablet durante una supervisión en terreno" loading="lazy" />
     </div>
+    <div class="alertas-showcase fade-in">
+      <div class="alertas-frame">
+        <img src="assets/screenshots/alertas.png" alt="Panel de Gestión de Alertas SUPERCOR con pestañas Pendientes, En Gestión, Resueltas Auto y Cerradas Manual — cada alerta muestra el trabajador, supervisor, instalación, fecha y destinatario de la derivación" loading="lazy" />
+        <div class="email-overlay email-overlay-1">supervisor@empresa.cl</div>
+        <div class="email-overlay email-overlay-2">supervisor@empresa.cl</div>
+      </div>
+      <p class="alertas-caption">Cada alerta se deriva automáticamente al responsable configurado. Nada queda flotando. Nada se pierde. Cada resolución queda registrada con fecha y hora.</p>
+    </div>
   </div>
 </section>
 
@@ -907,6 +1002,20 @@
       <div class="valor-card"><div class="valor-card-num">04</div><div class="valor-card-title">Rentabilidad</div><div class="valor-card-desc">Reducir las pérdidas por incumplimiento y proteger sus contratos.</div></div>
     </div>
     <p class="valor-close fade-in">Saber, anticipar, demostrar y proteger: <strong>porque una operación controlada es una operación rentable.</strong></p>
+    <div class="valor-showcase fade-in">
+      <div class="valor-shot">
+        <div class="valor-shot-inner">
+          <img src="assets/screenshots/dashboard-mapa.png" alt="Dashboard SUPERCOR mostrando el mapa GPS de Santiago con las supervisiones geolocalizadas y las demoras de resolución de alertas — vencidas, atrasadas y recientes" loading="lazy" />
+        </div>
+        <div class="valor-shot-label"><strong>GPS real, no PowerPoint</strong>Cada supervisión queda anclada a un punto del mapa. Imposible fingir una visita que no ocurrió.</div>
+      </div>
+      <div class="valor-shot pdf">
+        <div class="valor-shot-inner">
+          <img src="assets/screenshots/reporte-pdf.png" alt="Reporte PDF Ejecutivo SUPERCOR con resumen del período, cumplimiento consolidado del 80%, distribución por categoría y tendencia diaria de cumplimiento" loading="lazy" />
+        </div>
+        <div class="valor-shot-label"><strong>El PDF que muestras a gerencia</strong>Un reporte ejecutivo con evidencia consolidada. Se genera solo. Se comparte por correo.</div>
+      </div>
+    </div>
   </div>
 </section>
 
