@@ -41,7 +41,7 @@ export default async function handler(req, res) {
 
     const rutDT = asegurarGuion(rutLimpio);
 
-    const [data, utm] = await Promise.all([scrapeDT(rutDT), getUTM()]);
+    const [data, utm] = await Promise.all([scrapeDT(rutDT, debug), getUTM()]);
 
     if (!data) {
       return res.status(502).json({ error: 'No se pudo conectar con la Dirección del Trabajo. Intente en unos minutos.' });
@@ -51,7 +51,7 @@ export default async function handler(req, res) {
 
     if (!tieneResultados || rows.length === 0) {
       if (!debug) await notificarConsulta({ rut: rutDT, razonSocial, totalMultas: 0, totalClp: 0 });
-      return res.status(200).json({ sinMultas: true, rut: rutDT, razonSocial: razonSocial || '', totalMultas: 0, totalClp: 0, porAnio: [], avgAnual: 0, utm });
+      return res.status(200).json({ sinMultas: true, rut: rutDT, razonSocial: razonSocial || '', totalMultas: 0, totalClp: 0, porAnio: [], avgAnual: 0, utm, ...(debug ? { _diag: data._diag } : {}) });
     }
 
     // Ingreso Mínimo Mensual "para fines no remuneracionales" — es el que se usa para
@@ -107,7 +107,8 @@ export default async function handler(req, res) {
       avgAnual,
       multas,
       utm,
-      consultadoEl: new Date().toISOString()
+      consultadoEl: new Date().toISOString(),
+      ...(debug ? { _diag: data._diag } : {})
     });
 
   } catch (err) {
@@ -244,7 +245,7 @@ function extraerPaginaEnNavegador() {
   return { razonSocial, totalOficial, rows, firstKey, totalFooter, hasNext, sin };
 }
 
-async function scrapeDT(rutDT) {
+async function scrapeDT(rutDT, debug = false) {
   let browser;
   try {
     browser = await launchBrowser();
@@ -255,20 +256,37 @@ async function scrapeDT(rutDT) {
     await page.type('#tbxRut', rutDT, { delay: 15 });
     await page.click('#btnConsulta');
 
-    // Esperar a que aparezcan resultados (postback o AJAX) o el mensaje de "sin multas"
+    // 1) Esperar a que el postback devuelva el mensaje de resultado (razón social + conteo)
     await page.waitForFunction(() => {
       const lm = document.getElementById('lblMensaje');
-      if (lm && /multas encontradas|Raz[óo]n social|no\s+(existen|hay|se\s+encontraron|se\s+registran)/i.test(lm.innerText || '')) return true;
-      const trs = document.querySelectorAll('tr');
-      for (const tr of trs) {
-        const tds = tr.querySelectorAll('td');
-        if (tds.length >= 6) {
-          const tipo = (tds[5].innerText || '').trim();
-          if (tipo === 'UTM' || tipo === 'IMM') return true;
-        }
-      }
-      return false;
+      return lm && (lm.innerText || '').trim().length > 0;
     }, { timeout: 25000 });
+
+    // 2) Leer el conteo oficial. La grilla (Telerik RadGrid) puebla sus filas con una
+    //    petición asíncrona posterior, así que si el conteo es > 0 (o desconocido)
+    //    hay que ESPERAR a que aparezca la primera fila de datos antes de extraer.
+    const info = await page.evaluate(() => {
+      const lm = document.getElementById('lblMensaje');
+      const t = lm ? (lm.innerText || '').replace(/\s+/g, ' ') : '';
+      const cm = t.match(/multas encontradas:\s*(\d+)/i);
+      return { count: cm ? parseInt(cm[1], 10) : null };
+    });
+
+    if (info.count === null || info.count > 0) {
+      await page
+        .waitForFunction(() => {
+          const trs = document.querySelectorAll('tr');
+          for (const tr of trs) {
+            const tds = tr.querySelectorAll('td');
+            if (tds.length >= 6) {
+              const tipo = (tds[5].innerText || '').trim();
+              if (tipo === 'UTM' || tipo === 'IMM') return true;
+            }
+          }
+          return false;
+        }, { timeout: 15000 })
+        .catch(() => {}); // si no aparecen, el extractor devolverá 0 y se reporta como tal
+    }
 
     const all = new Map();
     const order = [];
@@ -330,11 +348,46 @@ async function scrapeDT(rutDT) {
       if (!avanzo) break; // no se pudo avanzar: devolvemos lo acumulado
     }
 
+    let _diag;
+    if (debug) {
+      // Foto del estado real que ve el navegador headless (solo para diagnóstico)
+      _diag = await page.evaluate(() => {
+        const lm = document.getElementById('lblMensaje');
+        let trConSeis = 0;
+        let filasDato = 0;
+        let primeraFila = null;
+        document.querySelectorAll('tr').forEach((tr) => {
+          const tds = tr.querySelectorAll('td');
+          if (tds.length >= 6) {
+            trConSeis++;
+            const c = Array.from(tds).map((td) => (td.innerText || '').trim());
+            if (c[5] === 'UTM' || c[5] === 'IMM') {
+              filasDato++;
+              if (!primeraFila) primeraFila = c;
+            }
+          }
+        });
+        return {
+          lblMensaje: lm ? (lm.innerText || '').replace(/\s+/g, ' ').slice(0, 200) : null,
+          trConSeisCeldas: trConSeis,
+          filasDatoVisibles: filasDato,
+          primeraFila,
+          hayPaginador: !!document.querySelector('a[title="página siguiente"]'),
+          itemsTexto: (document.body.innerText.match(/items?\s+\d+\s+hasta\s+\d+\s+de\s+\d+/i) || [null])[0],
+        };
+      }).catch((e) => ({ diagError: String(e).slice(0, 200) }));
+      _diag.paginasRecorridas = pageNum;
+      _diag.acumuladas = order.length;
+      _diag.totalOficial = totalOficial;
+      _diag.totalFooter = totalFooter;
+    }
+
     return {
       razonSocial,
       totalRegistros: totalOficial || order.length,
       rows: order.map((k) => all.get(k)),
       tieneResultados: order.length > 0 && !sinMultas,
+      _diag,
     };
   } finally {
     if (browser) await browser.close();
