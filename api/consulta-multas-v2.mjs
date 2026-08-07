@@ -379,6 +379,15 @@ async function scrapeDTUnaVez(rutDT, debug = false) {
       if (!avanzo) break; // no se pudo avanzar: devolvemos lo acumulado
     }
 
+    // Salvaguarda de completitud: la DT informa el total oficial en #lblMensaje.
+    // Si capturamos menos filas que ese total (y NO fue por tope de páginas), la
+    // lectura quedó incompleta → lanzamos para que el reintento externo relance el
+    // navegador. Evita devolver un total parcial (menor al real) por un render lento.
+    const alcanzoTope = pageNum > MAX_PAGES;
+    if (totalOficial > 0 && order.length < totalOficial && !alcanzoTope) {
+      throw new Error(`Captura incompleta: ${order.length}/${totalOficial} multas`);
+    }
+
     let _diag;
     if (debug) {
       // Foto del estado real que ve el navegador headless (solo para diagnóstico)
