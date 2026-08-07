@@ -1419,7 +1419,7 @@
     const resultPanel=document.getElementById('dt-result-panel');
     errEl.style.display='none';loader.style.display='flex';btnEl.disabled=true;resultPanel.style.opacity='0';
     try{
-      const resp=await fetch('/api/consulta-multas',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({rut})});
+      const resp=await fetch('/api/consulta-multas-v2',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({rut})});
       const data=await resp.json();
       if(!resp.ok)throw new Error(data.error||'Error al consultar la DT.');
       dtDatos=data;dtMostrarResultados(data);
