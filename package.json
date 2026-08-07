@@ -1,0 +1,13 @@
+{
+  "name": "supercorp-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sitio publico supercor.cl + funciones serverless (Vercel).",
+  "engines": {
+    "node": "22.x"
+  },
+  "dependencies": {
+    "@sparticuz/chromium": "149.0.0",
+    "puppeteer-core": "25.5.0"
+  }
+}
