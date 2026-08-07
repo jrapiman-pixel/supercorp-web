@@ -1,2 +1,6 @@
 .vercel
 .env*.local
+
+# Configuración local del agente (no se despliega)
+.claude/
+node_modules/

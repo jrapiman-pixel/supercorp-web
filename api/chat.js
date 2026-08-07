@@ -22,6 +22,6 @@ export default async function handler(req, res) {
     const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || "Lo siento, no pude procesar tu consulta.";
     res.status(200).json({ reply });
   } catch(e) {
-    res.status(500).json({ reply: "Error de conexión. Intenta de nuevo." });
+    res.status(500).json({ reply: "Error de conexiÃ³n. Intenta nuevamente." });
   }
 }
