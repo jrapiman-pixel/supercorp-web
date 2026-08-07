@@ -10,7 +10,7 @@
 import chromium from '@sparticuz/chromium';
 import puppeteer from 'puppeteer-core';
 
-export const config = { maxDuration: 60 };
+export const config = { maxDuration: 90 };
 
 const DT_URL = 'https://ventanilla.dirtrab.cl/registroempleador/consultamultas.aspx';
 const NAV_UA =
@@ -245,13 +245,44 @@ function extraerPaginaEnNavegador() {
   return { razonSocial, totalOficial, rows, firstKey, totalFooter, hasNext, sin };
 }
 
+// La DT rechaza conexiones de forma intermitente (net::ERR_EMPTY_RESPONSE). Reintenta
+// la carga inicial varias veces dentro de la misma sesión antes de darla por fallida.
+async function gotoConReintentos(page, url, intentos = 3) {
+  let ultimoErr;
+  for (let i = 0; i < intentos; i++) {
+    try {
+      await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 20000 });
+      return;
+    } catch (e) {
+      ultimoErr = e;
+      await new Promise((r) => setTimeout(r, 1000 * (i + 1)));
+    }
+  }
+  throw ultimoErr;
+}
+
+// Envoltura con reintento completo (relanza el navegador) ante fallos transitorios
+// de la DT en cualquier etapa. Acotado para no exceder el presupuesto de la función.
 async function scrapeDT(rutDT, debug = false) {
+  let ultimoErr;
+  for (let intento = 0; intento < 2; intento++) {
+    try {
+      return await scrapeDTUnaVez(rutDT, debug);
+    } catch (e) {
+      ultimoErr = e;
+      await new Promise((r) => setTimeout(r, 800));
+    }
+  }
+  throw ultimoErr;
+}
+
+async function scrapeDTUnaVez(rutDT, debug = false) {
   let browser;
   try {
     browser = await launchBrowser();
     const page = await browser.newPage();
     await page.setUserAgent(NAV_UA);
-    await page.goto(DT_URL, { waitUntil: 'domcontentloaded', timeout: 30000 });
+    await gotoConReintentos(page, DT_URL, 3);
     await page.waitForSelector('#tbxRut', { timeout: 15000 });
     await page.type('#tbxRut', rutDT, { delay: 15 });
     await page.click('#btnConsulta');
