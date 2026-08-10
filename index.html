@@ -83,19 +83,20 @@
     .hero-leyes{margin-top:1.6rem}
     .hero-leyes-label{display:block;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-400);margin-bottom:.6rem}
     .hero-leyes-chips{display:flex;flex-wrap:wrap;gap:.7rem}
-    /* Sellos de cumplimiento normativo (mismo lenguaje visual que el sello de la Ley 21.659) */
-    .ley-sello{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:76px;height:76px;border-radius:50%;background:radial-gradient(circle at 50% 32%,rgba(0,163,0,.16),rgba(0,138,28,.06));border:2px solid rgba(0,138,28,.45);box-shadow:0 2px 10px rgba(0,138,28,.15),inset 0 0 0 3px rgba(255,255,255,.55);color:var(--green-strong);text-decoration:none;flex-shrink:0;transition:transform .2s,box-shadow .2s}
-    .ley-sello:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 8px 20px rgba(0,138,28,.32),inset 0 0 0 3px rgba(255,255,255,.55)}
-    .ley-sello-top{font-size:.5rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;opacity:.72;line-height:1}
-    .ley-sello-num{font-family:var(--font-title);font-size:.85rem;font-weight:700;line-height:1.15;margin-top:1px}
-    .ley-sello svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round;margin-top:2px;opacity:.85}
-    @media (max-width:520px){.ley-sello{width:66px;height:66px}.ley-sello-num{font-size:.76rem}}
+    /* Sellos de cumplimiento normativo (imágenes de medalla verde) */
+    .ley-sello{display:inline-block;width:110px;height:110px;flex-shrink:0;text-decoration:none;filter:drop-shadow(0 3px 8px rgba(5,50,12,.22));transition:transform .2s,filter .2s}
+    .ley-sello:hover{transform:translateY(-4px) scale(1.05);filter:drop-shadow(0 9px 18px rgba(5,50,12,.34))}
+    .ley-sello img{width:100%;height:100%;display:block}
+    @media (max-width:520px){.ley-sello{width:88px;height:88px}}
     .btn-primary{background:var(--green-strong);color:#fff;padding:.95rem 2rem;border-radius:6px;font-weight:700;font-size:1rem;text-decoration:none;border:none;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body)}
     .btn-primary:hover{background:var(--green)}
     .btn-secondary{background:#fff;color:var(--gray-800);padding:.95rem 2rem;border-radius:6px;font-weight:600;font-size:1rem;text-decoration:none;border:1px solid var(--gray-200);cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body)}
     .btn-secondary:hover{background:var(--gray-50);border-color:var(--gray-400);color:var(--navy)}
     .hero-right{position:relative}
     .hero-right img{width:100%;height:auto;display:block;filter:drop-shadow(0 16px 28px rgba(15,23,42,.20))}
+    /* Sello 21.659 sobrepuesto en la foto del hero (abajo-izquierda) */
+    .hero-right img.hero-sello{position:absolute;left:1%;bottom:3%;width:30%;filter:drop-shadow(0 6px 14px rgba(15,23,42,.30));pointer-events:none}
+    @media (max-width:720px){.hero-right img.hero-sello{width:26%}}
     .steps-photo{max-width:900px;margin:3rem auto 0}
     .steps-photo img{width:100%;height:auto;display:block;border-radius:14px;box-shadow:0 20px 50px rgba(15,23,42,.15)}
     .hero-stats{max-width:1200px;margin:3.5rem auto 0;display:flex;gap:3rem;justify-content:center;flex-wrap:wrap}
@@ -589,16 +590,16 @@
       <div class="hero-leyes">
         <span class="hero-leyes-label">Cubre las exigencias que más fiscalizan</span>
         <div class="hero-leyes-chips">
-          <a href="#obligaciones" class="ley-sello" title="Ley 21.659 — Seguridad Privada"><span class="ley-sello-top">Ley</span><span class="ley-sello-num">21.659</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></a>
-          <a href="#obligaciones" class="ley-sello" title="Ley 16.744 — Accidentes del Trabajo y Enfermedades Profesionales"><span class="ley-sello-top">Ley</span><span class="ley-sello-num">16.744</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></a>
-          <a href="#obligaciones" class="ley-sello" title="D.S. 44 — Gestión Preventiva de Riesgos Laborales"><span class="ley-sello-top">D.S.</span><span class="ley-sello-num">44</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></a>
-          <a href="#obligaciones" class="ley-sello" title="D.S. 594 — Condiciones Sanitarias y Ambientales en los Lugares de Trabajo"><span class="ley-sello-top">D.S.</span><span class="ley-sello-num">594</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></a>
-          <a href="#obligaciones" class="ley-sello" title="Ley 21.719 — Protección de Datos Personales"><span class="ley-sello-top">Ley</span><span class="ley-sello-num">21.719</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></a>
+          <a href="#obligaciones" class="ley-sello" title="Ley 16.744 — Accidentes del Trabajo y Enfermedades Profesionales"><img src="assets/sello-16744.png" alt="Sello Certificado de Cumplimiento — Ley 16.744, Accidentes del Trabajo" loading="lazy" /></a>
+          <a href="#obligaciones" class="ley-sello" title="D.S. 44 — Gestión Preventiva de Riesgos Laborales"><img src="assets/sello-ds44.png" alt="Sello Certificado de Cumplimiento — D.S. N° 44, Gestión Preventiva de Riesgos Laborales" loading="lazy" /></a>
+          <a href="#obligaciones" class="ley-sello" title="D.S. 594 — Condiciones Sanitarias y Ambientales en los Lugares de Trabajo"><img src="assets/sello-ds594.png" alt="Sello Certificado de Cumplimiento — D.S. N° 594, Condiciones Sanitarias y Ambientales" loading="lazy" /></a>
+          <a href="#obligaciones" class="ley-sello" title="Ley 21.719 — Protección de Datos Personales"><img src="assets/sello-21719.png" alt="Sello Certificado de Cumplimiento — Ley N° 21.719, Protección de Datos Personales" loading="lazy" /></a>
         </div>
       </div>
     </div>
     <div class="hero-right fade-in">
-      <img src="assets/hero-supercor.png" alt="Equipo de guardias de seguridad revisando la plataforma SUPERCOR en una tablet en terreno, con sello de cumplimiento de la Ley de Seguridad Privada" fetchpriority="high" />
+      <img src="assets/portada-supercor.jpg" alt="Equipo de guardias de seguridad SUPERCOR revisando la plataforma de cumplimiento en una tablet en terreno" fetchpriority="high" />
+      <img src="assets/sello-21659.png" class="hero-sello" alt="Sello Certificado de Cumplimiento — Ley de Seguridad Privada N° 21.659" />
     </div>
   </div>
   <div class="hero-stats fade-in">
