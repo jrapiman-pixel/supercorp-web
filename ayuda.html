@@ -283,6 +283,7 @@
         <div class="info-card"><div class="info-card-title">👥 Nómina / Dotación</div><div class="info-card-value">Revisión de dotación por contrato e instalación.</div></div>
         <div class="info-card"><div class="info-card-title">⚙️ Matriz de Alertas</div><div class="info-card-value">Configuración de alertas, ítems y correos responsables.</div></div>
         <div class="info-card"><div class="info-card-title">📅 Reportes Programados</div><div class="info-card-value">Envío automático de reportes por correo.</div></div>
+        <div class="info-card"><div class="info-card-title">⚠️ Riesgo de Multas</div><div class="info-card-value">Exposición legal activa en UTM y pesos por infracciones detectadas en terreno.</div></div>
       </div>
     </div>
     <div class="subsection">
@@ -320,6 +321,16 @@
         <div class="step"><div class="step-num">5</div><div class="step-body"><div class="step-title">Instalaciones visitadas y sin visitar</div><div class="step-desc">Muestra el estado de cobertura de cada instalación: <strong>Visitada hoy / Visitada recientemente / Sin visita reciente / Nunca supervisada</strong>.<br><br><strong>Días de supervisión:</strong> indica cuántos días han transcurrido desde la última supervisión de cada instalación. 0 significa supervisada hoy; 1 significa supervisada ayer; a mayor número, más tiempo sin supervisión.</div></div></div>
         <div class="step"><div class="step-num">6</div><div class="step-body"><div class="step-title">Clasificación por nivel de cumplimiento</div><div class="step-desc"><strong>Crítico:</strong> requiere revisión inmediata.<br><strong>Medio:</strong> requiere seguimiento.<br><strong>Normal:</strong> dentro del estándar esperado.<br><strong>Sin acceso:</strong> el supervisor no pudo ingresar a la instalación.</div></div></div>
       </div>
+    </div>
+    <div class="subsection">
+      <div class="subsection-title">Riesgo de Multas <span style="background:#008A1C;color:#fff;font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 10px;border-radius:4px;margin-left:8px;vertical-align:middle">NUEVO</span></div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Exposición legal activa</div><div class="step-desc">El módulo Riesgo de Multas muestra cuánto puede costar la empresa en multas laborales y sectoriales según las alertas pendientes que tiene en terreno. Cada infracción se presenta como un rango mínimo y máximo en UTM y en pesos, porque el monto real depende del criterio del fiscalizador. La suma total considera todas las alertas sin resolver sin importar cuándo ocurrieron: mientras una alerta no se cierra, el riesgo existe.</div></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Filtros y flujo del mes</div><div class="step-desc">Permite filtrar por contrato, instalación y período (últimos 7, 15, 30, 60, 90 días o año completo). Incluye el <strong>flujo del mes</strong>: riesgo nuevo generado versus riesgo corregido, para visualizar si la operación mejora o empeora en términos de exposición. Desde esta página se puede descargar un <strong>PDF ejecutivo de riesgo</strong> con el resumen de la exposición del período.</div></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Banda de riesgo en el Panel de Control</div><div class="step-desc">El Panel de Control presenta en la parte superior una banda con el rango total de exposición: monto mínimo, monto máximo y número de alertas que lo componen. Esto permite tener visibilidad del riesgo operacional desde la primera pantalla al ingresar.</div></div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-body"><div class="step-title">Riesgo de multa en correos de alerta</div><div class="step-desc">Cuando la empresa activa esta opción en la Matriz de Alertas, los correos de alerta incluyen el rango estimado de multa de cada infracción detectada (mínimo y máximo en UTM y pesos). Esta opción nace desactivada; la jefatura puede habilitarla en la Matriz de Alertas cuando considere que los montos de exposición agregan valor a la comunicación interna.</div></div></div>
+      </div>
+      <div class="alert-box tip"><div class="alert-icon">⚠️</div><div><strong>Nota:</strong> Los montos son estimaciones de exposición legal basadas en la normativa vigente. Se presentan siempre como rangos mínimo–máximo y no reemplazan la asesoría de un profesional legal.</div></div>
     </div>
     <div class="subsection">
       <div class="subsection-title">Reportes</div>
@@ -483,6 +494,8 @@ Reportes PDF y Excel.
 Reportes Programados.
 Matriz de Alertas y aviso de instalaciones sin supervisión.
 Checklists y fotos por instalación (modelo general y específico).
+Riesgo de Multas y exposición legal de la empresa.
+Correo de alerta con bloque de multas por infracción.
 Nómina y Dotación.
 Evidencias fotográficas.
 Supervisión en terreno y flujo de 6 etapas.
@@ -686,6 +699,20 @@ SUPERCOR permite que cada instalación tenga su propio checklist y sus propias f
 - Por instalación: los ítems y fotos específicos aparecen solo en la instalación indicada (por ejemplo un control particular de una planta).
 Cuando el supervisor realiza una supervisión, el sistema le muestra automáticamente los ítems generales más los específicos de la instalación que eligió. De esta forma, dos instalaciones distintas pueden tener checklists completamente diferentes entre sí, y el reporte de cada supervisión guarda exactamente lo que se evaluó en terreno.
 La definición de checklists y fotos (generales o por instalación) se realiza desde la configuración de la plataforma. La jefatura y los supervisores no necesitan hacer nada especial: el flujo de supervisión se adapta automáticamente a cada instalación.
+
+RIESGO DE MULTAS (NUEVO):
+SUPERCOR calcula y muestra la exposición legal de la empresa a multas laborales y sectoriales en función de las alertas pendientes detectadas en terreno. Este módulo permite dimensionar el costo real de los incumplimientos activos antes de que llegue un fiscalizador.
+
+Página Riesgo de Multas:
+Muestra el detalle de infracciones potenciales con filtros por contrato, instalación y período (últimos 7, 15, 30, 60, 90 días o año completo). Cada infracción se presenta como un rango mínimo y máximo en UTM y en pesos. El total considera todas las alertas sin resolver, independiente del tiempo, porque mientras una alerta no se cierra el riesgo existe. Incluye el flujo del mes para visualizar si la operación mejora o empeora en términos de exposición. Desde esta página se puede descargar un PDF con el resumen ejecutivo de riesgo.
+
+Banda de riesgo en el Panel de Control:
+El Panel de Control presenta en la parte superior una banda con el rango total de exposición a multas: monto mínimo, monto máximo y número de alertas que lo componen. Esto permite tener visibilidad del riesgo operacional desde la primera pantalla al ingresar.
+
+Riesgo de multas en correos de alerta:
+Cuando la empresa activa esta opción en la Matriz de Alertas, los correos de alerta incluyen el rango estimado de multa de cada infracción detectada (mínimo y máximo en UTM y pesos). Esta opción nace desactivada. La jefatura puede habilitarla desde la Matriz de Alertas cuando considere que los montos de exposición agregan valor a la comunicación interna.
+
+Importante: los montos son estimaciones de exposición legal basadas en la normativa vigente. Se presentan siempre como rangos mínimo–máximo porque el monto real depende del criterio del fiscalizador. No reemplazan la asesoría de un profesional legal.
 
 PERFIL 2: SUPERVISOR EN TERRENO
 
