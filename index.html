@@ -1660,16 +1660,14 @@
   /* ===== Welcome Popup logic ===== */
   (function(){
     var KEY='supercor_popup_seen';
-    var DAYS=3;
     var overlay=document.getElementById('welcomePopup');
     var closeBtn=document.getElementById('welcomeClose');
     if(!overlay)return;
-    var last=localStorage.getItem(KEY);
-    if(last&&(Date.now()-Number(last))<DAYS*86400000)return;
+    if(sessionStorage.getItem(KEY))return;
     function closePopup(){
       overlay.classList.remove('active');
       document.body.style.overflow='';
-      localStorage.setItem(KEY,Date.now());
+      sessionStorage.setItem(KEY,'1');
     }
     setTimeout(function(){
       overlay.classList.add('active');
