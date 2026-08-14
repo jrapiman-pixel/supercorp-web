@@ -520,6 +520,31 @@
       .prensa-content{text-align:center}
       .prensa-content>img{margin-left:auto;margin-right:auto}
     }
+    /* ===== Bloque TV / Video dentro de #prensa ===== */
+    .prensa-tv{background:var(--navy);border-radius:14px;margin:3.5rem auto 0;max-width:1040px;overflow:hidden;box-shadow:0 24px 60px rgba(15,23,42,.30)}
+    .prensa-tv-grid{display:grid;grid-template-columns:1.1fr .9fr;align-items:center}
+    .prensa-tv-video{position:relative;width:100%;padding-bottom:56.25%;background:#000}
+    .prensa-tv-video iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+    .prensa-tv-body{padding:2.5rem 2.8rem}
+    .prensa-tv-channel{display:inline-flex;align-items:center;gap:8px;margin-bottom:1.2rem}
+    .prensa-tv-channel svg{width:20px;height:20px;fill:#ff0000;flex-shrink:0}
+    .prensa-tv-channel span{font-size:.78rem;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:.06em;text-transform:uppercase}
+    .prensa-tv-quote{font-family:var(--font-title);font-size:clamp(1.3rem,2.6vw,1.75rem);font-weight:700;color:#fff;line-height:1.32;margin-bottom:1rem}
+    .prensa-tv-quote em{color:var(--green);font-style:normal}
+    .prensa-tv-attr{font-size:.9rem;color:rgba(255,255,255,.4);margin-bottom:1.8rem}
+    .prensa-tv-btn{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);color:#fff;padding:.7rem 1.6rem;border-radius:8px;font-weight:600;font-size:.9rem;text-decoration:none;border:1px solid rgba(255,255,255,.12);transition:background .2s,transform .15s}
+    .prensa-tv-btn:hover{background:rgba(255,255,255,.14);transform:translateY(-1px)}
+    .prensa-tv-btn svg{width:16px;height:16px;fill:#fff}
+    .prensa-medios-strip{display:flex;align-items:center;justify-content:center;gap:2.5rem;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--gray-100)}
+    .prensa-medios-strip span{font-size:.72rem;font-weight:700;color:var(--gray-400);letter-spacing:.1em;text-transform:uppercase}
+    .prensa-medio-logo{display:flex;align-items:center;gap:8px;font-size:.88rem;font-weight:600;color:var(--gray-600)}
+    .prensa-medio-logo img{height:28px;width:auto}
+    .prensa-medio-logo svg{width:22px;height:22px;flex-shrink:0}
+    @media(max-width:768px){
+      .prensa-tv-grid{grid-template-columns:1fr}
+      .prensa-tv-body{padding:1.8rem 1.5rem}
+      .prensa-medios-strip{flex-direction:column;gap:1rem}
+    }
     /* ===== Banner superior fijo: diagnóstico (cinta continua + botón) ===== */
     .diag-banner{position:fixed;top:0;left:0;right:0;z-index:101;height:56px;display:flex;align-items:center;background:linear-gradient(90deg,var(--green-strong),var(--green) 50%,var(--green-strong));color:#fff;text-decoration:none;overflow:hidden}
     .diag-ticker{flex:1;overflow:hidden;height:100%;display:flex;align-items:center}
@@ -902,6 +927,38 @@
         <p class="prensa-quote">"Cada incumplimiento detectado a tiempo representa <span>una multa evitada</span>, una contingencia controlada y una operación mejor gestionada."</p>
         <p class="prensa-attr">Publicación en Revista Seguridad &amp; Defensa — Edición Nº64, junio 2026</p>
         <a href="https://revistaseguridad.cl/3d-flip-book/edicion-no64/#edicion-no64/24/" target="_blank" rel="noopener" class="btn-primary">Leer el reportaje completo →</a>
+      </div>
+    </div>
+
+    <div class="prensa-tv fade-in">
+      <div class="prensa-tv-grid">
+        <div class="prensa-tv-video">
+          <iframe src="https://www.youtube.com/embed/aRmZfSBAl_I?rel=0&modestbranding=1" title="SUPERCOR en Canal Seguridad Televisión" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="prensa-tv-body">
+          <div class="prensa-tv-channel">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            <span>Canal Seguridad Televisión</span>
+          </div>
+          <p class="prensa-tv-quote">"Con SUPERCOR ya es posible <em>incrementar la eficiencia</em> de las empresas de seguridad gracias a su plataforma de cumplimiento en base a evidencia."</p>
+          <p class="prensa-tv-attr">Spot televisivo — Canal Seguridad Televisión, agosto 2026</p>
+          <a class="prensa-tv-btn" href="https://www.youtube.com/watch?v=aRmZfSBAl_I" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            Ver en YouTube
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="prensa-medios-strip fade-in">
+      <span>Como visto en</span>
+      <div class="prensa-medio-logo">
+        <img src="assets/logo-revista-sd.png" alt="Revista Seguridad & Defensa" />
+        Revista S&D
+      </div>
+      <div class="prensa-medio-logo">
+        <svg viewBox="0 0 24 24" fill="#ff0000"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        Canal Seguridad TV
       </div>
     </div>
   </div>
