@@ -85,10 +85,11 @@
     /* ===== Banderas de países en el hero ===== */
     .hero-flags{margin-top:1.6rem}
     .hero-flags-label{display:block;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-400);margin-bottom:.6rem}
-    .hero-flags-row{display:flex;flex-wrap:wrap;gap:.55rem;align-items:center}
-    .flag-circle{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.55rem;background:rgba(255,255,255,0.06);border:2px solid rgba(255,255,255,0.12);transition:transform .2s,border-color .2s;cursor:default}
-    .flag-circle:hover{transform:scale(1.18);border-color:rgba(0,163,0,.45)}
-    @media (max-width:520px){.flag-circle{width:36px;height:36px;font-size:1.25rem}}
+    .hero-flags-row{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
+    .flag-circle{width:50px;height:50px;border-radius:50%;overflow:hidden;border:2.5px solid rgba(255,255,255,0.18);transition:transform .25s,border-color .25s,box-shadow .25s;cursor:default;flex-shrink:0}
+    .flag-circle:hover{transform:scale(1.2);border-color:rgba(0,163,0,.55);box-shadow:0 0 16px rgba(0,163,0,.3)}
+    .flag-circle img{width:100%;height:100%;object-fit:cover;display:block}
+    @media (max-width:520px){.flag-circle{width:40px;height:40px}}
     .btn-primary{background:var(--green-strong);color:#fff;padding:.95rem 2rem;border-radius:6px;font-weight:700;font-size:1rem;text-decoration:none;border:none;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body)}
     .btn-primary:hover{background:var(--green)}
     .btn-secondary{background:#fff;color:var(--gray-800);padding:.95rem 2rem;border-radius:6px;font-weight:600;font-size:1rem;text-decoration:none;border:1px solid var(--gray-200);cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body)}
@@ -102,11 +103,13 @@
     .intl-msg{font-family:var(--font-title);font-size:clamp(1.3rem,2.8vw,1.85rem);font-weight:700;color:white;line-height:1.35;margin-bottom:.4rem}
     .intl-msg span{color:var(--accent)}
     .intl-sub{font-size:.92rem;color:var(--silver-dim);margin-bottom:1.5rem}
-    .intl-flags{display:flex;flex-wrap:wrap;justify-content:center;gap:1.1rem}
-    .intl-flag{display:flex;flex-direction:column;align-items:center;gap:3px}
-    .intl-flag-emoji{font-size:1.8rem}
-    .intl-flag-name{font-size:.6rem;color:var(--silver-dim);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
-    @media (max-width:520px){.intl-flag-emoji{font-size:1.4rem}.intl-flags{gap:.7rem}}
+    .intl-flags{display:flex;flex-wrap:wrap;justify-content:center;gap:1.3rem}
+    .intl-flag{display:flex;flex-direction:column;align-items:center;gap:5px}
+    .intl-flag-img{width:44px;height:44px;border-radius:50%;object-fit:cover;display:block;border:2px solid rgba(255,255,255,0.15);transition:transform .25s,border-color .25s}
+    .intl-flag:hover .intl-flag-img{transform:scale(1.15);border-color:rgba(0,163,0,.5)}
+    .intl-flag-name{font-size:.62rem;color:var(--silver-dim);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+    @media (max-width:520px){.intl-flag-img{width:36px;height:36px}.intl-flags{gap:.8rem}}
+    .ticker-flag{width:24px;height:18px;object-fit:cover;border-radius:3px;vertical-align:middle;margin:0 5px 2px 0}
     /* ===== Badge Chile-only en calculadora ===== */
     .chile-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(0,163,0,0.08);border:1px solid rgba(0,163,0,0.18);color:var(--green-strong);font-size:.72rem;font-weight:700;padding:4px 14px;border-radius:16px;margin-bottom:.5rem}
     .steps-photo{max-width:900px;margin:3rem auto 0}
@@ -670,12 +673,12 @@
 <a class="diag-banner" href="#diagnostico" aria-label="Diagnostique aquí su empresa gratis — ir a la calculadora de diagnóstico">
   <div class="diag-ticker" aria-hidden="true">
     <div class="diag-ticker-track">
-      <span class="diag-ticker-item">🔍 NUEVO: Consulte GRATIS las multas reales de su empresa en la DT</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item">Descubra cuánto pierde al año en multas</span><span class="diag-ticker-sep">•</span>
-      <span class="diag-ticker-item">🔍 NUEVO: Consulte GRATIS las multas reales de su empresa en la DT</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item">Descubra cuánto pierde al año en multas</span><span class="diag-ticker-sep">•</span>
-      <span class="diag-ticker-item">🔍 NUEVO: Consulte GRATIS las multas reales de su empresa en la DT</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item">Descubra cuánto pierde al año en multas</span><span class="diag-ticker-sep">•</span>
-      <span class="diag-ticker-item">🔍 NUEVO: Consulte GRATIS las multas reales de su empresa en la DT</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item">Descubra cuánto pierde al año en multas</span><span class="diag-ticker-sep">•</span>
-      <span class="diag-ticker-item">🔍 NUEVO: Consulte GRATIS las multas reales de su empresa en la DT</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item">Descubra cuánto pierde al año en multas</span><span class="diag-ticker-sep">•</span>
-      <span class="diag-ticker-item">🔍 NUEVO: Consulte GRATIS las multas reales de su empresa en la DT</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item">Descubra cuánto pierde al año en multas</span><span class="diag-ticker-sep">•</span>
+      <span class="diag-ticker-item"><img class="ticker-flag" src="assets/flags/cl.png" alt="Chile" />SOLO CHILE: Consulte GRATIS las multas reales de su empresa en la DT</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item">Descubra cuánto pierde al año en multas</span><span class="diag-ticker-sep">•</span>
+      <span class="diag-ticker-item"><img class="ticker-flag" src="assets/flags/cl.png" alt="Chile" />SOLO CHILE: Consulte GRATIS las multas reales de su empresa en la DT</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item">Descubra cuánto pierde al año en multas</span><span class="diag-ticker-sep">•</span>
+      <span class="diag-ticker-item"><img class="ticker-flag" src="assets/flags/cl.png" alt="Chile" />SOLO CHILE: Consulte GRATIS las multas reales de su empresa en la DT</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item">Descubra cuánto pierde al año en multas</span><span class="diag-ticker-sep">•</span>
+      <span class="diag-ticker-item"><img class="ticker-flag" src="assets/flags/cl.png" alt="Chile" />SOLO CHILE: Consulte GRATIS las multas reales de su empresa en la DT</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item">Descubra cuánto pierde al año en multas</span><span class="diag-ticker-sep">•</span>
+      <span class="diag-ticker-item"><img class="ticker-flag" src="assets/flags/cl.png" alt="Chile" />SOLO CHILE: Consulte GRATIS las multas reales de su empresa en la DT</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item">Descubra cuánto pierde al año en multas</span><span class="diag-ticker-sep">•</span>
+      <span class="diag-ticker-item"><img class="ticker-flag" src="assets/flags/cl.png" alt="Chile" />SOLO CHILE: Consulte GRATIS las multas reales de su empresa en la DT</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item">Descubra cuánto pierde al año en multas</span><span class="diag-ticker-sep">•</span>
     </div>
   </div>
   <span class="diag-banner-btn">Consultar ahora →</span>
@@ -710,16 +713,16 @@
       <div class="hero-flags">
         <span class="hero-flags-label">Presente en Latinoamérica y España</span>
         <div class="hero-flags-row">
-          <span class="flag-circle" title="Chile">🇨🇱</span>
-          <span class="flag-circle" title="Perú">🇵🇪</span>
-          <span class="flag-circle" title="Colombia">🇨🇴</span>
-          <span class="flag-circle" title="Ecuador">🇪🇨</span>
-          <span class="flag-circle" title="México">🇲🇽</span>
-          <span class="flag-circle" title="Argentina">🇦🇷</span>
-          <span class="flag-circle" title="Guatemala">🇬🇹</span>
-          <span class="flag-circle" title="Paraguay">🇵🇾</span>
-          <span class="flag-circle" title="Uruguay">🇺🇾</span>
-          <span class="flag-circle" title="España">🇪🇸</span>
+          <div class="flag-circle" title="Chile"><img src="assets/flags/cl.png" alt="Chile" /></div>
+          <div class="flag-circle" title="Perú"><img src="assets/flags/pe.png" alt="Perú" /></div>
+          <div class="flag-circle" title="Colombia"><img src="assets/flags/co.png" alt="Colombia" /></div>
+          <div class="flag-circle" title="Ecuador"><img src="assets/flags/ec.png" alt="Ecuador" /></div>
+          <div class="flag-circle" title="México"><img src="assets/flags/mx.png" alt="México" /></div>
+          <div class="flag-circle" title="Argentina"><img src="assets/flags/ar.png" alt="Argentina" /></div>
+          <div class="flag-circle" title="Guatemala"><img src="assets/flags/gt.png" alt="Guatemala" /></div>
+          <div class="flag-circle" title="Paraguay"><img src="assets/flags/py.png" alt="Paraguay" /></div>
+          <div class="flag-circle" title="Uruguay"><img src="assets/flags/uy.png" alt="Uruguay" /></div>
+          <div class="flag-circle" title="España"><img src="assets/flags/es.png" alt="España" /></div>
         </div>
       </div>
     </div>
@@ -740,16 +743,16 @@
     <p class="intl-msg">No nació para una ley.<br>Nació para resolver un <span>problema operacional</span>.</p>
     <p class="intl-sub">Mismo desafío. Misma solución. Sin importar la normativa de cada país.</p>
     <div class="intl-flags">
-      <div class="intl-flag"><span class="intl-flag-emoji">🇨🇱</span><span class="intl-flag-name">Chile</span></div>
-      <div class="intl-flag"><span class="intl-flag-emoji">🇵🇪</span><span class="intl-flag-name">Perú</span></div>
-      <div class="intl-flag"><span class="intl-flag-emoji">🇨🇴</span><span class="intl-flag-name">Colombia</span></div>
-      <div class="intl-flag"><span class="intl-flag-emoji">🇪🇨</span><span class="intl-flag-name">Ecuador</span></div>
-      <div class="intl-flag"><span class="intl-flag-emoji">🇲🇽</span><span class="intl-flag-name">México</span></div>
-      <div class="intl-flag"><span class="intl-flag-emoji">🇦🇷</span><span class="intl-flag-name">Argentina</span></div>
-      <div class="intl-flag"><span class="intl-flag-emoji">🇬🇹</span><span class="intl-flag-name">Guatemala</span></div>
-      <div class="intl-flag"><span class="intl-flag-emoji">🇵🇾</span><span class="intl-flag-name">Paraguay</span></div>
-      <div class="intl-flag"><span class="intl-flag-emoji">🇺🇾</span><span class="intl-flag-name">Uruguay</span></div>
-      <div class="intl-flag"><span class="intl-flag-emoji">🇪🇸</span><span class="intl-flag-name">España</span></div>
+      <div class="intl-flag"><img class="intl-flag-img" src="assets/flags/cl.png" alt="Chile" /><span class="intl-flag-name">Chile</span></div>
+      <div class="intl-flag"><img class="intl-flag-img" src="assets/flags/pe.png" alt="Perú" /><span class="intl-flag-name">Perú</span></div>
+      <div class="intl-flag"><img class="intl-flag-img" src="assets/flags/co.png" alt="Colombia" /><span class="intl-flag-name">Colombia</span></div>
+      <div class="intl-flag"><img class="intl-flag-img" src="assets/flags/ec.png" alt="Ecuador" /><span class="intl-flag-name">Ecuador</span></div>
+      <div class="intl-flag"><img class="intl-flag-img" src="assets/flags/mx.png" alt="México" /><span class="intl-flag-name">México</span></div>
+      <div class="intl-flag"><img class="intl-flag-img" src="assets/flags/ar.png" alt="Argentina" /><span class="intl-flag-name">Argentina</span></div>
+      <div class="intl-flag"><img class="intl-flag-img" src="assets/flags/gt.png" alt="Guatemala" /><span class="intl-flag-name">Guatemala</span></div>
+      <div class="intl-flag"><img class="intl-flag-img" src="assets/flags/py.png" alt="Paraguay" /><span class="intl-flag-name">Paraguay</span></div>
+      <div class="intl-flag"><img class="intl-flag-img" src="assets/flags/uy.png" alt="Uruguay" /><span class="intl-flag-name">Uruguay</span></div>
+      <div class="intl-flag"><img class="intl-flag-img" src="assets/flags/es.png" alt="España" /><span class="intl-flag-name">España</span></div>
     </div>
   </div>
 </section>
@@ -1000,7 +1003,7 @@
 <section id="diagnostico">
   <div class="container">
     <div class="text-center fade-in">
-      <div class="chile-badge">🇨🇱 Herramienta exclusiva para Chile</div>
+      <div class="chile-badge"><img class="ticker-flag" src="assets/flags/cl.png" alt="Chile" /> Herramienta exclusiva para Chile</div>
       <div class="section-badge">Diagnóstico de riesgo financiero</div>
       <h2 class="section-title">Vea las multas <em>reales</em> de su empresa… y cuánto podría <span>recuperar</span>.</h2>
       <p class="section-subtitle">Ingrese el RUT de su empresa y consulte en vivo su historial de multas en la Dirección del Trabajo (Chile). Datos reales, no estimaciones.</p>
