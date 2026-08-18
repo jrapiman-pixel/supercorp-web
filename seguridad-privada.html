@@ -96,6 +96,25 @@
     .whatsapp-float:hover{transform:scale(1.12)}
     .whatsapp-float svg{width:30px;height:30px;fill:white}
     @media(max-width:768px){.btn-secondary{margin-left:0;margin-top:1rem}}
+    /* ===== Sellos de leyes chilenas ===== */
+    .hero-leyes{margin-top:2rem}
+    .hero-leyes-label{display:block;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--silver-dim);margin-bottom:.6rem}
+    .hero-leyes-chips{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center}
+    .ley-sello{display:inline-block;width:94px;height:94px;flex-shrink:0;text-decoration:none;filter:drop-shadow(0 3px 8px rgba(5,50,12,.22));transition:transform .2s,filter .2s}
+    .ley-sello:hover{transform:translateY(-4px) scale(1.05);filter:drop-shadow(0 9px 18px rgba(5,50,12,.34))}
+    .ley-sello img{width:100%;height:100%;display:block}
+    @media (max-width:520px){.ley-sello{width:72px;height:72px}}
+    /* ===== Sección normativa chilena ===== */
+    .norm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+    .norm-card{background:var(--gray-50);border:1px solid var(--gray-100);border-radius:12px;padding:2rem 1.75rem;border-top:4px solid var(--green);transition:box-shadow .2s}
+    .norm-card:hover{box-shadow:0 12px 40px rgba(15,23,42,.1)}
+    .norm-card-title{font-family:var(--font-title);font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:.75rem}
+    .norm-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.9rem}
+    .norm-chip{background:rgba(0,138,28,.08);border:1px solid rgba(0,138,28,.2);color:var(--green);font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:12px}
+    .norm-card-desc{font-size:.87rem;color:var(--gray-600);line-height:1.6}
+    .norm-tagline{max-width:720px;margin:2.75rem auto 0;text-align:center;font-family:var(--font-title);font-size:clamp(1.2rem,2.4vw,1.6rem);font-weight:700;color:var(--navy)}
+    .norm-tagline span{color:var(--green)}
+    @media (max-width:700px){.norm-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -113,6 +132,16 @@
     <div>
       <a href="/#demo" class="btn-primary">✦ Solicitar Diagnóstico</a>
       <a href="/" class="btn-secondary">Ver plataforma completa →</a>
+    </div>
+    <div class="hero-leyes">
+      <span class="hero-leyes-label">Cubre las exigencias que más fiscalizan en Chile</span>
+      <div class="hero-leyes-chips">
+        <a href="#normativa" class="ley-sello" title="Ley 16.744 — Accidentes del Trabajo y Enfermedades Profesionales"><img src="assets/sello-16744.png" alt="Sello Certificado de Cumplimiento — Ley 16.744" loading="lazy" /></a>
+        <a href="#normativa" class="ley-sello" title="D.S. 44 — Gestión Preventiva de Riesgos Laborales"><img src="assets/sello-ds44.png" alt="Sello Certificado de Cumplimiento — D.S. N° 44" loading="lazy" /></a>
+        <a href="#normativa" class="ley-sello" title="D.S. 594 — Condiciones Sanitarias y Ambientales en los Lugares de Trabajo"><img src="assets/sello-ds594.png" alt="Sello Certificado de Cumplimiento — D.S. N° 594" loading="lazy" /></a>
+        <a href="#normativa" class="ley-sello" title="Ley 21.659 — Seguridad Privada"><img src="assets/sello-21659.png" alt="Sello Certificado de Cumplimiento — Ley N° 21.659" loading="lazy" /></a>
+        <a href="#normativa" class="ley-sello" title="Ley 21.719 — Protección de Datos Personales"><img src="assets/sello-21719.png" alt="Sello Certificado de Cumplimiento — Ley N° 21.719" loading="lazy" /></a>
+      </div>
     </div>
   </div>
 </section>
@@ -215,6 +244,34 @@
         <div class="card-desc">Sin hardware especial ni capacitación compleja. La app es intuitiva y funciona offline en zonas sin señal. Cero excusas para no cumplir.</div>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="normativa">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-badge">Marco regulatorio chileno</div>
+      <h2>SUPERCOR cubre las obligaciones que más fiscalizan en Chile</h2>
+      <p class="subtitle">Las empresas de seguridad privada deben cumplir simultáneamente múltiples exigencias legales. SUPERCOR permite supervisarlas diariamente, generar evidencia digital y detectar desviaciones antes de que se transformen en multas.</p>
+    </div>
+    <div class="norm-grid">
+      <div class="norm-card">
+        <div class="norm-card-title">Cumplimiento Laboral</div>
+        <div class="norm-chips"><span class="norm-chip">Ley 16.744</span><span class="norm-chip">DS 44</span><span class="norm-chip">DS 594</span></div>
+        <div class="norm-card-desc">Supervisión diaria de las obligaciones laborales y de seguridad y salud en el trabajo, con evidencia verificable de cada control.</div>
+      </div>
+      <div class="norm-card">
+        <div class="norm-card-title">Cumplimiento en Seguridad Privada</div>
+        <div class="norm-chips"><span class="norm-chip">Ley 21.659</span><span class="norm-chip">OS-10</span><span class="norm-chip">Supervisión operacional</span><span class="norm-chip">Evidencia</span></div>
+        <div class="norm-card-desc">Control del cumplimiento normativo del rubro: acreditaciones, directivas, dotaciones y supervisión en terreno con respaldo digital ante la SPD y OS-10.</div>
+      </div>
+      <div class="norm-card">
+        <div class="norm-card-title">Protección de Datos</div>
+        <div class="norm-chips"><span class="norm-chip">Ley 21.719</span><span class="norm-chip">Trazabilidad</span><span class="norm-chip">Registros</span></div>
+        <div class="norm-card-desc">Evidencias, trazabilidad y registros que respaldan los controles operacionales asociados al tratamiento de datos personales.</div>
+      </div>
+    </div>
+    <p class="norm-tagline">Una plataforma. Toda la normativa chilena. <span>Un solo modelo de control.</span></p>
   </div>
 </section>
 

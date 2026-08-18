@@ -82,24 +82,33 @@
     .hero-title .accent{color:var(--green-strong)}
     .hero-subtitle{font-size:clamp(1rem,1.4vw,1.18rem);color:var(--gray-600);line-height:1.7;margin-bottom:2rem;max-width:560px}
     .hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
-    /* ===== Chips-sello de leyes en el hero ===== */
-    .hero-leyes{margin-top:1.6rem}
-    .hero-leyes-label{display:block;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-400);margin-bottom:.6rem}
-    .hero-leyes-chips{display:flex;flex-wrap:wrap;gap:.7rem}
-    /* Sellos de cumplimiento normativo (imágenes de medalla verde) */
-    .ley-sello{display:inline-block;width:94px;height:94px;flex-shrink:0;text-decoration:none;filter:drop-shadow(0 3px 8px rgba(5,50,12,.22));transition:transform .2s,filter .2s}
-    .ley-sello:hover{transform:translateY(-4px) scale(1.05);filter:drop-shadow(0 9px 18px rgba(5,50,12,.34))}
-    .ley-sello img{width:100%;height:100%;display:block}
-    @media (max-width:520px){.ley-sello{width:76px;height:76px}}
+    /* ===== Banderas de países en el hero ===== */
+    .hero-flags{margin-top:1.6rem}
+    .hero-flags-label{display:block;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-400);margin-bottom:.6rem}
+    .hero-flags-row{display:flex;flex-wrap:wrap;gap:.55rem;align-items:center}
+    .flag-circle{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.55rem;background:rgba(255,255,255,0.06);border:2px solid rgba(255,255,255,0.12);transition:transform .2s,border-color .2s;cursor:default}
+    .flag-circle:hover{transform:scale(1.18);border-color:rgba(0,163,0,.45)}
+    @media (max-width:520px){.flag-circle{width:36px;height:36px;font-size:1.25rem}}
     .btn-primary{background:var(--green-strong);color:#fff;padding:.95rem 2rem;border-radius:6px;font-weight:700;font-size:1rem;text-decoration:none;border:none;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body)}
     .btn-primary:hover{background:var(--green)}
     .btn-secondary{background:#fff;color:var(--gray-800);padding:.95rem 2rem;border-radius:6px;font-weight:600;font-size:1rem;text-decoration:none;border:1px solid var(--gray-200);cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body)}
     .btn-secondary:hover{background:var(--gray-50);border-color:var(--gray-400);color:var(--navy)}
     .hero-right{position:relative}
     .hero-right img{width:100%;height:auto;display:block;filter:drop-shadow(0 16px 28px rgba(15,23,42,.20))}
-    /* Sello 21.659 sobrepuesto en la foto del hero (abajo-izquierda) */
-    .hero-right img.hero-sello{position:absolute;left:1%;bottom:3%;width:23%;filter:drop-shadow(0 6px 14px rgba(15,23,42,.30));pointer-events:none}
-    @media (max-width:720px){.hero-right img.hero-sello{width:20%}}
+    /* ===== Bloque internacional ===== */
+    .intl-block{background:var(--navy);padding:2.5rem 2rem;text-align:center;border-bottom:1px solid rgba(0,163,0,0.15);position:relative;overflow:hidden}
+    .intl-block::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(0,163,0,0.1) 0%,transparent 65%);pointer-events:none}
+    .intl-inner{position:relative;z-index:1;max-width:760px;margin:0 auto}
+    .intl-msg{font-family:var(--font-title);font-size:clamp(1.3rem,2.8vw,1.85rem);font-weight:700;color:white;line-height:1.35;margin-bottom:.4rem}
+    .intl-msg span{color:var(--accent)}
+    .intl-sub{font-size:.92rem;color:var(--silver-dim);margin-bottom:1.5rem}
+    .intl-flags{display:flex;flex-wrap:wrap;justify-content:center;gap:1.1rem}
+    .intl-flag{display:flex;flex-direction:column;align-items:center;gap:3px}
+    .intl-flag-emoji{font-size:1.8rem}
+    .intl-flag-name{font-size:.6rem;color:var(--silver-dim);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+    @media (max-width:520px){.intl-flag-emoji{font-size:1.4rem}.intl-flags{gap:.7rem}}
+    /* ===== Badge Chile-only en calculadora ===== */
+    .chile-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(0,163,0,0.08);border:1px solid rgba(0,163,0,0.18);color:var(--green-strong);font-size:.72rem;font-weight:700;padding:4px 14px;border-radius:16px;margin-bottom:.5rem}
     .steps-photo{max-width:900px;margin:3rem auto 0}
     .steps-photo img{width:100%;height:auto;display:block;border-radius:14px;box-shadow:0 20px 50px rgba(15,23,42,.15)}
     .hero-stats{max-width:1200px;margin:3.5rem auto 0;display:flex;gap:3rem;justify-content:center;flex-wrap:wrap}
@@ -698,19 +707,24 @@
         <a href="#diagnostico" class="btn-primary">🔍 Consultar mis multas reales</a>
         <a href="#como-funciona" class="btn-secondary">Ver cómo funciona →</a>
       </div>
-      <div class="hero-leyes">
-        <span class="hero-leyes-label">Cubre las exigencias que más fiscalizan</span>
-        <div class="hero-leyes-chips">
-          <a href="#obligaciones" class="ley-sello" title="Ley 16.744 — Accidentes del Trabajo y Enfermedades Profesionales"><img src="assets/sello-16744.png" alt="Sello Certificado de Cumplimiento — Ley 16.744, Accidentes del Trabajo" loading="lazy" /></a>
-          <a href="#obligaciones" class="ley-sello" title="D.S. 44 — Gestión Preventiva de Riesgos Laborales"><img src="assets/sello-ds44.png" alt="Sello Certificado de Cumplimiento — D.S. N° 44, Gestión Preventiva de Riesgos Laborales" loading="lazy" /></a>
-          <a href="#obligaciones" class="ley-sello" title="D.S. 594 — Condiciones Sanitarias y Ambientales en los Lugares de Trabajo"><img src="assets/sello-ds594.png" alt="Sello Certificado de Cumplimiento — D.S. N° 594, Condiciones Sanitarias y Ambientales" loading="lazy" /></a>
-          <a href="#obligaciones" class="ley-sello" title="Ley 21.719 — Protección de Datos Personales"><img src="assets/sello-21719.png" alt="Sello Certificado de Cumplimiento — Ley N° 21.719, Protección de Datos Personales" loading="lazy" /></a>
+      <div class="hero-flags">
+        <span class="hero-flags-label">Presente en Latinoamérica y España</span>
+        <div class="hero-flags-row">
+          <span class="flag-circle" title="Chile">🇨🇱</span>
+          <span class="flag-circle" title="Perú">🇵🇪</span>
+          <span class="flag-circle" title="Colombia">🇨🇴</span>
+          <span class="flag-circle" title="Ecuador">🇪🇨</span>
+          <span class="flag-circle" title="México">🇲🇽</span>
+          <span class="flag-circle" title="Argentina">🇦🇷</span>
+          <span class="flag-circle" title="Guatemala">🇬🇹</span>
+          <span class="flag-circle" title="Paraguay">🇵🇾</span>
+          <span class="flag-circle" title="Uruguay">🇺🇾</span>
+          <span class="flag-circle" title="España">🇪🇸</span>
         </div>
       </div>
     </div>
     <div class="hero-right fade-in">
       <img src="assets/hero-supercor.png" alt="Equipo de guardias de seguridad SUPERCOR revisando la plataforma de cumplimiento en una tablet en terreno" fetchpriority="high" />
-      <img src="assets/sello-21659.png" class="hero-sello" alt="Sello Certificado de Cumplimiento — Ley de Seguridad Privada N° 21.659" />
     </div>
   </div>
   <div class="hero-stats fade-in">
@@ -718,6 +732,25 @@
     <div class="hero-stat"><div class="hero-stat-number">Prevención</div><div class="hero-stat-label">detectar antes del problema</div></div>
     <div class="hero-stat"><div class="hero-stat-number">Evidencia</div><div class="hero-stat-label">demostrar cumplimiento</div></div>
     <div class="hero-stat"><div class="hero-stat-number">Rentabilidad</div><div class="hero-stat-label">reducir pérdidas por multas</div></div>
+  </div>
+</section>
+
+<section class="intl-block">
+  <div class="intl-inner fade-in">
+    <p class="intl-msg">No nació para una ley.<br>Nació para resolver un <span>problema operacional</span>.</p>
+    <p class="intl-sub">Mismo desafío. Misma solución. Sin importar la normativa de cada país.</p>
+    <div class="intl-flags">
+      <div class="intl-flag"><span class="intl-flag-emoji">🇨🇱</span><span class="intl-flag-name">Chile</span></div>
+      <div class="intl-flag"><span class="intl-flag-emoji">🇵🇪</span><span class="intl-flag-name">Perú</span></div>
+      <div class="intl-flag"><span class="intl-flag-emoji">🇨🇴</span><span class="intl-flag-name">Colombia</span></div>
+      <div class="intl-flag"><span class="intl-flag-emoji">🇪🇨</span><span class="intl-flag-name">Ecuador</span></div>
+      <div class="intl-flag"><span class="intl-flag-emoji">🇲🇽</span><span class="intl-flag-name">México</span></div>
+      <div class="intl-flag"><span class="intl-flag-emoji">🇦🇷</span><span class="intl-flag-name">Argentina</span></div>
+      <div class="intl-flag"><span class="intl-flag-emoji">🇬🇹</span><span class="intl-flag-name">Guatemala</span></div>
+      <div class="intl-flag"><span class="intl-flag-emoji">🇵🇾</span><span class="intl-flag-name">Paraguay</span></div>
+      <div class="intl-flag"><span class="intl-flag-emoji">🇺🇾</span><span class="intl-flag-name">Uruguay</span></div>
+      <div class="intl-flag"><span class="intl-flag-emoji">🇪🇸</span><span class="intl-flag-name">España</span></div>
+    </div>
   </div>
 </section>
 
@@ -789,17 +822,17 @@
     <div class="oblig-grid fade-in">
       <div class="oblig-card">
         <div class="oblig-card-title">Cumplimiento Laboral</div>
-        <div class="oblig-chips"><span class="oblig-chip">Ley 16.744</span><span class="oblig-chip">DS 44</span><span class="oblig-chip">DS 594</span></div>
+        <div class="oblig-chips"><span class="oblig-chip">Seguridad y Salud</span><span class="oblig-chip">Prevención de Riesgos</span><span class="oblig-chip">Condiciones de Trabajo</span></div>
         <div class="oblig-card-desc">Supervisión diaria de las obligaciones laborales y de seguridad y salud en el trabajo, con evidencia verificable de cada control.</div>
       </div>
       <div class="oblig-card">
         <div class="oblig-card-title">Cumplimiento en Seguridad Privada</div>
-        <div class="oblig-chips"><span class="oblig-chip">Ley 21.659</span><span class="oblig-chip">Supervisión operacional</span><span class="oblig-chip">Evidencia</span><span class="oblig-chip">Planes y controles</span></div>
+        <div class="oblig-chips"><span class="oblig-chip">Supervisión operacional</span><span class="oblig-chip">Evidencia</span><span class="oblig-chip">Planes y controles</span><span class="oblig-chip">Acreditaciones</span></div>
         <div class="oblig-card-desc">Control del cumplimiento normativo del rubro: acreditaciones, directivas, dotaciones y supervisión en terreno con respaldo digital.</div>
       </div>
       <div class="oblig-card">
         <div class="oblig-card-title">Cumplimiento de Protección de Datos</div>
-        <div class="oblig-chips"><span class="oblig-chip">Ley 21.719</span><span class="oblig-chip">Trazabilidad</span><span class="oblig-chip">Registros</span></div>
+        <div class="oblig-chips"><span class="oblig-chip">Privacidad</span><span class="oblig-chip">Trazabilidad</span><span class="oblig-chip">Registros</span></div>
         <div class="oblig-card-desc">Evidencias, trazabilidad y registros que respaldan los controles operacionales asociados al tratamiento de datos.</div>
       </div>
     </div>
@@ -967,9 +1000,10 @@
 <section id="diagnostico">
   <div class="container">
     <div class="text-center fade-in">
+      <div class="chile-badge">🇨🇱 Herramienta exclusiva para Chile</div>
       <div class="section-badge">Diagnóstico de riesgo financiero</div>
       <h2 class="section-title">Vea las multas <em>reales</em> de su empresa… y cuánto podría <span>recuperar</span>.</h2>
-      <p class="section-subtitle">Ingrese el RUT de su empresa y consulte en vivo su historial de multas en la Dirección del Trabajo. Datos reales, no estimaciones.</p>
+      <p class="section-subtitle">Ingrese el RUT de su empresa y consulte en vivo su historial de multas en la Dirección del Trabajo (Chile). Datos reales, no estimaciones.</p>
     </div>
     <div class="calc-urgency fade-in">
       <div class="calc-urgency-item">Las empresas pierden <strong>millones cada año</strong> por incumplimientos detectados demasiado tarde.</div>
@@ -1077,7 +1111,7 @@
             <div class="calc-lock-hint" id="dt-lock-hint">🔒 Ingrese su correo</div>
           </div>
         </div>
-        <div class="dt-nota" id="dt-nota" style="display:none">🛡️ Estas multas nacen de incumplimientos que <strong>SUPERCOR detecta y alerta en terreno</strong>. ⚠️ Solo incluye multas de la DT (no OS-10, Ley 21.659 ni descuentos de mandantes) — el costo real es mayor.</div>
+        <div class="dt-nota" id="dt-nota" style="display:none">🛡️ Estas multas nacen de incumplimientos que <strong>SUPERCOR detecta y alerta en terreno</strong>. ⚠️ Solo incluye multas de la Dirección del Trabajo (Chile) — el costo real, considerando todas las entidades fiscalizadoras, es mayor.</div>
         <div class="calc-gate" id="dt-gate" style="display:none">
           <div class="calc-gate-badge">🎁 Diagnóstico gratuito de su historial DT</div>
           <p class="calc-gate-text">Vea cuánto podría recuperar con SUPERCOR.<br>Le incluimos un <strong>diagnóstico sin costo</strong>.</p>
