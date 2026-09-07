@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Software de Supervisión para Seguridad Privada en Chile | SUPERCOR</title>
-  <meta name="description" content="SUPERCOR digitaliza el control operacional de empresas de seguridad privada en Chile. Evidencia fotográfica, GPS, control de guardias y alertas automáticas ante fiscalizaciones OS-10 y DT." />
+  <title>Software seguridad privada Chile | SUPERCOR</title>
+  <meta name="description" content="SUPERCOR controla guardias en terreno con checklist, foto instantánea, GPS obligatorio, documentos, turnos, alertas, OS10/SPD, DT y riesgos valorizados por instalación." />
   <link rel="canonical" href="https://www.supercor.cl/seguridad-privada" />
   <meta property="og:title" content="Software de Supervisión para Seguridad Privada en Chile | SUPERCOR" />
   <meta property="og:description" content="Supervisa el cumplimiento y controla la documentación que exigen las entidades fiscalizadoras, con evidencia irrefutable ante OS-10 y la Dirección del Trabajo." />
   <meta property="og:url" content="https://www.supercor.cl/seguridad-privada" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://www.supercor.cl/assets/og-supercor.png" />
-  <link rel="icon" type="image/png" href="/assets/Logo%20Verde.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" href="/assets/Logo Verde.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <!-- Google tag (gtag.js) -->
@@ -36,7 +37,7 @@
       --blue:#008A1C;--blue-bright:#00A300;--blue-glow:rgba(0,163,0,0.2);
       --silver:#A7B0BC;--silver-dim:#94A3B8;--white:#FFFFFF;
       --gray-50:#F5F7FA;--gray-100:#E2E8F0;--gray-600:#64748B;--gray-800:#0F172A;
-      --accent:#00A300;--green:#16A34A;
+      --accent:#00A300;--green:#16A34A;--green-strong:#008A1C;
       --font-title:'Barlow Semi Condensed',sans-serif;--font-body:'Source Sans 3',sans-serif;
     }
     html{scroll-behavior:smooth}
@@ -115,37 +116,85 @@
     .norm-tagline{max-width:720px;margin:2.75rem auto 0;text-align:center;font-family:var(--font-title);font-size:clamp(1.2rem,2.4vw,1.6rem);font-weight:700;color:var(--navy)}
     .norm-tagline span{color:var(--green)}
     @media (max-width:700px){.norm-grid{grid-template-columns:1fr}}
-  </style>
+  .top-return{position:sticky;top:76px;z-index:9;background:#fff;border-bottom:1px solid var(--gray-100);box-shadow:0 8px 18px rgba(15,23,42,.04)}.top-return-inner{max-width:1180px;margin:0 auto;padding:.7rem 2rem;display:flex;gap:.75rem;align-items:center;flex-wrap:wrap}.top-return a{font-weight:900;text-decoration:none;border-radius:999px;padding:.48rem .78rem;font-size:.86rem}.top-return .back{background:var(--green-strong);color:#fff}.top-return .secondary-link{background:rgba(0,163,0,.06);border:1px solid rgba(0,138,28,.18);color:var(--green-strong)}@media(max-width:800px){.top-return{top:76px}.top-return-inner{padding:.6rem 1rem;gap:.45rem}.top-return a{font-size:.8rem;padding:.42rem .62rem}}.security-visual{background:#fff;padding:0 2rem 70px}.security-visual-card{max-width:1120px;margin:-54px auto 0;position:relative;z-index:3;border-radius:24px;overflow:hidden;box-shadow:0 28px 80px rgba(15,23,42,.18);border:1px solid var(--gray-100);background:#fff}.security-visual-card img{display:block;width:100%;height:min(520px,48vw);min-height:280px;object-fit:cover}.security-visual-caption{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--gray-100)}.security-visual-caption div{background:#fff;padding:1.05rem 1.15rem;font-weight:700;color:var(--navy)}.security-visual-caption span{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:999px;background:rgba(0,163,0,.12);color:var(--green-strong);margin-right:.45rem}@media(max-width:800px){.security-visual{padding:0 1rem 48px}.security-visual-card{margin-top:-32px}.security-visual-caption{grid-template-columns:1fr}.security-visual-card img{height:280px}}.card h3::before{width:24px!important;height:24px!important;font-size:.78rem!important}.proof-icon{width:34px!important;height:34px!important;font-size:.78rem!important}.links{display:none!important}.hero-media img,.visual-panel img{object-position:center}.top-return{box-shadow:0 10px 22px rgba(15,23,42,.05)}/* compare visible icons */.compare .cell-line{display:flex;align-items:flex-start;gap:12px}.compare .cell-icon{width:30px;height:30px;border-radius:999px;display:inline-grid;place-items:center;flex:0 0 30px;font-size:.9rem;font-weight:900}.compare .bad .cell-icon{background:#fff1f2;color:#dc2626;border:1px solid #fecdd3}.compare .good .cell-icon{background:#e8f9ec;color:var(--green-strong);border:1px solid #b7efc5}.compare .good{background:linear-gradient(90deg,rgba(0,163,0,.07),rgba(255,255,255,0))}.card h3{display:grid!important;grid-template-columns:28px 1fr!important;align-items:center!important;gap:10px!important}.card h3::before{width:24px!important;height:24px!important;font-size:.75rem!important}.proof-item{align-items:flex-start!important}.proof-icon{width:32px!important;height:32px!important;font-size:.72rem!important}''
+/* final requested corrections 2026-09-07 */
+.compare tbody td{padding:1.05rem 1.2rem!important;vertical-align:middle;font-weight:650}
+.cell-line{display:grid;grid-template-columns:2.05rem minmax(0,1fr);align-items:center;gap:.85rem}
+.cell-icon{width:2.05rem;height:2.05rem;border-radius:999px;display:inline-grid;place-items:center;font-weight:950;font-size:1rem;line-height:1;box-shadow:0 10px 20px rgba(15,23,42,.08)}
+td.bad .cell-icon{background:#fff1f2;color:#dc2626;border:1px solid #fecaca}
+td.good .cell-icon{background:#e8f9ec;color:#008a1c;border:1px solid rgba(0,138,28,.20)}
+.compare tbody td::before{content:none!important;display:none!important}
+.sector-card h3,.evidence-card h3,.detail-card h3,.feature-card h3{display:grid!important;grid-template-columns:2rem minmax(0,1fr)!important;align-items:center!important;gap:.75rem!important;line-height:1.12!important}
+.sector-icon,.feature-icon{width:2rem!important;height:2rem!important;min-width:2rem!important;border-radius:11px!important;font-size:.94rem!important;margin:0!important;display:inline-grid!important;place-items:center!important;line-height:1!important;flex:0 0 2rem!important}
+.links{display:none!important}
+
+/* final CTA, cards and subpage nav correction 2026-09-07f */
+.nav-grid-wrap .client-chip,.nav-grid-wrap .demo-chip{background:var(--green-strong)!important;color:#fff!important;border-color:var(--green-strong)!important;box-shadow:0 8px 18px rgba(0,138,28,.18)!important}
+.nav-grid-wrap .client-chip:hover,.nav-grid-wrap .demo-chip:hover{background:#007318!important;color:#fff!important}
+.sector-card a,.sector-card a:visited{color:var(--green-strong)!important;font-weight:900!important;text-decoration:none!important;border-bottom:2px solid rgba(0,138,28,.22)!important}.sector-card a:hover{color:#007318!important;border-bottom-color:#007318!important}
+.sector-card h3,.evidence-card h3,.detail-card h3,.feature-card h3{display:grid!important;grid-template-columns:2.9rem minmax(0,1fr)!important;align-items:center!important;column-gap:.45rem!important;line-height:1.15!important}
+.sector-icon,.feature-icon{width:1.75rem!important;height:1.75rem!important;min-width:1.75rem!important;border-radius:10px!important;font-size:.78rem!important;margin:0!important;justify-self:start!important;display:inline-grid!important;place-items:center!important;line-height:1!important;flex:0 0 1.75rem!important}
+
+body > nav.subpage-nav:first-of-type{position:sticky!important;top:0!important;z-index:900!important;display:grid!important;grid-template-columns:88px 270px minmax(0,1fr)!important;align-items:center!important;gap:1rem!important;min-height:86px!important;padding:.65rem 2rem!important;background:rgba(255,255,255,.985)!important;border-bottom:1px solid #e2e8f0!important;box-shadow:0 10px 28px rgba(15,23,42,.05)!important}
+body > nav.subpage-nav:first-of-type .nav-logo{width:70px!important;min-width:70px!important;justify-self:center!important}body > nav.subpage-nav:first-of-type .nav-logo img{max-width:68px!important;height:auto!important}
+body > nav.subpage-nav:first-of-type .nav-contact-quick{display:flex!important;align-items:center!important;gap:.62rem!important;min-width:245px!important;max-width:245px!important;padding:.58rem .78rem!important;border-radius:16px!important;background:#fff!important;border:1px solid rgba(0,138,28,.16)!important;box-shadow:0 10px 22px rgba(15,23,42,.055)!important;box-sizing:border-box!important}
+body > nav.subpage-nav:first-of-type .nav-contact-quick svg{width:25px!important;height:25px!important;color:#008a1c!important;fill:none!important;stroke:currentColor!important;stroke-width:2.2!important}
+body > nav.subpage-nav:first-of-type .nav-contact-label{display:block!important;font-size:.73rem!important;font-weight:850!important;color:#64748b!important;line-height:1.08!important}body > nav.subpage-nav:first-of-type .nav-contact-number{display:block!important;font-size:1rem!important;font-weight:1000!important;color:#008a1c!important;line-height:1.08!important}
+body > nav.subpage-nav:first-of-type .nav-primary{display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:.55rem!important;margin:0!important;padding:0!important;list-style:none!important;flex-wrap:wrap!important}
+body > nav.subpage-nav:first-of-type .nav-primary a{height:38px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;border-radius:999px!important;padding:.46rem .82rem!important;font-size:.86rem!important;font-weight:950!important;text-decoration:none!important;border:1px solid rgba(0,138,28,.22)!important;background:#eef9f0!important;color:#008a1c!important;box-sizing:border-box!important;white-space:nowrap!important}
+body > nav.subpage-nav:first-of-type .nav-primary .nav-demo,body > nav.subpage-nav:first-of-type .nav-primary .nav-diagnostico{background:#008a1c!important;color:#fff!important;border-color:#008a1c!important;box-shadow:0 8px 18px rgba(0,138,28,.16)!important}
+.top-return{display:none!important}
+@media(max-width:900px){body > nav.subpage-nav:first-of-type{grid-template-columns:68px 1fr!important;padding:.55rem 1rem!important}body > nav.subpage-nav:first-of-type .nav-contact-quick{display:none!important}body > nav.subpage-nav:first-of-type .nav-primary{justify-content:flex-end!important}body > nav.subpage-nav:first-of-type .nav-primary a{font-size:.76rem!important;padding:.4rem .62rem!important}}
+
+/* definitive seo-card and CTA correction 2026-09-07g */
+.nav-grid-wrap .client-chip,.nav-grid-wrap .demo-chip{background:#008a1c!important;color:#fff!important;border-color:#008a1c!important;box-shadow:0 8px 18px rgba(0,138,28,.20)!important}
+.nav-grid-wrap .client-chip:hover,.nav-grid-wrap .demo-chip:hover{background:#007318!important;color:#fff!important;border-color:#007318!important}
+.seo-card a,.seo-card a:visited,.sector-card a,.sector-card a:visited{color:#008a1c!important;font-weight:900!important;text-decoration:none!important;border-bottom:2px solid rgba(0,138,28,.22)!important}.seo-card a:hover,.sector-card a:hover{color:#007318!important;border-bottom-color:#007318!important}
+.seo-card h3,.sector-card h3,.evidence-card h3,.detail-card h3,.feature-card h3{display:grid!important;grid-template-columns:2.75rem minmax(0,1fr)!important;align-items:center!important;column-gap:.55rem!important;line-height:1.15!important}
+.seo-card h3 .sector-icon,.sector-card h3 .sector-icon,.evidence-card h3 .feature-icon,.detail-card h3 .feature-icon,.feature-card h3 .feature-icon{width:1.62rem!important;height:1.62rem!important;min-width:1.62rem!important;border-radius:9px!important;font-size:.74rem!important;margin:0!important;justify-self:start!important;display:inline-grid!important;place-items:center!important;line-height:1!important;flex:0 0 1.62rem!important}
+
+/* security visual size correction 2026-09-07h */
+.security-visual{padding:0 2rem 58px!important}.security-visual-card{max-width:980px!important;margin:-34px auto 0!important;border-radius:22px!important}.security-visual-card img{height:min(420px,38vw)!important;min-height:260px!important;object-fit:cover!important;object-position:center!important}.security-visual-caption div{padding:.92rem 1rem!important;font-size:.94rem!important}.security-visual-caption span{width:26px!important;height:26px!important}
+@media(max-width:800px){.security-visual{padding:0 1rem 42px!important}.security-visual-card{margin-top:-24px!important}.security-visual-card img{height:270px!important}}
+</style>
 </head>
 <body>
 
-<nav>
-  <a href="/" class="nav-logo"><img src="/assets/Logo%20Verde.png" alt="SUPERCOR" /></a>
-  <a href="/#demo" class="nav-cta">Solicitar Diagnóstico</a>
-</nav>
+<nav class="subpage-nav">
+  <a href="/" class="nav-logo"><img src="/assets/Logo Verde.png" alt="SUPERCOR" /></a>
+  <div class="nav-contact-quick" aria-label="Teléfono de contacto: +56 9 9595 0843">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.56 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.91 6.91l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <span class="nav-contact-copy"><span class="nav-contact-label">Llame y solicite su demo:</span><span class="nav-contact-number">+56 9 9595 0843</span></span>
+  </div>
+  <ul class="nav-links nav-primary">
+    <li><a class="nav-home" href="/">← Inicio</a></li>
+    <li><a class="nav-demo" href="/#demo">Solicitar demo</a></li>
+    <li><a class="nav-diagnostico" href="/#diagnostico">Solicitar diagnóstico</a></li>
+  </ul>
+</nav><div class="top-return"><div class="top-return-inner"><a class="back" href="/">← Volver al inicio</a><a class="secondary-link" href="/control-cumplimiento-terreno.html">Control en terreno</a><a class="secondary-link" href="/#demo">Solicitar diagnóstico</a></div></div>
 
 <section class="hero">
   <div class="hero-content">
     <div class="badge">Seguridad Privada · Chile</div>
     <h1>Control operacional para empresas de <span class="accent">seguridad privada</span> en Chile</h1>
-    <p class="hero-sub">Supervisa a tus guardias y controla la documentación que exigen las entidades fiscalizadoras. Evidencia fotográfica con GPS ante fiscalizaciones OS-10 y Dirección del Trabajo. Sin papel, sin excusas.</p>
+    <p class="hero-sub">Supervisa a tus guardias y controla la documentación que exigen las entidades fiscalizadoras. Evidencia con foto instantánea, GPS, checklist, documentos y alertas ante fiscalizaciones OS10/SPD, Dirección del Trabajo y exigencias del cliente mandante.</p>
     <div>
       <a href="/#demo" class="btn-primary">✦ Solicitar Diagnóstico</a>
-      <a href="/" class="btn-secondary">Ver plataforma completa →</a>
+      <a href="/#demo" class="btn-secondary">Solicitar diagnóstico</a>
     </div>
     <div class="hero-leyes">
       <span class="hero-leyes-label">Cubre las exigencias que más fiscalizan en Chile</span>
       <div class="hero-leyes-chips">
+        <a href="#normativa" class="ley-sello" title="Ley 21.659 — Seguridad Privada"><img src="assets/sello-21659.png" alt="Sello Certificado de Cumplimiento — Ley N° 21.659" loading="lazy" /></a>
         <a href="#normativa" class="ley-sello" title="Ley 16.744 — Accidentes del Trabajo y Enfermedades Profesionales"><img src="assets/sello-16744.png" alt="Sello Certificado de Cumplimiento — Ley 16.744" loading="lazy" /></a>
         <a href="#normativa" class="ley-sello" title="D.S. 44 — Gestión Preventiva de Riesgos Laborales"><img src="assets/sello-ds44.png" alt="Sello Certificado de Cumplimiento — D.S. N° 44" loading="lazy" /></a>
         <a href="#normativa" class="ley-sello" title="D.S. 594 — Condiciones Sanitarias y Ambientales en los Lugares de Trabajo"><img src="assets/sello-ds594.png" alt="Sello Certificado de Cumplimiento — D.S. N° 594" loading="lazy" /></a>
-        <a href="#normativa" class="ley-sello" title="Ley 21.659 — Seguridad Privada"><img src="assets/sello-21659.png" alt="Sello Certificado de Cumplimiento — Ley N° 21.659" loading="lazy" /></a>
         <a href="#normativa" class="ley-sello" title="Ley 21.719 — Protección de Datos Personales"><img src="assets/sello-21719.png" alt="Sello Certificado de Cumplimiento — Ley N° 21.719" loading="lazy" /></a>
       </div>
     </div>
   </div>
 </section>
-
+<section class="security-visual"><div class="security-visual-card"><img src="/assets/seo/seguridad-privada-supervision-caseta-wm.png" alt="SUPERCOR controlando guardias de seguridad privada en terreno" loading="eager"/><div class="security-visual-caption"><div><span>1</span>Guardia verificado en instalación</div><div><span>2</span>Checklist, foto y GPS</div><div><span>3</span>Alertas a jefatura</div></div></div></section>
 <section style="background:var(--gray-50);border-bottom:1px solid var(--gray-100)">
   <div class="container">
     <div class="text-center">
@@ -188,8 +237,8 @@
     <div class="grid3">
       <div class="card">
         <div class="card-icon">📸</div>
-        <div class="card-title">Evidencia fotográfica irrefutable</div>
-        <div class="card-desc">Cada supervisión requiere fotos tomadas desde la app con GPS y timestamp automático. Sin evidencia, no se puede enviar el reporte. Imposible de falsificar.</div>
+        <div class="card-title">Evidencia fotográfica trazable</div>
+        <div class="card-desc">Cada supervisión requiere fotos tomadas desde la app con GPS y timestamp automático. Sin evidencia, no se puede enviar el reporte. Diseñada para reducir trampas operativas: fotos tomadas desde la app, ubicación y hora asociadas al control.</div>
       </div>
       <div class="card">
         <div class="card-icon">📍</div>
@@ -288,8 +337,8 @@
     <li><a href="/">Inicio</a></li>
     <li><a href="/#diagnostico">Diagnóstico</a></li>
     <li><a href="/#precios">Precios</a></li>
-    <li><a href="/ayuda">Ayuda</a></li>
-    <li><a href="/privacidad">Privacidad</a></li>
+    <li><a href="/ayuda.html">Ayuda</a></li>
+    <li><a href="/privacidad.html">Privacidad</a></li>
   </ul>
   <div class="footer-copy">© 2026 SUPERCOR. Todos los derechos reservados.</div>
 </footer>
@@ -298,5 +347,11 @@
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
+
+<script>
+(function(){function track(name, params){window.dataLayer=window.dataLayer||[];window.dataLayer.push(Object.assign({event:name},params||{}));if(typeof gtag==='function'){gtag('event',name,params||{});}if(typeof clarity==='function'){clarity('event',name);}}document.addEventListener('click',function(e){const a=e.target.closest('a');if(!a)return;const href=a.getAttribute('href')||'';const text=(a.textContent||'').trim().slice(0,80);if(href.includes('wa.me'))track('conversion_whatsapp_click',{link_text:text,link_url:href});else if(href.startsWith('mailto:'))track('conversion_email_click',{link_text:text,link_url:href});else if(href.startsWith('tel:'))track('conversion_phone_click',{link_text:text,link_url:href});else if(href.includes('#demo')||href.endsWith('/demo'))track('conversion_demo_intent',{link_text:text,link_url:href});else if(href.includes('seguridad-privada'))track('vertical_security_click',{link_text:text,link_url:href});else if(href.includes('outsourcing'))track('vertical_outsourcing_click',{link_text:text,link_url:href});else if(href.includes('servicios-transitorios'))track('vertical_temp_services_click',{link_text:text,link_url:href});else if(href.includes('facility'))track('vertical_facility_click',{link_text:text,link_url:href});else if(href.includes('mineria'))track('vertical_mining_click',{link_text:text,link_url:href});else if(href.includes('fiscalizacion')||href.includes('multas'))track('risk_compliance_click',{link_text:text,link_url:href});else if(href.includes('checklist'))track('feature_checklist_click',{link_text:text,link_url:href});},true);})();
+</script>
+
 </body>
 </html>
+

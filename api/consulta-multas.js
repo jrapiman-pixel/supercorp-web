@@ -3,12 +3,29 @@
 
 export const config = { maxDuration: 60 };
 
+const ALLOWED_ORIGINS = new Set([
+  'https://www.supercor.cl',
+  'https://supercor.cl',
+]);
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
+const RATE_LIMIT_MAX_REQUESTS = 5;
+const rateLimitEntries = new Map();
+
 export default async function handler(req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  const origin = getAllowedOrigin(req);
+  if (origin) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Vary', 'Origin');
+  }
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  if (req.method === 'OPTIONS') return res.status(200).end();
+  res.setHeader('Cache-Control', 'no-store');
+  if (req.method === 'OPTIONS') return origin ? res.status(204).end() : res.status(403).end();
   if (req.method !== 'POST') return res.status(405).end();
+  if (!origin) return res.status(403).json({ error: 'Origen no autorizado.' });
+  if (!consumeRateLimit(getClientKey(req))) {
+    return res.status(429).json({ error: 'Has realizado varias consultas. Espera unos minutos antes de intentarlo nuevamente.' });
+  }
 
   try {
     const { rut } = req.body || {};
@@ -105,6 +122,38 @@ export default async function handler(req, res) {
 }
 
 // ─── RUT ─────────────────────────────────────────────────────────────────────
+
+function getAllowedOrigin(req) {
+  const origin = req.headers.origin;
+  if (ALLOWED_ORIGINS.has(origin)) return origin;
+
+  const isLocalDevelopment = process.env.VERCEL_ENV !== 'production';
+  const isLocalOrigin = /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin || '');
+  const isProjectPreview = /^https:\/\/supercorp-web-[a-z0-9-]+\.vercel\.app$/.test(origin || '');
+  if (isLocalDevelopment && (isLocalOrigin || isProjectPreview)) {
+    return origin;
+  }
+
+  return null;
+}
+
+function getClientKey(req) {
+  const forwardedFor = req.headers['x-forwarded-for'];
+  const ip = Array.isArray(forwardedFor) ? forwardedFor[0] : String(forwardedFor || '').split(',')[0].trim();
+  return ip || 'unknown';
+}
+
+function consumeRateLimit(key) {
+  const now = Date.now();
+  const entry = rateLimitEntries.get(key);
+  if (!entry || now - entry.startedAt >= RATE_LIMIT_WINDOW_MS) {
+    rateLimitEntries.set(key, { startedAt: now, count: 1 });
+    return true;
+  }
+  if (entry.count >= RATE_LIMIT_MAX_REQUESTS) return false;
+  entry.count += 1;
+  return true;
+}
 
 function validarRut(rut) {
   const m = /^(\d{7,8})-([0-9K])$/.exec(rut);

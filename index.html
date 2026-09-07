@@ -3,29 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SUPERCOR — Cumplimiento Preventivo Digital en Terreno</title>
-  <meta name="description" content="SUPERCOR es el guardián operacional del cumplimiento. Mientras un ERP administra información, verificamos en terreno y demostramos cumplimiento con evidencia, antes de una fiscalización." />
+  <title>SUPERCOR | Control de cumplimiento en terreno con evidencia y alertas</title>
+  <meta name="description" content="SUPERCOR controla cumplimiento real en terreno: checklist, foto instantánea, GPS obligatorio, documentos, alertas, OCR y riesgos valorizados para seguridad, outsourcing, facility y servicios transitorios." />
   <link rel="canonical" href="https://www.supercor.cl/" />
-  <meta property="og:title" content="SUPERCOR — El guardián operacional del cumplimiento" />
-  <meta property="og:description" content="Los ERP administran información. SUPERCOR demuestra cumplimiento: verifica en terreno, previene incumplimientos y genera evidencia antes de una fiscalización." />
+  <meta property="og:title" content="SUPERCOR | Control real de cumplimiento en terreno" />
+  <meta property="og:description" content="No solo documentos en oficina: SUPERCOR verifica en terreno con foto, GPS, checklist, alertas y evidencia trazable." />
   <meta property="og:image" content="https://www.supercor.cl/assets/og-supercor.png" />
   <meta property="og:url" content="https://www.supercor.cl" />
   <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SUPERCOR | Control real de cumplimiento en terreno" />
+  <meta name="twitter:description" content="Checklist, foto instantánea, GPS, documentos, alertas y riesgo valorizado para operaciones con personal en terreno." />
   <meta property="og:locale" content="es_CL" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "SUPERCOR",
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Web, iOS, Android",
-    "description": "Cumplimiento Preventivo Digital: SUPERCOR verifica en terreno el cumplimiento operacional, previene incumplimientos y genera evidencia demostrable antes de una fiscalización.",
-    "url": "https://www.supercor.cl",
-    "creator": {
-      "@type": "Organization",
-      "name": "SUPERCOR",
-      "url": "https://www.supercor.cl"
-    }
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.supercor.cl/#organization",
+        "name": "SUPERCOR",
+        "url": "https://www.supercor.cl/",
+        "logo": "https://www.supercor.cl/assets/Logo%20Verde.png",
+        "sameAs": ["https://www.linkedin.com/company/supercor-chile"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.supercor.cl/#website",
+        "url": "https://www.supercor.cl/",
+        "name": "SUPERCOR",
+        "publisher": {"@id": "https://www.supercor.cl/#organization"}
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "SUPERCOR",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web, iOS, Android",
+        "url": "https://www.supercor.cl/",
+        "description": "Plataforma de control de cumplimiento real en terreno con checklist, foto instantánea, GPS obligatorio, documentos, OCR, alertas y riesgos valorizados para operaciones con personal distribuido.",
+        "creator": {"@id": "https://www.supercor.cl/#organization"},
+        "offers": {"@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "CLP"}
+      }
+    ]
   }
   </script>
     <!-- Google tag (gtag.js) -->
@@ -63,39 +82,92 @@
     }
     html{scroll-behavior:smooth;scroll-padding-top:60px}
     body{font-family:var(--font-body);color:var(--gray-800);background:var(--white);line-height:1.6;overflow-x:hidden}
-    nav{position:fixed;top:56px;left:0;right:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--gray-100);padding:0 2rem;height:84px;display:flex;align-items:center;justify-content:space-between}
-    .nav-logo img{height:64px;width:auto;display:block}
-    .nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
-    .nav-links a{color:var(--gray-600);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .2s}
+    nav{position:fixed;top:56px;left:0;right:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--gray-100);padding:0 1.15rem;height:84px;display:flex;align-items:center;justify-content:flex-start;gap:1rem}
+    .nav-logo img{height:58px;width:auto;display:block}
+    .nav-contact-quick{display:flex;align-items:center;gap:.38rem;margin-left:.35rem;margin-right:.55rem;color:var(--green-strong);font-weight:800;white-space:nowrap;flex:0 0 auto}
+    .nav-contact-quick svg{width:17px;height:17px;flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .nav-contact-copy{display:flex;flex-direction:column;align-items:flex-start;gap:.05rem;line-height:1.15}
+    .nav-contact-label{color:var(--gray-600);font-size:.64rem;font-weight:700}
+    .nav-contact-number{font-size:.82rem;letter-spacing:.01em}
+    .nav-links{display:flex;align-items:center;gap:1.05rem;list-style:none;flex:1;justify-content:flex-end;min-width:0}
+    .nav-links a{color:var(--gray-600);text-decoration:none;font-size:.82rem;font-weight:600;transition:color .2s;white-space:nowrap}
     .nav-links a:hover{color:var(--green-strong)}
-    .nav-cta{background:var(--green-strong)!important;color:white!important;padding:.5rem 1.4rem!important;border-radius:4px;font-weight:700!important}
+    .nav-cta{background:var(--green-strong)!important;color:white!important;padding:.46rem .95rem!important;border-radius:4px;font-weight:700!important}
     .nav-cta:hover{background:var(--green)!important}
-    .nav-dt{background:rgba(220,38,38,.1)!important;color:#dc2626!important;font-weight:800!important;padding:.42rem 1rem!important;border-radius:20px;border:1px solid rgba(220,38,38,.35);transition:background .2s,transform .2s;white-space:nowrap}
+    .nav-dt{background:rgba(220,38,38,.1)!important;color:#dc2626!important;font-weight:800!important;padding:.38rem .72rem!important;border-radius:20px;border:1px solid rgba(220,38,38,.35);transition:background .2s,transform .2s;white-space:nowrap}
     .nav-dt:hover{background:rgba(220,38,38,.18)!important;transform:translateY(-1px)}
     .nav-mobile-btn{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px}
     .nav-mobile-btn span{display:block;width:24px;height:2px;background:var(--navy);border-radius:2px}
     #inicio{background:var(--white);padding:176px 2rem 70px;position:relative;overflow:hidden}
     @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.4)}}
-    .hero-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:3.5rem;align-items:center}
+    .hero-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.08fr .92fr;gap:4.5rem;align-items:center}
     .hero-eyebrow{display:inline-block;color:var(--green-strong);font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1rem}
-    .hero-title{font-family:var(--font-title);font-size:clamp(2.2rem,4.2vw,3.6rem);font-weight:700;color:var(--gray-800);line-height:1.12;margin-bottom:1.25rem}
+    .hero-title{font-family:var(--font-title);font-size:clamp(2.25rem,4.1vw,3.5rem);font-weight:700;color:var(--gray-800);line-height:1.07;margin-bottom:1.2rem}
     .hero-title .accent{color:var(--green-strong)}
     .hero-subtitle{font-size:clamp(1rem,1.4vw,1.18rem);color:var(--gray-600);line-height:1.7;margin-bottom:2rem;max-width:560px}
+    .hero-trust-note{margin:-.85rem 0 1.55rem;color:var(--gray-700);font-size:.9rem;font-weight:700;line-height:1.5;max-width:560px}
+    .hero-trust-note strong{color:var(--green-strong)}
+    .hero-capabilities{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;margin:0 0 1.55rem;max-width:640px}
+    .hero-capability{display:flex;align-items:flex-start;gap:.7rem;padding:.78rem .85rem;background:var(--gray-50);border:1px solid var(--gray-100);border-radius:8px;color:var(--gray-700);font-family:var(--font-body);font-size:.82rem;line-height:1.35;text-align:left;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+    button.hero-capability{width:100%;appearance:none}
+    .hero-capability:hover{transform:translateY(-2px);background:#fff;border-color:rgba(0,138,28,.35);box-shadow:0 10px 20px rgba(15,23,42,.08)}
+    .hero-capability:focus-visible{outline:3px solid rgba(0,163,0,.3);outline-offset:3px}
+    .hero-capability-icon{display:inline-flex;align-items:center;justify-content:center;position:relative;flex:0 0 34px;width:34px;height:34px;border-radius:10px;background:rgba(0,138,28,.1);color:var(--green-strong);line-height:1}
+    .hero-capability-icon svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .hero-capability-icon b{position:absolute;right:-4px;bottom:-4px;display:grid;place-items:center;width:15px;height:15px;border-radius:50%;background:var(--green-strong);border:2px solid var(--gray-50);color:#fff;font-size:.48rem;font-weight:800;line-height:1}
+    .hero-capability strong{display:block;color:var(--gray-800);font-size:.83rem;font-weight:700;margin-bottom:.16rem}
+    .hero-capability small{display:block;color:var(--gray-600);font-size:.76rem;line-height:1.4}
+    .hero-capability .hero-chile-feature{display:block;margin-top:.42rem;color:#a95608;font-size:.7rem;font-weight:800;line-height:1.35}
+    .hero-chile-note{margin:.8rem 0 0;color:var(--gray-500);font-size:.76rem;line-height:1.45}
+    .hero-chile-note strong{color:var(--gray-700)}
     .hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
     /* ===== Banderas de países en el hero ===== */
-    .hero-flags{margin-top:1.6rem}
-    .hero-flags-label{display:block;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-400);margin-bottom:.6rem}
-    .hero-flags-row{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
-    .flag-circle{width:50px;height:50px;border-radius:50%;overflow:hidden;border:2.5px solid rgba(255,255,255,0.18);transition:transform .25s,border-color .25s,box-shadow .25s;cursor:default;flex-shrink:0}
-    .flag-circle:hover{transform:scale(1.2);border-color:rgba(0,163,0,.55);box-shadow:0 0 16px rgba(0,163,0,.3)}
+    .hero-presence{width:100%;max-width:570px;margin:0 0 1.15rem auto;text-align:center}
+    .hero-presence-label{display:block;font-size:.69rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-600);margin-bottom:.7rem}
+    .hero-presence-row{display:grid;grid-template-columns:repeat(11,minmax(0,1fr));align-items:start;gap:.15rem}
+    .hero-country{display:flex;min-width:0;flex-direction:column;align-items:center;gap:.3rem}
+    .hero-country-flag{width:44px;height:44px;border-radius:50%;object-fit:cover;display:block;background:#fff;border:2px solid var(--gray-200);box-shadow:0 3px 8px rgba(15,23,42,.12)}
+    .hero-country-name{font-size:.52rem;font-weight:700;letter-spacing:.01em;text-transform:uppercase;color:var(--gray-600);line-height:1;white-space:nowrap}
+    .hero-chile-highlight{display:inline-flex;align-items:center;gap:.4rem;margin-top:.85rem;color:#a95608;font-size:.76rem;font-weight:800;line-height:1.2}
+    .hero-chile-highlight span{padding:.12rem .36rem;background:#fb923c;color:#fff;border-radius:999px;font-size:.62rem;letter-spacing:.04em;text-transform:uppercase}
+    .flag-circle{width:38px;height:38px;border-radius:50%;overflow:hidden;background:var(--gray-50);border:2px solid var(--gray-200);box-shadow:0 3px 8px rgba(15,23,42,.12);transition:transform .25s,border-color .25s,box-shadow .25s;cursor:default;flex-shrink:0}
+    .flag-circle:hover{transform:scale(1.12);border-color:var(--green-strong);box-shadow:0 6px 14px rgba(0,163,0,.22)}
     .flag-circle img{width:100%;height:100%;object-fit:cover;display:block}
-    @media (max-width:520px){.flag-circle{width:40px;height:40px}}
+    @media (max-width:620px){.hero-capabilities{grid-template-columns:1fr}.flag-circle{width:34px;height:34px}.hero-presence-row{grid-template-columns:repeat(6,minmax(0,1fr));gap:.55rem}.hero-country-flag{width:34px;height:34px}.hero-country-name{font-size:.52rem}}
     .btn-primary{background:var(--green-strong);color:#fff;padding:.95rem 2rem;border-radius:6px;font-weight:700;font-size:1rem;text-decoration:none;border:none;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body)}
     .btn-primary:hover{background:var(--green)}
     .btn-secondary{background:#fff;color:var(--gray-800);padding:.95rem 2rem;border-radius:6px;font-weight:600;font-size:1rem;text-decoration:none;border:1px solid var(--gray-200);cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body)}
     .btn-secondary:hover{background:var(--gray-50);border-color:var(--gray-400);color:var(--navy)}
-    .hero-right{position:relative}
+    .hero-left{position:relative;z-index:2}
+    .hero-right{position:relative;z-index:1;align-self:start;padding-top:.8rem}
+    .hero-scenes{position:relative;width:100%;max-width:570px;margin:0 0 0 auto;padding:.2rem 0 0}
+    .hero-scenes::before{content:'';position:absolute;z-index:0;width:85%;height:62%;right:3%;bottom:0;background:radial-gradient(ellipse at center,rgba(0,163,0,.10),rgba(0,163,0,0) 70%);filter:blur(10px);pointer-events:none}
     .hero-right img{width:100%;height:auto;display:block;filter:drop-shadow(0 16px 28px rgba(15,23,42,.20))}
+    .hero-scene-tablet{position:relative;z-index:2;max-width:530px;margin-left:auto}
+    .hero-scene-mobile{position:relative;z-index:1;width:94%;max-width:505px;margin:1.75rem .45rem 0 auto;-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 78%,rgba(0,0,0,.82) 87%,transparent 100%);mask-image:linear-gradient(to bottom,#000 0%,#000 78%,rgba(0,0,0,.82) 87%,transparent 100%);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:100% 100%;mask-size:100% 100%}
+    .hero-right img.hero-country-flag{width:44px;max-width:none;height:44px;margin:0}
+    /* ===== Detalle de capacidades en el hero ===== */
+    .hero-detail-modal[hidden]{display:none}
+    .hero-detail-modal{position:fixed;z-index:300;inset:0;display:grid;place-items:center;padding:1.5rem;background:rgba(15,23,42,.62);backdrop-filter:blur(5px)}
+    .hero-detail-dialog{position:relative;width:min(100%,1040px);max-height:min(860px,calc(100vh - 3rem));overflow:auto;background:#fff;border-radius:16px;box-shadow:0 28px 75px rgba(15,23,42,.35);padding:2.25rem}
+    .hero-detail-close{position:absolute;top:1rem;right:1rem;width:38px;height:38px;border:1px solid var(--gray-200);border-radius:50%;background:#fff;color:var(--gray-800);font-size:1.5rem;line-height:1;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+    .hero-detail-close:hover{background:var(--gray-50);border-color:var(--gray-400)}
+    .hero-detail-kicker{display:block;margin:0 3rem .45rem 0;color:var(--green-strong);font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+    .hero-detail-title{font-family:var(--font-title);font-size:clamp(1.8rem,3.3vw,2.6rem);font-weight:700;line-height:1.08;color:var(--navy);margin:0 2.5rem .8rem 0}
+    .hero-detail-lead{max-width:820px;color:var(--gray-600);font-size:1.08rem;line-height:1.65;margin-bottom:1.25rem}
+    .hero-detail-points{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;margin:0 0 1.5rem;padding:0;list-style:none}
+    .hero-detail-points li{position:relative;padding:.7rem .8rem .7rem 2rem;border-radius:8px;background:var(--gray-50);border:1px solid var(--gray-100);color:var(--gray-700);font-size:.92rem;line-height:1.45}
+    .hero-detail-points li::before{content:'✓';position:absolute;left:.8rem;top:.67rem;color:var(--green-strong);font-weight:800}
+    .hero-detail-gallery{display:grid;grid-template-columns:1fr;gap:1rem;margin:1.25rem 0 1.7rem}
+    .hero-detail-gallery.multiple-images{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .hero-detail-figure{overflow:hidden;border:1px solid var(--gray-200);border-radius:10px;background:var(--navy);box-shadow:0 12px 28px rgba(15,23,42,.13)}
+    .hero-detail-figure img{display:block;width:100%;height:auto}
+    .hero-detail-figure figcaption{padding:.7rem .9rem;background:#fff;color:var(--gray-600);font-size:.82rem;line-height:1.4}
+    .hero-detail-figure figcaption strong{display:block;color:var(--gray-800);font-size:.86rem;margin-bottom:.12rem}
+    .hero-detail-actions{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;padding-top:.2rem}
+    .hero-detail-secondary{border:0;background:transparent;color:var(--gray-600);font:inherit;font-weight:700;cursor:pointer;padding:.6rem .2rem}
+    .hero-detail-secondary:hover{color:var(--green-strong)}
+    @media(max-width:680px){.hero-detail-modal{align-items:end;padding:0}.hero-detail-dialog{width:100%;max-height:92vh;border-radius:16px 16px 0 0;padding:1.7rem 1.25rem}.hero-detail-points,.hero-detail-gallery.multiple-images{grid-template-columns:1fr}.hero-detail-lead{font-size:1rem}.hero-detail-actions .btn-primary{width:100%;justify-content:center}}
     /* ===== Bloque internacional ===== */
     .intl-block{background:var(--navy);padding:2.5rem 2rem;text-align:center;border-bottom:1px solid rgba(0,163,0,0.15);position:relative;overflow:hidden}
     .intl-block::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(0,163,0,0.1) 0%,transparent 65%);pointer-events:none}
@@ -105,8 +177,8 @@
     .intl-sub{font-size:.92rem;color:var(--silver-dim);margin-bottom:1.5rem}
     .intl-flags{display:flex;flex-wrap:wrap;justify-content:center;gap:1.3rem}
     .intl-flag{display:flex;flex-direction:column;align-items:center;gap:5px}
-    .intl-flag-img{width:44px;height:44px;border-radius:50%;object-fit:cover;display:block;border:2px solid rgba(255,255,255,0.15);transition:transform .25s,border-color .25s}
-    .intl-flag:hover .intl-flag-img{transform:scale(1.15);border-color:rgba(0,163,0,.5)}
+    .intl-flag-img{width:44px;height:44px;border-radius:50%;object-fit:cover;display:block;background:#fff;border:2px solid rgba(255,255,255,.45);box-shadow:0 3px 8px rgba(0,0,0,.25);transition:transform .25s,border-color .25s}
+    .intl-flag:hover .intl-flag-img{transform:scale(1.12);border-color:var(--accent)}
     .intl-flag-name{font-size:.62rem;color:var(--silver-dim);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
     @media (max-width:520px){.intl-flag-img{width:36px;height:36px}.intl-flags{gap:.8rem}}
     .ticker-flag{width:24px;height:18px;object-fit:cover;border-radius:3px;vertical-align:middle;margin:0 5px 2px 0}
@@ -295,8 +367,8 @@
     .contact-success{display:none;text-align:center;padding:1.5rem;color:var(--green);font-weight:600;font-size:1rem}
     footer{background:var(--black);border-top:1px solid rgba(0,163,0,0.15);padding:3rem 2rem}
     .footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
-    .footer-logo{display:inline-flex;align-items:center;background:#fff;padding:8px 14px;border-radius:8px}
-    .footer-logo img{height:34px;width:auto;display:block}
+    .footer-logo{display:inline-flex;align-items:center;background:transparent;padding:0}
+    .footer-logo img{height:46px;width:auto;display:block}
     .footer-links{display:flex;gap:2rem;list-style:none;flex-wrap:wrap}
     .footer-links a{color:rgba(255,255,255,.4);text-decoration:none;font-size:.875rem;transition:color .2s}
     .footer-links a:hover{color:white}
@@ -306,10 +378,13 @@
     .whatsapp-float svg{width:30px;height:30px;fill:white}
     @media(max-width:768px){
       .nav-links{display:none}
+      .nav-contact-quick{display:none}
       .nav-mobile-btn{display:flex}
       .contact-grid{grid-template-columns:1fr}
       .form-row{grid-template-columns:1fr}
       .hero-grid{grid-template-columns:1fr;gap:2.5rem}
+      .hero-scenes{max-width:530px;margin:0 auto}
+      .hero-scene-mobile{margin-top:1rem}
       .hero-stats{gap:1.5rem}
       .mockup-grid{grid-template-columns:1fr 1fr}
       .demo-box{padding:1.5rem}
@@ -569,7 +644,9 @@
     .diag-banner:hover .diag-banner-btn{transform:scale(1.06)}
     @media (prefers-reduced-motion:reduce){.diag-ticker-track{animation:none}}
     section[id]{scroll-margin-top:145px}
-    @media(max-width:1450px){.nav-links{gap:1.15rem}.nav-links a{font-size:.82rem}}
+    @media(max-width:1450px){.nav-links{gap:.82rem}.nav-links a{font-size:.76rem}.nav-contact-quick{margin-left:.2rem;margin-right:.25rem}.nav-contact-label{font-size:.58rem}.nav-contact-number{font-size:.74rem}.nav-logo img{height:52px}}
+    @media(max-width:1180px){.nav-contact-quick{display:none}.nav-links{gap:.9rem}.nav-links a{font-size:.82rem}}
+    @media(max-width:1030px){.nav-contact-quick{display:none}}
     @media(max-width:768px){
       .diag-banner{height:52px}
       .diag-ticker-item{font-size:.88rem}
@@ -583,77 +660,356 @@
       .oblig-grid{grid-template-columns:1fr}
       .calc-urgency{grid-template-columns:1fr}
     }
-  </style>
+    /* ===== Diagnóstico de multas: versión clara y alineada a SUPERCOR ===== */
+    #diagnostico{background:linear-gradient(180deg,#f1faf3 0%,#fff 52%,#edf8f0 100%);border-top:1px solid #d9eadf;border-bottom:1px solid #d9eadf}
+    #diagnostico::before,#diagnostico::after{height:2px;background:linear-gradient(90deg,transparent,rgba(0,138,28,.48),transparent)}
+    #diagnostico .section-badge{background:#e7f6eb;color:var(--green-strong);border-color:#b8dfc2}
+    #diagnostico .section-title{color:var(--gray-800)}
+    #diagnostico .section-title em{color:#c2410c;text-shadow:none}
+    #diagnostico .section-title span{color:var(--green-strong);text-shadow:none}
+    #diagnostico .section-subtitle{color:var(--gray-600)}
+    .diagnostico-meta{display:flex;justify-content:center;align-items:center;gap:.65rem;margin-bottom:1rem}
+    #diagnostico .diagnostico-meta .chile-badge,#diagnostico .diagnostico-meta .section-badge{display:inline-flex;align-items:center;min-height:38px;margin:0;padding:7px 15px;font-size:.76rem;font-weight:700;line-height:1;letter-spacing:0;text-transform:none;border-radius:7px}
+    #diagnostico .diagnostico-meta .chile-badge{background:#e8f7ec;border-color:#b8dfc2;color:var(--green-strong)}
+    #diagnostico .calc-urgency-item{display:flex;align-items:flex-start;gap:.85rem;background:#fff;border-color:#f4c7bd;color:var(--gray-800);box-shadow:0 8px 22px rgba(15,23,42,.05);padding:1.1rem 1.25rem}
+    #diagnostico .calc-urgency-item strong{color:#c2410c}
+    .calc-urgency-icon{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;flex:0 0 34px;background:#fff5f2;border:1px solid #f3c5b8;border-radius:9px;font-size:1.05rem;line-height:1}
+    .calc-urgency-title{display:block;color:var(--gray-800);font-size:.82rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.1rem}
+    .calc-urgency-copy{margin:0;font-size:.92rem;line-height:1.45}
+    #diagnostico .calc-card{background:#fff;border-color:#c9e6d0;box-shadow:0 18px 48px rgba(15,23,42,.10);animation:none}
+    #diagnostico .calc-form-intro{color:var(--gray-600)}
+    #diagnostico .calc-alt-link,#diagnostico .dt-vermas{color:var(--green-strong);opacity:1}
+    #diagnostico .calc-chart-label{color:#c2410c}
+    #diagnostico .calc-chart-total{color:#c2410c;text-shadow:none}
+    #diagnostico .calc-bar-month,#diagnostico .calc-risk{color:var(--gray-600)}
+    #diagnostico .calc-link-reset{color:var(--gray-600)}
+    #diagnostico .calc-link-reset:hover{color:var(--gray-800)}
+    #diagnostico .calc-tier-loss,#diagnostico .dt-box-red{background:#fff5f2;border-color:#f3c5b8}
+    #diagnostico .calc-tier-recovery,#diagnostico .dt-box-green{background:#effaf2;border-color:#b8dfc2}
+    #diagnostico .calc-tier-loss .calc-tier-label,#diagnostico .dt-box-red .dt-box-label{color:#c2410c}
+    #diagnostico .calc-tier-recovery .calc-tier-label,#diagnostico .dt-box-green .dt-box-label{color:var(--green-strong)}
+    #diagnostico .calc-tier-loss .calc-tier-value,#diagnostico .dt-box-red .dt-box-value{color:#c2410c;text-shadow:none}
+    #diagnostico .calc-tier-recovery .calc-tier-value,#diagnostico .dt-box-green .dt-box-value{color:var(--green-strong);text-shadow:none}
+    #diagnostico .calc-gate{background:#f1faf3;border-color:#b8dfc2}
+    #diagnostico .calc-gate-text{color:var(--gray-600)}
+    #diagnostico .calc-gate-note,#diagnostico .calc-disclaimer{color:var(--gray-600)}
+    #diagnostico .form-label{color:var(--gray-800)}
+    #diagnostico .form-input{background:#fff;border-color:var(--gray-200);color:var(--gray-800);box-shadow:inset 0 1px 2px rgba(15,23,42,.03)}
+    #diagnostico .form-input::placeholder{color:var(--gray-400)}
+    #diagnostico .form-input:focus{border-color:var(--green-strong);background:#fff;box-shadow:0 0 0 3px rgba(0,138,28,.1)}
+    #diagnostico .calc-actions .btn-primary{box-shadow:0 8px 22px rgba(0,138,28,.22);animation:none}
+    #diagnostico .dt-empresa-nombre{color:var(--gray-800)}
+    #diagnostico .dt-empresa-rut{color:var(--gray-600)}
+    #diagnostico .dt-badge-multas{background:#fff5f2;border-color:#f3c5b8;color:#c2410c}
+    #diagnostico .dt-year-monto,#diagnostico .dt-row-monto{color:#c2410c}
+    #diagnostico .dt-year-bar-fill{background:linear-gradient(180deg,#fb923c,#c2410c);box-shadow:none}
+    #diagnostico .dt-year-label,#diagnostico .dt-row-date{color:var(--gray-600)}
+    #diagnostico .dt-table{border-top-color:var(--gray-100)}
+    #diagnostico .dt-row{border-bottom-color:var(--gray-100)}
+    #diagnostico .dt-row-motivo{color:var(--gray-800)}
+    #diagnostico .dt-nota{color:var(--gray-600)}
+    #diagnostico .dt-nota strong{color:var(--green-strong)}
+    #diagnostico .dt-fuente{background:#f8fafc;border-color:var(--gray-100);color:var(--gray-600)}
+    #diagnostico .dt-fuente strong{color:var(--gray-800)}
+    #diagnostico .dt-loader{color:var(--gray-600)}
+    #diagnostico .dt-loader-spinner{border-color:var(--gray-200);border-top-color:var(--green-strong)}
+    #diagnostico .dt-error{background:#fff5f2;border-color:#f3c5b8;color:#b42318}
+
+    .seo-section{padding:86px 2rem;background:#fff;border-top:1px solid var(--gray-100)}.seo-section.alt{background:var(--gray-50)}.seo-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem}.seo-card{background:#fff;border:1px solid var(--gray-100);border-radius:14px;padding:1.4rem;box-shadow:0 10px 24px rgba(15,23,42,.04)}.seo-card h3{font-family:var(--font-title);font-size:1.08rem;color:var(--navy);margin-bottom:.45rem}.seo-card p,.seo-card li{font-size:.9rem;color:var(--gray-600);line-height:1.6}.seo-card ul{padding-left:1.1rem;margin-top:.5rem}.seo-wide{max-width:1180px;margin:0 auto}.seo-kicker{display:inline-block;color:var(--green-strong);font-size:.76rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.8rem}.seo-title{font-family:var(--font-title);font-size:clamp(1.9rem,3.2vw,2.8rem);line-height:1.1;color:var(--navy);margin-bottom:1rem}.seo-lead{font-size:1.08rem;color:var(--gray-600);line-height:1.75;max-width:820px;margin-bottom:1.8rem}.comparison-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--gray-100);border-radius:14px;overflow:hidden;box-shadow:0 12px 30px rgba(15,23,42,.05)}.comparison-table th,.comparison-table td{padding:1rem;border-bottom:1px solid var(--gray-100);vertical-align:top;text-align:left}.comparison-table th{background:var(--navy);color:#fff;font-family:var(--font-title);font-size:1rem}.comparison-table td{color:var(--gray-700);font-size:.94rem;line-height:1.55}.vertical-links{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:1.2rem}.vertical-links a{display:inline-flex;align-items:center;gap:.35rem;padding:.55rem .8rem;border:1px solid rgba(0,138,28,.24);border-radius:999px;text-decoration:none;color:var(--green-strong);font-weight:800;background:rgba(0,163,0,.06);font-size:.86rem}.vertical-links a:hover{background:rgba(0,163,0,.12)}
+
+  
+.compare td{position:relative}.compare td:first-child,.compare td:nth-child(2){padding-left:3.2rem}.compare tbody td:first-child::before,.compare tbody td:nth-child(2)::before{position:absolute;left:1rem;top:1rem;width:1.55rem;height:1.55rem;border-radius:999px;display:grid;place-items:center;font-weight:900;font-size:.82rem}.compare tbody td:first-child::before{content:'×';background:#fff1f2;color:#dc2626;border:1px solid #fecdd3}.compare tbody td:nth-child(2){background:linear-gradient(90deg,rgba(0,163,0,.075),rgba(255,255,255,0))}.compare tbody td:nth-child(2)::before{content:'✓';background:#e8f9ec;color:var(--green-strong);border:1px solid #b7efc5}.compare tbody tr:hover td{background-color:#f8fafc}.compare tbody tr:hover td:nth-child(2){background:linear-gradient(90deg,rgba(0,163,0,.12),rgba(255,255,255,0))}.sector-card h3{display:flex;align-items:center;gap:.65rem}.sector-icon{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,#e8f9ec,#fff);border:1px solid rgba(0,138,28,.18);display:inline-grid;place-items:center;color:var(--green-strong);font-size:1.25rem;box-shadow:0 10px 24px rgba(0,138,28,.08);flex:0 0 auto}.nav-wrap{display:flex;flex-direction:column;gap:.55rem;align-items:flex-end}.solution-menu{display:flex;flex-wrap:wrap;gap:.45rem;justify-content:flex-end;max-width:1160px}.solution-menu a{font-size:.76rem;font-weight:900;text-decoration:none;color:var(--green-strong);border:1px solid rgba(0,138,28,.18);background:rgba(0,163,0,.055);padding:.35rem .55rem;border-radius:999px}.solution-menu a:hover{background:rgba(0,163,0,.12)}@media(max-width:1280px){.nav-wrap{align-items:stretch}.solution-menu{justify-content:flex-start}.solution-menu a{font-size:.72rem}.main-navigation{height:auto;padding-top:.75rem;padding-bottom:.75rem}}@media(max-width:980px){.solution-menu{display:none}}
+
+/* final polish */
+.main-navigation{height:auto;min-height:102px;align-items:center}.nav-wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"main actions" "solutions actions";align-items:center;column-gap:1.1rem;row-gap:.55rem;flex:1}.nav-wrap .nav-links{grid-area:main;justify-content:flex-end}.solution-menu{grid-area:solutions;justify-content:flex-end}.nav-actions{grid-area:actions;display:flex;align-items:center;gap:.55rem}.nav-action{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font-weight:900;border-radius:10px;white-space:nowrap}.nav-action.fines{background:#fff1f2;color:#dc2626;border:1px solid #fecaca;padding:.76rem 1rem}.nav-action.client{background:#eef9f0;color:var(--green-strong);border:1px solid rgba(0,138,28,.18);padding:.76rem .95rem}.nav-action.demo{background:var(--green-strong);color:#fff;padding:.86rem 1.05rem;box-shadow:0 8px 18px rgba(0,138,28,.18)}.nav-links .nav-fines-link,.nav-links .nav-cta,.nav-links .client-link{display:none!important}.compare tbody tr td{font-weight:600}.compare tbody td:first-child,.compare tbody td:nth-child(2){padding-left:4rem}.compare tbody td:first-child::before,.compare tbody td:nth-child(2)::before{left:1.25rem;top:50%;transform:translateY(-50%);width:2rem;height:2rem}.sector-icon{width:34px;height:34px;border-radius:12px;font-size:1rem;margin-right:.15rem}.sector-card h3{gap:.75rem;line-height:1.15;align-items:center}.feature-icon{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,#e8f9ec,#fff);border:1px solid rgba(0,138,28,.2);color:var(--green-strong);font-size:1.22rem;margin-bottom:1rem}.evidence-card h3{display:flex;align-items:center;gap:.7rem}.evidence-card h3 .feature-icon{margin-bottom:0;flex:0 0 auto}@media(max-width:1450px){.main-navigation{min-height:120px}.nav-wrap{grid-template-columns:1fr;grid-template-areas:"main" "actions" "solutions"}.nav-wrap .nav-links,.solution-menu{justify-content:center}.nav-actions{justify-content:center}}@media(max-width:980px){.nav-actions{display:none}.main-navigation{min-height:76px}}
+
+/* final navigation/layout correction */
+.main-navigation{height:auto!important;min-height:126px!important;padding:12px 28px!important;align-items:center!important;overflow:visible!important}.main-navigation .nav-logo{flex:0 0 auto}.nav-contact-quick{flex:0 0 auto}.nav-wrap{flex:1!important;display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;grid-template-areas:"main actions" "solutions actions"!important;column-gap:18px!important;row-gap:10px!important;align-items:center!important;min-width:0!important}.nav-wrap>.nav-links{grid-area:main!important;display:flex!important;justify-content:flex-end!important;align-items:center!important;gap:22px!important;min-width:0!important;flex-wrap:nowrap!important}.nav-wrap>.nav-links a{font-size:.86rem!important;line-height:1.1!important}.nav-actions{grid-area:actions!important;display:flex!important;gap:10px!important;align-items:center!important;justify-content:flex-end!important}.solution-menu{grid-area:solutions!important;display:flex!important;flex-wrap:wrap!important;gap:8px!important;justify-content:flex-end!important;max-width:none!important}.solution-menu a{display:inline-flex!important;align-items:center!important;min-height:36px!important;padding:8px 14px!important;font-size:.82rem!important}.nav-action{display:inline-flex!important;align-items:center!important;justify-content:center!important;text-decoration:none!important;font-weight:900!important;border-radius:10px!important;white-space:nowrap!important;line-height:1!important}.nav-action.fines{background:#fff1f2!important;color:#dc2626!important;border:1px solid #fecaca!important;padding:18px 22px!important;font-size:1.04rem!important}.nav-action.client{background:#eef9f0!important;color:var(--green-strong)!important;border:1px solid rgba(0,138,28,.18)!important;padding:18px 18px!important;font-size:1.02rem!important}.nav-action.demo{background:var(--green-strong)!important;color:#fff!important;padding:19px 22px!important;font-size:1.02rem!important;box-shadow:0 8px 18px rgba(0,138,28,.18)!important}.nav-links .nav-fines-link,.nav-links .nav-cta,.nav-links .client-link{display:none!important}.compare td{position:relative!important}.compare .cell-line{display:flex;align-items:flex-start;gap:12px}.compare .cell-icon{width:30px;height:30px;border-radius:999px;display:inline-grid;place-items:center;flex:0 0 30px;font-size:.9rem;font-weight:900}.compare .bad .cell-icon{background:#fff1f2;color:#dc2626;border:1px solid #fecdd3}.compare .good .cell-icon{background:#e8f9ec;color:var(--green-strong);border:1px solid #b7efc5}.compare .good{background:linear-gradient(90deg,rgba(0,163,0,.07),rgba(255,255,255,0))}.sector-card h3{display:grid!important;grid-template-columns:36px 1fr!important;align-items:center!important;column-gap:12px!important;line-height:1.15!important}.sector-icon{width:34px!important;height:34px!important;border-radius:12px!important;font-size:1rem!important;margin:0!important}.evidence-card h3{display:grid!important;grid-template-columns:34px 1fr!important;align-items:center!important;column-gap:12px!important;line-height:1.15!important}.feature-icon{width:32px!important;height:32px!important;border-radius:11px!important;font-size:.95rem!important;margin:0!important}.evidence-card h3 .feature-icon{margin:0!important}.compare tbody td:first-child::before,.compare tbody td:nth-child(2)::before{display:none!important}@media(max-width:1500px){.main-navigation{min-height:148px!important}.nav-wrap{grid-template-columns:1fr!important;grid-template-areas:"main" "actions" "solutions"!important}.nav-wrap>.nav-links,.nav-actions,.solution-menu{justify-content:center!important}.nav-action.fines,.nav-action.client,.nav-action.demo{padding:14px 18px!important}}@media(max-width:980px){.main-navigation{min-height:76px!important}.nav-wrap,.nav-contact-quick{display:none!important}}
+
+/* final requested corrections 2026-09-07 */
+.main-navigation{position:sticky;top:68px;z-index:900;height:auto;min-height:116px;padding:.7rem 1.25rem;align-items:center;background:rgba(255,255,255,.98);box-shadow:0 12px 30px rgba(15,23,42,.055)}
+.nav-wrap{display:flex;flex-direction:column;gap:.55rem;align-items:stretch;flex:1;min-width:0;margin-left:1rem}
+.nav-top-row{display:flex;align-items:center;justify-content:flex-end;gap:1.1rem;width:100%;min-width:0}
+.nav-links{display:flex;align-items:center;justify-content:flex-end;gap:1.25rem;flex:1;min-width:0;white-space:nowrap;margin:0;padding:0;list-style:none}
+.nav-links a{font-size:.86rem;font-weight:850;color:#64748b;text-decoration:none}
+.nav-links a:hover{color:var(--green-strong)}
+.nav-actions{display:flex;align-items:center;justify-content:flex-end;gap:.65rem;flex:0 0 auto}
+.nav-action{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font-weight:950;border-radius:12px;white-space:nowrap;line-height:1;padding:.82rem 1.05rem}
+.nav-action.fines{background:#fff1f2;color:#dc2626;border:1px solid #fecaca;font-size:1rem;min-width:190px}
+.nav-action.client{background:#eef9f0;color:var(--green-strong);border:1px solid rgba(0,138,28,.20);font-size:1rem;min-width:160px}
+.nav-action.demo{background:var(--green-strong);color:#fff;box-shadow:0 12px 26px rgba(0,138,28,.20);font-size:1rem;min-width:190px}
+.solution-menu{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;width:100%;padding-top:.15rem}
+.solution-menu a{font-size:.82rem;font-weight:950;text-decoration:none;color:var(--green-strong);border:1px solid rgba(0,138,28,.22);background:rgba(0,163,0,.058);padding:.55rem .8rem;border-radius:999px;line-height:1}
+.solution-menu a:hover{background:rgba(0,163,0,.13);transform:translateY(-1px)}
+.nav-links .nav-fines-link,.nav-links .nav-cta,.nav-links .client-link{display:none!important}
+.compare tbody td{padding:1.05rem 1.2rem!important;vertical-align:middle;font-weight:650}
+.cell-line{display:grid;grid-template-columns:2.05rem minmax(0,1fr);align-items:center;gap:.85rem}
+.cell-icon{width:2.05rem;height:2.05rem;border-radius:999px;display:inline-grid;place-items:center;font-weight:950;font-size:1rem;line-height:1;box-shadow:0 10px 20px rgba(15,23,42,.08)}
+td.bad .cell-icon{background:#fff1f2;color:#dc2626;border:1px solid #fecaca}
+td.good .cell-icon{background:#e8f9ec;color:var(--green-strong);border:1px solid rgba(0,138,28,.20)}
+.compare tbody td::before{content:none!important;display:none!important}
+.sector-card h3,.evidence-card h3,.detail-card h3{display:grid!important;grid-template-columns:2rem minmax(0,1fr)!important;align-items:center!important;gap:.75rem!important;line-height:1.12!important}
+.sector-icon,.feature-icon{width:2rem!important;height:2rem!important;min-width:2rem!important;border-radius:11px!important;font-size:.94rem!important;margin:0!important;display:inline-grid!important;place-items:center!important;line-height:1!important;flex:0 0 2rem!important}
+@media(max-width:1380px){.nav-top-row{gap:.8rem}.nav-links{gap:.9rem}.nav-links a{font-size:.78rem}.nav-action{padding:.75rem .82rem}.nav-action.fines{min-width:170px}.nav-action.client{min-width:145px}.nav-action.demo{min-width:170px}.solution-menu a{font-size:.76rem;padding:.5rem .66rem}.main-navigation{min-height:126px}}
+@media(max-width:1120px){.nav-top-row{flex-direction:column;align-items:flex-end}.nav-links{justify-content:flex-end}.nav-actions{width:100%;justify-content:flex-end}.main-navigation{min-height:156px}}
+@media(max-width:980px){.main-navigation{top:0;min-height:72px}.nav-wrap{display:none}.nav-mobile-btn{display:flex}.solution-menu{display:none}.nav-top-row{display:none}}
+
+/* menu and hero final alignment 2026-09-07 */
+.diag-banner-btn{min-width:190px;text-align:center;font-weight:950}
+.nav-links{gap:.55rem!important;justify-content:flex-end!important;flex:0 1 auto!important}
+.nav-info-chip{display:inline-flex!important;align-items:center!important;justify-content:center!important;border:1px solid rgba(0,138,28,.16)!important;background:#fff!important;color:#475569!important;border-radius:999px!important;padding:.55rem .78rem!important;font-size:.82rem!important;font-weight:950!important;line-height:1!important;box-shadow:0 8px 18px rgba(15,23,42,.035)!important}
+.nav-info-chip:hover{background:#eef9f0!important;color:var(--green-strong)!important;border-color:rgba(0,138,28,.24)!important;transform:translateY(-1px)!important}
+.nav-top-row{align-items:center!important;justify-content:flex-end!important;gap:.8rem!important}
+.nav-actions{gap:.65rem!important}
+.nav-action.fines{display:none!important}
+.nav-action.client{min-width:150px!important}
+.nav-action.demo{min-width:180px!important}
+.main-navigation{min-height:104px!important;padding:.6rem 1.25rem!important}
+.solution-menu{padding-top:.1rem!important;gap:.46rem!important;justify-content:flex-end!important}
+.solution-menu a{padding:.52rem .74rem!important;font-size:.80rem!important}
+section#inicio{padding-top:2.15rem!important}
+.hero-grid{padding-top:0!important;align-items:start!important}
+.hero-eyebrow{margin-top:0!important}
+@media(max-width:1380px){.nav-info-chip{font-size:.76rem!important;padding:.48rem .62rem!important}.nav-links{gap:.42rem!important}.solution-menu a{font-size:.72rem!important;padding:.46rem .58rem!important}.nav-action.client{min-width:138px!important}.nav-action.demo{min-width:160px!important}.main-navigation{min-height:112px!important}section#inicio{padding-top:1.7rem!important}}
+@media(max-width:1120px){.nav-actions{width:auto!important}.nav-top-row{flex-direction:row!important;align-items:center!important}.main-navigation{min-height:124px!important}}
+
+/* nav exact order and hero spacing 2026-09-07b */
+.main-navigation{min-height:96px!important;padding:.52rem 1.15rem!important;display:grid!important;grid-template-columns:98px 250px minmax(0,1fr) auto!important;gap:.8rem!important;align-items:center!important}
+.nav-logo{justify-self:center!important;width:78px!important;min-width:78px!important}
+.nav-logo img{max-width:76px!important}
+.nav-contact-quick{justify-self:start!important;display:flex!important;align-items:center!important;gap:.55rem!important;padding:.65rem .8rem!important;border-radius:16px!important;background:#fff!important;border:1px solid rgba(0,138,28,.14)!important;box-shadow:0 10px 24px rgba(15,23,42,.055)!important;min-width:225px!important}
+.nav-contact-quick svg{width:25px!important;height:25px!important;color:var(--green-strong)!important;fill:none!important;stroke:currentColor!important;stroke-width:2.2!important}
+.nav-contact-label{font-size:.76rem!important;font-weight:850!important;color:#64748b!important;display:block!important;line-height:1.1!important}
+.nav-contact-number{font-size:1rem!important;font-weight:1000!important;color:var(--green-strong)!important;display:block!important;line-height:1.12!important;letter-spacing:.01em!important}
+.nav-wrap{margin-left:0!important;align-items:stretch!important;gap:.52rem!important;width:100%!important;min-width:0!important}
+.nav-top-row{justify-content:flex-start!important;gap:.7rem!important;width:100%!important;min-width:0!important}
+.nav-links{justify-content:flex-start!important;gap:.42rem!important;flex:1 1 auto!important;min-width:0!important;white-space:nowrap!important}
+.nav-info-chip{font-size:.78rem!important;padding:.52rem .64rem!important;background:#fff!important;color:#475569!important;border:1px solid rgba(0,138,28,.18)!important;border-radius:999px!important;box-shadow:0 8px 18px rgba(15,23,42,.035)!important}
+.nav-info-chip.alert-chip{background:#eef9f0!important;color:var(--green-strong)!important;border-color:rgba(0,138,28,.24)!important}
+.nav-actions{gap:.55rem!important;flex:0 0 auto!important;justify-content:flex-end!important}
+.nav-action.client{min-width:145px!important;padding:.78rem .85rem!important;font-size:.95rem!important}
+.nav-action.demo{min-width:175px!important;padding:.84rem .9rem!important;font-size:.95rem!important}
+.solution-menu{justify-content:flex-start!important;gap:.45rem!important;padding-top:0!important;width:100%!important}
+.solution-menu a{font-size:.78rem!important;padding:.52rem .70rem!important}
+.diag-banner-btn{min-width:230px!important;text-align:center!important;font-weight:950!important}
+section#inicio{padding-top:1.25rem!important}
+.hero-grid{padding-top:0!important;margin-top:0!important;align-items:start!important}
+.hero-eyebrow{margin-top:0!important}
+@media(max-width:1500px){.main-navigation{grid-template-columns:92px 235px minmax(0,1fr)!important;gap:.7rem!important}.nav-info-chip{font-size:.72rem!important;padding:.48rem .55rem!important}.solution-menu a{font-size:.72rem!important;padding:.46rem .56rem!important}.nav-action.client{min-width:132px!important}.nav-action.demo{min-width:155px!important}.nav-contact-quick{min-width:210px!important}.nav-contact-number{font-size:.94rem!important}}
+@media(max-width:1220px){.main-navigation{grid-template-columns:88px 220px minmax(0,1fr)!important;min-height:122px!important}.nav-top-row{flex-wrap:wrap!important}.nav-actions{margin-left:auto!important}.solution-menu{flex-wrap:wrap!important}}
+@media(max-width:980px){.main-navigation{display:flex!important;min-height:72px!important}.nav-contact-quick{display:none!important}.nav-wrap{display:none!important}}
+
+/* final flag, cta and headline adjustment 2026-09-07c */
+.diag-banner-btn{background:#fff!important;color:#dc2626!important;border:2px solid #fecaca!important;box-shadow:0 10px 24px rgba(220,38,38,.18)!important;min-width:245px!important;font-weight:1000!important}
+.diag-banner-btn:hover{background:#fff5f5!important;color:#b91c1c!important}
+.nav-actions{align-self:start!important;padding-top:.05rem!important;display:grid!important;grid-template-columns:170px 220px!important;gap:.65rem!important;align-items:stretch!important}
+.nav-action.client,.nav-action.demo{height:52px!important;min-height:52px!important;display:flex!important;align-items:center!important;justify-content:center!important;margin:0!important}
+.nav-action.client{min-width:170px!important}
+.nav-action.demo{min-width:220px!important}
+.hero-visual{padding-top:1.15rem!important;overflow:visible!important}
+.flags-row,.hero-flags,.country-flags{margin-top:1.1rem!important;transform:translateY(16px)!important;position:relative!important;z-index:3!important}
+.hero-title{max-width:820px!important}
+@media(max-width:1500px){.nav-actions{grid-template-columns:160px 205px!important}.nav-action.client{min-width:160px!important}.nav-action.demo{min-width:205px!important}.diag-banner-btn{min-width:225px!important}.hero-visual{padding-top:1.35rem!important}.flags-row,.hero-flags,.country-flags{transform:translateY(18px)!important}}
+@media(max-width:1220px){.nav-actions{display:flex!important;grid-template-columns:none!important}.hero-visual{padding-top:.7rem!important}.flags-row,.hero-flags,.country-flags{transform:none!important;margin-top:.6rem!important}}
+
+/* compact final header correction 2026-09-07d */
+.main-navigation{min-height:82px!important;padding:.38rem 1.05rem!important;grid-template-columns:86px 245px minmax(0,1fr)!important;gap:.72rem!important;align-items:center!important}
+.nav-logo{width:68px!important;min-width:68px!important}.nav-logo img{max-width:66px!important}
+.nav-contact-quick{min-width:218px!important;padding:.52rem .72rem!important;border-radius:15px!important;align-self:center!important}
+.nav-contact-quick svg{width:24px!important;height:24px!important}.nav-contact-label{font-size:.72rem!important}.nav-contact-number{font-size:.98rem!important}
+.nav-wrap{gap:.42rem!important}.nav-top-row{gap:.55rem!important;align-items:center!important}.nav-links{gap:.38rem!important;align-items:center!important}
+.nav-info-chip,.solution-menu a,.nav-action.client,.nav-action.demo{height:38px!important;min-height:38px!important;border-radius:999px!important;padding:.46rem .66rem!important;font-size:.76rem!important;line-height:1!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;box-sizing:border-box!important;box-shadow:0 7px 16px rgba(15,23,42,.035)!important}
+.nav-action.client{background:#eef9f0!important;color:var(--green-strong)!important;border:1px solid rgba(0,138,28,.20)!important;min-width:134px!important}
+.nav-action.demo{background:var(--green-strong)!important;color:#fff!important;border:1px solid var(--green-strong)!important;min-width:152px!important;box-shadow:0 8px 18px rgba(0,138,28,.16)!important}
+.nav-actions{display:flex!important;gap:.46rem!important;align-self:center!important;padding-top:0!important;align-items:center!important;justify-content:flex-end!important;flex:0 0 auto!important}
+.solution-menu{gap:.38rem!important;align-items:center!important;justify-content:flex-start!important}
+.hero-visual{padding-top:2.15rem!important;overflow:visible!important}.flags-row,.hero-flags,.country-flags{margin-top:1.8rem!important;transform:translateY(26px)!important;z-index:4!important}
+section#inicio{padding-top:.9rem!important}.hero-grid{padding-top:0!important;margin-top:0!important}
+@media(max-width:1500px){.main-navigation{grid-template-columns:76px 226px minmax(0,1fr)!important;min-height:88px!important;padding:.34rem .85rem!important;gap:.55rem!important}.nav-contact-quick{min-width:205px!important}.nav-info-chip,.solution-menu a,.nav-action.client,.nav-action.demo{height:36px!important;min-height:36px!important;font-size:.70rem!important;padding:.42rem .54rem!important}.nav-action.client{min-width:124px!important}.nav-action.demo{min-width:144px!important}.hero-visual{padding-top:2.45rem!important}.flags-row,.hero-flags,.country-flags{margin-top:2rem!important;transform:translateY(32px)!important}}
+@media(max-width:1220px){.main-navigation{min-height:108px!important}.nav-actions{margin-left:auto!important}.hero-visual{padding-top:1.1rem!important}.flags-row,.hero-flags,.country-flags{transform:translateY(12px)!important;margin-top:1rem!important}}
+
+/* definitive grid header correction 2026-09-07e */
+.main-navigation{min-height:92px!important;padding:.46rem 1.05rem!important;display:grid!important;grid-template-columns:82px 274px minmax(0,1fr)!important;gap:.8rem!important;align-items:center!important;overflow:visible!important;background:rgba(255,255,255,.985)!important}
+.nav-logo{width:64px!important;min-width:64px!important;justify-self:center!important}.nav-logo img{max-width:64px!important;height:auto!important}
+.nav-contact-quick{justify-self:start!important;align-self:center!important;display:flex!important;min-width:250px!important;max-width:250px!important;padding:.60rem .80rem!important;border-radius:16px!important;background:#fff!important;border:1px solid rgba(0,138,28,.16)!important;box-shadow:0 10px 22px rgba(15,23,42,.055)!important;gap:.58rem!important;box-sizing:border-box!important}
+.nav-contact-quick svg{width:25px!important;height:25px!important;color:var(--green-strong)!important}.nav-contact-label{font-size:.73rem!important;font-weight:850!important;color:#64748b!important}.nav-contact-number{font-size:1rem!important;font-weight:1000!important;color:var(--green-strong)!important;line-height:1.05!important}
+.nav-grid-wrap{display:grid!important;grid-template-columns:repeat(8,minmax(0,1fr))!important;grid-template-rows:repeat(2,36px)!important;gap:.46rem!important;align-items:stretch!important;justify-items:stretch!important;width:100%!important;margin:0!important;min-width:0!important}
+.nav-grid-wrap .grid-item{display:flex!important;align-items:center!important;justify-content:center!important;text-align:center!important;height:36px!important;min-height:36px!important;width:100%!important;box-sizing:border-box!important;border-radius:999px!important;padding:.35rem .42rem!important;font-size:.72rem!important;font-weight:950!important;line-height:1.05!important;text-decoration:none!important;white-space:nowrap!important;box-shadow:0 7px 15px rgba(15,23,42,.035)!important}
+.nav-info-chip{background:#fff!important;color:#475569!important;border:1px solid rgba(0,138,28,.18)!important}.nav-info-chip:hover{background:#eef9f0!important;color:var(--green-strong)!important}.alert-chip{background:#eef9f0!important;color:var(--green-strong)!important;border-color:rgba(0,138,28,.25)!important}.solution-chip{background:rgba(0,163,0,.058)!important;color:var(--green-strong)!important;border:1px solid rgba(0,138,28,.22)!important}.client-chip{background:#eaf7ee!important;color:var(--green-strong)!important;border:1px solid rgba(0,138,28,.30)!important}.demo-chip{background:var(--green-strong)!important;color:#fff!important;border:1px solid var(--green-strong)!important;box-shadow:0 8px 18px rgba(0,138,28,.16)!important}
+.nav-top-row,.nav-links,.nav-actions,.solution-menu{display:contents!important}.nav-action{display:none!important}
+.diag-banner-btn{background:#fff!important;color:#dc2626!important;border:2px solid #fecaca!important;box-shadow:0 10px 24px rgba(220,38,38,.18)!important;min-width:245px!important;font-weight:1000!important}
+section#inicio{padding-top:1.7rem!important}.hero-grid{padding-top:0!important;margin-top:0!important}.hero-right{padding-top:3.6rem!important;overflow:visible!important}.hero-presence{margin-top:2.3rem!important;margin-bottom:1.6rem!important;transform:translateY(34px)!important;position:relative!important;z-index:2!important}.hero-scenes{margin-top:2.2rem!important;position:relative!important;z-index:1!important}
+@media(max-width:1500px){.main-navigation{grid-template-columns:74px 252px minmax(0,1fr)!important;gap:.62rem!important;min-height:96px!important;padding:.42rem .78rem!important}.nav-contact-quick{min-width:235px!important;max-width:235px!important}.nav-grid-wrap{gap:.36rem!important;grid-template-rows:repeat(2,34px)!important}.nav-grid-wrap .grid-item{height:34px!important;min-height:34px!important;font-size:.66rem!important;padding:.32rem .34rem!important}.hero-right{padding-top:4.2rem!important}.hero-presence{margin-top:2.8rem!important;transform:translateY(44px)!important}.hero-scenes{margin-top:2.6rem!important}}
+@media(max-width:1220px){.main-navigation{min-height:112px!important;grid-template-columns:70px 220px minmax(0,1fr)!important}.nav-contact-quick{min-width:205px!important;max-width:205px!important}.nav-grid-wrap{grid-template-columns:repeat(4,minmax(0,1fr))!important;grid-template-rows:repeat(4,34px)!important}.hero-right{padding-top:1rem!important}.hero-presence{margin-top:1rem!important;transform:none!important}.hero-scenes{margin-top:1rem!important}}
+@media(max-width:980px){.main-navigation{display:flex!important;min-height:72px!important}.nav-contact-quick,.nav-grid-wrap{display:none!important}.nav-mobile-btn{display:flex!important}}
+
+/* final CTA, cards and subpage nav correction 2026-09-07f */
+.nav-grid-wrap .client-chip,.nav-grid-wrap .demo-chip{background:var(--green-strong)!important;color:#fff!important;border-color:var(--green-strong)!important;box-shadow:0 8px 18px rgba(0,138,28,.18)!important}
+.nav-grid-wrap .client-chip:hover,.nav-grid-wrap .demo-chip:hover{background:#007318!important;color:#fff!important}
+.sector-card a,.sector-card a:visited{color:var(--green-strong)!important;font-weight:900!important;text-decoration:none!important;border-bottom:2px solid rgba(0,138,28,.22)!important}.sector-card a:hover{color:#007318!important;border-bottom-color:#007318!important}
+.sector-card h3,.evidence-card h3,.detail-card h3,.feature-card h3{display:grid!important;grid-template-columns:2.9rem minmax(0,1fr)!important;align-items:center!important;column-gap:.45rem!important;line-height:1.15!important}
+.sector-icon,.feature-icon{width:1.75rem!important;height:1.75rem!important;min-width:1.75rem!important;border-radius:10px!important;font-size:.78rem!important;margin:0!important;justify-self:start!important;display:inline-grid!important;place-items:center!important;line-height:1!important;flex:0 0 1.75rem!important}
+
+/* definitive seo-card and CTA correction 2026-09-07g */
+.nav-grid-wrap .client-chip,.nav-grid-wrap .demo-chip{background:#008a1c!important;color:#fff!important;border-color:#008a1c!important;box-shadow:0 8px 18px rgba(0,138,28,.20)!important}
+.nav-grid-wrap .client-chip:hover,.nav-grid-wrap .demo-chip:hover{background:#007318!important;color:#fff!important;border-color:#007318!important}
+.seo-card a,.seo-card a:visited,.sector-card a,.sector-card a:visited{color:#008a1c!important;font-weight:900!important;text-decoration:none!important;border-bottom:2px solid rgba(0,138,28,.22)!important}.seo-card a:hover,.sector-card a:hover{color:#007318!important;border-bottom-color:#007318!important}
+.seo-card h3,.sector-card h3,.evidence-card h3,.detail-card h3,.feature-card h3{display:grid!important;grid-template-columns:2.75rem minmax(0,1fr)!important;align-items:center!important;column-gap:.55rem!important;line-height:1.15!important}
+.seo-card h3 .sector-icon,.sector-card h3 .sector-icon,.evidence-card h3 .feature-icon,.detail-card h3 .feature-icon,.feature-card h3 .feature-icon{width:1.62rem!important;height:1.62rem!important;min-width:1.62rem!important;border-radius:9px!important;font-size:.74rem!important;margin:0!important;justify-self:start!important;display:inline-grid!important;place-items:center!important;line-height:1!important;flex:0 0 1.62rem!important}
+
+/* final homepage flags vertical alignment 2026-09-07i */
+.hero-right{padding-top:2.2rem!important;overflow:visible!important}
+.hero-presence{margin-top:.85rem!important;margin-bottom:1.05rem!important;transform:translateY(-10px)!important;position:relative!important;z-index:3!important}
+.hero-scenes{margin-top:1.25rem!important;position:relative!important;z-index:1!important}
+@media(max-width:1500px){.hero-right{padding-top:2.55rem!important}.hero-presence{margin-top:1.05rem!important;transform:translateY(-6px)!important;margin-bottom:1.05rem!important}.hero-scenes{margin-top:1.35rem!important}}
+@media(max-width:1220px){.hero-right{padding-top:1rem!important}.hero-presence{margin-top:.7rem!important;transform:none!important}.hero-scenes{margin-top:.9rem!important}}
+</style>
 </head>
 <body>
 
 <a class="diag-banner" href="#diagnostico" aria-label="Diagnostique aquí su empresa gratis — ir a la calculadora de diagnóstico">
   <div class="diag-ticker" aria-hidden="true">
     <div class="diag-ticker-track">
-      <span class="diag-ticker-item"><img class="ticker-flag" src="assets/flags/cl.png" alt="Chile" />SOLO CHILE: Consulte GRATIS las multas reales de su empresa en la DT</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item">Descubra cuánto pierde al año en multas</span><span class="diag-ticker-sep">•</span>
-      <span class="diag-ticker-item"><img class="ticker-flag" src="assets/flags/cl.png" alt="Chile" />SOLO CHILE: Consulte GRATIS las multas reales de su empresa en la DT</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item">Descubra cuánto pierde al año en multas</span><span class="diag-ticker-sep">•</span>
-      <span class="diag-ticker-item"><img class="ticker-flag" src="assets/flags/cl.png" alt="Chile" />SOLO CHILE: Consulte GRATIS las multas reales de su empresa en la DT</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item">Descubra cuánto pierde al año en multas</span><span class="diag-ticker-sep">•</span>
-      <span class="diag-ticker-item"><img class="ticker-flag" src="assets/flags/cl.png" alt="Chile" />SOLO CHILE: Consulte GRATIS las multas reales de su empresa en la DT</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item">Descubra cuánto pierde al año en multas</span><span class="diag-ticker-sep">•</span>
-      <span class="diag-ticker-item"><img class="ticker-flag" src="assets/flags/cl.png" alt="Chile" />SOLO CHILE: Consulte GRATIS las multas reales de su empresa en la DT</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item">Descubra cuánto pierde al año en multas</span><span class="diag-ticker-sep">•</span>
-      <span class="diag-ticker-item"><img class="ticker-flag" src="assets/flags/cl.png" alt="Chile" />SOLO CHILE: Consulte GRATIS las multas reales de su empresa en la DT</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item">Descubra cuánto pierde al año en multas</span><span class="diag-ticker-sep">•</span>
+      <span class="diag-ticker-item">Control operativo con evidencia en terreno</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item">Operaciones en Latinoamérica y España</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item"><img class="ticker-flag" src="assets/flags/cl.png" alt="Chile" />Chile: consulte multas reales de su empresa</span><span class="diag-ticker-sep">•</span>
+      <span class="diag-ticker-item">Control operativo con evidencia en terreno</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item">Operaciones en Latinoamérica y España</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item"><img class="ticker-flag" src="assets/flags/cl.png" alt="Chile" />Chile: consulte multas reales de su empresa</span><span class="diag-ticker-sep">•</span>
+      <span class="diag-ticker-item">Control operativo con evidencia en terreno</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item">Operaciones en Latinoamérica y España</span><span class="diag-ticker-sep">•</span><span class="diag-ticker-item"><img class="ticker-flag" src="assets/flags/cl.png" alt="Chile" />Chile: consulte multas reales de su empresa</span><span class="diag-ticker-sep">•</span>
     </div>
   </div>
-  <span class="diag-banner-btn">Consultar ahora →</span>
+  <span class="diag-banner-btn">🔍 Revisa tus multas →</span>
 </a>
 
-<nav>
-  <a href="#inicio" class="nav-logo"><img src="assets/Logo%20Verde.png" alt="SUPERCOR" /></a>
-  <ul class="nav-links">
-    <li><a href="#diferenciacion">Por qué SUPERCOR</a></li>
-    <li><a href="#diagnostico" class="nav-dt">🔍 Multas DT</a></li>
-    <li><a href="#como-funciona">Cómo funciona</a></li>
-    <li><a href="#prensa">Reportaje</a></li>
-    <li><a href="#precios">Precios</a></li>
-<li><a href="/ayuda">Ayuda</a></li>
-<li><a href="/seguridad-privada">Seguridad Privada</a></li>
- <li><a href="https://app.supercor.cl" target="_blank" style="color:var(--gray-600);text-decoration:none;font-size:.875rem;font-weight:500">Acceso clientes →</a></li>
-    <li><a href="#demo" class="nav-cta">Solicitar Diagnóstico</a></li>
-  </ul>
-  <button class="nav-mobile-btn" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+<nav class="main-navigation">
+  <a href="#inicio" class="nav-logo"><img src="assets/Logo Verde.png" alt="SUPERCOR" /></a>
+  <div class="nav-contact-quick" aria-label="Teléfono de contacto: +56 9 9595 0843">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.56 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.91 6.91l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <span class="nav-contact-copy"><span class="nav-contact-label">Llame y solicite su demo:</span><span class="nav-contact-number">+56 9 9595 0843</span></span>
+  </div>
+  <div class="nav-wrap nav-grid-wrap" aria-label="Menú principal SUPERCOR">
+  <a class="nav-info-chip grid-item" href="#brecha">Por qué SUPERCOR</a>
+  <a class="nav-info-chip grid-item" href="#como-funciona">Cómo funciona</a>
+  <a class="nav-info-chip grid-item" href="#prensa">Reportaje</a>
+  <a class="nav-info-chip grid-item" href="#precios">Planes</a>
+  <a class="nav-info-chip grid-item" href="/seguridad-privada.html">Seguridad privada</a>
+  <a class="nav-info-chip alert-chip grid-item" href="/alertas-multas-cumplimiento.html">Alertas y multas</a>
+  <a class="nav-info-chip client-chip grid-item" href="https://app.supercor.cl" target="_blank" rel="noopener">Acceso clientes</a>
+  <a class="nav-info-chip demo-chip grid-item" href="#demo">Solicitar Diagnóstico</a>
+  <a class="solution-chip grid-item" href="/control-cumplimiento-terreno.html">Control en terreno</a>
+  <a class="solution-chip grid-item" href="/software-outsourcing-chile.html">Outsourcing</a>
+  <a class="solution-chip grid-item" href="/software-servicios-transitorios-chile.html">Servicios transitorios</a>
+  <a class="solution-chip grid-item" href="/software-facility-management-chile.html">Facility</a>
+  <a class="solution-chip grid-item" href="/control-personal-mineria.html">Minería</a>
+  <a class="solution-chip grid-item" href="/control-documental-trabajadores.html">Control documental</a>
+  <a class="solution-chip grid-item" href="/checklist-supervision-terreno.html">Checklist</a>
+  <a class="solution-chip grid-item" href="/evidencia-fiscalizacion.html">Evidencia</a>
+</div>
+  <button type="button" class="nav-mobile-btn" aria-label="Abrir menú de navegación" aria-expanded="false" onclick="toggleMenu()"><span></span><span></span><span></span></button>
 </nav>
 
 <section id="inicio">
   <div class="hero-grid">
     <div class="hero-left fade-in">
-      <span class="hero-eyebrow">Controle su operación antes de que la fiscalización lo haga</span>
-      <h1 class="hero-title">El <span class="accent">guardián operacional</span> de su cumplimiento.</h1>
-      <p class="hero-subtitle">Donde un ERP solo administra datos, SUPERCOR detecta en terreno cada incumplimiento que buscan las entidades fiscalizadoras y sus clientes — condiciones laborales, documentación, controles operacionales — y dispara alertas automáticas para que su equipo lo resuelva <strong>antes</strong> de que se transforme en multa.</p>
-      <div class="hero-actions">
-        <a href="#diagnostico" class="btn-primary">🔍 Consultar mis multas reales</a>
-        <a href="#como-funciona" class="btn-secondary">Ver cómo funciona →</a>
+      <span class="hero-eyebrow">Software de control de cumplimiento real en terreno</span>
+      <h1 class="hero-title">Controle en terreno el cumplimiento que otras plataformas solo <span class="accent">documentan.</span></h1>
+      <p class="hero-subtitle">SUPERCOR verifica diariamente trabajadores, turnos, documentos, uniformes, checklist, fotografías, GPS, vencimientos y hallazgos desde la instalación. Genera evidencia trazable, alertas a jefaturas y riesgos valorizados para corregir antes de una fiscalización, multa o reclamo del cliente mandante.</p>
+      <p class="hero-trust-note">Para seguridad privada, outsourcing, servicios transitorios, facility, minería y empresas con personal distribuido. <strong>No es solo control documental: es cumplimiento verificable en terreno.</strong></p>
+      <div class="hero-capabilities" aria-label="Capacidades principales de SUPERCOR">
+        <button type="button" class="hero-capability" data-hero-detail="instalaciones" aria-haspopup="dialog"><span class="hero-capability-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s7-6.1 7-12A7 7 0 0 0 5 10c0 5.9 7 12 7 12Z"/><circle cx="12" cy="10" r="2.4"/></svg><b>01</b></span><span><strong>Controle cada instalación</strong><small>Vea las visitas realizadas, supervisiones pendientes, días sin control y estado de cada instalación.</small></span></button>
+        <button type="button" class="hero-capability" data-hero-detail="evidencia" aria-haspopup="dialog"><span class="hero-capability-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2h6v2M8.5 13l2.2 2.2 4.8-5"/></svg><b>02</b></span><span><strong>Respalde cada control en terreno</strong><small>Registre geolocalización, evidencia visual, fecha, hora y checklist; revise jornadas fuera de norma, turnos adicionales y trabajadores sin enrolamiento.</small></span></button>
+        <button type="button" class="hero-capability" data-hero-detail="multas" aria-haspopup="dialog"><span class="hero-capability-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 20 6v5c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6l8-3Z"/><path d="M12 8v4M12 16h.01"/></svg><b>03</b></span><span><strong>Anticipe incumplimientos y multas</strong><small>Identifique incumplimientos, priorice correcciones y reduzca los riesgos que pueden afectar su operación.</small></span></button>
+        <button type="button" class="hero-capability" data-hero-detail="documentos" aria-haspopup="dialog"><span class="hero-capability-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v5h5M9 14l2 2 4-4"/></svg><b>04</b></span><span><strong>Controle documentos y vencimientos</strong><small>Verifique en terreno documentos, credenciales, certificaciones y otros antecedentes; conozca sus vigencias, renovaciones y reciba avisos antes de que requieran atención.</small></span></button>
+        <button type="button" class="hero-capability" data-hero-detail="alertas" aria-haspopup="dialog"><span class="hero-capability-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg><b>05</b></span><span><strong>Reciba avisos para corregir a tiempo</strong><small>SUPERCOR le informa por correo cuando un control pendiente, hallazgo, vencimiento o incumplimiento requiere gestión.</small></span></button>
+        <button type="button" class="hero-capability" data-hero-detail="visibilidad" aria-haspopup="dialog"><span class="hero-capability-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><b>06</b></span><span><strong>Gestione con indicadores e informes</strong><small>Revise cobertura, cumplimiento y desempeño operativo; comparta reportes claros para la gerencia.</small></span></button>
       </div>
-      <div class="hero-flags">
-        <span class="hero-flags-label">Presente en Latinoamérica y España</span>
-        <div class="hero-flags-row">
-          <div class="flag-circle" title="Chile"><img src="assets/flags/cl.png" alt="Chile" /></div>
-          <div class="flag-circle" title="Perú"><img src="assets/flags/pe.png" alt="Perú" /></div>
-          <div class="flag-circle" title="Colombia"><img src="assets/flags/co.png" alt="Colombia" /></div>
-          <div class="flag-circle" title="Ecuador"><img src="assets/flags/ec.png" alt="Ecuador" /></div>
-          <div class="flag-circle" title="México"><img src="assets/flags/mx.png" alt="México" /></div>
-          <div class="flag-circle" title="Argentina"><img src="assets/flags/ar.png" alt="Argentina" /></div>
-          <div class="flag-circle" title="Guatemala"><img src="assets/flags/gt.png" alt="Guatemala" /></div>
-          <div class="flag-circle" title="Paraguay"><img src="assets/flags/py.png" alt="Paraguay" /></div>
-          <div class="flag-circle" title="Uruguay"><img src="assets/flags/uy.png" alt="Uruguay" /></div>
-          <div class="flag-circle" title="España"><img src="assets/flags/es.png" alt="España" /></div>
-        </div>
+      <div class="hero-actions">
+        <a href="#demo" class="btn-primary">Solicitar demo de control en terreno</a>
+        <a href="#como-funciona" class="btn-secondary">Ver cómo funciona →</a>
       </div>
     </div>
     <div class="hero-right fade-in">
-      <img src="assets/hero-supercor.png" alt="Equipo de guardias de seguridad SUPERCOR revisando la plataforma de cumplimiento en una tablet en terreno" fetchpriority="high" />
+      <div class="hero-presence" aria-label="Disponibilidad internacional de SUPERCOR">
+        <span class="hero-presence-label">Operaciones en Latinoamérica y España</span>
+        <div class="hero-presence-row">
+          <div class="hero-country"><img class="hero-country-flag" src="assets/flags/cl.png" alt="Chile" /><span class="hero-country-name">Chile</span></div>
+          <div class="hero-country"><img class="hero-country-flag" src="assets/flags/bo.svg" alt="Bolivia" /><span class="hero-country-name">Bolivia</span></div>
+          <div class="hero-country"><img class="hero-country-flag" src="assets/flags/pe.png" alt="Perú" /><span class="hero-country-name">Perú</span></div>
+          <div class="hero-country"><img class="hero-country-flag" src="assets/flags/co.png" alt="Colombia" /><span class="hero-country-name">Colombia</span></div>
+          <div class="hero-country"><img class="hero-country-flag" src="assets/flags/ec.png" alt="Ecuador" /><span class="hero-country-name">Ecuador</span></div>
+          <div class="hero-country"><img class="hero-country-flag" src="assets/flags/mx.png" alt="México" /><span class="hero-country-name">México</span></div>
+          <div class="hero-country"><img class="hero-country-flag" src="assets/flags/ar.png" alt="Argentina" /><span class="hero-country-name">Argentina</span></div>
+          <div class="hero-country"><img class="hero-country-flag" src="assets/flags/gt.png" alt="Guatemala" /><span class="hero-country-name">Guatemala</span></div>
+          <div class="hero-country"><img class="hero-country-flag" src="assets/flags/py.png" alt="Paraguay" /><span class="hero-country-name">Paraguay</span></div>
+          <div class="hero-country"><img class="hero-country-flag" src="assets/flags/uy.png" alt="Uruguay" /><span class="hero-country-name">Uruguay</span></div>
+          <div class="hero-country"><img class="hero-country-flag" src="assets/flags/es.png" alt="España" /><span class="hero-country-name">España</span></div>
+        </div>
+      </div>
+      <div class="hero-scenes" aria-label="SUPERCOR permite controlar operaciones desde tablet y teléfono">
+        <img class="hero-scene-tablet" src="assets/hero-supercor.png" alt="Equipo realizando una supervisión en terreno con la plataforma SUPERCOR" fetchpriority="high" />
+        <img class="hero-scene-mobile" src="assets/hero-supercor-movil-chile.png" alt="Guardia chilena y supervisor realizando un control desde un teléfono corporativo" loading="eager" />
+      </div>
     </div>
   </div>
   <div class="hero-stats fade-in">
-    <div class="hero-stat"><div class="hero-stat-number">Control</div><div class="hero-stat-label">saber qué ocurre en terreno</div></div>
-    <div class="hero-stat"><div class="hero-stat-number">Prevención</div><div class="hero-stat-label">detectar antes del problema</div></div>
-    <div class="hero-stat"><div class="hero-stat-number">Evidencia</div><div class="hero-stat-label">demostrar cumplimiento</div></div>
-    <div class="hero-stat"><div class="hero-stat-number">Rentabilidad</div><div class="hero-stat-label">reducir pérdidas por multas</div></div>
+    <div class="hero-stat"><div class="hero-stat-number">Control</div><div class="hero-stat-label">conozca lo que ocurre en terreno</div></div>
+    <div class="hero-stat"><div class="hero-stat-number">Prevención</div><div class="hero-stat-label">detecte señales y actúe a tiempo</div></div>
+    <div class="hero-stat"><div class="hero-stat-number">Evidencia</div><div class="hero-stat-label">respalde cada supervisión</div></div>
+    <div class="hero-stat"><div class="hero-stat-number">Visibilidad</div><div class="hero-stat-label">oriente decisiones de gerencia</div></div>
   </div>
 </section>
+<section class="seo-section alt" id="cumplimiento-terreno">
+  <div class="seo-wide fade-in">
+    <span class="seo-kicker">Diferencia SUPERCOR</span>
+    <h2 class="seo-title">No basta con tener documentos cargados. Hay que comprobar que el cumplimiento existe en terreno.</h2>
+    <p class="seo-lead">Muchas plataformas guardan contratos, anexos o certificados y avisan cuando vencen. SUPERCOR cubre otra brecha: verifica cada día si el trabajador, la instalación y el turno cumplen realmente lo exigido por la operación, la autoridad y el cliente mandante.</p>
+    <table class="comparison-table"><thead><tr><th>Plataforma tradicional</th><th>SUPERCOR</th></tr></thead><tbody>
+      <tr><td class="bad"><span class="cell-line"><span class="cell-icon">×</span><span>RRHH carga documentos en oficina.</span></span></td><td class="good"><span class="cell-line"><span class="cell-icon">✓</span><span>El guardia, jefe de turno, supervisor o fiscalizador registra el control desde terreno.</span></span></td></tr>
+      <tr><td class="bad"><span class="cell-line"><span class="cell-icon">×</span><span>Avisa vencimientos documentales.</span></span></td><td class="good"><span class="cell-line"><span class="cell-icon">✓</span><span>Alerta vencimientos, incumplimientos detectados y hallazgos operativos.</span></span></td></tr>
+      <tr><td class="bad"><span class="cell-line"><span class="cell-icon">×</span><span>Muestra que un archivo existe.</span></span></td><td class="good"><span class="cell-line"><span class="cell-icon">✓</span><span>Comprueba cumplimiento con foto instantánea, GPS, fecha, hora, usuario e instalación.</span></span></td></tr>
+      <tr><td class="bad"><span class="cell-line"><span class="cell-icon">×</span><span>No sabe si el turno cumple hoy.</span></span></td><td class="good"><span class="cell-line"><span class="cell-icon">✓</span><span>Permite verificar uniforme, EPP, documentos exigibles, nóminas, checklist y presencia real.</span></span></td></tr>
+      <tr><td class="bad"><span class="cell-line"><span class="cell-icon">×</span><span>No estima impacto económico.</span></span></td><td class="good"><span class="cell-line"><span class="cell-icon">✓</span><span>Puede valorizar rangos de multas o penalidades configuradas por DT, OS10/SPD, cliente o contrato.</span></span></td></tr>
+    </tbody></table>
+  </div>
+</section>
+<section class="seo-section" id="sectores">
+  <div class="seo-wide fade-in">
+    <span class="seo-kicker">Sectores donde aplica</span>
+    <h2 class="seo-title">Control para cualquier empresa que opera con personal distribuido.</h2>
+    <p class="seo-lead">La configuración se adapta por cliente, instalación, contrato, país, checklist o requisito fiscalizable. Seguridad privada es el foco principal en Chile, pero el mismo problema existe en outsourcing, servicios transitorios, facility, minería y contratistas.</p>
+    <div class="seo-grid">
+      <article class="seo-card"><h3><span class="sector-icon">🛡️</span>Seguridad privada</h3><p>Guardias, turnos, uniformes, OS10/SPD, documentación laboral, directivas de funcionamiento, nóminas autorizadas y fiscalización.</p><a href="/seguridad-privada.html">Ver seguridad privada →</a></article>
+      <article class="seo-card"><h3><span class="sector-icon">👥</span>Outsourcing</h3><p>Control de personal externo en instalaciones de clientes, evidencias del servicio, checklist y alertas por incumplimiento.</p><a href="/software-outsourcing-chile.html">Ver outsourcing →</a></article>
+      <article class="seo-card"><h3><span class="sector-icon">🔄</span>Servicios transitorios</h3><p>Seguimiento de trabajadores, documentos, plazos, requisitos por empresa usuaria y evidencia del cumplimiento en terreno.</p><a href="/software-servicios-transitorios-chile.html">Ver servicios transitorios →</a></article>
+      <article class="seo-card"><h3><span class="sector-icon">🏗️</span>Facility y minería</h3><p>Supervisión de tareas, contratistas, EPP, documentos, hallazgos y control por faena, zona o instalación.</p><a href="/software-facility-management-chile.html">Ver facility →</a></article>
+    </div>
+  </div>
+</section>
+<section class="seo-section alt" id="evidencia-valorizada">
+  <div class="seo-wide fade-in">
+    <span class="seo-kicker">Evidencia, alertas y riesgo valorizado</span>
+    <h2 class="seo-title">Cada incumplimiento puede transformarse en una acción antes de escalar.</h2>
+    <div class="seo-grid">
+      <article class="seo-card"><h3><span class="feature-icon">📷</span>Fotos instantáneas</h3><p>La evidencia se toma desde la app. No depende de imágenes antiguas cargadas desde galería.</p></article>
+      <article class="seo-card"><h3><span class="feature-icon">📍</span>GPS obligatorio</h3><p>Si la ubicación está desactivada, el control no continúa. Si hay mala señal, se registra y sincroniza al recuperar conexión.</p></article>
+      <article class="seo-card"><h3><span class="feature-icon">🔎</span>OCR e IA documental</h3><p>Puede ayudar a validar si el documento mostrado en terreno corresponde al trabajador, instalación o requisito configurado.</p></article>
+      <article class="seo-card"><h3><span class="feature-icon">⚠️</span>Riesgo económico</h3><p>Los ítems pueden asociarse a rangos de multa o penalidades del cliente para priorizar correcciones.</p></article>
+    </div>
+    <div class="vertical-links"><a href="/checklist-supervision-terreno.html">Checklist en terreno</a><a href="/evidencia-fiscalizacion.html">Evidencia para fiscalización</a><a href="/alertas-multas-cumplimiento.html">Alertas y multas</a><a href="/control-documental-trabajadores.html">Control documental</a></div>
+  </div>
+</section>
+
+<div class="hero-detail-modal" id="hero-detail-modal" hidden aria-hidden="true">
+  <section class="hero-detail-dialog" role="dialog" aria-modal="true" aria-labelledby="hero-detail-title" tabindex="-1">
+    <button type="button" class="hero-detail-close" aria-label="Cerrar detalle">×</button>
+    <span class="hero-detail-kicker" id="hero-detail-kicker"></span>
+    <h2 class="hero-detail-title" id="hero-detail-title"></h2>
+    <p class="hero-detail-lead" id="hero-detail-lead"></p>
+    <ul class="hero-detail-points" id="hero-detail-points"></ul>
+    <div class="hero-detail-gallery" id="hero-detail-gallery"></div>
+    <div class="hero-detail-actions">
+      <a class="btn-primary" href="#demo" data-hero-detail-demo>Solicitar diagnóstico</a>
+      <button type="button" class="hero-detail-secondary" data-hero-detail-close>Volver a la portada</button>
+    </div>
+  </section>
+</div>
 
 <section class="intl-block">
   <div class="intl-inner fade-in">
@@ -661,6 +1017,7 @@
     <p class="intl-sub">Mismo desafío. Misma solución. Sin importar la normativa de cada país.</p>
     <div class="intl-flags">
       <div class="intl-flag"><img class="intl-flag-img" src="assets/flags/cl.png" alt="Chile" /><span class="intl-flag-name">Chile</span></div>
+      <div class="intl-flag"><img class="intl-flag-img" src="assets/flags/bo.svg" alt="Bolivia" /><span class="intl-flag-name">Bolivia</span></div>
       <div class="intl-flag"><img class="intl-flag-img" src="assets/flags/pe.png" alt="Perú" /><span class="intl-flag-name">Perú</span></div>
       <div class="intl-flag"><img class="intl-flag-img" src="assets/flags/co.png" alt="Colombia" /><span class="intl-flag-name">Colombia</span></div>
       <div class="intl-flag"><img class="intl-flag-img" src="assets/flags/ec.png" alt="Ecuador" /><span class="intl-flag-name">Ecuador</span></div>
@@ -675,7 +1032,7 @@
 </section>
 
 <section id="clientes">
-  <div class="clientes-label fade-in">Empresas de seguridad que ya operan con SUPERCOR</div>
+  <div class="clientes-label fade-in">Empresas que ya operan con SUPERCOR</div>
   <div class="clientes-marquee fade-in">
     <div class="clientes-track">
       <a href="https://surovseguridad.cl/" target="_blank" rel="noopener" aria-label="Visitar el sitio de Surov Seguridad"><img src="assets/logo-surov.png" alt="Surov Seguridad — cliente SUPERCOR" loading="lazy" /></a>
@@ -805,26 +1162,6 @@
   </div>
 </section>
 
-<section id="problema">
-  <div class="container">
-    <div class="text-center fade-in">
-      <div class="section-badge">Señales de alerta</div>
-      <h2 class="section-title">¿Reconoce alguno de estos problemas?</h2>
-      <p class="section-subtitle">Cuando llega la fiscalización, ya es tarde para corregir. Estas son las señales de que su operación todavía no puede demostrar control efectivo en terreno.</p>
-    </div>
-    <div class="problem-grid">
-      <div class="problem-card fade-in"><div class="problem-title">Multas por incumplimientos evitables</div><div class="problem-desc">Fiscalizaciones que encuentran irregularidades que nadie detectó ni reportó a tiempo.</div></div>
-      <div class="problem-card fade-in"><div class="problem-title">Supervisión sin evidencia verificable</div><div class="problem-desc">Supervisiones registradas de memoria o en papel, sin respaldo fotográfico ni ubicación que lo acredite.</div></div>
-      <div class="problem-card fade-in"><div class="problem-title">Falta de trazabilidad operacional</div><div class="problem-desc">No hay registro claro de qué se hizo, quién lo hizo, cuándo y en qué instalación.</div></div>
-      <div class="problem-card fade-in"><div class="problem-title">Gerencia sin visibilidad real</div><div class="problem-desc">La dirección toma decisiones con datos incompletos, tardíos o filtrados por terceros.</div></div>
-      <div class="problem-card fade-in"><div class="problem-title">Información dispersa entre áreas</div><div class="problem-desc">Operaciones, Recursos Humanos y administración manejan datos distintos y contradictorios.</div></div>
-      <div class="problem-card fade-in"><div class="problem-title">Riesgos detectados demasiado tarde</div><div class="problem-desc">Los problemas se conocen cuando ya hay consecuencias, no antes de que ocurran.</div></div>
-      <div class="problem-card fade-in"><div class="problem-title">Instalaciones semanas sin supervisión</div><div class="problem-desc">Puntos que llevan días o semanas sin visita, sin que nadie se dé cuenta a tiempo.</div></div>
-      <div class="problem-card fade-in"><div class="problem-title">Horas perdidas en reportes manuales</div><div class="problem-desc">Planillas y correos armados a mano para informar al cliente mandante, con datos que el sistema debería consolidar solo.</div></div>
-    </div>
-  </div>
-</section>
-
 <section id="diferenciacion">
   <div class="container">
     <div class="text-center fade-in">
@@ -839,7 +1176,7 @@
       <div class="dif-row other"><div class="dif-row-cat">Gestión documental</div><div class="dif-row-desc">Ordena archivos</div></div>
       <div class="dif-row supercor"><div class="dif-row-cat">SUPERCOR</div><div class="dif-row-desc">Controla la ejecución operacional y genera evidencia preventiva</div></div>
     </div>
-    <p class="dif-quote fade-in">Los ERP administran información. <span class="accent">SUPERCOR demuestra cumplimiento.</span></p>
+    <p class="dif-quote fade-in">Los ERP administran información. <span class="accent">SUPERCOR aporta evidencia y trazabilidad operacional.</span></p>
     <div class="dif-integra fade-in">
       <div class="dif-integra-title">SUPERCOR no reemplaza sus sistemas — trabaja sobre ellos</div>
       <div class="dif-integra-chips"><span class="dif-integra-chip">ERP de RR.HH.</span><span class="dif-integra-chip">Control de asistencia</span><span class="dif-integra-chip">Planificación</span><span class="dif-integra-chip">Gestión documental</span></div>
@@ -920,14 +1257,13 @@
 <section id="diagnostico">
   <div class="container">
     <div class="text-center fade-in">
-      <div class="chile-badge"><img class="ticker-flag" src="assets/flags/cl.png" alt="Chile" /> Herramienta exclusiva para Chile</div>
-      <div class="section-badge">Diagnóstico de riesgo financiero</div>
+      <div class="diagnostico-meta"><div class="chile-badge"><img class="ticker-flag" src="assets/flags/cl.png" alt="Chile" /> Herramienta exclusiva para Chile</div><div class="section-badge">Diagnóstico de riesgo financiero</div></div>
       <h2 class="section-title">Vea las multas <em>reales</em> de su empresa… y cuánto podría <span>recuperar</span>.</h2>
-      <p class="section-subtitle">Ingrese el RUT de su empresa y consulte en vivo su historial de multas en la Dirección del Trabajo (Chile). Datos reales, no estimaciones.</p>
+      <p class="section-subtitle">Ingrese el RUT de su empresa y consulte su historial real de multas en la Dirección del Trabajo. Solo ingrese el RUT; la consulta tarda unos segundos.</p>
     </div>
     <div class="calc-urgency fade-in">
-      <div class="calc-urgency-item">Las empresas pierden <strong>millones cada año</strong> por incumplimientos detectados demasiado tarde.</div>
-      <div class="calc-urgency-item">Un solo incumplimiento puede generar <strong>multas, pérdida de contratos y daño reputacional</strong>.</div>
+      <div class="calc-urgency-item"><span class="calc-urgency-icon" aria-hidden="true">💰</span><div><span class="calc-urgency-title">Impacto económico</span><p class="calc-urgency-copy">Las empresas pierden <strong>millones cada año</strong> por incumplimientos detectados demasiado tarde.</p></div></div>
+      <div class="calc-urgency-item"><span class="calc-urgency-icon" aria-hidden="true">⚠️</span><div><span class="calc-urgency-title">Riesgo contractual</span><p class="calc-urgency-copy">Un solo incumplimiento puede generar <strong>multas, pérdida de contratos y daño reputacional</strong>.</p></div></div>
     </div>
     <div class="calc-card fade-in">
     <div id="est-panel" class="calc-panel-inner" style="display:none">
@@ -994,7 +1330,7 @@
     </div>
     <div id="dt-panel" class="calc-panel-inner">
       <div class="calc-form">
-        <p class="calc-form-intro">Consulte en tiempo real todo el historial de multas de su empresa en la Dirección del Trabajo. Solo ingrese el RUT — la consulta tarda unos segundos.</p>
+        <p class="calc-form-intro">Consulte en tiempo real el historial de multas de su empresa en la Dirección del Trabajo. Solo ingrese el RUT; la consulta tarda unos segundos.</p>
         <div class="form-group">
           <label class="form-label" for="dt-rut">RUT de la empresa</label>
           <input class="form-input" id="dt-rut" type="text" inputmode="text" placeholder="Ej: 76.543.210-9" maxlength="13" autocomplete="off" oninput="dtFormatRut(this)" onkeydown="if(event.key==='Enter')dtConsultar()" />
@@ -1055,14 +1391,14 @@
   <div class="container">
     <div class="text-center fade-in">
       <div class="section-badge">Cómo funciona</div>
-      <h2 class="section-title">Del terreno a la evidencia, en 4 pasos</h2>
-      <p class="section-subtitle">Supervisión digital en terreno, detección preventiva y gestión de alertas. Configuración rápida, sin instalar servidores ni soporte técnico permanente.</p>
+      <h2 class="section-title">Del terreno a decisiones claras, en 4 pasos</h2>
+      <p class="section-subtitle">Una forma simple de supervisar, registrar evidencia, revisar señales y dar visibilidad a quienes deben decidir.</p>
     </div>
     <div class="steps-grid">
-      <div class="step-card fade-in"><div class="step-number">1</div><div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="1"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg></div><div class="step-title">Configuramos tu organización</div><div class="step-desc">Cargamos tus contratos, instalaciones y checklists según las exigencias vigentes de las entidades que fiscalizan tu operación —Dirección del Trabajo, cliente mandante y organismos de tu sector.</div></div>
-      <div class="step-card fade-in"><div class="step-number">2</div><div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v2z"/><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M4 15v-3a8 8 0 0 1 16 0v3"/></svg></div><div class="step-title">Se controla en terreno</div><div class="step-desc">Desde el celular, quien esté a cargo —tu supervisor de terreno o tu propio personal en modo autocontrol— completa la supervisión: fotos, checklist, registro del personal y observaciones.</div></div>
-      <div class="step-card fade-in"><div class="step-number">3</div><div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div><div class="step-title">Alertas en tiempo real</div><div class="step-desc">Si algo no cumple el estándar, el sistema notifica al instante al responsable designado y a la jefatura correspondiente. Nada se pasa por alto.</div></div>
-      <div class="step-card fade-in"><div class="step-number">4</div><div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><div class="step-title">Visualizas todo en el dashboard</div><div class="step-desc">La dirección accede a cumplimiento, cobertura, alertas críticas y reportes exportables en tiempo real.</div></div>
+      <div class="step-card fade-in"><div class="step-number">1</div><div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="1"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg></div><div class="step-title">Adaptamos SUPERCOR a su operación</div><div class="step-desc">Definimos instalaciones, procesos y listas de revisión según lo que su empresa necesita controlar.</div></div>
+      <div class="step-card fade-in"><div class="step-number">2</div><div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 18a1 1 0 0 0 1 1h18a1 1 0 0 0-1-1v-2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v2z"/><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M4 15v-3a8 8 0 0 1 16 0v3"/></svg></div><div class="step-title">Se registra lo que ocurre en terreno</div><div class="step-desc">Quien supervisa registra fotos, ubicación, checklist, observaciones y, cuando corresponde, documentos para revisión.</div></div>
+      <div class="step-card fade-in"><div class="step-number">3</div><div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div><div class="step-title">Las señales se priorizan</div><div class="step-desc">Cuando se detecta una desviación, SUPERCOR ayuda a alertar y dirigir la revisión al equipo responsable.</div></div>
+      <div class="step-card fade-in"><div class="step-number">4</div><div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><div class="step-title">Gerencia ve el panorama completo</div><div class="step-desc">Paneles, alertas, resúmenes ejecutivos e informes descargables facilitan el seguimiento de la operación.</div></div>
     </div>
     <div class="steps-photo fade-in">
       <img src="assets/app-terreno.webp" alt="Supervisores usando la app SUPERCOR en una tablet durante una supervisión en terreno" loading="lazy" />
@@ -1074,28 +1410,28 @@
   <div class="container">
     <div class="text-center fade-in">
       <div class="section-badge">Modelo de valor</div>
-      <h2 class="section-title">No entregamos solo tecnología. Entregamos control.</h2>
-      <p class="section-subtitle">Cada incumplimiento evitado significa menos multas, menos reprocesos y mayor continuidad operacional. Este es el valor real que recibe su empresa.</p>
+      <h2 class="section-title">Proteja el margen de su operación.</h2>
+      <p class="section-subtitle">Cuando una desviación no se detecta a tiempo, puede afectar costos, contratos y continuidad operacional. SUPERCOR ayuda a identificarla, gestionarla y dejar respaldo de las acciones tomadas.</p>
     </div>
     <div class="valor-grid fade-in">
       <div class="valor-card"><div class="valor-card-num">01</div><div class="valor-card-title">Control</div><div class="valor-card-desc">Saber qué ocurre realmente en terreno, todos los días.</div></div>
       <div class="valor-card"><div class="valor-card-num">02</div><div class="valor-card-title">Prevención</div><div class="valor-card-desc">Detectar la brecha antes de que se transforme en un problema.</div></div>
-      <div class="valor-card"><div class="valor-card-num">03</div><div class="valor-card-title">Evidencia</div><div class="valor-card-desc">Demostrar cumplimiento con respaldo verificable en cualquier momento.</div></div>
-      <div class="valor-card"><div class="valor-card-num">04</div><div class="valor-card-title">Rentabilidad</div><div class="valor-card-desc">Reducir las pérdidas por incumplimiento y proteger sus contratos.</div></div>
+      <div class="valor-card"><div class="valor-card-num">03</div><div class="valor-card-title">Evidencia</div><div class="valor-card-desc">Conservar respaldo operacional de cada control y acción realizada.</div></div>
+      <div class="valor-card"><div class="valor-card-num">04</div><div class="valor-card-title">Continuidad</div><div class="valor-card-desc">Anticipar situaciones que pueden afectar costos, contratos y servicio.</div></div>
     </div>
-    <p class="valor-close fade-in">Saber, anticipar, demostrar y proteger: <strong>porque una operación controlada es una operación rentable.</strong></p>
+    <p class="valor-close fade-in">Detectar, gestionar y respaldar: <strong>porque una operación controlada protege su margen.</strong></p>
     <div class="valor-showcase fade-in">
       <div class="valor-shot">
         <div class="valor-shot-inner">
           <img src="assets/screenshots/dashboard-mapa.png" alt="Dashboard SUPERCOR mostrando el mapa GPS de Santiago con las supervisiones geolocalizadas y las demoras de resolución de alertas — vencidas, atrasadas y recientes" loading="lazy" />
         </div>
-        <div class="valor-shot-label"><strong>GPS real, no PowerPoint</strong>Cada supervisión queda anclada a un punto del mapa. Imposible fingir una visita que no ocurrió.</div>
+        <div class="valor-shot-label"><strong>Evidencia de ubicación en terreno</strong>Cada supervisión registra ubicación, fecha y hora como respaldo operativo de la visita.</div>
       </div>
       <div class="valor-shot pdf">
         <div class="valor-shot-inner">
           <img src="assets/screenshots/reporte-pdf.png" alt="Reporte PDF Ejecutivo SUPERCOR con resumen del período, cumplimiento consolidado del 80%, distribución por categoría y tendencia diaria de cumplimiento" loading="lazy" />
         </div>
-        <div class="valor-shot-label"><strong>El PDF que muestras a gerencia</strong>Un reporte ejecutivo con evidencia consolidada. Se genera solo. Se comparte por correo.</div>
+        <div class="valor-shot-label"><strong>Informes para revisar y compartir</strong>Descargue informes en PDF cuando necesite revisar evidencia y resultados consolidados.</div>
       </div>
     </div>
   </div>
@@ -1108,7 +1444,7 @@
       <h2 class="section-title">Simple, transparente y escalable</h2>
       <p class="section-subtitle">Sin contratos anuales obligatorios. Sin costos ocultos. Cancela cuando quieras.</p>
     </div>
-    <div class="pricing-note fade-in"><strong>Todos los planes incluyen exactamente las mismas funcionalidades.</strong> Lo que cambia es la cantidad de trabajadores a controlar — elige el plan que se ajuste al tamaño de tu operación.</div>
+    <div class="pricing-note fade-in"><strong>Los planes se adaptan al tamaño de su operación.</strong> Las capacidades se configuran según el país, los procesos y las necesidades de cada empresa.</div>
     <div class="pricing-grid">
       <div class="pricing-card fade-in">
         <div class="pricing-name">Standard</div>
@@ -1122,7 +1458,7 @@
           <li>Alertas automáticas por correo</li>
           <li>Dashboard gerencial en tiempo real</li>
           <li>Exportación Excel y PDF</li>
-          <li>Reportes programados automáticos</li>
+          <li>Resúmenes ejecutivos programados por correo</li>
           <li>Modo pantalla completa</li>
           <li>Funciona sin internet (modo offline)</li>
           <li>Soporte técnico incluido</li>
@@ -1142,7 +1478,7 @@
           <li>Alertas automáticas por correo</li>
           <li>Dashboard gerencial en tiempo real</li>
           <li>Exportación Excel y PDF</li>
-          <li>Reportes programados automáticos</li>
+          <li>Resúmenes ejecutivos programados por correo</li>
           <li>Modo pantalla completa</li>
           <li>Funciona sin internet (modo offline)</li>
           <li>Soporte técnico incluido</li>
@@ -1161,7 +1497,7 @@
           <li>Alertas automáticas por correo</li>
           <li>Dashboard gerencial en tiempo real</li>
           <li>Exportación Excel y PDF</li>
-          <li>Reportes programados automáticos</li>
+          <li>Resúmenes ejecutivos programados por correo</li>
           <li>Modo pantalla completa</li>
           <li>Funciona sin internet (modo offline)</li>
           <li>Soporte técnico incluido</li>
@@ -1182,17 +1518,17 @@
     <div class="demo-box fade-in">
       <div id="demo-form">
         <div class="form-row">
-          <div class="form-group"><label class="form-label">Nombre completo *</label><input type="text" class="form-input" id="demo-nombre" placeholder="Juan Pérez" /></div>
-          <div class="form-group"><label class="form-label">Empresa u organización *</label><input type="text" class="form-input" id="demo-empresa" placeholder="Empresa ABC Ltda." /></div>
+          <div class="form-group"><label class="form-label" for="demo-nombre">Nombre completo *</label><input type="text" class="form-input" id="demo-nombre" name="nombre" autocomplete="name" placeholder="Juan Pérez" /></div>
+          <div class="form-group"><label class="form-label" for="demo-empresa">Empresa u organización *</label><input type="text" class="form-input" id="demo-empresa" name="empresa" autocomplete="organization" placeholder="Empresa ABC Ltda." /></div>
         </div>
         <div class="form-row">
-          <div class="form-group"><label class="form-label">Correo corporativo *</label><input type="email" class="form-input" id="demo-email" placeholder="juan@empresa.cl" /></div>
-          <div class="form-group"><label class="form-label">Teléfono / WhatsApp *</label><input type="tel" class="form-input" id="demo-telefono" placeholder="+56 9 XXXX XXXX" /></div>
+          <div class="form-group"><label class="form-label" for="demo-email">Correo corporativo *</label><input type="email" class="form-input" id="demo-email" name="email" autocomplete="email" placeholder="juan@empresa.cl" /></div>
+          <div class="form-group"><label class="form-label" for="demo-telefono">Teléfono / WhatsApp *</label><input type="tel" class="form-input" id="demo-telefono" name="telefono" autocomplete="tel" placeholder="+56 9 XXXX XXXX" /></div>
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label">Cantidad de trabajadores a controlar</label>
-            <select class="form-select" id="demo-supervisores">
+            <label class="form-label" for="demo-supervisores">Cantidad de trabajadores a controlar</label>
+            <select class="form-select" id="demo-supervisores" name="trabajadores">
               <option value="">Seleccionar...</option>
               <option value="1-250">Hasta 250 trabajadores (Standard)</option>
               <option value="251-1499">De 251 a 1.499 trabajadores (Business)</option>
@@ -1200,8 +1536,8 @@
             </select>
           </div>
           <div class="form-group">
-            <label class="form-label">Plan de interés</label>
-            <select class="form-select" id="demo-plan">
+            <label class="form-label" for="demo-plan">Plan de interés</label>
+            <select class="form-select" id="demo-plan" name="plan">
               <option value="">Seleccionar...</option>
               <option value="Standard">Standard — hasta 250 trabajadores</option>
               <option value="Business">Business — hasta 1.499 trabajadores</option>
@@ -1209,7 +1545,7 @@
             </select>
           </div>
         </div>
-        <button class="btn-form" onclick="submitDemo()">Solicitar Diagnóstico</button>
+        <button type="button" class="btn-form" onclick="submitDemo()">Solicitar Diagnóstico</button>
         <p class="form-note">Primera evaluación sin costo. Nos contactaremos en menos de 24 horas hábiles.</p>
       </div>
       <div class="form-success" id="demo-success">
@@ -1232,18 +1568,8 @@
       <div class="contact-info fade-in">
         <div class="contact-item"><div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="contact-item-title">Correo electrónico</div><div class="contact-item-value"><a href="mailto:contacto@supercor.cl">contacto@supercor.cl</a></div></div></div>
         <div class="contact-item"><div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div><div class="contact-item-title">WhatsApp</div><div class="contact-item-value"><a href="https://wa.me/56995950843" target="_blank">+56 9 9595 0843</a></div></div></div>
-        <div class="contact-item"><div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.56 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.91 6.91l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><div class="contact-item-title">Teléfono</div><div class="contact-item-value"><a href="tel:+56977652571">+56 9 7765 2571</a></div></div></div>
+        <div class="contact-item"><div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.56 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.91 6.91l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><div class="contact-item-title">Teléfono</div><div class="contact-item-value"><a href="tel:+56995950843">+56 9 9595 0843</a></div></div></div>
         <div class="contact-item"><div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="contact-item-title">Horario de atención</div><div class="contact-item-value">24/7 · Lunes a domingo</div></div></div>
-      </div>
-      <div class="contact-form-box fade-in">
-        <div id="contact-form-inner">
-          <input type="text" class="contact-form-input" id="c-nombre" placeholder="Nombre completo *" />
-          <input type="email" class="contact-form-input" id="c-email" placeholder="Correo electrónico *" />
-          <input type="text" class="contact-form-input" id="c-empresa" placeholder="Empresa u organización" />
-          <textarea class="contact-form-input" id="c-mensaje" placeholder="¿En qué podemos ayudarte? *"></textarea>
-          <button class="btn-contact" onclick="submitContact()">Enviar mensaje</button>
-        </div>
-        <div class="contact-success" id="contact-success"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;margin-right:6px;vertical-align:middle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> ¡Mensaje enviado! Te responderemos pronto a la brevedad.</div>
       </div>
     </div>
   </div>
@@ -1251,15 +1577,20 @@
 
 <footer>
   <div class="footer-inner">
-    <a href="#inicio" class="footer-logo"><img src="assets/Logo%20Verde.png" alt="SUPERCOR" /></a>
+    <a href="#inicio" class="footer-logo"><img src="assets/escudo-blanco-transparente.png" alt="SUPERCOR" /></a>
     <ul class="footer-links">
-      <li><a href="#como-funciona">Cómo funciona</a></li>
+      <li><a class="nav-info-chip" href="#como-funciona">Cómo funciona</a></li>
       <li><a href="#plataforma">Plataforma</a></li>
+      <li><a href="/control-cumplimiento-terreno.html">Control en terreno</a></li>
+      <li><a href="/software-outsourcing-chile.html">Outsourcing</a></li>
+      <li><a href="/software-servicios-transitorios-chile.html">Servicios transitorios</a></li>
+      <li><a href="/software-facility-management-chile.html">Facility</a></li>
+      <li><a href="/control-documental-trabajadores.html">Control documental</a></li>
       <li><a href="#precios">Precios</a></li>
-<li><a href="/ayuda">Ayuda</a></li>
+<li><a href="/ayuda.html">Ayuda</a></li>
       <li><a href="#demo">Demo</a></li>
       <li><a href="#contacto">Contacto</a></li>
-      <li><a href="/privacidad">Privacidad</a></li>
+      <li><a href="/privacidad.html">Privacidad</a></li>
       <li>
         <a href="https://www.linkedin.com/company/supercor-chile" target="_blank" rel="noopener noreferrer" title="Síguenos en LinkedIn" style="display:inline-flex;align-items:center;gap:4px;padding:4px 8px;border-radius:6px;transition:all .2s;color:rgba(255,255,255,.6);">
           <svg style="width:18px;height:18px;fill:currentColor;" viewBox="0 0 24 24">
@@ -1281,8 +1612,111 @@
 <script>
   const obs = new IntersectionObserver(es => es.forEach(e => {if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.1});
   document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
-  function toggleMenu(){const l=document.querySelector('.nav-links');if(l.style.display==='flex'){l.style.display='none';}else{l.style.display='flex';l.style.flexDirection='column';l.style.position='absolute';l.style.top='84px';l.style.left='0';l.style.right='0';l.style.background='rgba(255,255,255,0.98)';l.style.padding='1.5rem 2rem';l.style.gap='1.25rem';l.style.borderBottom='1px solid #E2E8F0';}}
+  function toggleMenu(){const l=document.querySelector('.nav-links');const b=document.querySelector('.nav-mobile-btn');const open=l.style.display!=='flex';if(!open){l.style.display='none';}else{l.style.display='flex';l.style.flexDirection='column';l.style.position='absolute';l.style.top='84px';l.style.left='0';l.style.right='0';l.style.background='rgba(255,255,255,0.98)';l.style.padding='1.5rem 2rem';l.style.gap='1.25rem';l.style.borderBottom='1px solid #E2E8F0';}b.setAttribute('aria-expanded',String(open));}
   document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>{if(window.innerWidth<=768){document.querySelector('.nav-links').style.display='none';}}));
+
+  // ===== Detalle de capacidades: explicación comercial y evidencia visual =====
+  const HERO_DETAILS={
+    instalaciones:{
+      number:'01 · Control por instalación',
+      title:'Sepa qué ocurre en cada instalación.',
+      lead:'SUPERCOR reúne en una sola vista las visitas realizadas, los controles pendientes y el estado de cada instalación. Así puede detectar dónde intervenir antes de que un problema afecte el servicio.',
+      points:['Revise qué instalaciones están al día y cuáles requieren atención.','Identifique días sin control y supervisiones pendientes.','Priorice las instalaciones críticas sin depender de planillas dispersas.','Entregue a la jefatura una visión clara del estado operacional.'],
+      images:[
+        {src:'assets/screenshots/hero-details/01-torre-control.jpg',alt:'Torre de Control de SUPERCOR con instalaciones y su estado operacional',title:'Torre de Control',caption:'Una vista para revisar el estado de cada instalación y actuar donde hace falta.'},
+        {src:'assets/screenshots/hero-details/10-dashboard-supervision.png',alt:'Dashboard de Supervisión Operacional con indicadores de visitas y cumplimiento',title:'Estado de supervisiones',caption:'Vea instalaciones visitadas, cumplimiento, supervisiones y documentos que requieren atención.'},
+        {src:'assets/screenshots/hero-details/11-mapa-supervisiones-detalle.png',alt:'Mapa de Supervisiones de SUPERCOR',title:'Mapa de Supervisiones',caption:'Ubique las instalaciones visitadas y los días de supervisión de cada una.'}
+      ]
+    },
+    evidencia:{
+      number:'02 · Evidencia de cada visita',
+      title:'Respalde cada control con información verificable.',
+      lead:'Cada control puede quedar registrado con fecha, hora, geolocalización, evidencia visual y checklist. Además, permite revisar situaciones de la operación como jornadas fuera de norma, turnos adicionales o trabajadores pendientes de enrolamiento.',
+      points:['Consulte el historial de supervisiones sin buscar correos ni carpetas.','Revise los controles realizados por período, instalación o supervisor.','Identifique jornadas y turnos que requieren revisión.','Respalde el cumplimiento de las visitas con información trazable para su equipo o sus clientes.'],
+      images:[
+        {src:'assets/screenshots/hero-details/02-historial-supervisiones.jpg',alt:'Historial de supervisiones de SUPERCOR',title:'Historial de supervisiones',caption:'Los controles realizados quedan disponibles para consulta y seguimiento.'},
+        {src:'assets/screenshots/hero-details/14-reporte-supervision-evidencia.png',alt:'Reporte de supervisión con ubicación, mapa, fotografías y documentos',title:'Reporte de supervisión',caption:'Cada visita puede reunir ubicación, evidencia fotográfica y documentos asociados.'}
+      ]
+    },
+    multas:{
+      number:'03 · Prevención de incumplimientos',
+      title:'Anticipe incumplimientos antes de que se conviertan en multas.',
+      lead:'SUPERCOR le ayuda a identificar incumplimientos, reconocer dónde se concentran los riesgos y priorizar las correcciones antes de que afecten la operación, el servicio o la rentabilidad.',
+      points:['Identifique los incumplimientos que requieren una corrección prioritaria.','Reconozca qué instalaciones o controles concentran mayor riesgo.','Revise el detalle de cada situación para definir acciones correctivas.','Actúe antes de que los incumplimientos afecten el servicio o deriven en multas.'],
+      images:[
+        {src:'assets/screenshots/hero-details/08-riesgo-multas-general.png',alt:'Vista general del riesgo de multas de SUPERCOR',title:'Exposición económica',caption:'Una vista general para conocer la exposición de la operación.'},
+        {src:'assets/screenshots/hero-details/09-riesgo-multas-detalle.png',alt:'Detalle de incumplimientos y exposición a multas por instalación',title:'Detalle por instalación',caption:'Revise los incumplimientos que forman parte del riesgo de cada instalación.'}
+      ]
+    },
+    documentos:{
+      number:'04 · Documentación bajo control',
+      title:'Mantenga vigencias y renovaciones bajo control.',
+      lead:'Durante las supervisiones, verifique documentos, credenciales, certificaciones y otros antecedentes que deben mantenerse vigentes. SUPERCOR le ayuda a detectar qué requiere revisión o renovación antes de que se transforme en un problema.',
+      points:['Revise los antecedentes que deben verificarse en cada control en terreno.','Conozca vigencias, renovaciones y el historial de cada antecedente revisado.','Reciba avisos antes de que un documento requiera atención.','Mantenga trazabilidad de las revisiones realizadas por su equipo.'],
+      images:[
+        {src:'assets/screenshots/hero-details/04-control-documental.jpg',alt:'Vista de Control Documental Inteligente de SUPERCOR',title:'Control documental',caption:'Una vista para revisar documentos vigentes, pendientes y próximos a vencer.'},
+        {src:'assets/screenshots/hero-details/15-checklist-documental-supervision.png',alt:'Checklist documental de una supervisión en SUPERCOR',title:'Checklist documental',caption:'Revise los antecedentes exigidos y detecte de inmediato los que generan alerta.'}
+      ]
+    },
+    alertas:{
+      number:'05 · Alertas de incumplimientos y riesgos',
+      title:'Reciba avisos para actuar antes de que el incumplimiento escale.',
+      lead:'SUPERCOR le informa por correo cuando un control pendiente, hallazgo, vencimiento o incumplimiento requiere gestión. Así su equipo sabe qué debe corregirse y puede hacer seguimiento hasta resolverlo.',
+      points:['Conozca qué situaciones requieren gestión y quién debe resolverlas.','Evite que controles pendientes, hallazgos o vencimientos pasen inadvertidos.','Haga seguimiento de las alertas abiertas hasta su resolución.','Mantenga a los responsables informados para que las correcciones no se posterguen.'],
+      images:[{src:'assets/screenshots/hero-details/05-alertas.jpg',alt:'Centro de alertas de SUPERCOR',title:'Centro de alertas',caption:'Pendientes, alertas en gestión y situaciones que requieren seguimiento.'}]
+    },
+    visibilidad:{
+      number:'06 · Gestión e informes',
+      title:'Tome decisiones y comparta informes sin armar reportes manualmente.',
+      lead:'El Panel de Control muestra la cobertura, el cumplimiento y el desempeño operativo. Cuando necesite compartir resultados, genere un resumen ejecutivo o exporte el detalle de supervisiones por instalación.',
+      points:['Revise indicadores de cobertura, cumplimiento y desempeño operativo en un solo panel.','Compare tendencias y resultados por período, instalación o supervisor.','Genere un resumen ejecutivo para compartir el estado de la operación con la gerencia.','Exporte el detalle de las supervisiones por instalación cuando lo necesite.'],
+      images:[
+        {src:'assets/screenshots/hero-details/16-panel-control-graficos.png',alt:'Panel de Control con gráficos de supervisiones y alertas',title:'Tendencias de la operación',caption:'Gráficos para seguir supervisiones, cumplimiento, alertas creadas y alertas resueltas.'},
+        {src:'assets/screenshots/hero-details/17-panel-control-seguimiento.png',alt:'Panel de Control con últimas supervisiones e instalaciones que requieren atención',title:'Seguimiento operativo',caption:'Las últimas visitas y las instalaciones que requieren atención quedan visibles para la jefatura.'},
+        {src:'assets/screenshots/hero-details/12-informe-ejecutivo-excel.png',alt:'Informe ejecutivo de SUPERCOR en Excel',title:'Informe ejecutivo',caption:'Un resumen para compartir indicadores, alertas y el estado del período.'},
+        {src:'assets/screenshots/hero-details/13-informe-supervisiones-excel.png',alt:'Informe de supervisiones por instalación de SUPERCOR en Excel',title:'Supervisiones por instalación',caption:'El detalle exportable de instalaciones, visitas, responsables y días sin visita.'}
+      ]
+    }
+  };
+  const heroDetailModal=document.getElementById('hero-detail-modal');
+  const heroDetailDialog=heroDetailModal.querySelector('.hero-detail-dialog');
+  const heroDetailKicker=document.getElementById('hero-detail-kicker');
+  const heroDetailTitle=document.getElementById('hero-detail-title');
+  const heroDetailLead=document.getElementById('hero-detail-lead');
+  const heroDetailPoints=document.getElementById('hero-detail-points');
+  const heroDetailGallery=document.getElementById('hero-detail-gallery');
+  let heroDetailTrigger=null;
+  let heroDetailPreviousOverflow='';
+  function closeHeroDetail(){
+    if(heroDetailModal.hidden)return;
+    heroDetailModal.hidden=true;
+    heroDetailModal.setAttribute('aria-hidden','true');
+    document.body.style.overflow=heroDetailPreviousOverflow;
+    if(heroDetailTrigger)heroDetailTrigger.focus();
+  }
+  function openHeroDetail(key,trigger){
+    const detail=HERO_DETAILS[key];
+    if(!detail)return;
+    heroDetailTrigger=trigger;
+    heroDetailKicker.textContent=detail.number;
+    heroDetailTitle.textContent=detail.title;
+    heroDetailLead.textContent=detail.lead;
+    heroDetailPoints.innerHTML=detail.points.map(point=>'<li>'+point+'</li>').join('');
+    heroDetailGallery.className='hero-detail-gallery'+(detail.images.length>1?' multiple-images':'');
+    heroDetailGallery.innerHTML=detail.images.map(image=>'<figure class="hero-detail-figure"><img src="'+image.src+'" alt="'+image.alt+'" loading="lazy"><figcaption><strong>'+image.title+'</strong>'+image.caption+'</figcaption></figure>').join('');
+    heroDetailPreviousOverflow=document.body.style.overflow;
+    document.body.style.overflow='hidden';
+    heroDetailModal.hidden=false;
+    heroDetailModal.setAttribute('aria-hidden','false');
+    requestAnimationFrame(()=>heroDetailDialog.focus());
+  }
+  document.querySelectorAll('[data-hero-detail]').forEach(button=>button.addEventListener('click',()=>openHeroDetail(button.dataset.heroDetail,button)));
+  heroDetailModal.querySelector('.hero-detail-close').addEventListener('click',closeHeroDetail);
+  heroDetailModal.querySelector('[data-hero-detail-close]').addEventListener('click',closeHeroDetail);
+  heroDetailModal.querySelector('[data-hero-detail-demo]').addEventListener('click',closeHeroDetail);
+  heroDetailModal.addEventListener('click',event=>{if(event.target===heroDetailModal)closeHeroDetail();});
+  document.addEventListener('keydown',event=>{if(event.key==='Escape')closeHeroDetail();});
+
   const DD=[
     {s:47,c:94,a:3,sv:2,b:87,a1:'Sin documentos — Contrato Norte',a1ok:false,a2:'Supervisión completada — Centro',a2ok:true},
     {s:49,c:96,a:2,sv:1,b:89,a1:'Checklist incompleto — Zona Oriente',a1ok:false,a2:'Control validado — Instalación 12',a2ok:true},
@@ -1423,7 +1857,7 @@
     const costoAnualSupercor=costoMensualSupercor*12;
     const recuperable=Math.max(0,perdidaAnual-costoAnualSupercor);
     try{
-      await fetch('https://formspree.io/f/mjgjjodn',{
+      const response=await fetch('/api/contact',{
         method:'POST',
         headers:{'Content-Type':'application/json','Accept':'application/json'},
         body:JSON.stringify({
@@ -1437,7 +1871,8 @@
           recuperable:'$'+num(recuperable)+' CLP/año'
         })
       });
-    }catch(err){console.error(err);}
+      if(!response.ok)throw new Error('No fue posible registrar tus datos.');
+    }catch(err){console.error(err);alert('No pudimos registrar tus datos. Inténtalo nuevamente o escríbenos por WhatsApp.');return;}
     document.getElementById('calc-recuperable').classList.remove('calc-value-blurred');
     document.getElementById('calc-lock-hint').style.display='none';
     document.getElementById('calc-gate').style.display='none';
@@ -1470,7 +1905,7 @@
     const plan=document.getElementById('demo-plan').value||'No indicado';
     const sups=document.getElementById('demo-supervisores').value||'No indicado';
     try{
-      await fetch('https://formspree.io/f/mjgjjodn',{
+      const response=await fetch('/api/contact',{
         method:'POST',
         headers:{'Content-Type':'application/json','Accept':'application/json'},
         body:JSON.stringify({
@@ -1484,7 +1919,8 @@
           plan:plan
         })
       });
-    }catch(err){console.error(err);}
+      if(!response.ok)throw new Error('No fue posible enviar la solicitud.');
+    }catch(err){console.error(err);alert('No pudimos enviar tu solicitud. Inténtalo nuevamente o escríbenos por WhatsApp.');return;}
     document.getElementById('demo-form').style.display='none';
     document.getElementById('demo-success').style.display='block';
     const msg=`Hola SUPERCOR, soy ${n} de ${e}. Quiero solicitar un diagnóstico de SUPERCOR para mi empresa. Correo: ${em} | Tel: ${t} | Plan: ${plan}`;
@@ -1620,11 +2056,12 @@
     const fmt=n=>'$'+Math.round(n).toLocaleString('es-CL');
     if(dtDatos){
       try{
-        await fetch('https://formspree.io/f/mjgjjodn',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+        const response=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
           body:JSON.stringify({_subject:'🔍 Lead Multas DT — '+(dtDatos.razonSocial||email),tipo:'Lead Multas DT',nombre:nombre||'No indicado',email,
             trabajadores:trab||'No indicado',rut:dtDatos.rut||'—',razon_social:dtDatos.razonSocial||'No informada',
             total_multas:dtDatos.totalMultas||0,total_clp:fmt(dtDatos.totalClp||0),utm:dtDatos.utm||'—'})});
-      }catch(err){console.error(err);}
+        if(!response.ok)throw new Error('No fue posible registrar tus datos.');
+      }catch(err){console.error(err);alert('No pudimos registrar tus datos. Inténtalo nuevamente o escríbenos por WhatsApp.');return;}
     }
     document.getElementById('dt-recuperable').classList.remove('calc-value-blurred');
     document.getElementById('dt-lock-hint').style.display='none';
@@ -1651,7 +2088,7 @@
     const m=document.getElementById('c-mensaje').value.trim();
     if(!n||!e||!m){alert('Por favor completa nombre, correo y mensaje.');return;}
     try{
-      await fetch('https://formspree.io/f/mjgjjodn',{
+      const response=await fetch('/api/contact',{
         method:'POST',
         headers:{'Content-Type':'application/json','Accept':'application/json'},
         body:JSON.stringify({
@@ -1663,11 +2100,18 @@
           mensaje:m
         })
       });
-    }catch(err){console.error(err);}
+      if(!response.ok)throw new Error('No fue posible enviar el mensaje.');
+    }catch(err){console.error(err);alert('No pudimos enviar tu mensaje. Inténtalo nuevamente o escríbenos por WhatsApp.');return;}
     document.getElementById('contact-form-inner').style.display='none';
     document.getElementById('contact-success').style.display='block';
   }
 
 </script>
+
+<script>
+(function(){function track(name, params){window.dataLayer=window.dataLayer||[];window.dataLayer.push(Object.assign({event:name},params||{}));if(typeof gtag==='function'){gtag('event',name,params||{});}if(typeof clarity==='function'){clarity('event',name);}}document.addEventListener('click',function(e){const a=e.target.closest('a');if(!a)return;const href=a.getAttribute('href')||'';const text=(a.textContent||'').trim().slice(0,80);if(href.includes('wa.me'))track('conversion_whatsapp_click',{link_text:text,link_url:href});else if(href.startsWith('mailto:'))track('conversion_email_click',{link_text:text,link_url:href});else if(href.startsWith('tel:'))track('conversion_phone_click',{link_text:text,link_url:href});else if(href.includes('#demo')||href.endsWith('/demo'))track('conversion_demo_intent',{link_text:text,link_url:href});else if(href.includes('seguridad-privada'))track('vertical_security_click',{link_text:text,link_url:href});else if(href.includes('outsourcing'))track('vertical_outsourcing_click',{link_text:text,link_url:href});else if(href.includes('servicios-transitorios'))track('vertical_temp_services_click',{link_text:text,link_url:href});else if(href.includes('facility'))track('vertical_facility_click',{link_text:text,link_url:href});else if(href.includes('mineria'))track('vertical_mining_click',{link_text:text,link_url:href});else if(href.includes('fiscalizacion')||href.includes('multas'))track('risk_compliance_click',{link_text:text,link_url:href});else if(href.includes('checklist'))track('feature_checklist_click',{link_text:text,link_url:href});},true);})();
+</script>
+
 </body>
 </html>
+

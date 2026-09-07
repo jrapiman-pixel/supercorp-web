@@ -1,28 +1,117 @@
 {
   "routes": [
-    { "src": "/ayuda", "dest": "/ayuda.html" },
-    { "src": "/privacidad", "dest": "/privacidad.html" },
-    { "src": "/seguridad-privada", "dest": "/seguridad-privada.html" }
+    {
+      "src": "/ayuda",
+      "dest": "/ayuda.html"
+    },
+    {
+      "src": "/privacidad",
+      "dest": "/privacidad.html"
+    },
+    {
+      "src": "/seguridad-privada",
+      "dest": "/seguridad-privada.html"
+    },
+    {
+      "src": "/control-cumplimiento-terreno",
+      "dest": "/control-cumplimiento-terreno.html"
+    },
+    {
+      "src": "/software-outsourcing-chile",
+      "dest": "/software-outsourcing-chile.html"
+    },
+    {
+      "src": "/software-servicios-transitorios-chile",
+      "dest": "/software-servicios-transitorios-chile.html"
+    },
+    {
+      "src": "/software-facility-management-chile",
+      "dest": "/software-facility-management-chile.html"
+    },
+    {
+      "src": "/control-personal-mineria",
+      "dest": "/control-personal-mineria.html"
+    },
+    {
+      "src": "/control-documental-trabajadores",
+      "dest": "/control-documental-trabajadores.html"
+    },
+    {
+      "src": "/checklist-supervision-terreno",
+      "dest": "/checklist-supervision-terreno.html"
+    },
+    {
+      "src": "/evidencia-fiscalizacion",
+      "dest": "/evidencia-fiscalizacion.html"
+    },
+    {
+      "src": "/alertas-multas-cumplimiento",
+      "dest": "/alertas-multas-cumplimiento.html"
+    },
+    {
+      "src": "/control-rondas-gps-seguridad",
+      "dest": "/control-rondas-gps-seguridad.html"
+    },
+    {
+      "src": "/demo",
+      "dest": "/demo.html"
+    }
   ],
   "headers": [
     {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), geolocation=(), microphone=(), payment=()"
+        }
+      ]
+    },
+    {
       "source": "/(.*)\\.pdf",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
       ]
     },
     {
       "source": "/favicon.ico",
       "headers": [
-        { "key": "Content-Type", "value": "image/x-icon" },
-        { "key": "Cache-Control", "value": "public, max-age=86400" }
+        {
+          "key": "Content-Type",
+          "value": "image/x-icon"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
       ]
     },
     {
       "source": "/favicon_:size.png",
       "headers": [
-        { "key": "Content-Type", "value": "image/png" },
-        { "key": "Cache-Control", "value": "public, max-age=86400" }
+        {
+          "key": "Content-Type",
+          "value": "image/png"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
       ]
     }
   ]

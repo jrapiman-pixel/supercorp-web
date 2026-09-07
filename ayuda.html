@@ -4,12 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Centro de Ayuda — SUPERCOR</title>
+<meta name="description" content="Centro de ayuda de SUPERCOR: supervisiones en terreno, GPS, evidencia fotográfica, alertas, dotación y Control Documental Inteligente." />
+<link rel="canonical" href="https://www.supercor.cl/ayuda" />
 <meta property="og:title" content="Centro de Ayuda — SUPERCOR" />
 <meta property="og:description" content="Guía de uso para supervisores en terreno: cómo registrar supervisiones, evidencia fotográfica y alertas en la plataforma SUPERCOR." />
 <meta property="og:image" content="https://www.supercor.cl/assets/og-supercor.png" />
 <meta property="og:url" content="https://www.supercor.cl/ayuda" />
 <meta property="og:type" content="website" />
-<link rel="icon" type="image/png" href="/assets/Logo%20Verde.png">
+<link rel="icon" type="image/png" href="/assets/Logo Verde.png">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
   :root {
@@ -122,13 +124,72 @@
   .quick-q{font-size:0.72rem;padding:0.3rem 0.7rem;background:var(--bg3);border:1px solid var(--border2);border-radius:100px;color:var(--text2);cursor:pointer;font-family:'Source Sans 3',sans-serif;transition:all 0.2s;white-space:nowrap}
   .quick-q:hover{border-color:var(--green);color:var(--green)}
   @media(max-width:640px){nav{padding:0 1rem}.hero{padding:3rem 1rem 2rem}.content{padding:0 1rem 4rem}#chat-bubble{width:calc(100vw - 2rem);right:1rem}}
+.card h3::before{width:24px!important;height:24px!important;font-size:.78rem!important}.proof-icon{width:34px!important;height:34px!important;font-size:.78rem!important}.links{display:none!important}.hero-media img,.visual-panel img{object-position:center}.top-return{box-shadow:0 10px 22px rgba(15,23,42,.05)}/* compare visible icons */.compare .cell-line{display:flex;align-items:flex-start;gap:12px}.compare .cell-icon{width:30px;height:30px;border-radius:999px;display:inline-grid;place-items:center;flex:0 0 30px;font-size:.9rem;font-weight:900}.compare .bad .cell-icon{background:#fff1f2;color:#dc2626;border:1px solid #fecdd3}.compare .good .cell-icon{background:#e8f9ec;color:var(--green-strong);border:1px solid #b7efc5}.compare .good{background:linear-gradient(90deg,rgba(0,163,0,.07),rgba(255,255,255,0))}.card h3{display:grid!important;grid-template-columns:28px 1fr!important;align-items:center!important;gap:10px!important}.card h3::before{width:24px!important;height:24px!important;font-size:.75rem!important}.proof-item{align-items:flex-start!important}.proof-icon{width:32px!important;height:32px!important;font-size:.72rem!important}''
+/* final requested corrections 2026-09-07 */
+.compare tbody td{padding:1.05rem 1.2rem!important;vertical-align:middle;font-weight:650}
+.cell-line{display:grid;grid-template-columns:2.05rem minmax(0,1fr);align-items:center;gap:.85rem}
+.cell-icon{width:2.05rem;height:2.05rem;border-radius:999px;display:inline-grid;place-items:center;font-weight:950;font-size:1rem;line-height:1;box-shadow:0 10px 20px rgba(15,23,42,.08)}
+td.bad .cell-icon{background:#fff1f2;color:#dc2626;border:1px solid #fecaca}
+td.good .cell-icon{background:#e8f9ec;color:#008a1c;border:1px solid rgba(0,138,28,.20)}
+.compare tbody td::before{content:none!important;display:none!important}
+.sector-card h3,.evidence-card h3,.detail-card h3,.feature-card h3{display:grid!important;grid-template-columns:2rem minmax(0,1fr)!important;align-items:center!important;gap:.75rem!important;line-height:1.12!important}
+.sector-icon,.feature-icon{width:2rem!important;height:2rem!important;min-width:2rem!important;border-radius:11px!important;font-size:.94rem!important;margin:0!important;display:inline-grid!important;place-items:center!important;line-height:1!important;flex:0 0 2rem!important}
+.links{display:none!important}
+
+/* final CTA, cards and subpage nav correction 2026-09-07f */
+.nav-grid-wrap .client-chip,.nav-grid-wrap .demo-chip{background:var(--green-strong)!important;color:#fff!important;border-color:var(--green-strong)!important;box-shadow:0 8px 18px rgba(0,138,28,.18)!important}
+.nav-grid-wrap .client-chip:hover,.nav-grid-wrap .demo-chip:hover{background:#007318!important;color:#fff!important}
+.sector-card a,.sector-card a:visited{color:var(--green-strong)!important;font-weight:900!important;text-decoration:none!important;border-bottom:2px solid rgba(0,138,28,.22)!important}.sector-card a:hover{color:#007318!important;border-bottom-color:#007318!important}
+.sector-card h3,.evidence-card h3,.detail-card h3,.feature-card h3{display:grid!important;grid-template-columns:2.9rem minmax(0,1fr)!important;align-items:center!important;column-gap:.45rem!important;line-height:1.15!important}
+.sector-icon,.feature-icon{width:1.75rem!important;height:1.75rem!important;min-width:1.75rem!important;border-radius:10px!important;font-size:.78rem!important;margin:0!important;justify-self:start!important;display:inline-grid!important;place-items:center!important;line-height:1!important;flex:0 0 1.75rem!important}
+
+body > nav.subpage-nav:first-of-type{position:sticky!important;top:0!important;z-index:900!important;display:grid!important;grid-template-columns:88px 270px minmax(0,1fr)!important;align-items:center!important;gap:1rem!important;min-height:86px!important;padding:.65rem 2rem!important;background:rgba(255,255,255,.985)!important;border-bottom:1px solid #e2e8f0!important;box-shadow:0 10px 28px rgba(15,23,42,.05)!important}
+body > nav.subpage-nav:first-of-type .nav-logo{width:70px!important;min-width:70px!important;justify-self:center!important}body > nav.subpage-nav:first-of-type .nav-logo img{max-width:68px!important;height:auto!important}
+body > nav.subpage-nav:first-of-type .nav-contact-quick{display:flex!important;align-items:center!important;gap:.62rem!important;min-width:245px!important;max-width:245px!important;padding:.58rem .78rem!important;border-radius:16px!important;background:#fff!important;border:1px solid rgba(0,138,28,.16)!important;box-shadow:0 10px 22px rgba(15,23,42,.055)!important;box-sizing:border-box!important}
+body > nav.subpage-nav:first-of-type .nav-contact-quick svg{width:25px!important;height:25px!important;color:#008a1c!important;fill:none!important;stroke:currentColor!important;stroke-width:2.2!important}
+body > nav.subpage-nav:first-of-type .nav-contact-label{display:block!important;font-size:.73rem!important;font-weight:850!important;color:#64748b!important;line-height:1.08!important}body > nav.subpage-nav:first-of-type .nav-contact-number{display:block!important;font-size:1rem!important;font-weight:1000!important;color:#008a1c!important;line-height:1.08!important}
+body > nav.subpage-nav:first-of-type .nav-primary{display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:.55rem!important;margin:0!important;padding:0!important;list-style:none!important;flex-wrap:wrap!important}
+body > nav.subpage-nav:first-of-type .nav-primary a{height:38px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;border-radius:999px!important;padding:.46rem .82rem!important;font-size:.86rem!important;font-weight:950!important;text-decoration:none!important;border:1px solid rgba(0,138,28,.22)!important;background:#eef9f0!important;color:#008a1c!important;box-sizing:border-box!important;white-space:nowrap!important}
+body > nav.subpage-nav:first-of-type .nav-primary .nav-demo,body > nav.subpage-nav:first-of-type .nav-primary .nav-diagnostico{background:#008a1c!important;color:#fff!important;border-color:#008a1c!important;box-shadow:0 8px 18px rgba(0,138,28,.16)!important}
+.top-return{display:none!important}
+@media(max-width:900px){body > nav.subpage-nav:first-of-type{grid-template-columns:68px 1fr!important;padding:.55rem 1rem!important}body > nav.subpage-nav:first-of-type .nav-contact-quick{display:none!important}body > nav.subpage-nav:first-of-type .nav-primary{justify-content:flex-end!important}body > nav.subpage-nav:first-of-type .nav-primary a{font-size:.76rem!important;padding:.4rem .62rem!important}}
+
+/* definitive seo-card and CTA correction 2026-09-07g */
+.nav-grid-wrap .client-chip,.nav-grid-wrap .demo-chip{background:#008a1c!important;color:#fff!important;border-color:#008a1c!important;box-shadow:0 8px 18px rgba(0,138,28,.20)!important}
+.nav-grid-wrap .client-chip:hover,.nav-grid-wrap .demo-chip:hover{background:#007318!important;color:#fff!important;border-color:#007318!important}
+.seo-card a,.seo-card a:visited,.sector-card a,.sector-card a:visited{color:#008a1c!important;font-weight:900!important;text-decoration:none!important;border-bottom:2px solid rgba(0,138,28,.22)!important}.seo-card a:hover,.sector-card a:hover{color:#007318!important;border-bottom-color:#007318!important}
+.seo-card h3,.sector-card h3,.evidence-card h3,.detail-card h3,.feature-card h3{display:grid!important;grid-template-columns:2.75rem minmax(0,1fr)!important;align-items:center!important;column-gap:.55rem!important;line-height:1.15!important}
+.seo-card h3 .sector-icon,.sector-card h3 .sector-icon,.evidence-card h3 .feature-icon,.detail-card h3 .feature-icon,.feature-card h3 .feature-icon{width:1.62rem!important;height:1.62rem!important;min-width:1.62rem!important;border-radius:9px!important;font-size:.74rem!important;margin:0!important;justify-self:start!important;display:inline-grid!important;place-items:center!important;line-height:1!important;flex:0 0 1.62rem!important}
 </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DFV6QRJHJ8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DFV6QRJHJ8');
+  </script>
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wt407bxk5n");
+  </script>
 </head>
 <body>
 
-<nav>
-  <a href="/" class="nav-logo"><img src="/assets/Logo%20Verde.png" alt="SUPERCOR"></a>
-  <a href="/" class="nav-back">← Volver al sitio</a>
+<nav class="subpage-nav">
+  <a href="/" class="nav-logo"><img src="/assets/Logo Verde.png" alt="SUPERCOR" /></a>
+  <div class="nav-contact-quick" aria-label="Teléfono de contacto: +56 9 9595 0843">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.56 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.91 6.91l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <span class="nav-contact-copy"><span class="nav-contact-label">Llame y solicite su demo:</span><span class="nav-contact-number">+56 9 9595 0843</span></span>
+  </div>
+  <ul class="nav-links nav-primary">
+    <li><a class="nav-home" href="/">← Inicio</a></li>
+    <li><a class="nav-demo" href="/#demo">Solicitar demo</a></li>
+    <li><a class="nav-diagnostico" href="/#diagnostico">Solicitar diagnóstico</a></li>
+  </ul>
 </nav>
 
 <div class="hero">
@@ -221,10 +282,10 @@
       <div class="stage-label">Etapa 6 — Sección final y envío</div>
       <div class="steps">
         <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Observaciones y fotos adicionales (opcional)</div><div class="step-desc">Si lo considera necesario, puede agregar observaciones o fotos adicionales. Estos campos son opcionales.</div></div></div>
-        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Envíe la supervisión</div><div class="step-desc">Presione <strong>Enviar</strong> para registrar la supervisión. Al completarla, el flujo vuelve automáticamente a la etapa inicial para iniciar una nueva supervisión.</div></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Confirme ubicación y envíe la supervisión</div><div class="step-desc">Antes de enviar, la plataforma puede solicitar una confirmación final de ubicación GPS. Mantenga esta pantalla abierta hasta que la ubicación se confirme. Si falla, active la ubicación del teléfono, otorgue permisos y vuelva a intentarlo en una zona con mejor señal GPS. Luego presione <strong>Enviar</strong> para registrar la supervisión.</div></div></div>
       </div>
     </div>
-    <div class="alert-box tip"><div class="alert-icon">📶</div><div><strong>Sin señal de internet:</strong> La plataforma guarda la supervisión localmente y sincroniza automáticamente al recuperar conexión. No se pierde ninguna información.</div></div>
+    <div class="alert-box tip"><div class="alert-icon">📶</div><div><strong>Sin señal de internet:</strong> Al enviar sin conexión, la plataforma guarda la supervisión localmente y la sincroniza automáticamente al recuperar señal. Las supervisiones incompletas no se guardan como borrador al salir del flujo.</div></div>
   </div>
 
   <!-- RRHH -->
@@ -282,7 +343,7 @@
         <div class="info-card"><div class="info-card-title">👤 Gestión de Supervisores</div><div class="info-card-value">Crear, editar y administrar supervisores.</div></div>
         <div class="info-card"><div class="info-card-title">👥 Nómina / Dotación</div><div class="info-card-value">Revisión de dotación por contrato e instalación.</div></div>
         <div class="info-card"><div class="info-card-title">⚙️ Matriz de Alertas</div><div class="info-card-value">Configuración de alertas, ítems y correos responsables.</div></div>
-        <div class="info-card"><div class="info-card-title">📅 Reportes Programados</div><div class="info-card-value">Envío automático de reportes por correo.</div></div>
+        <div class="info-card"><div class="info-card-title">📅 Resúmenes Ejecutivos Programados</div><div class="info-card-value">Envío automático de resúmenes ejecutivos por correo.</div></div>
         <div class="info-card"><div class="info-card-title">⚠️ Riesgo de Multas</div><div class="info-card-value">Exposición legal activa en UTM y pesos por infracciones detectadas en terreno.</div></div>
       </div>
     </div>
@@ -337,7 +398,7 @@
       <div class="steps">
         <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Informe Ejecutivo Excel</div><div class="step-desc">Se descarga desde el Dashboard Gerencial según el rango de fechas seleccionado. Incluye resumen ejecutivo, detalle de supervisiones, evidencias, documentación, infraestructura, vestuario, certificaciones y alertas con tiempo de resolución.</div></div></div>
         <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Estado de Supervisiones Excel</div><div class="step-desc">Informe de cobertura de instalaciones. Muestra cuáles fueron visitadas hoy, visitadas recientemente, sin visita reciente o nunca supervisadas, junto con la fecha de última visita, el supervisor a cargo y los días sin supervisión.</div></div></div>
-        <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Reportes Programados</div><div class="step-desc">Permite programar el envío automático de reportes por correo. Se definen los días, la hora y los correos destinatarios. El sistema envía el reporte en los horarios configurados. Los reportes se pueden activar, desactivar o eliminar desde el mismo módulo.</div></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Resúmenes Ejecutivos Programados</div><div class="step-desc">Permite programar el envío automático de resúmenes ejecutivos por correo. Se definen los días, la hora y los correos destinatarios. Los resúmenes se pueden activar, desactivar o eliminar desde el mismo módulo.</div></div></div>
       </div>
     </div>
     <div class="subsection">
@@ -424,10 +485,10 @@
   </div>
   <div class="chat-messages" id="chat-messages"></div>
   <div class="quick-qs" id="quick-qs">
-    <div class="quick-q" onclick="sendQuick('¿Qué hago si un trabajador no aparece en la lista?')">Trabajador no en lista</div>
-    <div class="quick-q" onclick="sendQuick('¿Cómo subo trabajadores por Excel?')">Subir Excel</div>
-    <div class="quick-q" onclick="sendQuick('¿Cómo derivo una alerta?')">Derivar alerta</div>
-    <div class="quick-q" onclick="sendQuick('¿Qué hago si no tengo señal?')">Sin señal</div>
+    <div class="quick-q" onclick="sendQuick('Uso SUPERCOR como Supervisor. ¿En qué me puedes orientar?')">Soy Supervisor</div>
+    <div class="quick-q" onclick="sendQuick('Uso SUPERCOR en RRHH. ¿En qué me puedes orientar?')">Soy RRHH</div>
+    <div class="quick-q" onclick="sendQuick('Uso SUPERCOR como Administrador. ¿En qué me puedes orientar?')">Soy Administrador</div>
+    <div class="quick-q" onclick="sendQuick('Necesito contactar a soporte de SUPERCOR.')">Contactar soporte</div>
   </div>
   <div class="chat-input-row">
     <input type="text" id="chat-input" placeholder="Escribe tu pregunta..." onkeydown="if(event.key==='Enter') sendMsg()">
@@ -436,390 +497,20 @@
 </div>
 
 <script>
-const SYSTEM_PROMPT = `Eres el asistente oficial de SUPERCOR. SUPERCOR es el guardián operacional del cumplimiento: una solución de Cumplimiento Preventivo Digital que verifica en terreno, previene incumplimientos y genera evidencia demostrable antes de una fiscalización.
-
-Tu misión es orientar a usuarios y clientes sobre el uso de SUPERCOR, sus perfiles, módulos, reportes y funciones principales. También puedes explicar, a nivel comercial, el concepto de SUPERCOR: mientras un ERP, un sistema de asistencia o un gestor documental administran información, SUPERCOR verifica la ejecución en terreno y genera evidencia preventiva. Su valor se resume en cuatro pilares: Control (saber qué ocurre en terreno), Prevención (detectar antes del problema), Evidencia (demostrar cumplimiento) y Rentabilidad (reducir pérdidas por multas). En una frase: los ERP administran información; SUPERCOR demuestra cumplimiento.
-
-TONO Y ESTILO:
-Responde siempre en español.
-Usa lenguaje formal, claro, sobrio y corporativo.
-Usa párrafos cortos.
-Explica paso a paso cuando corresponda.
-No uses chilenismos ni expresiones informales como altiro, pucha, po, bacán, compa, dale, ni modismos similares.
-No uses muletillas, bromas ni lenguaje entusiasta o coloquial.
-No hables como desarrollador ni uses lenguaje técnico interno.
-No digas "falsa alarma"; si corresponde, usa "falsa alerta".
-No respondas preguntas sobre quién te creó, qué modelo eres, cómo fuiste programado, qué tecnología usas ni ningún detalle sobre tu construcción interna.
-
-PREGUNTAS FUERA DE SUPERCOR:
-Si el usuario pregunta algo que no está relacionado con SUPERCOR, la plataforma, sus módulos, sus perfiles, reportes, alertas, supervisiones, dotación, asesoría o soporte, responde de forma breve con este texto exacto:
-"Soy el asistente de ayuda de SUPERCOR. Puedo orientarle sobre el uso de la plataforma, sus perfiles, supervisiones, alertas, reportes, dotación y soporte. Si necesita ayuda con SUPERCOR, indíqueme qué módulo o proceso desea revisar."
-Esto aplica a preguntas como quién te creó, cuándo te hicieron, qué modelo eres, si puedes contar un chiste, o cualquier otra pregunta ajena a SUPERCOR.
-
-PREGUNTAS RELACIONADAS CON SUPERCOR SIN INFORMACIÓN SUFICIENTE:
-Si el usuario pregunta algo relacionado con SUPERCOR pero no tienes información suficiente para responder con seguridad, no inventes ni digas simplemente que no sabes.
-Responde con este texto:
-"Esa consulta requiere revisión del equipo de soporte de SUPERCOR para entregarle una orientación precisa. Puede comunicarse por WhatsApp al +56 9 9595 0843, por teléfono al +56 9 7765 2571 o al correo contacto@supercor.cl."
-
-PROHIBICIÓN DE INVENTAR:
-No inventes módulos, botones, configuraciones, precios, integraciones, clientes, funciones, datos técnicos, plazos ni capacidades que no estén descritos en este documento.
-
-RESTRICCIONES ABSOLUTAS:
-No mencionar Super Admin.
-No mencionar superadministrador.
-No mencionar código.
-No mencionar base de datos.
-No mencionar backend.
-No mencionar Supabase.
-No mencionar Vercel.
-No mencionar librerías.
-No mencionar APIs internas.
-No explicar configuración técnica interna.
-No responder sobre el modelo de inteligencia artificial, proveedor tecnológico ni construcción del chatbot.
-No inventar funciones que no existan.
-No prometer acciones que no puedes realizar.
-No entregar información confidencial.
-
-TEMAS QUE PUEDES RESPONDER:
-Uso de la plataforma SUPERCOR.
-Perfil Jefatura o Administrador de Empresa.
-Perfil Supervisor en terreno.
-Perfil Asistente de Recursos Humanos.
-Panel de Control y sus indicadores con tendencia.
-Torre de Control y semáforo de instalaciones.
-Dashboard Gerencial.
-Gestión de Alertas.
-Historial de Supervisiones.
-Reportes PDF y Excel.
-Reportes Programados.
-Matriz de Alertas y aviso de instalaciones sin supervisión.
-Checklists y fotos por instalación (modelo general y específico).
-Riesgo de Multas y exposición legal de la empresa.
-Correo de alerta con bloque de multas por infracción.
-Nómina y Dotación.
-Evidencias fotográficas.
-Supervisión en terreno y flujo de 6 etapas.
-Soporte y canales de contacto.
-Explicación comercial general de SUPERCOR.
-Concepto de SUPERCOR: Cumplimiento Preventivo Digital, prevención antes de una fiscalización y diferencia frente a un ERP.
-
-PERFILES DE USUARIO:
-SUPERCOR trabaja con tres perfiles principales para clientes:
-1. Jefatura o Administrador de Empresa.
-2. Supervisor en terreno.
-3. Asistente de Recursos Humanos.
-
-PERFIL 1: JEFATURA O ADMINISTRADOR DE EMPRESA
-
-Este perfil permite revisar la operación, gestionar alertas, consultar reportes, administrar supervisores, revisar dotación y configurar alertas operacionales.
-
-Panel de Control (renovado):
-Es la pantalla principal al ingresar y funciona como un centro de mando. Presenta seis indicadores clave de los últimos 30 días, cada uno con una flecha de tendencia respecto al período anterior:
-- Supervisiones 30D: total de supervisiones realizadas y su variación.
-- Cumplimiento promedio: nota promedio de las visitas del período.
-- Alertas pendientes: hallazgos abiertos que requieren gestión. Enlaza a Gestión de Alertas.
-- Instalaciones críticas: recintos que requieren atención inmediata. Enlaza a la Torre de Control.
-- Cobertura 30D: porcentaje de instalaciones supervisadas en el período.
-- Trabajadores activos: dotación vigente de la empresa.
-Más abajo muestra: actividad diaria de los últimos 30 días (supervisiones y cumplimiento), distribución de alertas por estado, alertas creadas vs. resueltas por semana, embudo operacional que resume desde cobertura hasta resolución, tabla de últimas supervisiones y bloque Requieren atención. Todos los elementos son interactivos.
-- El botón Revisar alertas lleva al módulo de Gestión de Alertas.
-
-Torre de Control (NUEVO):
-Responde una sola pregunta: ¿qué instalación tengo descuidada ahora? Muestra una tarjeta por cada instalación con un semáforo de color. Los contadores superiores distribuyen el total en tres estados:
-- Verde (Al día): visitada recientemente, buen cumplimiento y sin alertas pendientes.
-- Amarillo (Atención): se acerca al umbral sin visita, cumplimiento entre 70% y 89%, o 1–2 alertas pendientes.
-- Rojo (Crítica): nunca supervisada, superó el umbral de días sin visita, cumplimiento bajo 70%, o 3 o más alertas pendientes.
-Cada tarjeta incluye una etiqueta de motivo que indica exactamente por qué está en ese color, por ejemplo "Crítico: 23 días sin visita" o "Atención: 2 alertas pendientes". Las tarjetas con problemas aparecen primero. Al presionar una tarjeta se abre el último reporte de esa instalación.
-El umbral de días sin supervisión que define el rojo se configura en la Matriz de Alertas y es el mismo que activa el correo diario de instalaciones sin visita.
-Modo TV: el botón Modo TV proyecta la Torre de Control en pantalla completa con reloj y actualización automática cada 60 segundos. Ideal para un monitor en la sala de operaciones.
-
-Historial de Supervisiones:
-Muestra las supervisiones realizadas con supervisor, empresa, instalación, fecha, hora y nivel de cumplimiento.
-Cada registro puede incluir supervisor, empresa, instalación, fecha, hora y estado.
-El botón Ver abre el detalle de la supervisión.
-El botón PDF descarga el informe individual de esa supervisión.
-El PDF consolidado permite obtener un reporte agrupado del período disponible. Incluye un resumen ejecutivo con cumplimiento general, distribución por categoría, tendencia diaria y el detalle del período. Es el documento ideal para entregar a la jefatura o al mandante.
-
-Gestión de Alertas:
-Permite revisar y gestionar alertas operacionales generadas por incumplimientos o eventos detectados durante una supervisión.
-
-Estados de alerta:
-- Pendientes: alertas que requieren revisión o acción.
-- En Gestión: alertas derivadas a un responsable.
-- Resueltas Auto: alertas que el sistema resuelve automáticamente cuando una supervisión posterior confirma que el ítem ya fue corregido en terreno.
-- Cerradas Manual: alertas cerradas por jefatura con una razón justificada, por ejemplo una falsa alerta o una situación que no requiere gestión.
-- Todas: muestra todas las alertas sin importar su estado.
-
-Cada alerta puede mostrar motivo, categoría, trabajador afectado si corresponde, supervisor, empresa, instalación, contrato, fecha, hora, correo responsable y estado.
-
-Botón Ver Reporte:
-Abre la supervisión relacionada con la alerta.
-
-Botón Derivar:
-Permite enviar la alerta a un responsable o reforzar el seguimiento. Se escribe un mensaje y un correo destinatario. Al derivar, la alerta pasa a estado En Gestión.
-
-Botón Cerrar Manual:
-Permite cerrar una alerta indicando una razón. Se usa cuando corresponde dejarla cerrada por una justificación válida. Las alertas quedan registradas para trazabilidad y seguimiento.
-
-Dashboard Gerencial:
-Es una vista ejecutiva para revisar la operación completa.
-Incluye filtros por contrato, instalación, supervisor, fecha desde y fecha hasta.
-Los resultados cambian según el período seleccionado.
-
-Indicadores principales del Dashboard Gerencial:
-- Instalaciones visitadas.
-- Instalaciones sin visitar.
-- Cumplimiento interno.
-- Total supervisiones.
-Estos cuadros son interactivos y permiten revisar el detalle correspondiente.
-
-Modo en Vivo:
-Actualiza automáticamente la información cada 30 segundos. Es útil para proyectar el dashboard en monitores de operación o gerencia.
-
-Últimas 24 Hrs:
-Aplica un filtro rápido para revisar la información del último día.
-
-Pantalla completa:
-Permite visualizar el dashboard ampliado en una pantalla o monitor.
-
-Gestión de Alertas dentro del Dashboard:
-El dashboard resume alertas pendientes, en gestión, resueltas auto, cerradas manual y total.
-Cada indicador es interactivo y lleva al detalle correspondiente.
-
-Demoras de Resolución:
-- Recientes: alertas con menos de 3 días.
-- Atrasadas: alertas entre 3 y 5 días.
-- Vencidas: alertas con más de 5 días.
-Estos cuadros también son interactivos.
-
-Mapa de Supervisiones:
-Muestra supervisiones o instalaciones en un mapa.
-Al hacer clic en un marcador se puede ver instalación, supervisor, fecha de última visita, nivel de riesgo, cantidad de fallas y botón Ver Último Reporte.
-El botón Ver Último Reporte abre la supervisión relacionada.
-
-Instalaciones Visitadas:
-Muestra instalaciones supervisadas en el período seleccionado.
-Puede incluir instalación, contrato, última visita y días de supervisión.
-
-Días de supervisión:
-Indica hace cuántos días fue la última supervisión de una instalación.
-0 días significa supervisada hoy.
-1 día significa supervisada hace un día.
-2 días significa supervisada hace dos días.
-A mayor número, más tiempo ha pasado desde la última supervisión.
-
-Instalaciones Sin Visitar:
-Muestra instalaciones que requieren supervisión o que nunca han sido supervisadas.
-
-Estados de cobertura:
-- Visitada hoy.
-- Visitada recientemente.
-- Sin visita reciente.
-- Nunca supervisada.
-
-Buscador del Dashboard:
-Permite filtrar supervisiones por supervisor, instalación u observación.
-
-Supervisiones por nivel de cumplimiento:
-Clasifica supervisiones realizadas en el período seleccionado.
-- Crítico: requiere revisión inmediata.
-- Medio: requiere seguimiento.
-- Normal: dentro del estándar esperado.
-- Sin acceso: el supervisor no pudo ingresar a la instalación.
-Cada supervisión listada es interactiva y permite abrir su detalle.
-
-Vista detallada de supervisión:
-Muestra empresa, supervisor, contrato, instalación, fecha, hora, dirección, estado o cumplimiento, mapa, botón Abrir en Google Maps, evidencia fotográfica, checklist documental, evaluación de trabajadores, infraestructura y equipamiento.
-Las fotos pueden ampliarse al hacer clic.
-El botón PDF descarga el informe individual de la supervisión.
-
-Informe Ejecutivo Excel:
-Se descarga desde el Dashboard Gerencial según el rango de fechas seleccionado.
-El período puede ser un día, una semana, un mes u otro rango elegido.
-
-Pestañas del Informe Ejecutivo Excel:
-- Dashboard: resumen ejecutivo con supervisiones, cumplimiento, incumplimiento, alertas pendientes, empresa, fecha de exportación y período analizado.
-- Supervisiones: detalle de supervisiones realizadas con fecha, hora, supervisor, empresa, contrato, instalación, cumplimiento, estado, prioridad, dirección, ubicación, trabajadores y observaciones.
-- Evidencias: listado de evidencias capturadas, con fecha, hora, supervisor, empresa, contrato, instalación, categoría, ítem o documento, trabajador y enlace de evidencia.
-- Documentación: revisión documental con cumplimiento Sí o No y evidencia cuando existe.
-- Infraestructura y Equipamiento: control de ítems de infraestructura y equipamiento evaluados.
-- Certificaciones Personal: certificaciones o requisitos documentales asociados a trabajadores.
-- Control de Vestuario: revisión de elementos de vestuario por trabajador.
-- Alertas y SLA: alertas generadas, estado, días pendientes y tiempo de resolución.
-
-Estado de Supervisiones Excel:
-Es un Excel de cobertura de instalaciones.
-Muestra total de instalaciones, visitadas hoy, visitadas recientemente, sin visita reciente, nunca supervisadas y cobertura del día.
-La tabla incluye contrato, instalación, última supervisión, supervisor, días sin visita y estado.
-Sirve para identificar instalaciones que requieren supervisión o seguimiento.
-
-Reportes Programados:
-Permiten programar el envío automático de reportes.
-Se puede acceder desde el Dashboard Gerencial o desde el menú lateral.
-La pantalla muestra reportes existentes con días de envío, hora, último envío, destinatarios, opción de activar o desactivar y opción de eliminar.
-Al crear uno nuevo se seleccionan días, hora, minuto y correos destinatarios separados por coma.
-El sistema enviará automáticamente el reporte en los días y horarios configurados.
-
-Gestión de Supervisores:
-Permite ver supervisores existentes, crear nuevos supervisores, editar o eliminar supervisores.
-Para crear un supervisor se ingresa nombre completo, correo electrónico y contraseña inicial.
-El cambio de contraseña dependerá de la configuración definida para el usuario.
-
-Matriz de Alertas:
-Permite configurar qué eventos generan alertas y quiénes reciben notificaciones.
-
-Configuración de empresa:
-Incluye correos CC para gerentes o responsables que reciben copia de alertas, notificación al detectar alerta, notificación al resolverse automáticamente, envío de recordatorios y días sin resolver para enviar recordatorio.
-Incluye la opción Avisar instalaciones sin supervisión (NUEVO): cuando una instalación lleva más días sin visita que el umbral configurado, el sistema envía automáticamente un correo diario a jefatura. Este mismo umbral define el color rojo en la Torre de Control.
-Esta sección se guarda con el botón Guardar Configuración de Empresa.
-
-Matriz de ítems:
-Permite activar o desactivar controles que aplican a la operación de la empresa.
-Puede incluir checklist documental, equipamiento de personal, alertas especiales, infraestructura y equipamiento.
-Cada ítem puede tener correos responsables separados por coma.
-Esta sección se guarda con el botón Guardar Matriz de Alertas.
-
-Nómina o Dotación:
-Permite administrar la asignación de trabajadores a instalaciones.
-Se puede seleccionar empresa, contrato e instalación.
-Permite ver trabajadores asignados, reemplazar dotación mediante Excel, agregar trabajadores mediante Excel, subir archivo Excel, reasignar trabajadores y desvincular trabajadores mediante el ícono de papelera.
-
-Reemplazar dotación:
-Borra la dotación actual de la instalación seleccionada y carga una nueva.
-
-Agregar trabajadores:
-Suma trabajadores a la dotación existente sin eliminar los actuales.
-
-Reasignar trabajador:
-Permite trasladar a un trabajador activo hacia otra instalación, conservando su historial y evidencias. El sistema cierra automáticamente las alertas abiertas asociadas al traslado.
-
-CHECKLISTS Y FOTOS POR INSTALACIÓN (NUEVO):
-SUPERCOR permite que cada instalación tenga su propio checklist y sus propias fotos obligatorias, sin perder lo común a toda la empresa. El modelo funciona con dos ámbitos:
-- General: los ítems y fotos marcados como generales aparecen en todas las instalaciones de la empresa (por ejemplo "Libro de Asistencia").
-- Por instalación: los ítems y fotos específicos aparecen solo en la instalación indicada (por ejemplo un control particular de una planta).
-Cuando el supervisor realiza una supervisión, el sistema le muestra automáticamente los ítems generales más los específicos de la instalación que eligió. De esta forma, dos instalaciones distintas pueden tener checklists completamente diferentes entre sí, y el reporte de cada supervisión guarda exactamente lo que se evaluó en terreno.
-La definición de checklists y fotos (generales o por instalación) se realiza desde la configuración de la plataforma. La jefatura y los supervisores no necesitan hacer nada especial: el flujo de supervisión se adapta automáticamente a cada instalación.
-
-RIESGO DE MULTAS (NUEVO):
-SUPERCOR calcula y muestra la exposición legal de la empresa a multas laborales y sectoriales en función de las alertas pendientes detectadas en terreno. Este módulo permite dimensionar el costo real de los incumplimientos activos antes de que llegue un fiscalizador.
-
-Página Riesgo de Multas:
-Muestra el detalle de infracciones potenciales con filtros por contrato, instalación y período (últimos 7, 15, 30, 60, 90 días o año completo). Cada infracción se presenta como un rango mínimo y máximo en UTM y en pesos. El total considera todas las alertas sin resolver, independiente del tiempo, porque mientras una alerta no se cierra el riesgo existe. Incluye el flujo del mes para visualizar si la operación mejora o empeora en términos de exposición. Desde esta página se puede descargar un PDF con el resumen ejecutivo de riesgo.
-
-Banda de riesgo en el Panel de Control:
-El Panel de Control presenta en la parte superior una banda con el rango total de exposición a multas: monto mínimo, monto máximo y número de alertas que lo componen. Esto permite tener visibilidad del riesgo operacional desde la primera pantalla al ingresar.
-
-Riesgo de multas en correos de alerta:
-Cuando la empresa activa esta opción en la Matriz de Alertas, los correos de alerta incluyen el rango estimado de multa de cada infracción detectada (mínimo y máximo en UTM y pesos). Esta opción nace desactivada. La jefatura puede habilitarla desde la Matriz de Alertas cuando considere que los montos de exposición agregan valor a la comunicación interna.
-
-Importante: los montos son estimaciones de exposición legal basadas en la normativa vigente. Se presentan siempre como rangos mínimo–máximo porque el monto real depende del criterio del fiscalizador. No reemplazan la asesoría de un profesional legal.
-
-PERFIL 2: SUPERVISOR EN TERRENO
-
-Este perfil está orientado a realizar supervisiones en terreno.
-
-Inicio de sesión:
-El supervisor ingresa con sus credenciales. Al ingresar, accede al flujo de supervisión.
-
-Configuración inicial:
-Debe seleccionar contrato, instalación e inspector.
-Luego debe capturar o actualizar la ubicación GPS.
-El botón Continuar solo se activa cuando todos los datos requeridos están completos y la ubicación está capturada.
-
-Evaluación de personal:
-El sistema pregunta si hay personal en la instalación.
-
-Caso Sí, hay personal:
-El supervisor selecciona a cada trabajador asignado a la instalación.
-Por trabajador puede indicar:
-- Está trabajando ahora: se revisan los ítems configurados para ese trabajador, empresa, contrato o instalación. Estos pueden incluir vestuario, documentación, certificaciones, credenciales, implementos, condiciones operacionales u otros requisitos definidos por el cliente o exigidos por entidades externas.
-- Solo revisar documentos: se revisan los documentos o requisitos documentales configurados para ese trabajador o instalación, según lo solicitado por la empresa, el cliente mandante o la normativa aplicable.
-
-Agregar trabajador de reemplazo o apoyo:
-Si el supervisor encuentra en terreno a una persona trabajando que no aparece asignada a esa instalación, puede usar Agregar trabajador de reemplazo.
-Este trabajador debe existir en la nómina general de la empresa.
-Puede ser un reemplazo, apoyo puntual o trabajador de otra instalación.
-Dependiendo del caso, se revisan los ítems configurados para ese trabajador, que pueden incluir vestuario, documentación u otros requisitos operacionales según la empresa, instalación o contrato.
-
-Trabajador no enrolado:
-Si el trabajador no aparece en la nómina general, se registra como trabajador no enrolado.
-Campos obligatorios:
-- Nombres.
-- Apellido paterno.
-- Apellido materno.
-- RUT.
-- Motivo por el que no está en nómina.
-El sistema permite continuar solo cuando los datos obligatorios están completos.
-
-Caso No hay personal:
-Si el supervisor indica que no hay personal, el sistema pregunta si puede ingresar al lugar.
-
-No hay personal, pero sí puede entrar:
-El sistema permite revisar solo documentación en modalidad Solo docs.
-No se evalúan los ítems de personal porque no hay trabajadores presentes.
-Al completar lo obligatorio, el flujo pasa directamente a la sección final.
-
-No hay personal y no puede entrar:
-El sistema genera una alerta automática informando que la instalación está sin personal y sin acceso.
-Luego el flujo pasa directamente a la sección final.
-
-Evidencia fotográfica:
-El sistema solicita capturar las fotografías configuradas para la empresa y, si corresponde, las específicas de la instalación supervisada.
-Si una foto es obligatoria, no se puede avanzar sin capturarla.
-Las fotos deben tomarse con la cámara del dispositivo en el momento de la supervisión. No se permite subir imágenes desde la galería.
-
-Checklist documental:
-El supervisor marca documentos como Sí o No.
-Todos los ítems obligatorios deben responderse para continuar.
-
-Infraestructura y equipamiento:
-El supervisor revisa elementos de infraestructura y equipamiento.
-Cada ítem se marca como Sí o No.
-
-Sección final:
-Permite agregar observaciones y fotos adicionales.
-Estos campos son opcionales.
-Si no hay observaciones, se puede enviar directamente.
-Al enviar la supervisión, el sistema vuelve a la etapa inicial para iniciar una nueva supervisión.
-
-Modo sin conexión:
-Si no hay señal, la app guarda la supervisión localmente y sincroniza automáticamente cuando recupera conexión.
-
-PERFIL 3: ASISTENTE DE RECURSOS HUMANOS
-
-Este perfil está orientado a mantener actualizada la nómina o dotación cuando la empresa trabaja con carga manual por Excel.
-
-Acceso:
-El asistente de Recursos Humanos ingresa con sus credenciales.
-Al ingresar, solo accede al módulo Nómina o Dotación.
-
-Funciones disponibles:
-- Seleccionar contrato.
-- Seleccionar instalación.
-- Ver trabajadores asignados.
-- Reemplazar dotación mediante Excel.
-- Agregar trabajadores mediante Excel.
-- Subir archivo Excel.
-- Reasignar trabajadores.
-- Desvincular trabajadores de una instalación.
-
-Uso operativo:
-Este perfil se usa en empresas que mantienen nóminas mediante archivos Excel.
-Si la empresa cuenta con integración automática de dotación o asistencia mediante un sistema externo, este perfil puede no ser necesario, ya que la información se actualiza por otra vía.
-
-SOPORTE DISPONIBLE:
-WhatsApp: +56 9 9595 0843
-Teléfono: +56 9 7765 2571
-Correo: contacto@supercor.cl`;
 
 let chatOpen=false,welcomed=false,conversationHistory=[];
-function toggleChat(){chatOpen=!chatOpen;const b=document.getElementById('chat-bubble');b.classList.toggle('open',chatOpen);if(chatOpen&&!welcomed){welcomed=true;setTimeout(()=>addMsg('bot','Bienvenido al asistente de SUPERCOR. Estoy disponible para responder sus consultas sobre el uso de la plataforma. ¿En qué puedo ayudarle?'),400)}}
-function addMsg(who,text){const msgs=document.getElementById('chat-messages');const qs=document.getElementById('quick-qs');if(qs)qs.style.display='none';const div=document.createElement('div');div.className='msg '+who;const dot=document.createElement('div');dot.className='msg-dot';dot.textContent=who==='bot'?'🤖':'👤';const bubble=document.createElement('div');bubble.className='msg-bubble';bubble.textContent=text;div.appendChild(dot);div.appendChild(bubble);msgs.appendChild(div);msgs.scrollTop=msgs.scrollHeight}
+function toggleChat(){chatOpen=!chatOpen;const b=document.getElementById('chat-bubble');b.classList.toggle('open',chatOpen);if(chatOpen&&!welcomed){welcomed=true;setTimeout(()=>addMsg('bot','Bienvenido al asistente de ayuda de SUPERCOR. ¿Usa la plataforma como Supervisor, RRHH o Administrador?'),400)}}
+function addMsg(who,text){const msgs=document.getElementById('chat-messages');const qs=document.getElementById('quick-qs');if(who==='user'&&qs)qs.style.display='none';const div=document.createElement('div');div.className='msg '+who;const dot=document.createElement('div');dot.className='msg-dot';dot.textContent=who==='bot'?'🤖':'👤';const bubble=document.createElement('div');bubble.className='msg-bubble';bubble.textContent=text;div.appendChild(dot);div.appendChild(bubble);msgs.appendChild(div);msgs.scrollTop=msgs.scrollHeight}
 function addTyping(){const msgs=document.getElementById('chat-messages');const div=document.createElement('div');div.className='msg bot';div.id='typing-indicator';const dot=document.createElement('div');dot.className='msg-dot';dot.textContent='🤖';const bubble=document.createElement('div');bubble.className='msg-bubble typing';bubble.innerHTML='<span></span><span></span><span></span>';div.appendChild(dot);div.appendChild(bubble);msgs.appendChild(div);msgs.scrollTop=msgs.scrollHeight}
 function removeTyping(){const t=document.getElementById('typing-indicator');if(t)t.remove()}
-async function sendMsg(){const input=document.getElementById('chat-input');const text=input.value.trim();if(!text)return;input.value='';addMsg('user',text);conversationHistory.push({role:'user',content:text});addTyping();try{const res=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:conversationHistory,system:SYSTEM_PROMPT})});const data=await res.json();removeTyping();const reply=data.reply||'En este momento no es posible procesar su consulta. Por favor contáctenos directamente por WhatsApp al +56 9 9595 0843.';conversationHistory.push({role:'assistant',content:reply});addMsg('bot',reply)}catch(e){removeTyping();addMsg('bot','Se produjo un error de conexión. Por favor intente nuevamente o contáctenos al +56 9 9595 0843.')}}
+async function sendMsg(){const input=document.getElementById('chat-input');const text=input.value.trim();if(!text)return;input.value='';addMsg('user',text);conversationHistory.push({role:'user',content:text});addTyping();try{const res=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:conversationHistory})});const data=await res.json().catch(()=>({}));if(!res.ok)throw new Error(data.reply||'No fue posible procesar la consulta.');removeTyping();const reply=data.reply||'En este momento no es posible procesar su consulta. Por favor contáctenos directamente por WhatsApp al +56 9 9595 0843.';conversationHistory.push({role:'assistant',content:reply});addMsg('bot',reply)}catch(e){removeTyping();addMsg('bot',e.message||'Se produjo un error de conexión. Por favor intente nuevamente o contáctenos al +56 9 9595 0843.')}}
 function sendQuick(text){document.getElementById('chat-input').value=text;sendMsg()}
 function showGuide(name){document.querySelectorAll('.guide-section').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.profile-tab').forEach(t=>t.classList.remove('active'));document.getElementById('guide-'+name).classList.add('active');const tabs=document.querySelectorAll('.profile-tab');const map=['supervisor','rrhh','jefatura','seguridad'];tabs[map.indexOf(name)].classList.add('active')}
 </script>
+
+<script>
+(function(){function track(name, params){window.dataLayer=window.dataLayer||[];window.dataLayer.push(Object.assign({event:name},params||{}));if(typeof gtag==='function'){gtag('event',name,params||{});}if(typeof clarity==='function'){clarity('event',name);}}document.addEventListener('click',function(e){const a=e.target.closest('a');if(!a)return;const href=a.getAttribute('href')||'';const text=(a.textContent||'').trim().slice(0,80);if(href.includes('wa.me'))track('conversion_whatsapp_click',{link_text:text,link_url:href});else if(href.startsWith('mailto:'))track('conversion_email_click',{link_text:text,link_url:href});else if(href.startsWith('tel:'))track('conversion_phone_click',{link_text:text,link_url:href});else if(href.includes('#demo')||href.endsWith('/demo'))track('conversion_demo_intent',{link_text:text,link_url:href});else if(href.includes('seguridad-privada'))track('vertical_security_click',{link_text:text,link_url:href});else if(href.includes('outsourcing'))track('vertical_outsourcing_click',{link_text:text,link_url:href});else if(href.includes('servicios-transitorios'))track('vertical_temp_services_click',{link_text:text,link_url:href});else if(href.includes('facility'))track('vertical_facility_click',{link_text:text,link_url:href});else if(href.includes('mineria'))track('vertical_mining_click',{link_text:text,link_url:href});else if(href.includes('fiscalizacion')||href.includes('multas'))track('risk_compliance_click',{link_text:text,link_url:href});else if(href.includes('checklist'))track('feature_checklist_click',{link_text:text,link_url:href});},true);})();
+</script>
+
 </body>
 </html>
